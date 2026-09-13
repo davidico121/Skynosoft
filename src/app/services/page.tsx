@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Services — Skynosoft",
   description:
     "Website design, CRO, and email marketing services for ecommerce brands.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

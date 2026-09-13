@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "About — Skynosoft",
   description:
     "Skynosoft is an ecommerce growth agency combining website design, CRO, and email marketing.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const values = [

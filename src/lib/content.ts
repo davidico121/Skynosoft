@@ -202,3 +202,6 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const CALENDLY_URL = "https://calendly.com/david-owoeye/discuss";
+
+export const SITE_URL = "https://skynosoft.vercel.app";
+export const SITE_NAME = "Skynosoft";

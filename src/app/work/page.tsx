@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Work — Skynosoft",
   description:
     "Case studies from ecommerce fashion, skincare, home decor, and supplement brands we've scaled.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {

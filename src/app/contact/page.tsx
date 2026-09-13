@@ -6,6 +6,9 @@ import { CALENDLY_URL } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact — Skynosoft",
   description: "Book a free audit call with Skynosoft.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

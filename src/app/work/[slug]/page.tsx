@@ -21,6 +21,9 @@ export async function generateMetadata({
   return {
     title: `${caseStudy.brand} — Skynosoft Case Study`,
     description: caseStudy.summary,
+    alternates: {
+      canonical: `/work/${slug}`,
+    },
   };
 }
 
