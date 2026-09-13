@@ -1,26 +1,130 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surfaces */
+  --color-ink: #020203;
+  --color-background: #131314;
+  --color-card: #111113;
+  --color-surface-container-low: #1c1b1c;
+  --color-surface-container: #201f20;
+  --color-surface-container-high: #2a2a2b;
+  --color-surface-container-highest: #353436;
+
+  /* Text */
+  --color-foreground: #e5e2e3;
+  --color-foreground-muted: #bfc7d5;
+
+  /* Borders */
+  --color-outline: #89919e;
+  --color-outline-variant: #3f4753;
+  --color-border-hairline: rgb(255 255 255 / 0.1);
+  --color-border-hairline-strong: rgb(255 255 255 / 0.2);
+
+  /* Brand */
+  --color-primary: #0099ff;
+  --color-primary-soft: #9fcaff;
+  --color-secondary: #6366f1;
+  --color-tertiary: #ff00ff;
+  --color-growth-green: #22c55e;
+  --color-electric-blue-glow: rgb(0 153 255 / 0.15);
+
+  /* Spacing rhythm */
+  --spacing-gutter: 24px;
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 20px;
+  --spacing-section-gap: 120px;
+  --spacing-stack-sm: 8px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 32px;
+  --spacing-container-max: 1280px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-ink: var(--color-ink);
+  --color-background: var(--color-background);
+  --color-card: var(--color-card);
+  --color-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-foreground: var(--color-foreground);
+  --color-foreground-muted: var(--color-foreground-muted);
+
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+  --color-border-hairline: var(--color-border-hairline);
+  --color-border-hairline-strong: var(--color-border-hairline-strong);
+
+  --color-primary: var(--color-primary);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+  --color-growth-green: var(--color-growth-green);
+  --color-electric-blue-glow: var(--color-electric-blue-glow);
+
+  --font-heading: var(--font-sora), sans-serif;
+  --font-body: var(--font-hanken), sans-serif;
+  --font-label: var(--font-jetbrains), monospace;
+
+  /* display / headline / metric type scale */
+  --text-display-xl: 72px;
+  --text-display-xl--line-height: 80px;
+  --text-display-xl--letter-spacing: -0.04em;
+  --text-display-xl--font-weight: 700;
+
+  --text-headline-lg: 48px;
+  --text-headline-lg--line-height: 56px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 40px;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+
+  --text-label-mono: 14px;
+  --text-label-mono--line-height: 20px;
+  --text-label-mono--letter-spacing: 0.05em;
+  --text-label-mono--font-weight: 500;
+
+  --text-metric-display: 40px;
+  --text-metric-display--line-height: 40px;
+  --text-metric-display--letter-spacing: -0.03em;
+  --text-metric-display--font-weight: 700;
+
+  --radius-sm: 0.125rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  --spacing-gutter: var(--spacing-gutter);
+  --spacing-margin-desktop: var(--spacing-margin-desktop);
+  --spacing-margin-mobile: var(--spacing-margin-mobile);
+  --spacing-section-gap: var(--spacing-section-gap);
+  --spacing-stack-sm: var(--spacing-stack-sm);
+  --spacing-stack-md: var(--spacing-stack-md);
+  --spacing-stack-lg: var(--spacing-stack-lg);
+  --spacing-container-max: var(--spacing-container-max);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }

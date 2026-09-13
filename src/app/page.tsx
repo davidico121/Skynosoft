@@ -1,69 +1,193 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { Chip } from "@/components/ui/Chip";
+import { MetricStat } from "@/components/ui/MetricStat";
+import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { TestimonialCard } from "@/components/ui/TestimonialCard";
+import { services, caseStudies, testimonials } from "@/lib/content";
+
+const stats = [
+  { value: "$10M+", label: "Client revenue generated" },
+  { value: "40+", label: "Ecommerce brands scaled" },
+  { value: "6-7fig", label: "Typical client range" },
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Audit",
+    description:
+      "We tear down your current site, funnel, and email program to find exactly where revenue is leaking.",
+  },
+  {
+    step: "02",
+    title: "Build",
+    description:
+      "A high-converting website, funnel, or email system — designed around your specific customer, not a template.",
+  },
+  {
+    step: "03",
+    title: "Scale",
+    description:
+      "Ongoing optimization on both sides — CRO testing and email revenue — so growth compounds month over month.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <section className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-electric-blue-glow blur-3xl"
+          aria-hidden
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <Container className="relative flex flex-col items-center pt-24 pb-20 text-center md:pt-32 md:pb-28">
+          <Chip>Ecommerce Growth Agency</Chip>
+          <h1 className="mt-6 max-w-4xl font-heading text-display-xl-mobile font-bold tracking-tight md:text-display-xl">
+            Websites that convert.
+            <br />
+            Email that recovers revenue.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 max-w-2xl font-body text-body-lg text-foreground-muted">
+            Skynosoft builds high-converting ecommerce websites, funnels, and
+            email marketing systems for fashion, skincare, home decor, and
+            supplement brands scaling past six and seven figures.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Button href="/contact">Book a Call / Audit</Button>
+            <Button href="/work" variant="secondary">
+              See Our Work
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border-hairline">
+        <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-3">
+          {stats.map((s) => (
+            <div key={s.label} className="text-center sm:text-left">
+              <MetricStat value={s.value} label={s.label} tone="primary" />
+            </div>
+          ))}
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-section-gap">
+          <div className="max-w-2xl">
+            <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+              What We Do
+            </p>
+            <h2 className="mt-4 font-heading text-headline-lg font-semibold">
+              One team, two skill sets, one job: revenue.
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services#${service.slug}`}
+                className="flex flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
+              >
+                <h3 className="font-heading text-headline-md font-semibold">
+                  {service.name}
+                </h3>
+                <p className="mt-2 font-label text-label-mono uppercase tracking-wide text-primary-soft">
+                  {service.tagline}
+                </p>
+                <p className="mt-4 font-body text-body-md text-foreground-muted">
+                  {service.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border-hairline">
+        <Container className="py-section-gap">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+                Results
+              </p>
+              <h2 className="mt-4 font-heading text-headline-lg font-semibold">
+                Real brands. Real revenue.
+              </h2>
+            </div>
+            <Button href="/work" variant="secondary">
+              View all case studies
+            </Button>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {caseStudies.slice(0, 4).map((cs) => (
+              <CaseStudyCard key={cs.slug} caseStudy={cs} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border-hairline">
+        <Container className="py-section-gap">
+          <div className="max-w-2xl">
+            <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+              How It Works
+            </p>
+            <h2 className="mt-4 font-heading text-headline-lg font-semibold">
+              From audit to scale.
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {process.map((p) => (
+              <div key={p.step}>
+                <div className="font-heading text-headline-lg text-outline-variant">
+                  {p.step}
+                </div>
+                <h3 className="mt-4 font-heading text-headline-md font-semibold">
+                  {p.title}
+                </h3>
+                <p className="mt-3 font-body text-body-md text-foreground-muted">
+                  {p.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border-hairline">
+        <Container className="py-section-gap">
+          <div className="max-w-2xl">
+            <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+              Testimonials
+            </p>
+            <h2 className="mt-4 font-heading text-headline-lg font-semibold">
+              What clients say.
+            </h2>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <TestimonialCard key={t.name} testimonial={t} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-border-hairline">
+        <Container className="flex flex-col items-center py-section-gap text-center">
+          <h2 className="max-w-3xl font-heading text-headline-lg font-semibold">
+            Ready to make your brand fly?
+          </h2>
+          <p className="mt-4 max-w-xl font-body text-body-lg text-foreground-muted">
+            Book a free audit and we&rsquo;ll show you exactly where your website
+            and email program are leaving revenue on the table.
+          </p>
+          <div className="mt-8">
+            <Button href="/contact">Book a Call / Audit</Button>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }
