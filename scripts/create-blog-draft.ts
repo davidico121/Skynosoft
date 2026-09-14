@@ -3,19 +3,27 @@ import crypto from "node:crypto";
 import { getWriteClient } from "../src/sanity/writeClient";
 import { SITE_URL } from "../src/lib/content";
 
-type BodyItem = Record<string, unknown> & { _key?: string; children?: unknown[] };
-
-function withKeys(body: BodyItem[]): BodyItem[] {
-  return body.map((item) => {
-    const key = item._key || crypto.randomUUID();
-    const children = Array.isArray(item.children)
-      ? item.children.map((child) => ({
-          _key: (child as Record<string, unknown>)._key || crypto.randomUUID(),
-          ...(child as Record<string, unknown>),
-        }))
-      : undefined;
-    return { ...item, _key: key, ...(children ? { children } : {}) };
-  });
+// Recursively ensures every object inside every array has a _key, since
+// Sanity requires one on each array item (blocks, spans, table rows, etc).
+function withKeys<T>(value: T): T {
+  if (Array.isArray(value)) {
+    return value.map((item) => {
+      const withNestedKeys = withKeys(item);
+      if (withNestedKeys && typeof withNestedKeys === "object") {
+        const obj = withNestedKeys as Record<string, unknown>;
+        return { _key: (obj._key as string) || crypto.randomUUID(), ...obj };
+      }
+      return withNestedKeys;
+    }) as T;
+  }
+  if (value && typeof value === "object") {
+    const result: Record<string, unknown> = {};
+    for (const [key, val] of Object.entries(value)) {
+      result[key] = withKeys(val);
+    }
+    return result as T;
+  }
+  return value;
 }
 
 async function main() {
@@ -44,6 +52,7 @@ async function main() {
     slug: { _type: "slug", current: post.slug },
     category: post.category,
     excerpt: post.excerpt,
+    author: post.author || "The Skynosoft Team",
     publishedAt: post.publishedAt,
     ...(post.coverImage ? { coverImage: post.coverImage } : {}),
     body: withKeys(post.body),

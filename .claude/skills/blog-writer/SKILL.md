@@ -14,8 +14,13 @@ Adapted from a general ecommerce-blog content-engine skill (research → gate
 → write → gate → publish) for a services agency on Next.js + Sanity instead
 of a Shopify product store: internal links drive to `/services` and
 `/work/<case-study>` (the conversion path here is a booked call, not a
-checkout), and there are no product-insert cards — the page template already
-renders a closing "Book a Call / Audit" CTA on every post automatically.
+checkout). The page template already renders a closing CTA section with all
+three service cards plus a "Book a Call / Audit" button on every post
+automatically — no need to hand-build a closing CTA in the body.
+
+Body content also supports comparison tables and inline CTA cards natively
+(see step 5) — modeled on a reference ecommerce blog post the user liked
+(getdosed.co), adapted for services instead of products.
 
 ## Hard rules
 
@@ -135,11 +140,45 @@ Universal rules, non-negotiable:
 - **Excerpt**: 150-160 characters, doubles as the meta description shown
   in Google/social previews. Proofread it twice (a past post shipped with
   "branda"/"thingk" typos).
+- **Author**: defaults to "The Skynosoft Team" — only set something else if
+  the user explicitly names a real person.
 - **Body**: Portable Text — a JSON array of block objects matching Sanity's
   editor shape (`{_type: "block", style: "h2", children: [{_type: "span",
-  text: "..."}]}`, `style: "normal"` for paragraphs, links as marks with an
-  annotation). Inline images use `{_type: "image", asset: {...}, alt: "..."}`
-  from the upload script's output.
+  text: "..."}]}`, `style: "normal"` for paragraphs, `style: "blockquote"`
+  for a styled callout box, links as marks with an annotation). Inline
+  images use `{_type: "image", asset: {...}, alt: "..."}` from the upload
+  script's output. Two more block types render natively:
+
+  **Comparison table** — mandatory for the Comparison style, optional
+  elsewhere when it genuinely clarifies a tradeoff:
+  ```json
+  {
+    "_type": "table",
+    "_key": "unique-key",
+    "headers": ["Option", "Cost", "Effort"],
+    "rows": [
+      { "_key": "r1", "cells": ["Option A", "$9.95", "Low"], "highlighted": true },
+      { "_key": "r2", "cells": ["Option B", "$4.95", "Medium"], "highlighted": false }
+    ]
+  }
+  ```
+  Set `highlighted: true` on at most one row (the recommended option) — it
+  renders with a tint and a star on the first cell. Don't overuse it.
+
+  **Inline CTA card** — a highlighted mid-post callout linking to a
+  specific service or case study (the services-agency analog of a product
+  card). Use 0-1 per post, only where the content naturally calls for it:
+  ```json
+  {
+    "_type": "ctaCard",
+    "_key": "unique-key",
+    "heading": "See it in action",
+    "body": "One sentence of context for the link.",
+    "linkHref": "/work/north-fields-supplements",
+    "linkLabel": "See the case study"
+  }
+  ```
+  `linkHref` must be one of the valid targets in hard rule 2.
 
 ### 6. Generate images
 

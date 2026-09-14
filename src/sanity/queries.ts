@@ -4,6 +4,28 @@ import type { Image } from "sanity";
 
 export type SanityImageWithAlt = Image & { alt?: string };
 
+export type TableBlock = {
+  _type: "table";
+  _key: string;
+  headers: string[];
+  rows: { cells: string[]; highlighted?: boolean }[];
+};
+
+export type CtaCardBlock = {
+  _type: "ctaCard";
+  _key: string;
+  heading: string;
+  body: string;
+  linkHref: string;
+  linkLabel: string;
+};
+
+export type BodyBlock =
+  | PortableTextBlock
+  | (SanityImageWithAlt & { _type: "image"; _key: string })
+  | TableBlock
+  | CtaCardBlock;
+
 export type BlogPostSummary = {
   _id: string;
   title: string;
@@ -15,7 +37,8 @@ export type BlogPostSummary = {
 };
 
 export type BlogPostDetail = BlogPostSummary & {
-  body: PortableTextBlock[] | null;
+  author: string | null;
+  body: BodyBlock[] | null;
   coverImage: SanityImageWithAlt | null;
 };
 
@@ -38,6 +61,7 @@ export const blogPostBySlugQuery = defineQuery(`
     slug,
     category,
     excerpt,
+    author,
     publishedAt,
     body,
     coverImage

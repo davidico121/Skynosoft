@@ -32,6 +32,13 @@ export const blogPost = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "author",
+      title: "Author",
+      type: "string",
+      initialValue: "The Skynosoft Team",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "coverImage",
       title: "Cover image",
       type: "image",
@@ -64,6 +71,96 @@ export const blogPost = defineType({
               validation: (rule) => rule.required(),
             }),
           ],
+        },
+        {
+          type: "object",
+          name: "table",
+          title: "Comparison table",
+          fields: [
+            defineField({
+              name: "headers",
+              title: "Column headers",
+              type: "array",
+              of: [{ type: "string" }],
+              validation: (rule) => rule.required().min(1),
+            }),
+            defineField({
+              name: "rows",
+              title: "Rows",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  name: "tableRow",
+                  fields: [
+                    defineField({
+                      name: "cells",
+                      title: "Cells",
+                      type: "array",
+                      of: [{ type: "string" }],
+                      validation: (rule) => rule.required().min(1),
+                    }),
+                    defineField({
+                      name: "highlighted",
+                      title: "Highlight this row (e.g. the recommended option)",
+                      type: "boolean",
+                      initialValue: false,
+                    }),
+                  ],
+                  preview: {
+                    select: { cells: "cells" },
+                    prepare: ({ cells }: { cells?: string[] }) => ({
+                      title: cells?.join(" / ") || "Row",
+                    }),
+                  },
+                },
+              ],
+              validation: (rule) => rule.required().min(1),
+            }),
+          ],
+          preview: {
+            select: { headers: "headers" },
+            prepare: ({ headers }: { headers?: string[] }) => ({
+              title: `Table: ${headers?.join(", ") || "untitled"}`,
+            }),
+          },
+        },
+        {
+          type: "object",
+          name: "ctaCard",
+          title: "Inline CTA card",
+          fields: [
+            defineField({
+              name: "heading",
+              title: "Heading",
+              type: "string",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "body",
+              title: "Body",
+              type: "text",
+              rows: 2,
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "linkHref",
+              title: "Link URL",
+              type: "string",
+              description:
+                "Must be a real path on the site: /services, /work/<case-study-slug>, or /contact.",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "linkLabel",
+              title: "Button label",
+              type: "string",
+              validation: (rule) => rule.required(),
+            }),
+          ],
+          preview: {
+            select: { title: "heading", subtitle: "linkHref" },
+          },
         },
       ],
     }),

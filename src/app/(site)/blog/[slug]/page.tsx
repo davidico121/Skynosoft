@@ -6,7 +6,7 @@ import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
-import { SITE_NAME, SITE_URL } from "@/lib/content";
+import { services, SITE_NAME, SITE_URL } from "@/lib/content";
 import { client } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import {
@@ -15,12 +15,21 @@ import {
   blogPostBySlugQuery,
   type BlogPostDetail,
   type BlogPostSummary,
+  type CtaCardBlock,
   type SanityImageWithAlt,
+  type TableBlock,
 } from "@/sanity/queries";
 
 export const revalidate = 60;
 
 const portableTextComponents: PortableTextComponents = {
+  block: {
+    blockquote: ({ children }) => (
+      <blockquote className="my-6 rounded-lg border-l-4 border-primary bg-card px-6 py-4 font-body text-body-md text-foreground not-italic">
+        {children}
+      </blockquote>
+    ),
+  },
   types: {
     image: ({ value }: { value: SanityImageWithAlt }) => (
       <span className="relative my-8 block aspect-[16/9] overflow-hidden rounded-lg">
@@ -31,6 +40,55 @@ const portableTextComponents: PortableTextComponents = {
           className="object-cover"
         />
       </span>
+    ),
+    table: ({ value }: { value: TableBlock }) => (
+      <div className="my-8 overflow-x-auto rounded-lg border border-border-hairline">
+        <table className="w-full border-collapse text-left">
+          <thead>
+            <tr className="border-b border-border-hairline bg-card">
+              {value.headers.map((header, i) => (
+                <th
+                  key={i}
+                  className="whitespace-nowrap px-4 py-3 font-label text-label-mono uppercase tracking-wide text-foreground-muted"
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {value.rows.map((row, i) => (
+              <tr
+                key={i}
+                className={
+                  row.highlighted
+                    ? "bg-primary/10"
+                    : i % 2 === 1
+                      ? "bg-card/50"
+                      : undefined
+                }
+              >
+                {row.cells.map((cell, j) => (
+                  <td key={j} className="px-4 py-3 font-body text-body-md text-foreground">
+                    {row.highlighted && j === 0 ? `★ ${cell}` : cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ),
+    ctaCard: ({ value }: { value: CtaCardBlock }) => (
+      <div className="my-8 flex flex-col gap-4 rounded-xl border border-border-hairline-strong bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="font-heading text-body-lg font-semibold">{value.heading}</p>
+          <p className="mt-1 font-body text-body-md text-foreground-muted">{value.body}</p>
+        </div>
+        <Button href={value.linkHref} className="shrink-0">
+          {value.linkLabel}
+        </Button>
+      </div>
     ),
   },
 };
@@ -116,7 +174,7 @@ export default async function BlogPostPage({
     ...(coverImageUrl && { image: coverImageUrl }),
     author: {
       "@type": "Organization",
-      name: SITE_NAME,
+      name: post.author || SITE_NAME,
     },
     publisher: {
       "@type": "Organization",
@@ -137,6 +195,7 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
           <p className="mt-4 font-label text-label-mono text-foreground-muted">
+            {post.author && <>By {post.author} · </>}
             {post.publishedAt &&
               new Date(post.publishedAt).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -203,11 +262,27 @@ export default async function BlogPostPage({
       )}
 
       <section className="border-t border-border-hairline">
-        <Container className="flex flex-col items-center py-section-gap text-center">
-          <h2 className="max-w-2xl font-heading text-headline-lg font-semibold">
+        <Container className="py-section-gap text-center">
+          <h2 className="mx-auto max-w-2xl font-heading text-headline-lg font-semibold">
             Want this applied to your brand?
           </h2>
-          <div className="mt-8">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.slug}
+                className="flex flex-col rounded-xl border border-border-hairline bg-card p-6 text-left"
+              >
+                <p className="font-heading text-body-lg font-semibold">{service.name}</p>
+                <p className="mt-2 flex-1 font-body text-body-md text-foreground-muted">
+                  {service.tagline}
+                </p>
+                <Button href="/services" variant="secondary" className="mt-4 self-start">
+                  Learn more
+                </Button>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
             <Button href="/contact">Book a Call / Audit</Button>
           </div>
         </Container>
