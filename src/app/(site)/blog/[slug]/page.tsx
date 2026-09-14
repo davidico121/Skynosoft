@@ -34,14 +34,21 @@ const portableTextComponents: PortableTextComponents = {
   },
   types: {
     image: ({ value }: { value: SanityImageWithAlt }) => (
-      <span className="relative my-8 block aspect-[16/9] overflow-hidden rounded-lg">
-        <Image
-          src={urlForImage(value).width(1600).url()}
-          alt={value.alt || ""}
-          fill
-          className="object-cover"
-        />
-      </span>
+      <figure className="my-8">
+        <span className="relative block aspect-[16/9] overflow-hidden rounded-lg">
+          <Image
+            src={urlForImage(value).width(1600).url()}
+            alt={value.alt || ""}
+            fill
+            className="object-cover"
+          />
+        </span>
+        {value.caption && (
+          <figcaption className="mt-3 text-center font-body text-body-md italic text-foreground-muted">
+            {value.caption}
+          </figcaption>
+        )}
+      </figure>
     ),
     table: ({ value }: { value: TableBlock }) => (
       <div className="my-8 overflow-x-auto rounded-lg border border-border-hairline">

@@ -150,7 +150,11 @@ Universal rules, non-negotiable:
   text: "..."}]}`, `style: "normal"` for paragraphs, `style: "blockquote"`
   for a styled callout box, links as marks with an annotation). Inline
   images use `{_type: "image", asset: {...}, alt: "..."}` from the upload
-  script's output. Two more block types render natively:
+  script's output, plus an optional `"caption": "..."` field — `alt` is
+  invisible (screen readers/SEO only), `caption` renders visually beneath
+  the image as italic text. Only add a caption when it genuinely adds
+  context (a source, a specific detail); don't caption every image just
+  because the field exists. Two more block types render natively:
 
   **Comparison table** — mandatory for the Comparison style, optional
   elsewhere when it genuinely clarifies a tradeoff:

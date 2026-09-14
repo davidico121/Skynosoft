@@ -2,7 +2,7 @@ import { defineQuery } from "next-sanity";
 import type { PortableTextBlock } from "next-sanity";
 import type { Image } from "sanity";
 
-export type SanityImageWithAlt = Image & { alt?: string };
+export type SanityImageWithAlt = Image & { alt?: string; caption?: string };
 
 export type TableBlock = {
   _type: "table";
