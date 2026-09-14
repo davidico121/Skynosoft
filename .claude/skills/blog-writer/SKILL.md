@@ -194,6 +194,12 @@ Requires `SANITY_API_WRITE_TOKEN` in `.env.local` (an Editor-permission
 token from sanity.io/manage — ask the user for one if missing; never ask
 them to lower it to a less-restricted token than Editor).
 
+**Verifying a draft exists:** a plain GROQ query, even with the write
+token, defaults to the "published" perspective and will not show a
+`drafts.*` document. This is expected, not a failure. To actually check a
+draft was created, use `client.getDocument(id)` or pass
+`{ perspective: "raw" }` as query options.
+
 ### 9. Hand off
 
 Report back: the title, a 2-3 sentence summary of the angle, which internal
