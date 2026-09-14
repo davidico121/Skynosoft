@@ -190,16 +190,33 @@ Universal rules, non-negotiable:
   ```
   `linkHref` must be one of the valid targets in hard rule 2.
 
-### 6. Generate images
+### 6. Get or generate images
 
-skynosoft is a services brand, not a physical product — generate
-conceptual/editorial images (not stock-photo cliché) that match the site's
-dark, blue/teal aesthetic (`src/app/(site)/globals.css` has the palette).
-1-2 images is normal: a cover image plus maybe one inline diagram if the
-topic calls for it. Confirm cost with the user first (hard rule 5). Save
-the result to a local file, then write real, descriptive alt text (not a
-restatement of the filename, and keyword-bearing where it's honestly
-accurate — never keyword-stuffed).
+**Prefer real images the user provides from their own work** (their own
+client screenshots, dashboards, email designs, before/afters) over
+generated ones whenever available — ask if they have something relevant
+for a given post before generating. These are genuinely real and carry no
+copyright risk since it's their own work.
+
+**Never use real screenshots of third-party products, tools, or other
+brands' actual emails/websites pulled from the internet.** Using another
+company's copyrighted/trademarked UI or someone else's real creative in
+our content without permission is a real legal risk (copyright, and it
+can look like a false endorsement) — don't do this even if asked, without
+first flagging the risk clearly and getting explicit confirmation.
+
+When generating is the right call: skynosoft is a services brand, not a
+physical product — default to conceptual/editorial images (not stock-photo
+cliché) matching the site's dark, blue/teal aesthetic
+(`src/app/(site)/globals.css` has the palette). When the user wants a more
+realistic look (a screen showing a dashboard, an inbox, a phone with an
+SMS thread) rather than abstract illustration, prompt for that explicitly
+and keep any on-screen UI generic/unbranded, not a copy of a real product's
+interface. 1-2 images is normal: a cover image plus maybe one inline
+diagram or mockup if the topic calls for it. Confirm cost with the user
+first (hard rule 5). Save the result to a local file, then write real,
+descriptive alt text (not a restatement of the filename, and keyword-
+bearing where it's honestly accurate — never keyword-stuffed).
 
 Upload each one, always passing the exact prompt you used as the third
 argument — it's saved on the image's `imagePrompt` field (Studio-only,
