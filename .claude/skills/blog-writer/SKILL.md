@@ -201,10 +201,13 @@ the result to a local file, then write real, descriptive alt text (not a
 restatement of the filename, and keyword-bearing where it's honestly
 accurate — never keyword-stuffed).
 
-Upload each one:
+Upload each one, always passing the exact prompt you used as the third
+argument — it's saved on the image's `imagePrompt` field (Studio-only,
+never shown on the site) so it's easy to find later if the user wants to
+regenerate or tweak the image:
 
 ```
-npx tsx --env-file=.env.local scripts/upload-sanity-image.ts <local-image-path> "<alt text>"
+npx tsx --env-file=.env.local scripts/upload-sanity-image.ts <local-image-path> "<alt text>" "<exact prompt used>"
 ```
 
 This prints a JSON image field. Use it as-is for `coverImage`, or embed it
@@ -215,10 +218,12 @@ of credits, tool not connected): don't just skip the image or leave the
 post with no cover at all. Do both of these:
 
 1. Generate a real placeholder and use it as the `coverImage` (or inline
-   image) so the draft always has something visual, never a blank slot:
+   image) so the draft always has something visual, never a blank slot.
+   Pass the intended prompt here too, so it's saved for whenever the user
+   wants to actually generate the real image:
    ```
    npx tsx scripts/generate-placeholder-image.ts "<post title>" /tmp/placeholder.png
-   npx tsx --env-file=.env.local scripts/upload-sanity-image.ts /tmp/placeholder.png "Placeholder cover image, replace before publishing"
+   npx tsx --env-file=.env.local scripts/upload-sanity-image.ts /tmp/placeholder.png "Placeholder cover image, replace before publishing" "<the prompt that would have been used>"
    ```
    Use the printed JSON image field as-is. It's a real 1600x900 image
    (dark background, "PLACEHOLDER" label, the post title, a note to

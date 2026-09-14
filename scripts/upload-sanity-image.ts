@@ -3,10 +3,10 @@ import path from "node:path";
 import { getWriteClient } from "../src/sanity/writeClient";
 
 async function main() {
-  const [filePath, altText] = process.argv.slice(2);
+  const [filePath, altText, imagePrompt] = process.argv.slice(2);
   if (!filePath || !altText) {
     console.error(
-      "Usage: npx tsx scripts/upload-sanity-image.ts <file-path> <alt-text>"
+      "Usage: npx tsx scripts/upload-sanity-image.ts <file-path> <alt-text> [image-prompt]"
     );
     process.exit(1);
   }
@@ -20,6 +20,7 @@ async function main() {
     _type: "image",
     asset: { _type: "reference", _ref: asset._id },
     alt: altText,
+    ...(imagePrompt ? { imagePrompt } : {}),
   };
 
   console.log(JSON.stringify(imageField));

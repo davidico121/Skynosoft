@@ -51,6 +51,14 @@ export const blogPost = defineType({
           description: "Describe the image for search engines and screen readers.",
           validation: (rule) => rule.required(),
         }),
+        defineField({
+          name: "imagePrompt",
+          title: "Image generation prompt",
+          type: "text",
+          rows: 3,
+          description:
+            "The AI prompt used (or intended) for this image. Never shown on the site — kept here so it's easy to find and reuse if you want to regenerate or tweak the image later.",
+        }),
       ],
     }),
     defineField({
@@ -95,6 +103,14 @@ export const blogPost = defineType({
               title: "Caption",
               type: "string",
               description: "Optional. Shown visually beneath the image on the page.",
+            }),
+            defineField({
+              name: "imagePrompt",
+              title: "Image generation prompt",
+              type: "text",
+              rows: 3,
+              description:
+                "The AI prompt used (or intended) for this image. Never shown on the site — kept here so it's easy to find and reuse if you want to regenerate or tweak the image later.",
             }),
           ],
         },
