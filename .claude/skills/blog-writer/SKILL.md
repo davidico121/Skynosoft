@@ -208,20 +208,32 @@ This prints a JSON image field. Use it as-is for `coverImage`, or embed it
 as a body array item at the right point in the body.
 
 **If Higgsfield generation fails or isn't available** (wrong plan tier, out
-of credits, tool not connected): don't just skip the image silently. Give
-the user the exact prompt you would have used, clearly labeled, so they
-can paste it into another tool (ChatGPT, Midjourney, Nano Banana, whatever
-they have access to) and hand the resulting file back to you to upload.
-Format it like:
+of credits, tool not connected): don't just skip the image or leave the
+post with no cover at all. Do both of these:
 
-> **Image prompt (Higgsfield unavailable):**
-> "<the exact prompt text>"
->
-> Generate this in whatever tool you have, then send me the file and I'll
-> upload it and finish the post.
+1. Generate a real placeholder and use it as the `coverImage` (or inline
+   image) so the draft always has something visual, never a blank slot:
+   ```
+   npx tsx scripts/generate-placeholder-image.ts "<post title>" /tmp/placeholder.png
+   npx tsx --env-file=.env.local scripts/upload-sanity-image.ts /tmp/placeholder.png "Placeholder cover image, replace before publishing"
+   ```
+   Use the printed JSON image field as-is. It's a real 1600x900 image
+   (dark background, "PLACEHOLDER" label, the post title, a note to
+   replace it before publishing) that goes through the normal image
+   pipeline, so swapping it later is a single click in Studio.
+2. Give the user the exact prompt you would have used, clearly labeled, so
+   they can paste it into another tool (ChatGPT, Midjourney, Nano Banana,
+   whatever they have access to) and hand the resulting file back to you:
 
-Still create the draft without the image if the user wants to move on
-without one — never block the whole post on image generation succeeding.
+   > **Image prompt (Higgsfield unavailable):**
+   > "<the exact prompt text>"
+   >
+   > A placeholder is in the draft for now. Generate this in whatever tool
+   > you have, then send me the file and I'll swap it in.
+
+Never block draft creation on image generation succeeding — the
+placeholder exists specifically so a failed generation never stalls the
+post.
 
 ### 7. Gate 2 — review before creating the draft
 
