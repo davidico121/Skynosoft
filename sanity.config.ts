@@ -6,7 +6,7 @@ import { comment } from "@/sanity/schemaTypes/comment";
 
 export default defineConfig([
   {
-    basePath: "/studio",
+    basePath: "/studio/content",
     name: "content",
     title: "Skynosoft — Content",
     projectId,
