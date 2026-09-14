@@ -6,7 +6,7 @@ import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
-import { services, SITE_NAME, SITE_URL } from "@/lib/content";
+import { SITE_NAME, SITE_URL } from "@/lib/content";
 import { client } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import {
@@ -262,27 +262,11 @@ export default async function BlogPostPage({
       )}
 
       <section className="border-t border-border-hairline">
-        <Container className="py-section-gap text-center">
-          <h2 className="mx-auto max-w-2xl font-heading text-headline-lg font-semibold">
+        <Container className="flex flex-col items-center py-section-gap text-center">
+          <h2 className="max-w-2xl font-heading text-headline-lg font-semibold">
             Want this applied to your brand?
           </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.slug}
-                className="flex flex-col rounded-xl border border-border-hairline bg-card p-6 text-left"
-              >
-                <p className="font-heading text-body-lg font-semibold">{service.name}</p>
-                <p className="mt-2 flex-1 font-body text-body-md text-foreground-muted">
-                  {service.tagline}
-                </p>
-                <Button href="/services" variant="secondary" className="mt-4 self-start">
-                  Learn more
-                </Button>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
+          <div className="mt-8">
             <Button href="/contact">Book a Call / Audit</Button>
           </div>
         </Container>

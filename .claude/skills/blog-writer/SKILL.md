@@ -14,9 +14,12 @@ Adapted from a general ecommerce-blog content-engine skill (research → gate
 → write → gate → publish) for a services agency on Next.js + Sanity instead
 of a Shopify product store: internal links drive to `/services` and
 `/work/<case-study>` (the conversion path here is a booked call, not a
-checkout). The page template already renders a closing CTA section with all
-three service cards plus a "Book a Call / Audit" button on every post
-automatically — no need to hand-build a closing CTA in the body.
+checkout). The page template already renders a single "Book a Call / Audit"
+CTA on every post automatically — no need to hand-build a closing CTA in
+the body. (A multi-card "pick a service" version was tried and reverted:
+that pattern only makes sense for a product catalog with distinct SKUs to
+choose between, not a services agency with one real conversion action.
+Keep the closing CTA singular.)
 
 Body content also supports comparison tables and inline CTA cards natively
 (see step 5) — modeled on a reference ecommerce blog post the user liked
