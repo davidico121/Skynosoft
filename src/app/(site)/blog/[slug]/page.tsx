@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PortableText } from "@portabletext/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
-import { blogPosts, SITE_NAME, SITE_URL } from "@/lib/content";
+import { SITE_NAME, SITE_URL } from "@/lib/content";
+import { client } from "@/sanity/client";
+import {
+  allBlogPostsQuery,
+  allBlogSlugsQuery,
+  blogPostBySlugQuery,
+  type BlogPostDetail,
+  type BlogPostSummary,
+} from "@/sanity/queries";
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await client.fetch<string[]>(allBlogSlugsQuery);
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -16,7 +28,9 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await client.fetch<BlogPostDetail | null>(blogPostBySlugQuery, {
+    slug,
+  });
   if (!post) return {};
   return {
     title: `${post.title} — Skynosoft`,
@@ -33,11 +47,14 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await client.fetch<BlogPostDetail | null>(blogPostBySlugQuery, {
+    slug,
+  });
   if (!post) notFound();
 
-  const relatedPosts = blogPosts
-    .filter((p) => p.slug !== post.slug)
+  const allPosts = await client.fetch<BlogPostSummary[]>(allBlogPostsQuery);
+  const relatedPosts = allPosts
+    .filter((p) => p.slug?.current !== slug)
     .slice(0, 3);
 
   const articleJsonLd = {
@@ -45,9 +62,9 @@ export default async function BlogPostPage({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    datePublished: post.date,
-    dateModified: post.date,
-    url: `${SITE_URL}/blog/${post.slug}`,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    url: `${SITE_URL}/blog/${slug}`,
     author: {
       "@type": "Organization",
       name: SITE_NAME,
@@ -71,25 +88,27 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
           <p className="mt-4 font-label text-label-mono text-foreground-muted">
-            {new Date(post.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}{" "}
-            · {post.readTime}
+            {post.publishedAt &&
+              new Date(post.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
           </p>
         </Container>
       </section>
 
       <section>
         <Container className="max-w-3xl py-section-gap">
-          <p className="font-body text-body-lg text-foreground-muted">
-            {post.excerpt}
-          </p>
-          <p className="mt-6 font-body text-body-lg text-foreground-muted">
-            Full article content coming soon — this post will be managed in
-            Sanity once the CMS is connected.
-          </p>
+          {post.body ? (
+            <div className="prose-blog font-body text-body-lg text-foreground-muted">
+              <PortableText value={post.body} />
+            </div>
+          ) : (
+            <p className="font-body text-body-lg text-foreground-muted">
+              {post.excerpt}
+            </p>
+          )}
         </Container>
       </section>
 
@@ -102,8 +121,8 @@ export default async function BlogPostPage({
             <div className="mt-8 grid gap-8 sm:grid-cols-3">
               {relatedPosts.map((related) => (
                 <Link
-                  key={related.slug}
-                  href={`/blog/${related.slug}`}
+                  key={related._id}
+                  href={`/blog/${related.slug?.current}`}
                   className="group flex flex-col gap-2"
                 >
                   <span className="font-label text-label-mono uppercase tracking-wide text-foreground-muted">

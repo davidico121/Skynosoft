@@ -162,45 +162,6 @@ export const team: TeamMember[] = [
   },
 ];
 
-export type BlogPost = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-};
-
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "why-your-ecommerce-site-isnt-converting",
-    title: "Why Your Ecommerce Site Isn't Converting (And It's Not Traffic)",
-    excerpt:
-      "Most brands blame ad spend when revenue stalls. Here's the checkout and PDP audit we run before touching a single campaign.",
-    category: "CRO",
-    date: "2026-07-14",
-    readTime: "6 min read",
-  },
-  {
-    slug: "email-flows-that-actually-recover-revenue",
-    title: "The 5 Klaviyo Flows That Actually Recover Revenue in 2026",
-    excerpt:
-      "Abandoned cart isn't enough anymore. The flow stack we build for every 6-figure brand, in order of impact.",
-    category: "Email Marketing",
-    date: "2026-06-02",
-    readTime: "8 min read",
-  },
-  {
-    slug: "redesign-vs-rebuild",
-    title: "Redesign vs. Rebuild: How We Decide for a $50K+/mo Brand",
-    excerpt:
-      "A full rebuild isn't always the answer. The framework we use to decide between a redesign, a CRO pass, or starting fresh.",
-    category: "Strategy",
-    date: "2026-05-18",
-    readTime: "5 min read",
-  },
-];
-
 export const CALENDLY_URL = "https://calendly.com/david-owoeye/discuss";
 
 export const SITE_URL = "https://skynosoft.vercel.app";

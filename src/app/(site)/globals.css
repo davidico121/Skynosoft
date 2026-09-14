@@ -128,3 +128,44 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
+.prose-blog > * + * {
+  margin-top: 1.25em;
+}
+
+.prose-blog h2 {
+  font-size: var(--text-headline-md);
+  line-height: var(--text-headline-md--line-height);
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-top: 2em;
+}
+
+.prose-blog h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-foreground);
+  margin-top: 1.5em;
+}
+
+.prose-blog ul,
+.prose-blog ol {
+  padding-left: 1.5em;
+}
+
+.prose-blog ul {
+  list-style: disc;
+}
+
+.prose-blog ol {
+  list-style: decimal;
+}
+
+.prose-blog a {
+  color: var(--color-primary-soft);
+  text-decoration: underline;
+}
+
+.prose-blog img {
+  border-radius: var(--radius-lg);
+}
