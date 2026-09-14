@@ -164,5 +164,5 @@ export const team: TeamMember[] = [
 
 export const CALENDLY_URL = "https://calendly.com/david-owoeye/discuss";
 
-export const SITE_URL = "https://skynosoft.vercel.app";
+export const SITE_URL = "https://www.skynosoft.net";
 export const SITE_NAME = "Skynosoft";
