@@ -24,12 +24,38 @@ import {
 
 export const revalidate = 60;
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function getBlockText(block: unknown): string {
+  const children = (block as { children?: unknown[] })?.children || [];
+  return children
+    .map((child) => (child as { text?: string })?.text || "")
+    .join("");
+}
+
+
 const portableTextComponents: PortableTextComponents = {
   block: {
     blockquote: ({ children }) => (
       <blockquote className="my-6 rounded-lg border-l-4 border-primary bg-card px-6 py-4 font-body text-body-md text-foreground not-italic">
         {children}
       </blockquote>
+    ),
+    h2: ({ children, value }) => (
+      <h2 id={slugify(getBlockText(value))} className="scroll-mt-24">
+        {children}
+      </h2>
+    ),
+    h3: ({ children, value }) => (
+      <h3 id={slugify(getBlockText(value))} className="scroll-mt-24">
+        {children}
+      </h3>
     ),
   },
   marks: {
@@ -190,6 +216,16 @@ export default async function BlogPostPage({
     ? urlForImage(post.coverImage).width(1600).height(900).fit("crop").url()
     : undefined;
 
+  const headings = (post.body || [])
+    .map((block) => block as { _type?: string; style?: string })
+    .filter((block) => block._type === "block" && (block.style === "h2" || block.style === "h3"))
+    .map((block) => ({
+      level: block.style as "h2" | "h3",
+      text: getBlockText(block),
+      id: slugify(getBlockText(block)),
+    }))
+    .filter((h) => h.text.length > 0);
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -250,6 +286,28 @@ export default async function BlogPostPage({
 
       <section>
         <Container className="max-w-3xl py-section-gap">
+          {headings.length >= 2 && (
+            <details
+              open
+              className="mb-10 rounded-lg border border-border-hairline bg-card p-6"
+            >
+              <summary className="cursor-pointer font-heading text-body-lg font-semibold">
+                In this article
+              </summary>
+              <ul className="mt-4 flex flex-col gap-2">
+                {headings.map((h) => (
+                  <li key={h.id} className={h.level === "h3" ? "ml-5" : undefined}>
+                    <a
+                      href={`#${h.id}`}
+                      className="font-body text-body-md text-primary-soft hover:underline"
+                    >
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
           {post.body ? (
             <div className="prose-blog font-body text-body-lg text-foreground-muted">
               <PortableText value={post.body} components={portableTextComponents} />

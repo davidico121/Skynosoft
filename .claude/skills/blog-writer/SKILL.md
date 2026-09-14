@@ -120,7 +120,10 @@ Universal rules, non-negotiable:
   post's core question. No slow warmup — this is what gets cited by AI
   engines and wins featured snippets.
 - **Length**: 1,000-1,500 words (pillar guides can run longer).
-- **Question-style H2s** that mirror how people actually search.
+- **Question-style H2s** that mirror how people actually search. A table
+  of contents ("In this article") auto-generates from H2/H3 headings and
+  shows whenever a post has 2 or more — no extra field needed, just use
+  real headings.
 - **At least one concrete framework, table, or checklist** — something
   structured, not just prose.
 - **An FAQ section of 3-6 real questions** near the end. Single highest-
