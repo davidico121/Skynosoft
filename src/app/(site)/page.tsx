@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -6,6 +7,9 @@ import { MetricStat } from "@/components/ui/MetricStat";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { services, caseStudies, testimonials } from "@/lib/content";
+import { client } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
+import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
 const stats = [
   { value: "$10M+", label: "Client revenue generated" },
@@ -34,7 +38,11 @@ const process = [
   },
 ];
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const latestPosts = await client.fetch<BlogPostSummary[]>(allBlogPostsQuery);
+
   return (
     <>
       <section className="relative overflow-hidden">
@@ -173,6 +181,62 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {latestPosts.length > 0 && (
+        <section className="border-t border-border-hairline">
+          <Container className="py-section-gap">
+            <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+              <div className="max-w-2xl">
+                <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+                  Blog
+                </p>
+                <h2 className="mt-4 font-heading text-headline-lg font-semibold">
+                  Latest from the blog.
+                </h2>
+              </div>
+              <Button href="/blog" variant="secondary">
+                View all posts
+              </Button>
+            </div>
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              {latestPosts.slice(0, 3).map((post) => (
+                <Link
+                  key={post._id}
+                  href={`/blog/${post.slug?.current}`}
+                  className="flex flex-col overflow-hidden rounded-xl border border-border-hairline bg-card transition-colors hover:border-border-hairline-strong"
+                >
+                  {post.coverImage && (
+                    <div className="relative aspect-[16/9] w-full">
+                      <Image
+                        src={urlForImage(post.coverImage)
+                          .width(800)
+                          .height(450)
+                          .fit("crop")
+                          .url()}
+                        alt={post.coverImage.alt || post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+                      {post.category}
+                    </p>
+                    <h3 className="mt-3 font-heading text-body-lg font-semibold">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 flex-1 font-body text-body-md text-foreground-muted">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="border-t border-border-hairline">
         <Container className="flex flex-col items-center py-section-gap text-center">
