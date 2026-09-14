@@ -207,6 +207,22 @@ npx tsx --env-file=.env.local scripts/upload-sanity-image.ts <local-image-path> 
 This prints a JSON image field. Use it as-is for `coverImage`, or embed it
 as a body array item at the right point in the body.
 
+**If Higgsfield generation fails or isn't available** (wrong plan tier, out
+of credits, tool not connected): don't just skip the image silently. Give
+the user the exact prompt you would have used, clearly labeled, so they
+can paste it into another tool (ChatGPT, Midjourney, Nano Banana, whatever
+they have access to) and hand the resulting file back to you to upload.
+Format it like:
+
+> **Image prompt (Higgsfield unavailable):**
+> "<the exact prompt text>"
+>
+> Generate this in whatever tool you have, then send me the file and I'll
+> upload it and finish the post.
+
+Still create the draft without the image if the user wants to move on
+without one — never block the whole post on image generation succeeding.
+
 ### 7. Gate 2 — review before creating the draft
 
 Show the user the full draft in chat before touching Sanity: title,
