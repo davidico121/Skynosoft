@@ -58,7 +58,27 @@ export const blogPost = defineType({
       title: "Body",
       type: "array",
       of: [
-        { type: "block" },
+        {
+          type: "block",
+          marks: {
+            annotations: [
+              {
+                type: "object",
+                name: "link",
+                title: "Link",
+                fields: [
+                  defineField({
+                    name: "href",
+                    title: "URL",
+                    type: "string",
+                    description: "A path on this site (e.g. /services) or a full https:// URL.",
+                    validation: (rule) => rule.required(),
+                  }),
+                ],
+              },
+            ],
+          },
+        },
         {
           type: "image",
           options: { hotspot: true },

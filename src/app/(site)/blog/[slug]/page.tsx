@@ -32,6 +32,19 @@ const portableTextComponents: PortableTextComponents = {
       </blockquote>
     ),
   },
+  marks: {
+    link: ({ children, value }) => {
+      const href = (value?.href as string) || "#";
+      if (href.startsWith("http")) {
+        return (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {children}
+          </a>
+        );
+      }
+      return <Link href={href}>{children}</Link>;
+    },
+  },
   types: {
     image: ({ value }: { value: SanityImageWithAlt }) => (
       <figure className="my-8">
