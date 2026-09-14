@@ -36,12 +36,36 @@ export const blogPost = defineType({
       title: "Cover image",
       type: "image",
       options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alternative text",
+          type: "string",
+          description: "Describe the image for search engines and screen readers.",
+          validation: (rule) => rule.required(),
+        }),
+      ],
     }),
     defineField({
       name: "body",
       title: "Body",
       type: "array",
-      of: [{ type: "block" }, { type: "image", options: { hotspot: true } }],
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Alternative text",
+              type: "string",
+              description: "Describe the image for search engines and screen readers.",
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
     }),
     defineField({
       name: "publishedAt",

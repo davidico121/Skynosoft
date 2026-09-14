@@ -20,13 +20,29 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const defaultDescription =
+  "Skynosoft is an ecommerce growth agency combining high-converting website design, CRO, and email marketing to scale DTC brands to 7 figures and beyond.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Skynosoft — ...where brands fly",
-  description:
-    "Skynosoft is an ecommerce growth agency combining high-converting website design, CRO, and email marketing to scale DTC brands to 7 figures and beyond.",
+  description: defaultDescription,
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: "Skynosoft — ...where brands fly",
+    description: defaultDescription,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [{ url: "/brand/skynosoft-logo.jpg", width: 500, height: 500 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Skynosoft — ...where brands fly",
+    description: defaultDescription,
+    images: ["/brand/skynosoft-logo.jpg"],
   },
 };
 

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Chip } from "@/components/ui/Chip";
 import { client } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
 export const metadata: Metadata = {
@@ -46,25 +48,42 @@ export default async function BlogPage() {
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug?.current}`}
-                  className="flex flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
+                  className="flex flex-col overflow-hidden rounded-xl border border-border-hairline bg-card transition-colors hover:border-border-hairline-strong"
                 >
-                  <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
-                    {post.category}
-                  </p>
-                  <h2 className="mt-4 font-heading text-headline-md font-semibold">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 flex-1 font-body text-body-md text-foreground-muted">
-                    {post.excerpt}
-                  </p>
-                  <p className="mt-6 font-label text-label-mono text-foreground-muted">
-                    {post.publishedAt &&
-                      new Date(post.publishedAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                  </p>
+                  {post.coverImage && (
+                    <div className="relative aspect-[16/9] w-full">
+                      <Image
+                        src={urlForImage(post.coverImage)
+                          .width(800)
+                          .height(450)
+                          .fit("crop")
+                          .url()}
+                        alt={post.coverImage.alt || post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col p-8">
+                    <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
+                      {post.category}
+                    </p>
+                    <h2 className="mt-4 font-heading text-headline-md font-semibold">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 flex-1 font-body text-body-md text-foreground-muted">
+                      {post.excerpt}
+                    </p>
+                    <p className="mt-6 font-label text-label-mono text-foreground-muted">
+                      {post.publishedAt &&
+                        new Date(post.publishedAt).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                    </p>
+                  </div>
                 </Link>
               ))}
             </div>

@@ -1,21 +1,39 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PortableText } from "@portabletext/react";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { SITE_NAME, SITE_URL } from "@/lib/content";
 import { client } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 import {
   allBlogPostsQuery,
   allBlogSlugsQuery,
   blogPostBySlugQuery,
   type BlogPostDetail,
   type BlogPostSummary,
+  type SanityImageWithAlt,
 } from "@/sanity/queries";
 
 export const revalidate = 60;
+
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }: { value: SanityImageWithAlt }) => (
+      <span className="relative my-8 block aspect-[16/9] overflow-hidden rounded-lg">
+        <Image
+          src={urlForImage(value).width(1600).url()}
+          alt={value.alt || ""}
+          fill
+          className="object-cover"
+        />
+      </span>
+    ),
+  },
+};
 
 export async function generateStaticParams() {
   const slugs = await client.fetch<string[]>(allBlogSlugsQuery);
@@ -32,11 +50,37 @@ export async function generateMetadata({
     slug,
   });
   if (!post) return {};
+
+  const ogImages = post.coverImage
+    ? [
+        {
+          url: urlForImage(post.coverImage).width(1200).height(630).fit("crop").url(),
+          width: 1200,
+          height: 630,
+          alt: post.coverImage.alt || post.title,
+        },
+      ]
+    : undefined;
+
   return {
     title: `${post.title} — Skynosoft`,
     description: post.excerpt,
     alternates: {
       canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `${SITE_URL}/blog/${slug}`,
+      type: "article",
+      publishedTime: post.publishedAt,
+      images: ogImages,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: ogImages?.map((image) => image.url),
     },
   };
 }
@@ -57,6 +101,10 @@ export default async function BlogPostPage({
     .filter((p) => p.slug?.current !== slug)
     .slice(0, 3);
 
+  const coverImageUrl = post.coverImage
+    ? urlForImage(post.coverImage).width(1600).height(900).fit("crop").url()
+    : undefined;
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -65,6 +113,7 @@ export default async function BlogPostPage({
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     url: `${SITE_URL}/blog/${slug}`,
+    ...(coverImageUrl && { image: coverImageUrl }),
     author: {
       "@type": "Organization",
       name: SITE_NAME,
@@ -98,11 +147,26 @@ export default async function BlogPostPage({
         </Container>
       </section>
 
+      {coverImageUrl && (
+        <Container className="max-w-3xl pt-section-gap">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
+            <Image
+              src={coverImageUrl}
+              alt={post.coverImage?.alt || post.title}
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 768px) 768px, 100vw"
+            />
+          </div>
+        </Container>
+      )}
+
       <section>
         <Container className="max-w-3xl py-section-gap">
           {post.body ? (
             <div className="prose-blog font-body text-body-lg text-foreground-muted">
-              <PortableText value={post.body} />
+              <PortableText value={post.body} components={portableTextComponents} />
             </div>
           ) : (
             <p className="font-body text-body-lg text-foreground-muted">

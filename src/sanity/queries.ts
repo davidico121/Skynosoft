@@ -2,6 +2,8 @@ import { defineQuery } from "next-sanity";
 import type { PortableTextBlock } from "next-sanity";
 import type { Image } from "sanity";
 
+export type SanityImageWithAlt = Image & { alt?: string };
+
 export type BlogPostSummary = {
   _id: string;
   title: string;
@@ -9,11 +11,12 @@ export type BlogPostSummary = {
   category: string;
   excerpt: string;
   publishedAt: string;
+  coverImage: SanityImageWithAlt | null;
 };
 
 export type BlogPostDetail = BlogPostSummary & {
   body: PortableTextBlock[] | null;
-  coverImage: Image | null;
+  coverImage: SanityImageWithAlt | null;
 };
 
 export const allBlogPostsQuery = defineQuery(`
@@ -23,7 +26,8 @@ export const allBlogPostsQuery = defineQuery(`
     slug,
     category,
     excerpt,
-    publishedAt
+    publishedAt,
+    coverImage
   }
 `);
 
