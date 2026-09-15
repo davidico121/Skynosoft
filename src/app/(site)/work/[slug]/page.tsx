@@ -41,6 +41,24 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
+function QuoteIcon() {
+  return (
+    <svg
+      width="40"
+      height="32"
+      viewBox="0 0 40 32"
+      fill="none"
+      aria-hidden
+      className="text-primary"
+    >
+      <path
+        d="M0 32V19.2C0 13.44 1.6 8.8 4.8 5.28C8 1.76 12.16 0 17.28 0V6.72C14.72 6.72 12.72 7.52 11.28 9.12C9.84 10.72 9.12 12.8 9.12 15.36H17.28V32H0ZM22.72 32V19.2C22.72 13.44 24.32 8.8 27.52 5.28C30.72 1.76 34.88 0 40 0V6.72C37.44 6.72 35.44 7.52 34 9.12C32.56 10.72 31.84 12.8 31.84 15.36H40V32H22.72Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 function CaseSection({
   title,
   intro,
@@ -74,20 +92,36 @@ export default async function CaseStudyPage({
     <>
       <section className="border-b border-border-hairline">
         <Container className="py-24 md:py-28">
-          <div className="flex flex-wrap gap-2">
-            {caseStudy.services.map((s) => (
-              <Chip key={s}>{s}</Chip>
-            ))}
+          <div className="grid items-center gap-12 md:grid-cols-[1.4fr_1fr]">
+            <div>
+              <div className="flex flex-wrap gap-2">
+                {caseStudy.services.map((s) => (
+                  <Chip key={s}>{s}</Chip>
+                ))}
+              </div>
+              <h1 className="mt-6 max-w-3xl font-heading text-display-xl-mobile font-bold tracking-tight md:text-headline-lg">
+                {caseStudy.brand}
+              </h1>
+              <p className="mt-2 font-label text-label-mono uppercase tracking-wide text-foreground-muted">
+                {caseStudy.category}
+              </p>
+              <p className="mt-6 max-w-2xl font-body text-body-lg text-foreground-muted">
+                {caseStudy.summary}
+              </p>
+            </div>
+            {caseStudy.heroImage && (
+              <div className="overflow-hidden rounded-xl border border-border-hairline bg-card">
+                <Image
+                  src={caseStudy.heroImage.src}
+                  alt={caseStudy.heroImage.alt}
+                  width={caseStudy.heroImage.width}
+                  height={caseStudy.heroImage.height}
+                  className="block h-auto w-full"
+                  priority
+                />
+              </div>
+            )}
           </div>
-          <h1 className="mt-6 max-w-3xl font-heading text-display-xl-mobile font-bold tracking-tight md:text-headline-lg">
-            {caseStudy.brand}
-          </h1>
-          <p className="mt-2 font-label text-label-mono uppercase tracking-wide text-foreground-muted">
-            {caseStudy.category}
-          </p>
-          <p className="mt-6 max-w-2xl font-body text-body-lg text-foreground-muted">
-            {caseStudy.summary}
-          </p>
         </Container>
       </section>
 
@@ -96,7 +130,14 @@ export default async function CaseStudyPage({
           <div className="grid gap-12 lg:grid-cols-[280px_1fr]">
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <div className="rounded-xl border border-border-hairline bg-card p-6">
-                <p className="font-label text-label-mono uppercase tracking-wide text-foreground-muted">
+                <Image
+                  src="/brand/skynosoft-icon.png"
+                  alt="Skynosoft"
+                  width={40}
+                  height={40}
+                  className="rounded-md"
+                />
+                <p className="mt-4 font-label text-label-mono uppercase tracking-wide text-foreground-muted">
                   Want this for your brand?
                 </p>
                 <p className="mt-2 font-heading text-headline-md font-semibold">
@@ -133,7 +174,27 @@ export default async function CaseStudyPage({
                     <CaseSection title="The execution" items={caseStudy.execution} />
                   )}
                   {caseStudy.resultPoints && (
-                    <CaseSection title="The results" items={caseStudy.resultPoints} />
+                    <div>
+                      <CaseSection title="The results" items={caseStudy.resultPoints} />
+                      {caseStudy.resultsChart && (
+                        <figure className="mt-8">
+                          <div className="overflow-hidden rounded-lg border border-border-hairline bg-card">
+                            <Image
+                              src={caseStudy.resultsChart.src}
+                              alt={caseStudy.resultsChart.alt}
+                              width={caseStudy.resultsChart.width}
+                              height={caseStudy.resultsChart.height}
+                              className="block h-auto w-full"
+                            />
+                          </div>
+                          {caseStudy.resultsChart.caption && (
+                            <figcaption className="mt-3 font-body text-body-md text-foreground-muted">
+                              {caseStudy.resultsChart.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      )}
+                    </div>
                   )}
                   {caseStudy.whyItWorked && (
                     <CaseSection title="Why this worked" items={caseStudy.whyItWorked} />
@@ -160,19 +221,19 @@ export default async function CaseStudyPage({
                   <h2 className="font-heading text-headline-md font-semibold">
                     The work
                   </h2>
-                  <div className="mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+                  <div className="hide-scrollbar mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
                     {caseStudy.gallery.map((item) => (
                       <figure
                         key={item.src}
                         className="w-[280px] shrink-0 snap-start sm:w-[340px]"
                       >
-                        <div className="h-[480px] overflow-y-auto rounded-lg border border-border-hairline bg-card">
+                        <div className="hide-scrollbar h-[480px] overflow-y-auto rounded-lg border border-border-hairline bg-card">
                           <Image
                             src={item.src}
                             alt={item.alt}
                             width={item.width}
                             height={item.height}
-                            className="h-auto w-full"
+                            className="block h-auto w-full"
                           />
                         </div>
                         {item.caption && (
@@ -189,6 +250,27 @@ export default async function CaseStudyPage({
           </div>
         </Container>
       </section>
+
+      {caseStudy.clientReview && (
+        <section className="border-t border-border-hairline">
+          <Container className="py-section-gap">
+            <div className="mx-auto max-w-3xl rounded-2xl border border-border-hairline bg-card p-10 text-center md:p-14">
+              <QuoteIcon />
+              <p className="mt-6 font-heading text-headline-md font-medium italic leading-snug">
+                &ldquo;{caseStudy.clientReview.quote}&rdquo;
+              </p>
+              <p className="mt-6 font-body text-body-lg font-bold text-foreground">
+                {caseStudy.clientReview.name}
+              </p>
+              {caseStudy.clientReview.role && (
+                <p className="mt-1 font-label text-label-mono uppercase tracking-wide text-foreground-muted">
+                  {caseStudy.clientReview.role}
+                </p>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="border-t border-border-hairline">
         <Container className="flex flex-col items-center py-section-gap text-center">

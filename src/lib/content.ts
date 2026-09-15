@@ -60,6 +60,9 @@ export type CaseStudy = {
   challenge?: string;
   approach?: string[];
   gallery?: { src: string; alt: string; width: number; height: number; caption?: string }[];
+  heroImage?: { src: string; alt: string; width: number; height: number };
+  resultsChart?: { src: string; alt: string; width: number; height: number; caption?: string };
+  clientReview?: { quote: string; name: string; role?: string };
   /**
    * Fuller structure (Brand/Challenge/Goal/Strategy/Execution/Results/Why it worked).
    * When brandDescription is present, the detail page renders this instead of the
@@ -144,6 +147,12 @@ export const caseStudies: CaseStudy[] = [
       { value: "6", label: "Lifecycle flows built" },
     ],
     logoInitial: "N",
+    heroImage: {
+      src: "/case-studies/novaya/hero-product.png",
+      alt: "Product photography from the Novaya welcome email showing the brand's menswear styling",
+      width: 524,
+      height: 583,
+    },
     brandDescription:
       "Novaya is a direct-to-consumer apparel brand selling men's and women's essentials (cargo pants, t-shirts, outerwear, and footwear) through a French-language storefront. Their audience shops entirely in French and expects the same lifecycle experience (welcome, order updates, promotions) that English-language DTC brands take for granted.",
     challengePoints: [
@@ -191,16 +200,16 @@ export const caseStudies: CaseStudy[] = [
         alt: "The rebuilt Novaya welcome email, showing the discount offer, hero product photography, and best-seller product grid",
         width: 650,
         height: 3549,
-        caption: "The rebuilt welcome email — the single highest-revenue flow in the account",
-      },
-      {
-        src: "/case-studies/novaya/revenue-chart.png",
-        alt: "Bar chart showing flow-attributed revenue by lifecycle stage: Welcome $173,929, Cart and Checkout $88,179, Browse Abandonment $20,773, Post-Purchase $7,966, Winback $434",
-        width: 1300,
-        height: 700,
-        caption: "Revenue by lifecycle stage, pulled directly from the Klaviyo flow performance report",
+        caption: "The rebuilt welcome email, the single highest-revenue flow in the account",
       },
     ],
+    resultsChart: {
+      src: "/case-studies/novaya/revenue-chart.png",
+      alt: "Bar chart showing flow-attributed revenue by lifecycle stage: Welcome $173,929, Cart and Checkout $88,179, Browse Abandonment $20,773, Post-Purchase $7,966, Winback $434",
+      width: 1300,
+      height: 700,
+      caption: "Revenue by lifecycle stage, pulled directly from the Klaviyo flow performance report",
+    },
   },
 ];
 
