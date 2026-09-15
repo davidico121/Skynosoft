@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import logo from "../../../public/brand/skynosoft-logo-horizontal.png";
 
 const columns = [
   {
@@ -22,12 +24,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-border-hairline">
       <Container className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <div className="font-heading text-headline-md font-semibold">
-            SKYNOSOFT
-          </div>
-          <p className="mt-2 font-label text-label-mono uppercase tracking-wide text-primary-soft">
-            ...where brands fly
-          </p>
+          <Image src={logo} alt="Skynosoft — ...where brands fly" height={40} className="w-auto" />
           <p className="mt-4 max-w-sm font-body text-body-md text-foreground-muted">
             High-converting ecommerce websites and email marketing systems
             for fashion, skincare, home decor, and supplement brands scaling
