@@ -111,13 +111,15 @@ export default async function CaseStudyPage({
                         key={item.src}
                         className="w-[280px] shrink-0 snap-start sm:w-[340px]"
                       >
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          width={item.width}
-                          height={item.height}
-                          className="h-auto w-full rounded-lg border border-border-hairline"
-                        />
+                        <div className="h-[480px] overflow-y-auto rounded-lg border border-border-hairline bg-card">
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            width={item.width}
+                            height={item.height}
+                            className="h-auto w-full"
+                          />
+                        </div>
                         {item.caption && (
                           <figcaption className="mt-3 font-body text-body-md text-foreground-muted">
                             {item.caption}
