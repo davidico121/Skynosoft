@@ -82,23 +82,117 @@ export default async function CaseStudyPage({
                 ))}
               </div>
 
-              <div className="mt-16">
-                <h2 className="font-heading text-headline-md font-semibold">
-                  The challenge
-                </h2>
-                <p className="mt-4 font-body text-body-lg text-foreground-muted">
-                  {caseStudy.challenge ||
-                    `${caseStudy.brand} came to us with strong product-market fit but a website and email program that weren't converting that demand into revenue — traffic was healthy, checkout and retention weren't keeping up.`}
-                </p>
-                <h2 className="mt-12 font-heading text-headline-md font-semibold">
-                  What we did
-                </h2>
-                <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                  {(caseStudy.approach || caseStudy.services).map((s) => (
-                    <li key={s}>— {s}</li>
-                  ))}
-                </ul>
-              </div>
+              {caseStudy.brandDescription ? (
+                <div className="mt-16 flex flex-col gap-12">
+                  <div>
+                    <h2 className="font-heading text-headline-md font-semibold">
+                      The brand
+                    </h2>
+                    <p className="mt-4 font-body text-body-lg text-foreground-muted">
+                      {caseStudy.brandDescription}
+                    </p>
+                  </div>
+
+                  {caseStudy.challengePoints && (
+                    <div>
+                      <h2 className="font-heading text-headline-md font-semibold">
+                        The challenge
+                      </h2>
+                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.challengePoints.map((s) => (
+                          <li key={s}>— {s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {caseStudy.goal && (
+                    <div>
+                      <h2 className="font-heading text-headline-md font-semibold">
+                        The goal
+                      </h2>
+                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.goal.map((s) => (
+                          <li key={s}>— {s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {caseStudy.strategy && (
+                    <div>
+                      <h2 className="font-heading text-headline-md font-semibold">
+                        The strategy
+                      </h2>
+                      <p className="mt-4 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.strategy.intro}
+                      </p>
+                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.strategy.points.map((s) => (
+                          <li key={s}>— {s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {caseStudy.execution && (
+                    <div>
+                      <h2 className="font-heading text-headline-md font-semibold">
+                        The execution
+                      </h2>
+                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.execution.map((s) => (
+                          <li key={s}>— {s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {caseStudy.resultPoints && (
+                    <div>
+                      <h2 className="font-heading text-headline-md font-semibold">
+                        The results
+                      </h2>
+                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.resultPoints.map((s) => (
+                          <li key={s}>— {s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {caseStudy.whyItWorked && (
+                    <div>
+                      <h2 className="font-heading text-headline-md font-semibold">
+                        Why this worked
+                      </h2>
+                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                        {caseStudy.whyItWorked.map((s) => (
+                          <li key={s}>— {s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="mt-16">
+                  <h2 className="font-heading text-headline-md font-semibold">
+                    The challenge
+                  </h2>
+                  <p className="mt-4 font-body text-body-lg text-foreground-muted">
+                    {caseStudy.challenge ||
+                      `${caseStudy.brand} came to us with strong product-market fit but a website and email program that weren't converting that demand into revenue — traffic was healthy, checkout and retention weren't keeping up.`}
+                  </p>
+                  <h2 className="mt-12 font-heading text-headline-md font-semibold">
+                    What we did
+                  </h2>
+                  <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
+                    {(caseStudy.approach || caseStudy.services).map((s) => (
+                      <li key={s}>— {s}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {caseStudy.gallery && caseStudy.gallery.length > 0 && (
                 <div className="mt-16">

@@ -60,6 +60,18 @@ export type CaseStudy = {
   challenge?: string;
   approach?: string[];
   gallery?: { src: string; alt: string; width: number; height: number; caption?: string }[];
+  /**
+   * Fuller structure (Brand/Challenge/Goal/Strategy/Execution/Results/Why it worked).
+   * When brandDescription is present, the detail page renders this instead of the
+   * simple challenge/approach fallback above.
+   */
+  brandDescription?: string;
+  challengePoints?: string[];
+  goal?: string[];
+  strategy?: { intro: string; points: string[] };
+  execution?: string[];
+  resultPoints?: string[];
+  whyItWorked?: string[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -132,13 +144,46 @@ export const caseStudies: CaseStudy[] = [
       { value: "6", label: "Lifecycle flows built" },
     ],
     logoInitial: "N",
-    challenge:
-      "Novaya had steady traffic and a loyal following, but their Klaviyo account was running on default flows that hadn't been touched since launch. A cart abandonment sequence existed but had never been revisited, and there was no coverage at all for browse abandonment, post-purchase, or win-back moments — some of the highest-leverage points in the customer lifecycle.",
-    approach: [
+    brandDescription:
+      "Novaya is a direct-to-consumer apparel brand selling men's and women's essentials — cargo pants, t-shirts, outerwear, and footwear — through a French-language storefront. Their audience shops entirely in French and expects the same lifecycle experience (welcome, order updates, promotions) that English-language DTC brands take for granted.",
+    challengePoints: [
+      "Klaviyo account running on default flows that had never been touched since launch",
+      "A single abandoned-cart sequence existed, built once and left alone for over a year with no revisions",
+      "No coverage at all for welcome, browse abandonment, post-purchase, or win-back — some of the highest-leverage moments in the customer lifecycle",
+      "No process for knowing which flows were actually working versus just running",
+    ],
+    goal: [
+      "Turn a single static flow into genuine full-lifecycle coverage",
+      "Make cart and checkout recovery reliably convert, not just exist",
+      "Build a system that improves itself over time based on real performance data, not a set-and-forget flow",
+    ],
+    strategy: {
+      intro:
+        "Full-lifecycle build, prioritized by leverage, not a patch on what already existed.",
+      points: [
+        "Map every meaningful customer action and build a flow for it, instead of leaving gaps at the highest-value moments",
+        "Treat flows as living systems: judge each one on real revenue per recipient, not just open and click rates",
+        "Prioritize the highest-leverage gaps first (welcome, cart, checkout) before filling in the rest",
+      ],
+    },
+    execution: [
+      "Full audit of the existing Klaviyo account and the one legacy flow already in place",
       "Rebuilt the welcome series from scratch — it now drives the single largest share of flow revenue",
-      "Iterated on the abandoned cart and checkout flows twice, rebuilding each into a higher-converting version once the data showed exactly where they were leaking",
-      "Added full lifecycle coverage that didn't exist before: browse abandonment, post-purchase, and win-back flows",
-      "Reviewed every flow against real revenue-per-recipient data, not just open and click rates",
+      "Rebuilt the abandoned cart flow twice, and the checkout flow twice, once the data showed exactly where each version was leaking",
+      "Added browse abandonment, post-purchase, and win-back flows that didn't exist before",
+      "Reviewed every flow against real revenue-per-recipient data before deciding what to rebuild next",
+    ],
+    resultPoints: [
+      "$300K+ in flow-attributed revenue across the rebuilt account",
+      "Welcome flow alone: over 80,000 recipients, a 43% open rate, and $173,929 in attributed revenue, the single largest share of flow revenue",
+      "Full lifecycle coverage: 6 flows live across welcome, browse abandonment, cart, checkout, post-purchase, and win-back, versus 1 before",
+      "Cart and checkout flows each rebuilt twice once the data showed exactly where they were leaking",
+    ],
+    whyItWorked: [
+      "Treated the account as a system to build, not a single flow to patch",
+      "Let real revenue-per-recipient data decide what got rebuilt, not assumptions",
+      "Prioritized the highest-leverage gaps first before filling in the rest",
+      "Iterated instead of shipping once and walking away",
     ],
     gallery: [
       {
