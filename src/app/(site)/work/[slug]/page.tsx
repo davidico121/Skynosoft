@@ -28,6 +28,39 @@ export async function generateMetadata({
   };
 }
 
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-4 flex flex-col gap-3">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3 font-body text-body-lg text-foreground-muted">
+          <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function CaseSection({
+  title,
+  intro,
+  items,
+}: {
+  title: string;
+  intro?: string;
+  items?: string[];
+}) {
+  return (
+    <div>
+      <h2 className="font-heading text-headline-md font-semibold">{title}</h2>
+      {intro && (
+        <p className="mt-4 font-body text-body-lg text-foreground-muted">{intro}</p>
+      )}
+      {items && <BulletList items={items} />}
+    </div>
+  );
+}
+
 export default async function CaseStudyPage({
   params,
 }: {
@@ -84,113 +117,41 @@ export default async function CaseStudyPage({
 
               {caseStudy.brandDescription ? (
                 <div className="mt-16 flex flex-col gap-12">
-                  <div>
-                    <h2 className="font-heading text-headline-md font-semibold">
-                      The brand
-                    </h2>
-                    <p className="mt-4 font-body text-body-lg text-foreground-muted">
-                      {caseStudy.brandDescription}
-                    </p>
-                  </div>
-
+                  <CaseSection title="The brand" intro={caseStudy.brandDescription} />
                   {caseStudy.challengePoints && (
-                    <div>
-                      <h2 className="font-heading text-headline-md font-semibold">
-                        The challenge
-                      </h2>
-                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.challengePoints.map((s) => (
-                          <li key={s}>— {s}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <CaseSection title="The challenge" items={caseStudy.challengePoints} />
                   )}
-
-                  {caseStudy.goal && (
-                    <div>
-                      <h2 className="font-heading text-headline-md font-semibold">
-                        The goal
-                      </h2>
-                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.goal.map((s) => (
-                          <li key={s}>— {s}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
+                  {caseStudy.goal && <CaseSection title="The goal" items={caseStudy.goal} />}
                   {caseStudy.strategy && (
-                    <div>
-                      <h2 className="font-heading text-headline-md font-semibold">
-                        The strategy
-                      </h2>
-                      <p className="mt-4 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.strategy.intro}
-                      </p>
-                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.strategy.points.map((s) => (
-                          <li key={s}>— {s}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <CaseSection
+                      title="The strategy"
+                      intro={caseStudy.strategy.intro}
+                      items={caseStudy.strategy.points}
+                    />
                   )}
-
                   {caseStudy.execution && (
-                    <div>
-                      <h2 className="font-heading text-headline-md font-semibold">
-                        The execution
-                      </h2>
-                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.execution.map((s) => (
-                          <li key={s}>— {s}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <CaseSection title="The execution" items={caseStudy.execution} />
                   )}
-
                   {caseStudy.resultPoints && (
-                    <div>
-                      <h2 className="font-heading text-headline-md font-semibold">
-                        The results
-                      </h2>
-                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.resultPoints.map((s) => (
-                          <li key={s}>— {s}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <CaseSection title="The results" items={caseStudy.resultPoints} />
                   )}
-
                   {caseStudy.whyItWorked && (
-                    <div>
-                      <h2 className="font-heading text-headline-md font-semibold">
-                        Why this worked
-                      </h2>
-                      <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                        {caseStudy.whyItWorked.map((s) => (
-                          <li key={s}>— {s}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <CaseSection title="Why this worked" items={caseStudy.whyItWorked} />
                   )}
                 </div>
               ) : (
-                <div className="mt-16">
-                  <h2 className="font-heading text-headline-md font-semibold">
-                    The challenge
-                  </h2>
-                  <p className="mt-4 font-body text-body-lg text-foreground-muted">
-                    {caseStudy.challenge ||
-                      `${caseStudy.brand} came to us with strong product-market fit but a website and email program that weren't converting that demand into revenue — traffic was healthy, checkout and retention weren't keeping up.`}
-                  </p>
-                  <h2 className="mt-12 font-heading text-headline-md font-semibold">
-                    What we did
-                  </h2>
-                  <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-                    {(caseStudy.approach || caseStudy.services).map((s) => (
-                      <li key={s}>— {s}</li>
-                    ))}
-                  </ul>
+                <div className="mt-16 flex flex-col gap-12">
+                  <CaseSection
+                    title="The challenge"
+                    intro={
+                      caseStudy.challenge ||
+                      `${caseStudy.brand} came to us with strong product-market fit but a website and email program that weren't converting that demand into revenue — traffic was healthy, checkout and retention weren't keeping up.`
+                    }
+                  />
+                  <CaseSection
+                    title="What we did"
+                    items={caseStudy.approach || caseStudy.services}
+                  />
                 </div>
               )}
 

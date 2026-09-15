@@ -145,11 +145,11 @@ export const caseStudies: CaseStudy[] = [
     ],
     logoInitial: "N",
     brandDescription:
-      "Novaya is a direct-to-consumer apparel brand selling men's and women's essentials — cargo pants, t-shirts, outerwear, and footwear — through a French-language storefront. Their audience shops entirely in French and expects the same lifecycle experience (welcome, order updates, promotions) that English-language DTC brands take for granted.",
+      "Novaya is a direct-to-consumer apparel brand selling men's and women's essentials (cargo pants, t-shirts, outerwear, and footwear) through a French-language storefront. Their audience shops entirely in French and expects the same lifecycle experience (welcome, order updates, promotions) that English-language DTC brands take for granted.",
     challengePoints: [
       "Klaviyo account running on default flows that had never been touched since launch",
       "A single abandoned-cart sequence existed, built once and left alone for over a year with no revisions",
-      "No coverage at all for welcome, browse abandonment, post-purchase, or win-back — some of the highest-leverage moments in the customer lifecycle",
+      "No coverage at all for welcome, browse abandonment, post-purchase, or win-back, some of the highest-leverage moments in the customer lifecycle",
       "No process for knowing which flows were actually working versus just running",
     ],
     goal: [
@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
     },
     execution: [
       "Full audit of the existing Klaviyo account and the one legacy flow already in place",
-      "Rebuilt the welcome series from scratch — it now drives the single largest share of flow revenue",
+      "Rebuilt the welcome series from scratch, it now drives the single largest share of flow revenue",
       "Rebuilt the abandoned cart flow twice, and the checkout flow twice, once the data showed exactly where each version was leaking",
       "Added browse abandonment, post-purchase, and win-back flows that didn't exist before",
       "Reviewed every flow against real revenue-per-recipient data before deciding what to rebuild next",
