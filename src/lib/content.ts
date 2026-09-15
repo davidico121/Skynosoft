@@ -56,6 +56,9 @@ export type CaseStudy = {
   summary: string;
   metrics: { value: string; label: string }[];
   logoInitial: string;
+  /** Optional real narrative — falls back to generic copy on the detail page when omitted. */
+  challenge?: string;
+  approach?: string[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -114,6 +117,28 @@ export const caseStudies: CaseStudy[] = [
       { value: "3.2x", label: "Email ROI" },
     ],
     logoInitial: "L",
+  },
+  {
+    slug: "canbat-technologies",
+    brand: "Canbat Technologies",
+    category: "Fashion",
+    services: ["Email & SMS Marketing", "Lifecycle Flow Strategy"],
+    summary:
+      "Rebuilt a Klaviyo account running on untouched default flows into a full lifecycle system, then iterated on the highest-leverage flows twice more once the data showed where they were leaking.",
+    metrics: [
+      { value: "$300K+", label: "Revenue from flows" },
+      { value: "43%", label: "Welcome flow open rate" },
+      { value: "6", label: "Lifecycle flows built" },
+    ],
+    logoInitial: "C",
+    challenge:
+      "Canbat Technologies had steady traffic and a loyal following, but their Klaviyo account was running on default flows that hadn't been touched since launch. A cart abandonment sequence existed but had never been revisited, and there was no coverage at all for browse abandonment, post-purchase, or win-back moments — some of the highest-leverage points in the customer lifecycle.",
+    approach: [
+      "Rebuilt the welcome series from scratch — it now drives the single largest share of flow revenue",
+      "Iterated on the abandoned cart and checkout flows twice, rebuilding each into a higher-converting version once the data showed exactly where they were leaking",
+      "Added full lifecycle coverage that didn't exist before: browse abandonment, post-purchase, and win-back flows",
+      "Reviewed every flow against real revenue-per-recipient data, not just open and click rates",
+    ],
   },
 ];
 

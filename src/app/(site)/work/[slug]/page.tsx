@@ -70,16 +70,14 @@ export default async function CaseStudyPage({
               The challenge
             </h2>
             <p className="mt-4 font-body text-body-lg text-foreground-muted">
-              {caseStudy.brand} came to us with strong product-market fit but
-              a website and email program that weren&rsquo;t converting that
-              demand into revenue. Traffic was healthy — checkout and
-              retention weren&rsquo;t keeping up.
+              {caseStudy.challenge ||
+                `${caseStudy.brand} came to us with strong product-market fit but a website and email program that weren't converting that demand into revenue — traffic was healthy, checkout and retention weren't keeping up.`}
             </p>
             <h2 className="mt-12 font-heading text-headline-md font-semibold">
               What we did
             </h2>
             <ul className="mt-4 flex flex-col gap-2 font-body text-body-lg text-foreground-muted">
-              {caseStudy.services.map((s) => (
+              {(caseStudy.approach || caseStudy.services).map((s) => (
                 <li key={s}>— {s}</li>
               ))}
             </ul>
