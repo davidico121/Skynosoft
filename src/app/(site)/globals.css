@@ -2,31 +2,31 @@
 
 :root {
   /* Surfaces */
-  --color-ink: #020203;
-  --color-background: #131314;
-  --color-card: #111113;
-  --color-surface-container-low: #1c1b1c;
-  --color-surface-container: #201f20;
-  --color-surface-container-high: #2a2a2b;
-  --color-surface-container-highest: #353436;
+  --color-ink: #0a0a0b;
+  --color-background: #ffffff;
+  --color-card: #f7f8fa;
+  --color-surface-container-low: #f1f2f5;
+  --color-surface-container: #eceef2;
+  --color-surface-container-high: #e3e6ec;
+  --color-surface-container-highest: #d3d7e0;
 
   /* Text */
-  --color-foreground: #e5e2e3;
-  --color-foreground-muted: #bfc7d5;
+  --color-foreground: #14161a;
+  --color-foreground-muted: #5b6472;
 
   /* Borders */
-  --color-outline: #89919e;
-  --color-outline-variant: #3f4753;
-  --color-border-hairline: rgb(255 255 255 / 0.1);
-  --color-border-hairline-strong: rgb(255 255 255 / 0.2);
+  --color-outline: #6b7280;
+  --color-outline-variant: #d6dae1;
+  --color-border-hairline: rgb(0 0 0 / 0.08);
+  --color-border-hairline-strong: rgb(0 0 0 / 0.14);
 
   /* Brand */
   --color-primary: #0099ff;
-  --color-primary-soft: #9fcaff;
+  --color-primary-soft: #0077b6;
   --color-secondary: #6366f1;
-  --color-tertiary: #ff00ff;
-  --color-growth-green: #22c55e;
-  --color-electric-blue-glow: rgb(0 153 255 / 0.15);
+  --color-tertiary: #d100d1;
+  --color-growth-green: #16a34a;
+  --color-electric-blue-glow: rgb(0 153 255 / 0.12);
 
   /* Spacing rhythm */
   --spacing-gutter: 24px;

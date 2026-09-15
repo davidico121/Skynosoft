@@ -9,7 +9,7 @@ const base =
 const variants: Record<Variant, string> = {
   primary: "bg-primary text-white hover:bg-primary/90",
   secondary:
-    "bg-transparent text-foreground border border-border-hairline-strong hover:bg-white/10",
+    "bg-transparent text-foreground border border-border-hairline-strong hover:bg-foreground/5",
 };
 
 export function Button({
