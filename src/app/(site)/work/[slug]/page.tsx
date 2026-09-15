@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -84,6 +85,34 @@ export default async function CaseStudyPage({
           </div>
         </Container>
       </section>
+
+      {caseStudy.gallery && caseStudy.gallery.length > 0 && (
+        <section className="border-t border-border-hairline">
+          <Container className="py-section-gap">
+            <h2 className="font-heading text-headline-md font-semibold">
+              The work
+            </h2>
+            <div className="mt-8 grid items-start gap-8 sm:grid-cols-2">
+              {caseStudy.gallery.map((item) => (
+                <figure key={item.src}>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    className="h-auto w-full rounded-lg border border-border-hairline"
+                  />
+                  {item.caption && (
+                    <figcaption className="mt-3 font-body text-body-md text-foreground-muted">
+                      {item.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="border-t border-border-hairline">
         <Container className="flex flex-col items-center py-section-gap text-center">

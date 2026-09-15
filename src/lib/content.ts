@@ -59,6 +59,7 @@ export type CaseStudy = {
   /** Optional real narrative — falls back to generic copy on the detail page when omitted. */
   challenge?: string;
   approach?: string[];
+  gallery?: { src: string; alt: string; width: number; height: number; caption?: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -119,8 +120,8 @@ export const caseStudies: CaseStudy[] = [
     logoInitial: "L",
   },
   {
-    slug: "canbat-technologies",
-    brand: "Canbat Technologies",
+    slug: "novaya",
+    brand: "Novaya",
     category: "Fashion",
     services: ["Email & SMS Marketing", "Lifecycle Flow Strategy"],
     summary:
@@ -130,14 +131,30 @@ export const caseStudies: CaseStudy[] = [
       { value: "43%", label: "Welcome flow open rate" },
       { value: "6", label: "Lifecycle flows built" },
     ],
-    logoInitial: "C",
+    logoInitial: "N",
     challenge:
-      "Canbat Technologies had steady traffic and a loyal following, but their Klaviyo account was running on default flows that hadn't been touched since launch. A cart abandonment sequence existed but had never been revisited, and there was no coverage at all for browse abandonment, post-purchase, or win-back moments — some of the highest-leverage points in the customer lifecycle.",
+      "Novaya had steady traffic and a loyal following, but their Klaviyo account was running on default flows that hadn't been touched since launch. A cart abandonment sequence existed but had never been revisited, and there was no coverage at all for browse abandonment, post-purchase, or win-back moments — some of the highest-leverage points in the customer lifecycle.",
     approach: [
       "Rebuilt the welcome series from scratch — it now drives the single largest share of flow revenue",
       "Iterated on the abandoned cart and checkout flows twice, rebuilding each into a higher-converting version once the data showed exactly where they were leaking",
       "Added full lifecycle coverage that didn't exist before: browse abandonment, post-purchase, and win-back flows",
       "Reviewed every flow against real revenue-per-recipient data, not just open and click rates",
+    ],
+    gallery: [
+      {
+        src: "/case-studies/novaya/welcome-email.png",
+        alt: "The rebuilt Novaya welcome email, showing the discount offer, hero product photography, and best-seller product grid",
+        width: 650,
+        height: 3549,
+        caption: "The rebuilt welcome email — the single highest-revenue flow in the account",
+      },
+      {
+        src: "/case-studies/novaya/revenue-chart.png",
+        alt: "Bar chart showing flow-attributed revenue by lifecycle stage: Welcome $173,929, Cart and Checkout $88,179, Browse Abandonment $20,773, Post-Purchase $7,966, Winback $434",
+        width: 1300,
+        height: 700,
+        caption: "Revenue by lifecycle stage, pulled directly from the Klaviyo flow performance report",
+      },
     ],
   },
 ];
