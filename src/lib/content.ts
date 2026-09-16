@@ -198,8 +198,8 @@ export const caseStudies: CaseStudy[] = [
       {
         src: "/case-studies/novaya/welcome-email.png",
         alt: "The rebuilt Novaya welcome email, showing the discount offer, hero product photography, and best-seller product grid",
-        width: 650,
-        height: 3549,
+        width: 600,
+        height: 3478,
         caption: "The rebuilt welcome email, the single highest-revenue flow in the account",
       },
     ],
