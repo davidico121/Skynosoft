@@ -200,21 +200,18 @@ export const caseStudies: CaseStudy[] = [
         alt: "A Novaya campaign email telling the story of a customer, Charles-Olivier, who switched from stiff jeans to the Novaya cargo pants, with a testimonial and 'Rejoindre Michel' call to action",
         width: 1200,
         height: 7086,
-        caption: "Campaign send — \"The pants that made Charles-Olivier forget about jeans\"",
       },
       {
         src: "/case-studies/novaya/testimonials-email.png",
         alt: "A Novaya welcome flow email built around 17,000+ five-star reviews, pairing customer testimonials with product photography",
         width: 1200,
         height: 5603,
-        caption: "Welcome flow, email #4 — social proof paired with best-selling products",
       },
       {
         src: "/case-studies/novaya/bestsellers-email.png",
         alt: "A Novaya welcome flow email showcasing men's and women's best-selling products with a 10% discount code",
         width: 1200,
         height: 6543,
-        caption: "Welcome flow, email #5 — best-sellers with the welcome discount",
       },
     ],
     resultsChart: {

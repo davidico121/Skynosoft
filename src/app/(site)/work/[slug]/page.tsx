@@ -236,11 +236,6 @@ export default async function CaseStudyPage({
                             className="block h-auto w-full"
                           />
                         </div>
-                        {item.caption && (
-                          <figcaption className="mt-3 font-body text-body-md text-foreground-muted">
-                            {item.caption}
-                          </figcaption>
-                        )}
                       </figure>
                     ))}
                   </div>
