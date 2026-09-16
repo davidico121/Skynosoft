@@ -150,8 +150,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: {
       src: "/case-studies/novaya/hero-product.png",
       alt: "Product photography from the Novaya welcome email showing the brand's menswear styling",
-      width: 524,
-      height: 303,
+      width: 1000,
+      height: 580,
     },
     brandDescription:
       "Novaya is a direct-to-consumer apparel brand selling men's and women's essentials (cargo pants, t-shirts, outerwear, and footwear) through a French-language storefront. Their audience shops entirely in French and expects the same lifecycle experience (welcome, order updates, promotions) that English-language DTC brands take for granted.",
