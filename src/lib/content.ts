@@ -205,13 +205,13 @@ export const caseStudies: CaseStudy[] = [
         src: "/case-studies/novaya/testimonials-email.png",
         alt: "A Novaya welcome flow email built around 17,000+ five-star reviews, pairing customer testimonials with product photography",
         width: 1200,
-        height: 5603,
+        height: 5643,
       },
       {
         src: "/case-studies/novaya/bestsellers-email.png",
         alt: "A Novaya welcome flow email showcasing men's and women's best-selling products with a 10% discount code",
         width: 1200,
-        height: 6543,
+        height: 6583,
       },
     ],
     resultsChart: {
