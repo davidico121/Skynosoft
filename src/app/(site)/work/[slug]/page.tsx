@@ -221,13 +221,13 @@ export default async function CaseStudyPage({
                   <h2 className="font-heading text-headline-md font-semibold">
                     The work
                   </h2>
-                  <div className="hide-scrollbar mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+                  <div className="hide-scrollbar mt-8 flex flex-col gap-6 sm:flex-row sm:snap-x sm:snap-mandatory sm:overflow-x-auto sm:pb-4">
                     {caseStudy.gallery.map((item) => (
                       <figure
                         key={item.src}
-                        className="w-[220px] shrink-0 snap-start sm:w-[260px]"
+                        className="w-full shrink-0 sm:w-[260px] sm:snap-start"
                       >
-                        <div className="hide-scrollbar h-[340px] overflow-y-auto rounded-lg border border-border-hairline bg-card sm:h-[400px]">
+                        <div className="hide-scrollbar h-[400px] overflow-y-auto rounded-lg border border-border-hairline bg-card">
                           <Image
                             src={item.src}
                             alt={item.alt}
