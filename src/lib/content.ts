@@ -216,6 +216,13 @@ export const caseStudies: CaseStudy[] = [
         height: 6543,
         caption: "Welcome flow, email #5 — best-sellers with the welcome discount",
       },
+      {
+        src: "/case-studies/novaya/combo-campaign.png",
+        alt: "A Novaya 'End of Summer' campaign email pairing the cargo pants with a new jacket, with a benefits checklist and closing testimonial from the founder",
+        width: 1200,
+        height: 4590,
+        caption: "Campaign send — \"End of Summer, Here's the Combo\"",
+      },
     ],
     resultsChart: {
       src: "/case-studies/novaya/revenue-chart.png",
