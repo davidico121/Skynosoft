@@ -196,11 +196,11 @@ export const caseStudies: CaseStudy[] = [
     ],
     gallery: [
       {
-        src: "/case-studies/novaya/welcome-email.png",
-        alt: "The rebuilt Novaya welcome email, showing the discount offer, hero product photography, and best-seller product grid",
-        width: 600,
-        height: 3478,
-        caption: "Welcome flow, email #1 — the single highest-revenue flow in the account",
+        src: "/case-studies/novaya/jeans-campaign.png",
+        alt: "A Novaya campaign email telling the story of a customer, Charles-Olivier, who switched from stiff jeans to the Novaya cargo pants, with a testimonial and 'Rejoindre Michel' call to action",
+        width: 1200,
+        height: 7086,
+        caption: "Campaign send — \"The pants that made Charles-Olivier forget about jeans\"",
       },
       {
         src: "/case-studies/novaya/testimonials-email.png",
@@ -215,13 +215,6 @@ export const caseStudies: CaseStudy[] = [
         width: 1200,
         height: 6543,
         caption: "Welcome flow, email #5 — best-sellers with the welcome discount",
-      },
-      {
-        src: "/case-studies/novaya/combo-campaign.png",
-        alt: "A Novaya 'End of Summer' campaign email pairing the cargo pants with a new jacket, with a benefits checklist and closing testimonial from the founder",
-        width: 1200,
-        height: 4590,
-        caption: "Campaign send — \"End of Summer, Here's the Combo\"",
       },
     ],
     resultsChart: {
