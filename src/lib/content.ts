@@ -200,7 +200,21 @@ export const caseStudies: CaseStudy[] = [
         alt: "The rebuilt Novaya welcome email, showing the discount offer, hero product photography, and best-seller product grid",
         width: 600,
         height: 3478,
-        caption: "The rebuilt welcome email, the single highest-revenue flow in the account",
+        caption: "Welcome flow, email #1 — the single highest-revenue flow in the account",
+      },
+      {
+        src: "/case-studies/novaya/testimonials-email.png",
+        alt: "A Novaya welcome flow email built around 17,000+ five-star reviews, pairing customer testimonials with product photography",
+        width: 1200,
+        height: 5603,
+        caption: "Welcome flow, email #4 — social proof paired with best-selling products",
+      },
+      {
+        src: "/case-studies/novaya/bestsellers-email.png",
+        alt: "A Novaya welcome flow email showcasing men's and women's best-selling products with a 10% discount code",
+        width: 1200,
+        height: 6543,
+        caption: "Welcome flow, email #5 — best-sellers with the welcome discount",
       },
     ],
     resultsChart: {

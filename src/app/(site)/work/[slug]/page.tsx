@@ -225,9 +225,9 @@ export default async function CaseStudyPage({
                     {caseStudy.gallery.map((item) => (
                       <figure
                         key={item.src}
-                        className="w-[300px] shrink-0 snap-start sm:w-[380px]"
+                        className="w-[220px] shrink-0 snap-start sm:w-[260px]"
                       >
-                        <div className="hide-scrollbar h-[470px] overflow-y-auto rounded-lg border border-border-hairline bg-card sm:h-[600px]">
+                        <div className="hide-scrollbar h-[340px] overflow-y-auto rounded-lg border border-border-hairline bg-card sm:h-[400px]">
                           <Image
                             src={item.src}
                             alt={item.alt}
