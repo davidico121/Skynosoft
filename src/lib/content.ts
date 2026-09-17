@@ -222,6 +222,79 @@ export const caseStudies: CaseStudy[] = [
       caption: "Revenue by lifecycle stage, pulled directly from the Klaviyo flow performance report",
     },
   },
+  {
+    slug: "maxsleek",
+    brand: "MaxSleek",
+    category: "Fashion",
+    services: ["Email Marketing", "Lifecycle Flow Rebuild"],
+    summary:
+      "Took over a Klaviyo account with no welcome or abandoned-cart automation and a weekly sale-campaign program that wasn't converting, and rebuilt the core lifecycle flows from scratch. Two weeks in, this is the honest early read, not a results showcase yet.",
+    metrics: [
+      { value: "17,000+", label: "Reviews cited in the brand's own campaigns" },
+      { value: "0 → 3", label: "Live lifecycle flows built" },
+      { value: "2 weeks", label: "Since the new flows went live" },
+    ],
+    logoInitial: "M",
+    heroImage: {
+      src: "/case-studies/maxsleek/hero-lifestyle.png",
+      alt: "Lifestyle marketing imagery used in MaxSleek's own email campaigns",
+      width: 900,
+      height: 570,
+    },
+    brandDescription:
+      "MaxSleek is a London-based direct-to-consumer fashion retailer selling women's and men's apparel and accessories (dresses, knitwear, outerwear, bags) through a discount-led offer, running frequent site-wide sale campaigns to a list built up since early 2026.",
+    challengePoints: [
+      "No welcome flow existed at all, new subscribers received nothing after signing up",
+      "No abandoned cart flow existed either",
+      "The account's only cart-recovery automation, an 'Abandoned Checkout' flow built months earlier, had been left sitting in draft status and was never actually sending",
+      "Weekly sale campaigns (12 sends since May) were getting solid opens (35 to 51%) but very low click-through and close to zero orders per send",
+    ],
+    goal: [
+      "Stand up real welcome and cart-recovery automation where none existed",
+      "Get a working baseline of real flow performance data instead of a draft flow no one was watching",
+      "Use the campaign program's healthy opens alongside its weak clicks to start diagnosing where the conversion gap actually is",
+    ],
+    strategy: {
+      intro:
+        "Fix the missing foundation first, then use the account's first real weeks of data to diagnose the campaign conversion gap, rather than guessing at it.",
+      points: [
+        "Build welcome, abandoned cart, and abandoned checkout flows from scratch, matching MaxSleek's existing email design",
+        "Leave the legacy draft checkout flow in place rather than deleting it, as a comparison point once there's enough new data",
+        "Treat the first weeks live as a diagnostic period, not a results period, given how small the recipient volumes still are",
+      ],
+    },
+    execution: [
+      "Audited the account and found a single abandoned-checkout flow, built in May and left in draft, plus no welcome or abandoned-cart automation at all",
+      "Built and launched 3 new flows the week of September 2, 2026: Welcome, Abandoned Cart, and Abandoned Checkout",
+      "Kept the existing weekly sale-campaign cadence running throughout the rebuild",
+    ],
+    resultPoints: [
+      "3 lifecycle flows now live where there were effectively 0 working ones before",
+      "Early open rates across the new flows are already in the 35 to 50% range, in line with the campaign program's opens",
+      "Volumes are still small (each flow has seen well under 100 recipients so far), so this is a structural update, not a revenue result yet",
+      "The campaign program's open-vs-click gap is the next thing being worked on now that the flow foundation is in place",
+    ],
+    gallery: [
+      {
+        src: "/case-studies/maxsleek/customer-stories.png",
+        alt: "A MaxSleek campaign email featuring named verified-buyer reviews (Georgia in Bristol, Robert in Edinburgh, Kenzie in Manchester) alongside product photography",
+        width: 1200,
+        height: 5998,
+      },
+      {
+        src: "/case-studies/maxsleek/bestsellers.png",
+        alt: "A MaxSleek sale campaign email showcasing discounted bestselling products with review counts and star ratings",
+        width: 1200,
+        height: 5285,
+      },
+      {
+        src: "/case-studies/maxsleek/welcome-email.png",
+        alt: "The newly built MaxSleek welcome email, showing the signup discount offer and bestselling product grid",
+        width: 1200,
+        height: 5725,
+      },
+    ],
+  },
 ];
 
 export type Testimonial = {
