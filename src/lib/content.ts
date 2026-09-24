@@ -679,6 +679,11 @@ export const caseStudies: CaseStudy[] = [
         height: 924,
       },
     ],
+    clientReview: {
+      quote:
+        "David did a great job. I found his communication was excellent and any problems that were encountered was dealt with in a pleasant and ethical way that was good for both parties. I had an excellent experience and was pleased with the results and I will be using David for future projects and recommend this freelancer if you are looking for a hard working honest and reliable person to hire on upwork",
+      name: "CannonBalm",
+    },
     gallery: [
       {
         src: "/case-studies/cannonbalm/email-ultimate.jpg",
@@ -772,6 +777,63 @@ export const caseStudies: CaseStudy[] = [
         alt: "BWLL welcome email: Breathe better with us, with a first-order discount code and product benefits",
         width: 600,
         height: 4235,
+      },
+    ],
+  },
+  {
+    slug: "thyvita",
+    brand: "ThyVita",
+    category: "Supplements",
+    services: ["Website Design", "Store Migration", "CRO"],
+    summary:
+      "Website design and seamless store migrations for a thyroid support supplement brand, moving from Squarespace to Shopify to Wix while keeping the site high converting.",
+    metrics: [],
+    logoInitial: "T",
+    heroImage: {
+      src: "/case-studies/thyvita/hero.jpg",
+      alt: "The ThyVita homepage hero, with the Women's Ultra bottle beside the headline Still exhausted and bloated with normal labs?",
+      width: 1200,
+      height: 417,
+    },
+    brandDescription:
+      "ThyVita is a thyroid support supplement brand whose Women's Ultra is marketed as the first and only patented multi for thyroid support, alongside gummies, a starter kit, and a thyroid-friendly meal plan.",
+    challengePoints: [
+      "The store had to move platforms more than once",
+      "Each migration risked disrupting the shopping experience and hurting conversion",
+    ],
+    goal: [
+      "Migrate the store seamlessly at each step",
+      "Keep the site high converting through every platform change",
+    ],
+    execution: [
+      "Designed the site on Squarespace",
+      "Supported the store's migration to Shopify, and then to Wix",
+      "Made sure each migration was seamless for customers",
+      "Took responsibility for keeping the site high converting throughout",
+    ],
+    clientReview: {
+      quote:
+        "David is truly exceptional. Possessing remarkable talent and extensive experience as an artist, he demonstrates proficiency across multiple platforms. His problem-solving skills are commendable, and he works with remarkable efficiency. David respects both time constraints and budgetary limits, making him a highly recommended professional in his field.",
+      name: "ThyVita",
+    },
+    gallery: [
+      {
+        src: "/case-studies/thyvita/home.jpg",
+        alt: "The ThyVita homepage, with a Women's Ultra hero, the reasons you still don't feel like yourself, the clinical expertise behind ThyVita, how it works, top benefits, and best sellers",
+        width: 1200,
+        height: 7565,
+      },
+      {
+        src: "/case-studies/thyvita/collection.jpg",
+        alt: "The ThyVita All Products page, showing a filterable grid of supplements including the Reset Bundle, Collagen Gummies, and the Starter Kit",
+        width: 1200,
+        height: 1890,
+      },
+      {
+        src: "/case-studies/thyvita/product.jpg",
+        alt: "The ThyVita Thyroid Support Starter Kit product page, with a photo gallery, Afterpay pricing, the clinical expertise section, and FAQs",
+        width: 1200,
+        height: 6692,
       },
     ],
   },
