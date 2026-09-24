@@ -272,7 +272,7 @@ export const caseStudies: CaseStudy[] = [
     clientReview: {
       quote:
         "The team\u2019s skills are outstanding, and they always make time for me, despite our smaller-scale projects compared to their major ones. They provide valuable advice when needed and assist with all aspects of website design and management. I highly recommend them for their courtesy, expertise, and talent.",
-      name: "Afrocenchix",
+      name: "Ameen Kalla",
     },
     gallery: [
       {
@@ -333,7 +333,7 @@ export const caseStudies: CaseStudy[] = [
     clientReview: {
       quote:
         "The team was great to work with. Despite Squarespace\u2019s limitations, they did an amazing job with personalizing our site. Communication was easy and our time difference didn\u2019t have any negative impacts on us. Looking forward to working with them again for another project!",
-      name: "Heron Cycling",
+      name: "Hana Lee",
     },
     gallery: [
       {
@@ -687,7 +687,7 @@ export const caseStudies: CaseStudy[] = [
     clientReview: {
       quote:
         "The team did a great job. I found their communication was excellent and any problems that were encountered was dealt with in a pleasant and ethical way that was good for both parties. I had an excellent experience and was pleased with the results and I will be using them for future projects and recommend this team if you are looking for a hard working honest and reliable team to hire on upwork",
-      name: "CannonBalm",
+      name: "Rohan",
     },
     gallery: [
       {
@@ -819,7 +819,7 @@ export const caseStudies: CaseStudy[] = [
     clientReview: {
       quote:
         "The team is truly exceptional. Possessing remarkable talent and extensive experience as artists, they demonstrate proficiency across multiple platforms. Their problem-solving skills are commendable, and they work with remarkable efficiency. They respect both time constraints and budgetary limits, making them a highly recommended professional team in their field.",
-      name: "ThyVita",
+      name: "Rebecca Gould",
     },
     gallery: [
       {
