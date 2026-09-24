@@ -324,7 +324,7 @@ export const caseStudies: CaseStudy[] = [
     execution: [
       "Ran a full Shopify redesign as a 60-day CRO sprint",
       "Built a clean, modern responsive design on custom Shopify templates",
-      "Rebuilt the homepage around a benefits-led hero, press logos, a featured products grid, and a brand story section",
+      "Rebuilt the homepage around press logos, a featured products grid, and a brand story section",
       "Improved product discoverability and load performance",
     ],
     resultPoints: [
@@ -333,16 +333,22 @@ export const caseStudies: CaseStudy[] = [
     ],
     gallery: [
       {
-        src: "/case-studies/afrocenchix/homepage.png",
-        alt: "The redesigned Afrocenchix homepage, with a hero, press logos, a featured products grid, and a why choose us section",
-        width: 576,
-        height: 910,
+        src: "/case-studies/afrocenchix/home.jpg",
+        alt: "The Afrocenchix homepage, with a promotional hero, customer favourites, shop by hair need, press logos, and customer reviews",
+        width: 1200,
+        height: 6375,
       },
       {
-        src: "/case-studies/afrocenchix/portfolio-collage.png",
-        alt: "A collage of the redesigned Afrocenchix store, including the homepage, about section, product sections, and a buy one swirl get one free banner",
-        width: 1080,
-        height: 1920,
+        src: "/case-studies/afrocenchix/collection.jpg",
+        alt: "The Afrocenchix Best Sellers collection page, showing a filterable grid of 22 products with ratings and prices",
+        width: 1200,
+        height: 2967,
+      },
+      {
+        src: "/case-studies/afrocenchix/product.jpg",
+        alt: "The Swish and Swirl Wash Day Duo product page, with a photo gallery, subscribe and save pricing, ingredients, and FAQs",
+        width: 1200,
+        height: 4927,
       },
     ],
   },
