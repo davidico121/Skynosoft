@@ -79,62 +79,6 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "aurelle-skincare",
-    brand: "Aurelle Skincare",
-    category: "Skincare",
-    services: ["Website Redesign", "CRO"],
-    summary:
-      "Redesigned a cluttered Shopify store into a fast, story-led experience — cutting checkout drop-off and lifting average order value.",
-    metrics: [
-      { value: "+186%", label: "Revenue in 90 days" },
-      { value: "+64%", label: "Conversion rate" },
-      { value: "+22%", label: "Average order value" },
-    ],
-    logoInitial: "A",
-  },
-  {
-    slug: "north-fields-supplements",
-    brand: "North Fields",
-    category: "Supplements",
-    services: ["Email Marketing"],
-    summary:
-      "Rebuilt every core Klaviyo flow and launched a weekly campaign engine to recover abandoned checkouts and grow repeat purchase rate.",
-    metrics: [
-      { value: "$412K", label: "Email-attributed revenue" },
-      { value: "+38%", label: "Repeat purchase rate" },
-      { value: "31%", label: "Revenue from flows" },
-    ],
-    logoInitial: "N",
-  },
-  {
-    slug: "haven-home",
-    brand: "Haven Home",
-    category: "Home Decor",
-    services: ["New Website", "Email Marketing"],
-    summary:
-      "Launched a new brand from zero — website, funnel, and full email system live before day one, scaling past six figures monthly within a year.",
-    metrics: [
-      { value: "$0 → $140K/mo", label: "In 11 months" },
-      { value: "+91%", label: "Landing page conversion" },
-      { value: "27%", label: "Email revenue share" },
-    ],
-    logoInitial: "H",
-  },
-  {
-    slug: "lumen-fashion",
-    brand: "Lumen",
-    category: "Fashion",
-    services: ["CRO", "Email Marketing"],
-    summary:
-      "A full-funnel overhaul — homepage, PDPs, and cart flow redesigned alongside a rebuilt email program — to fix a stalled growth curve.",
-    metrics: [
-      { value: "+143%", label: "Revenue growth" },
-      { value: "+56%", label: "Add-to-cart rate" },
-      { value: "3.2x", label: "Email ROI" },
-    ],
-    logoInitial: "L",
-  },
-  {
     slug: "novaya",
     brand: "Novaya",
     category: "Fashion",
