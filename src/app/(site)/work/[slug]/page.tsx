@@ -259,13 +259,11 @@ export default async function CaseStudyPage({
               )}
 
               {caseStudy.clientReview && (
-                <div className="mt-12">
-                  <div className="border-y border-border-hairline-strong py-4">
-                    <p className="font-body text-body-md font-semibold uppercase text-foreground-muted">
-                      Client review
-                    </p>
-                  </div>
-                  <div className="mt-6 rounded-lg bg-[#f7f6f3] p-6 md:p-8">
+                <div className="mt-16">
+                  <h2 className="font-heading text-headline-md font-semibold">
+                    Client review
+                  </h2>
+                  <div className="mt-8 rounded-lg bg-[#f7f6f3] p-6 md:p-8">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
                       <QuoteIcon />
                     </div>
