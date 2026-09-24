@@ -51,7 +51,7 @@ export const services: Service[] = [
 export type CaseStudy = {
   slug: string;
   brand: string;
-  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care" | "Online Courses";
+  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care" | "Online Courses" | "Wellness";
   services: string[];
   summary: string;
   metrics: { value: string; label: string }[];
@@ -605,6 +605,93 @@ export const caseStudies: CaseStudy[] = [
         alt: "Streaky Academy email: Why are we your best choice, comparing Streaky Academy to competitors, with four course recommendations",
         width: 600,
         height: 2996,
+      },
+    ],
+  },
+  {
+    slug: "cannonbalm",
+    brand: "CannonBalm",
+    category: "Wellness",
+    services: ["Email Marketing", "Popups"],
+    summary:
+      "A rebuilt Klaviyo strategy for an Australian natural pain relief brand: targeted popups, optimized post-purchase flows, and win-back campaigns that helped drive $96.7K in total revenue, with $32.8K attributed to email.",
+    metrics: [
+      { value: "$96.7K", label: "Total revenue" },
+      { value: "$32.8K", label: "Attributed to email" },
+      { value: "3.7K", label: "Leads from popups" },
+    ],
+    logoInitial: "C",
+    heroImage: {
+      src: "/case-studies/cannonbalm/hero.jpg",
+      alt: "The CannonBalm homepage hero, showing the Ultimate, Let-Go, Magic Touch and Muscle-Aid balms under the headline Rapid Pain Relief Naturally",
+      width: 1200,
+      height: 667,
+    },
+    brandDescription:
+      "CannonBalm is an Australian natural pain relief brand whose superfruit-based balms and massage oils target joint and muscle pain.",
+    challengePoints: [
+      "Low email engagement",
+      "Low customer retention",
+      "A dormant email list",
+    ],
+    goal: [
+      "Boost email engagement and customer retention",
+      "Grow the email list and re-activate dormant subscribers",
+    ],
+    execution: [
+      "Implemented targeted popups to grow the email list",
+      "Optimized post-purchase email flows",
+      "Introduced win-back campaigns for the dormant list",
+      "Designed a launch email for the limited-batch Ultimate 120ml balm, sent exclusively to existing customers",
+      "Designed a tiered discount email offering 10% off and 20% off with free shipping",
+      "Designed a social proof email built on verified customer reviews",
+    ],
+    resultPoints: [
+      "$96.7K total revenue, up 39% on the previous period",
+      "$32.8K attributed to email, 34% of total revenue and up 77% on the previous period",
+      "$20.5K of attributed revenue from flows and $12.3K from campaigns",
+      "3.7K leads generated through popups",
+      "47% lift in email engagement",
+      "38% conversion increase",
+    ],
+    resultsImages: [
+      {
+        src: "/case-studies/cannonbalm/results-metrics.jpg",
+        alt: "CannonBalm results: 47% increase in engagement, 3.7K generated from popups, 38% customer retention boost, and a Klaviyo business performance summary showing $96,717 total revenue and $32,847 attributed revenue",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/cannonbalm/email-mockups.jpg",
+        alt: "A collage of phone mockups showing CannonBalm emails, including Start The Year Strong, Superfruits For Superheroes, and customer reviews",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/cannonbalm/revenue-summary.jpg",
+        alt: "Klaviyo business performance summary for Apr 27 to May 27, 2024: $96,717 total revenue up 39%, and $32,847 attributed revenue, 33.96% of total, up 77%, split across campaigns and flows",
+        width: 1640,
+        height: 924,
+      },
+    ],
+    gallery: [
+      {
+        src: "/case-studies/cannonbalm/email-ultimate.jpg",
+        alt: "CannonBalm email: The Ultimate 120ml is here, an exclusive limited-time release for existing customers",
+        width: 1200,
+        height: 5342,
+      },
+      {
+        src: "/case-studies/cannonbalm/email-spend-more.jpg",
+        alt: "CannonBalm email: Spend more to save more, with 10% off orders under $100 and 20% off orders over $200 with free shipping",
+        width: 1200,
+        height: 2950,
+      },
+      {
+        src: "/case-studies/cannonbalm/email-start-the-year.jpg",
+        alt: "CannonBalm email: Start the year strong with pain-free living, with verified customer reviews",
+        width: 600,
+        height: 2901,
       },
     ],
   },
