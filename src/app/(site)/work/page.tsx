@@ -5,7 +5,7 @@ import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { caseStudies } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Work — Skynosoft",
+  title: "Case Studies — Skynosoft",
   description:
     "Case studies from ecommerce fashion, skincare, home decor, and supplement brands we've scaled.",
   alternates: {
@@ -18,7 +18,7 @@ export default function WorkPage() {
     <>
       <section className="border-b border-border-hairline">
         <Container className="py-24 text-center md:py-28">
-          <Chip>Work</Chip>
+          <Chip>Case Studies</Chip>
           <h1 className="mx-auto mt-6 max-w-3xl font-heading text-display-xl-mobile font-bold tracking-tight md:text-headline-lg">
             Brands we&rsquo;ve helped fly.
           </h1>

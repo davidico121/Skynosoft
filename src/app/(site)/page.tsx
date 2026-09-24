@@ -65,7 +65,7 @@ export default async function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Button href="/contact">Book a Call / Audit</Button>
             <Button href="/work" variant="secondary">
-              See Our Work
+              See Case Studies
             </Button>
           </div>
         </Container>
