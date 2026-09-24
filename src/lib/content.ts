@@ -386,6 +386,12 @@ export const caseStudies: CaseStudy[] = [
       { value: "-21.7%", label: "Reduced cart abandonment" },
     ],
     logoInitial: "L",
+    heroImage: {
+      src: "/case-studies/lipo-beauty-tea/hero.jpg",
+      alt: "The Lipo Beauty Tea homepage hero, with a video thumbnail of the founder and the headline Feel powerful, feel beautiful: Discover the power of Lipo Beauty Tea",
+      width: 1200,
+      height: 623,
+    },
     brandDescription:
       "Lipo Beauty Tea is a premium wellness brand selling a herbal detox tea through a Shopify store, with email campaigns written in Dutch for its Belgian audience.",
     challengePoints: ["High cart abandonment", "Low conversion rates"],
