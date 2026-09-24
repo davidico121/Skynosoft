@@ -325,6 +325,11 @@ export const caseStudies: CaseStudy[] = [
       "+42% revenue growth over the 90-day partnership",
       "-26% abandonment rate",
     ],
+    clientReview: {
+      quote:
+        "The team was great to work with. Despite Squarespace\u2019s limitations, they did an amazing job with personalizing our site. Communication was easy and our time difference didn\u2019t have any negative impacts on us. Looking forward to working with them again for another project!",
+      name: "Heron Cycling",
+    },
     gallery: [
       {
         src: "/case-studies/heron-cycling/homepage.png",
