@@ -271,7 +271,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     clientReview: {
       quote:
-        "David\u2019s skills are outstanding, and he always makes time for me, despite our smaller-scale projects compared to his major ones. He provides valuable advice when needed and assists with all aspects of website design and management. I highly recommend him for his courtesy, expertise, and talent.",
+        "The team\u2019s skills are outstanding, and they always make time for me, despite our smaller-scale projects compared to their major ones. They provide valuable advice when needed and assist with all aspects of website design and management. I highly recommend them for their courtesy, expertise, and talent.",
       name: "Afrocenchix",
     },
     gallery: [
@@ -686,7 +686,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     clientReview: {
       quote:
-        "David did a great job. I found his communication was excellent and any problems that were encountered was dealt with in a pleasant and ethical way that was good for both parties. I had an excellent experience and was pleased with the results and I will be using David for future projects and recommend this freelancer if you are looking for a hard working honest and reliable person to hire on upwork",
+        "The team did a great job. I found their communication was excellent and any problems that were encountered was dealt with in a pleasant and ethical way that was good for both parties. I had an excellent experience and was pleased with the results and I will be using them for future projects and recommend this team if you are looking for a hard working honest and reliable team to hire on upwork",
       name: "CannonBalm",
     },
     gallery: [
@@ -818,7 +818,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     clientReview: {
       quote:
-        "David is truly exceptional. Possessing remarkable talent and extensive experience as an artist, he demonstrates proficiency across multiple platforms. His problem-solving skills are commendable, and he works with remarkable efficiency. David respects both time constraints and budgetary limits, making him a highly recommended professional in his field.",
+        "The team is truly exceptional. Possessing remarkable talent and extensive experience as artists, they demonstrate proficiency across multiple platforms. Their problem-solving skills are commendable, and they work with remarkable efficiency. They respect both time constraints and budgetary limits, making them a highly recommended professional team in their field.",
       name: "ThyVita",
     },
     gallery: [
