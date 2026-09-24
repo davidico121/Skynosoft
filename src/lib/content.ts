@@ -695,6 +695,81 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "bwll",
+    brand: "BWLL",
+    category: "Wellness",
+    services: ["Email Marketing"],
+    summary:
+      "A Klaviyo revamp built around real customer stories and exclusive offers for an Australian nasal strip brand, generating $187K in total revenue with $75K attributed to email.",
+    metrics: [
+      { value: "$187K", label: "Total revenue" },
+      { value: "$75K", label: "Attributed to email" },
+      { value: "+54.2%", label: "Repeat purchases" },
+    ],
+    logoInitial: "B",
+    heroImage: {
+      src: "/case-studies/bwll/hero.jpg",
+      alt: "The BWLL homepage hero, showing a woman holding a BWLL nasal strip pouch beside the headline Breathe Well. Sleep Well. Live Well.",
+      width: 1200,
+      height: 589,
+    },
+    brandDescription:
+      "BWLL is an Australian nasal strip brand, also selling mouth tape and sleep masks, built around breathing better, sleeping deeper, and living well.",
+    challengePoints: ["Struggled to convert visitors into repeat customers"],
+    goal: [
+      "Turn first-time visitors into repeat customers",
+      "Lift email engagement and conversions",
+    ],
+    execution: [
+      "Revamped BWLL's email campaigns to spotlight real customer stories and exclusive offers",
+      "Designed a welcome email introducing the brand with a first-order discount code",
+      "Designed a discount reminder email with a struggle-versus-relief comparison and a buy one get one free offer",
+      "Designed a customer stories email with real reviews and a comparison of BWLL against other strips",
+    ],
+    resultPoints: [
+      "$187K total revenue, up 202% on the previous period",
+      "$75K attributed to email, 40% of total revenue and up 783% on the previous period",
+      "$68.5K of attributed revenue from flows and $6.9K from campaigns",
+      "+28% click-through rate",
+      "+54.2% repeat purchases",
+      "+35.7% conversion rate",
+    ],
+    resultsImages: [
+      {
+        src: "/case-studies/bwll/results-metrics.jpg",
+        alt: "BWLL results: 28% boost in CTR, 35.7% conversion rate increase, 54.2% boost in repeat purchases, and a Klaviyo business performance summary showing $187,156.95 total revenue and $75,377.60 attributed revenue",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/bwll/revenue-summary.jpg",
+        alt: "Klaviyo business performance summary for Jan 1 to May 31, 2024: $187,156.95 total revenue up 202%, and $75,377.60 attributed revenue, 40.28% of total, up 783%, split across campaigns and flows",
+        width: 1640,
+        height: 924,
+      },
+    ],
+    gallery: [
+      {
+        src: "/case-studies/bwll/email-real-stories.jpg",
+        alt: "BWLL email: Real stories, real results, with customer reviews and a comparison of BWLL against other nasal strips",
+        width: 600,
+        height: 4821,
+      },
+      {
+        src: "/case-studies/bwll/email-difference.jpg",
+        alt: "BWLL email: The difference BWLL tape makes, with a discount reminder and a struggle versus relief comparison",
+        width: 600,
+        height: 4266,
+      },
+      {
+        src: "/case-studies/bwll/email-welcome.jpg",
+        alt: "BWLL welcome email: Breathe better with us, with a first-order discount code and product benefits",
+        width: 600,
+        height: 4235,
+      },
+    ],
+  },
 ];
 
 export type Testimonial = {
