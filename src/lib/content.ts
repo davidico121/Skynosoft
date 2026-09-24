@@ -51,7 +51,7 @@ export const services: Service[] = [
 export type CaseStudy = {
   slug: string;
   brand: string;
-  category: "Fashion" | "Skincare" | "Home Decor" | "Supplements";
+  category: "Fashion" | "Skincare" | "Haircare" | "Home Decor" | "Supplements";
   services: string[];
   summary: string;
   metrics: { value: string; label: string }[];
@@ -292,6 +292,57 @@ export const caseStudies: CaseStudy[] = [
         alt: "The newly built MaxSleek welcome email, showing the signup discount offer and bestselling product grid",
         width: 1200,
         height: 5725,
+      },
+    ],
+  },
+  {
+    slug: "afrocenchix",
+    brand: "Afrocenchix",
+    category: "Haircare",
+    services: ["Website Redesign", "CRO"],
+    summary:
+      "A 60-day CRO sprint and Shopify redesign for a premium vegan haircare brand, built around clearer product discovery and stronger brand storytelling.",
+    metrics: [
+      { value: "+23%", label: "Add-to-cart rate" },
+      { value: "$47K", label: "Revenue from the sprint" },
+      { value: "60 days", label: "CRO sprint length" },
+    ],
+    logoInitial: "A",
+    heroImage: {
+      src: "/case-studies/afrocenchix/hero.png",
+      alt: "The redesigned Afrocenchix homepage hero, showing a model with braids holding a hydrating hair spray beside the headline Natural Hair Care Redefined Elegance",
+      width: 576,
+      height: 326,
+    },
+    brandDescription:
+      "Afrocenchix is a Diverse Owned vegan haircare brand making safe, effective products for Afro, tightly coiled, and curly hair. Its Shopify store is priced in GBP and has been featured in Vogue, the Daily Mail, Forbes, and the BBC.",
+    goal: [
+      "Raise conversion rate through a focused 60-day CRO sprint",
+      "Make products easier to find and the brand story easier to understand",
+      "Improve page load performance on a responsive Shopify build",
+    ],
+    execution: [
+      "Ran a full Shopify redesign as a 60-day CRO sprint",
+      "Built a clean, modern responsive design on custom Shopify templates",
+      "Rebuilt the homepage around a benefits-led hero, press logos, a featured products grid, and a brand story section",
+      "Improved product discoverability and load performance",
+    ],
+    resultPoints: [
+      "+23% add-to-cart rate over the 60-day sprint",
+      "$47K in revenue from the sprint",
+    ],
+    gallery: [
+      {
+        src: "/case-studies/afrocenchix/homepage.png",
+        alt: "The redesigned Afrocenchix homepage, with a hero, press logos, a featured products grid, and a why choose us section",
+        width: 576,
+        height: 910,
+      },
+      {
+        src: "/case-studies/afrocenchix/portfolio-collage.png",
+        alt: "A collage of the redesigned Afrocenchix store, including the homepage, about section, product sections, and a buy one swirl get one free banner",
+        width: 1080,
+        height: 1920,
       },
     ],
   },
