@@ -51,7 +51,7 @@ export const services: Service[] = [
 export type CaseStudy = {
   slug: string;
   brand: string;
-  category: "Fashion" | "Skincare" | "Haircare" | "Home Decor" | "Supplements";
+  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements";
   services: string[];
   summary: string;
   metrics: { value: string; label: string }[];
@@ -341,6 +341,56 @@ export const caseStudies: CaseStudy[] = [
       {
         src: "/case-studies/afrocenchix/portfolio-collage.png",
         alt: "A collage of the redesigned Afrocenchix store, including the homepage, about section, product sections, and a buy one swirl get one free banner",
+        width: 1080,
+        height: 1920,
+      },
+    ],
+  },
+  {
+    slug: "heron-cycling",
+    brand: "Heron Cycling",
+    category: "Activewear",
+    services: ["Website Redesign", "CRO"],
+    summary:
+      "A 90-day partnership building a conversion-focused Shopify store for a performance cycling brand, designed to match its bold identity while cutting abandonment.",
+    metrics: [
+      { value: "+42%", label: "Revenue growth" },
+      { value: "-26%", label: "Abandonment rate" },
+      { value: "90 days", label: "Partnership length" },
+    ],
+    logoInitial: "H",
+    heroImage: {
+      src: "/case-studies/heron-cycling/hero.png",
+      alt: "The Heron Cycling homepage hero, showing two cyclists on a mountain road under the headline Find Freedom In Every Ride",
+      width: 576,
+      height: 301,
+    },
+    brandDescription:
+      "Heron Cycling is a performance wear brand built around freedom, creativity, and self-expression, selling cycling jerseys and hats for men and women through a Shopify store.",
+    goal: [
+      "Grow revenue and reduce abandonment over a 90-day partnership",
+      "Reflect the brand's bold identity in the store design",
+      "Deliver a seamless shopping experience for cycling enthusiasts",
+    ],
+    execution: [
+      "Designed a conversion-focused Shopify store around the brand's bold identity",
+      "Built the homepage as a hero, a brand story section, a featured product collection, and an email signup",
+      "Built dedicated landing page sections for featured jerseys and collections",
+    ],
+    resultPoints: [
+      "+42% revenue growth over the 90-day partnership",
+      "-26% abandonment rate",
+    ],
+    gallery: [
+      {
+        src: "/case-studies/heron-cycling/homepage.png",
+        alt: "The Heron Cycling homepage, with a hero, a who we are section, and the Heartbeat Collection jersey grid",
+        width: 576,
+        height: 894,
+      },
+      {
+        src: "/case-studies/heron-cycling/portfolio-collage.png",
+        alt: "A collage of the Heron Cycling store, including the homepage, the Monochrome Jersey banner, the Heartbeat Collection, and the community signup and footer",
         width: 1080,
         height: 1920,
       },
