@@ -269,6 +269,11 @@ export const caseStudies: CaseStudy[] = [
       "+23% add-to-cart rate over the 60-day sprint",
       "$47K in revenue from the sprint",
     ],
+    clientReview: {
+      quote:
+        "David\u2019s skills are outstanding, and he always makes time for me, despite our smaller-scale projects compared to his major ones. He provides valuable advice when needed and assists with all aspects of website design and management. I highly recommend him for his courtesy, expertise, and talent.",
+      name: "Afrocenchix",
+    },
     gallery: [
       {
         src: "/case-studies/afrocenchix/home.jpg",

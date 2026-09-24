@@ -44,8 +44,8 @@ function BulletList({ items }: { items: string[] }) {
 function QuoteIcon() {
   return (
     <svg
-      width="28"
-      height="22"
+      width="20"
+      height="16"
       viewBox="0 0 40 32"
       fill="none"
       aria-hidden
@@ -259,20 +259,20 @@ export default async function CaseStudyPage({
               )}
 
               {caseStudy.clientReview && (
-                <div className="mt-16">
-                  <div className="border-y border-border-hairline-strong py-6">
-                    <p className="font-heading text-body-md font-semibold uppercase tracking-wide text-foreground-muted">
+                <div className="mt-12">
+                  <div className="border-y border-border-hairline-strong py-4">
+                    <p className="font-body text-body-md font-semibold uppercase text-foreground-muted">
                       Client review
                     </p>
                   </div>
-                  <div className="mt-10 rounded-xl bg-[#f7f6f3] p-8 md:p-12">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md">
+                  <div className="mt-6 rounded-lg bg-[#f7f6f3] p-6 md:p-8">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
                       <QuoteIcon />
                     </div>
-                    <p className="mt-10 font-body text-[22px] leading-snug text-foreground-muted md:text-[26px]">
+                    <p className="mt-6 font-body text-body-lg leading-7 text-foreground-muted">
                       &ldquo;{caseStudy.clientReview.quote}&rdquo;
                     </p>
-                    <p className="mt-8 font-body text-body-lg text-foreground md:text-[24px]">
+                    <p className="mt-5 font-body text-body-lg text-foreground">
                       {caseStudy.clientReview.name}
                     </p>
                     {caseStudy.clientReview.role && (
