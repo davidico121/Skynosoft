@@ -308,12 +308,6 @@ export const caseStudies: CaseStudy[] = [
       { value: "60 days", label: "CRO sprint length" },
     ],
     logoInitial: "A",
-    heroImage: {
-      src: "/case-studies/afrocenchix/hero.png",
-      alt: "The redesigned Afrocenchix homepage hero, showing a model with braids holding a hydrating hair spray beside the headline Natural Hair Care Redefined Elegance",
-      width: 576,
-      height: 326,
-    },
     brandDescription:
       "Afrocenchix is a Diverse Owned vegan haircare brand making safe, effective products for Afro, tightly coiled, and curly hair. Its Shopify store is priced in GBP and has been featured in Vogue, the Daily Mail, Forbes, and the BBC.",
     goal: [
@@ -324,7 +318,6 @@ export const caseStudies: CaseStudy[] = [
     execution: [
       "Ran a full Shopify redesign as a 60-day CRO sprint",
       "Built a clean, modern responsive design on custom Shopify templates",
-      "Rebuilt the homepage around press logos, a featured products grid, and a brand story section",
       "Improved product discoverability and load performance",
     ],
     resultPoints: [
@@ -449,7 +442,7 @@ export const team: TeamMember[] = [
   },
 ];
 
-export const CALENDLY_URL = "https://calendly.com/david-owoeye/discuss";
+export const CALENDLY_URL = "https://calendly.com/david_owoeye/discuss";
 
 export const SITE_URL = "https://www.skynosoft.net";
 export const SITE_NAME = "Skynosoft";
