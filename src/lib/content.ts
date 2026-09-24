@@ -51,7 +51,7 @@ export const services: Service[] = [
 export type CaseStudy = {
   slug: string;
   brand: string;
-  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care";
+  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care" | "Online Courses";
   services: string[];
   summary: string;
   metrics: { value: string; label: string }[];
@@ -523,6 +523,88 @@ export const caseStudies: CaseStudy[] = [
         alt: "An alternate version of the Feno Mastering Your Brushing Experience email with a product photo header",
         width: 280,
         height: 1704,
+      },
+    ],
+  },
+  {
+    slug: "streaky-academy",
+    brand: "Streaky Academy",
+    category: "Online Courses",
+    services: ["Email Marketing", "CRO"],
+    summary:
+      "Targeted Klaviyo campaigns and a streamlined enrollment funnel for an online course platform, helping drive $242K in total revenue with $75K attributed to email.",
+    metrics: [
+      { value: "$242K", label: "Total revenue" },
+      { value: "$75K", label: "Attributed to email (31%)" },
+      { value: "+52.6%", label: "Enrollment growth" },
+    ],
+    logoInitial: "S",
+    heroImage: {
+      src: "/case-studies/streaky-academy/hero.jpg",
+      alt: "The Streaky Academy welcome email header, with the headline Welcome To Streaky Academy and a WELCOME10 code for 10% off a first order",
+      width: 600,
+      height: 400,
+    },
+    brandDescription:
+      "Streaky Academy is an online course platform selling mixing and mastering courses, Logic Pro and Ableton Live bootcamps, and plugin presets to music creators.",
+    challengePoints: ["Low enrollments", "High bounce rates"],
+    goal: [
+      "Grow enrollments and reduce bounce rate",
+      "Build an email program that contributes a meaningful share of revenue",
+    ],
+    execution: [
+      "Streamlined the enrollment funnel and enhanced the site's user experience",
+      "Launched targeted Klaviyo email campaigns",
+      "Designed a welcome email with a 10% first-order code and the most popular courses",
+      "Designed a social proof email built on the 4.91 out of 5 rating from 5,000+ students, with customer reviews",
+      "Designed a comparison email setting Streaky Academy against competitors, with course recommendations and the welcome code",
+    ],
+    resultPoints: [
+      "$242K total revenue, up 29% on the previous period",
+      "$75K attributed revenue, 31% of the total and up 18% on the previous period",
+      "$44,952 of attributed revenue from flows and $30,213 from campaigns",
+      "+52.6% enrollments",
+      "-24.1% bounce rate",
+      "+34% course completions",
+    ],
+    resultsImages: [
+      {
+        src: "/case-studies/streaky-academy/results-metrics.jpg",
+        alt: "Streaky Academy results: 52.6% enrollment growth, 24.1% bounce rate reduction, 34% boost in course completions, and a Klaviyo business performance summary showing $242,115.35 total revenue and $75,164.69 attributed revenue",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/streaky-academy/email-mockups.jpg",
+        alt: "A collage of phone mockups showing Streaky Academy emails, including the welcome, social proof, and course recommendation designs",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/streaky-academy/revenue-summary.jpg",
+        alt: "Klaviyo business performance summary for Apr 27 to May 27, 2024: $242,115.35 total revenue up 29%, and $75,164.69 attributed revenue, 31.04% of total, up 18%, split across campaigns, flows, email and SMS",
+        width: 1640,
+        height: 924,
+      },
+    ],
+    gallery: [
+      {
+        src: "/case-studies/streaky-academy/email-welcome.png",
+        alt: "Streaky Academy welcome email: Take 10% off your first order with code WELCOME10, followed by the most popular courses",
+        width: 639,
+        height: 3327,
+      },
+      {
+        src: "/case-studies/streaky-academy/email-social-proof.png",
+        alt: "Streaky Academy email: Creators love Streaky Academy, with a 4.91 out of 5 rating from 5,000+ students and customer reviews",
+        width: 600,
+        height: 2844,
+      },
+      {
+        src: "/case-studies/streaky-academy/email-comparison.png",
+        alt: "Streaky Academy email: Why are we your best choice, comparing Streaky Academy to competitors, with four course recommendations",
+        width: 600,
+        height: 2996,
       },
     ],
   },
