@@ -30,11 +30,13 @@ export function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
         {caseStudy.summary}
       </p>
 
-      <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border-hairline pt-6">
-        {caseStudy.metrics.slice(0, 3).map((m) => (
-          <MetricStat key={m.label} value={m.value} label={m.label} size="sm" />
-        ))}
-      </div>
+      {caseStudy.metrics.length > 0 && (
+        <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border-hairline pt-6">
+          {caseStudy.metrics.slice(0, 3).map((m) => (
+            <MetricStat key={m.label} value={m.value} label={m.label} size="sm" />
+          ))}
+        </div>
+      )}
     </Link>
   );
 }

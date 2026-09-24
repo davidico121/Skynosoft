@@ -339,6 +339,39 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "elissa-and-stef",
+    brand: "Elissa & Stef",
+    category: "Activewear",
+    services: ["Website Redesign", "CRO"],
+    summary:
+      "A Shopify revamp for a fashion and activewear brand whose site lacked branding and a consistent layout, rebuilt to look like one brand and optimized for conversion.",
+    metrics: [],
+    logoInitial: "E",
+    brandDescription:
+      "Elissa & Stef is a fashion and activewear brand selling collections like Agile, Rooftop Couture, Brave, and Momentum through a Shopify store with worldwide shipping.",
+    challengePoints: [
+      "The former website lacked branding",
+      "The layout and design were inconsistent across the site",
+    ],
+    goal: [
+      "Give the website a better look and feel",
+      "Optimize the site for conversion rate",
+    ],
+    execution: [
+      "Evaluated the state of the existing website and identified the areas that needed to be fixed",
+      "Built a Notion breakdown for the brand owner covering everything that needed to change",
+      "Fixed those areas to give the store a consistent, branded design",
+    ],
+    gallery: [
+      {
+        src: "/case-studies/elissa-stef/portfolio-collage.png",
+        alt: "The Elissa & Stef store on desktop and mobile, with a Play Bravely This Season hero, collection tiles for Agile, Rooftop Couture, Brave, and Momentum, and a Rooftop Couture feature",
+        width: 1080,
+        height: 1920,
+      },
+    ],
+  },
 ];
 
 export type Testimonial = {

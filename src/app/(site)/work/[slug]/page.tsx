@@ -150,14 +150,16 @@ export default async function CaseStudyPage({
             </aside>
 
             <div>
-              <div className="grid gap-8 rounded-xl border border-border-hairline bg-card p-10 sm:grid-cols-3">
-                {caseStudy.metrics.map((m) => (
-                  <MetricStat key={m.label} value={m.value} label={m.label} />
-                ))}
-              </div>
+              {caseStudy.metrics.length > 0 && (
+                <div className="grid gap-8 rounded-xl border border-border-hairline bg-card p-10 sm:grid-cols-3">
+                  {caseStudy.metrics.map((m) => (
+                    <MetricStat key={m.label} value={m.value} label={m.label} />
+                  ))}
+                </div>
+              )}
 
               {caseStudy.brandDescription ? (
-                <div className="mt-16 flex flex-col gap-12">
+                <div className={`${caseStudy.metrics.length > 0 ? "mt-16" : ""} flex flex-col gap-12`}>
                   <CaseSection title="The brand" intro={caseStudy.brandDescription} />
                   {caseStudy.challengePoints && (
                     <CaseSection title="The challenge" items={caseStudy.challengePoints} />
