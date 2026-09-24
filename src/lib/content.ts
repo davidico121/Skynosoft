@@ -61,6 +61,7 @@ export type CaseStudy = {
   approach?: string[];
   gallery?: { src: string; alt: string; width: number; height: number; caption?: string }[];
   heroImage?: { src: string; alt: string; width: number; height: number };
+  resultsImages?: { src: string; alt: string; width: number; height: number }[];
   resultsChart?: { src: string; alt: string; width: number; height: number; caption?: string };
   clientReview?: { quote: string; name: string; role?: string };
   /**
@@ -369,6 +370,74 @@ export const caseStudies: CaseStudy[] = [
         alt: "The Elissa & Stef store on desktop and mobile, with a Play Bravely This Season hero, collection tiles for Agile, Rooftop Couture, Brave, and Momentum, and a Rooftop Couture feature",
         width: 1080,
         height: 1920,
+      },
+    ],
+  },
+  {
+    slug: "lipo-beauty-tea",
+    brand: "Lipo Beauty Tea",
+    category: "Supplements",
+    services: ["Email Marketing", "CRO"],
+    summary:
+      "Targeted Klaviyo campaigns and a refined checkout for a premium wellness tea brand, producing $26K from a single email campaign and open rates up to 43.61%.",
+    metrics: [
+      { value: "$26K", label: "From a single email campaign" },
+      { value: "+33.4%", label: "Conversion rate increase" },
+      { value: "-21.7%", label: "Reduced cart abandonment" },
+    ],
+    logoInitial: "L",
+    brandDescription:
+      "Lipo Beauty Tea is a premium wellness brand selling a herbal detox tea through a Shopify store, with email campaigns written in Dutch for its Belgian audience.",
+    challengePoints: ["High cart abandonment", "Low conversion rates"],
+    goal: [
+      "Reduce cart abandonment and lift conversion rate",
+      "Turn seasonal sales into high-revenue email campaigns",
+    ],
+    execution: [
+      "Optimized the Shopify store and refined the checkout flow",
+      "Revamped email marketing with targeted Klaviyo campaigns and personalized messaging",
+      "Ran a Black Friday campaign built around a 40% discount code, with a customer review and benefit icons",
+      "Ran a Cyber Monday buy-one-get-one-free campaign with a 24-hour countdown timer",
+    ],
+    resultPoints: [
+      "$26K in revenue from a single email campaign",
+      "+33.4% conversion rate",
+      "-21.7% cart abandonment",
+      "+42% ROI",
+      "Open rates up to 43.61%",
+    ],
+    resultsImages: [
+      {
+        src: "/case-studies/lipo-beauty-tea/results-metrics.jpg",
+        alt: "Lipo Beauty Tea results: 33.4% conversion rate increase, 21.7% reduced cart abandonment, and a Klaviyo table of three campaigns with open rates of 37.32%, 41.67% and 43.61% and revenue of $6,127.50, $25,463.95 and $26,579.01",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/lipo-beauty-tea/email-mockups.jpg",
+        alt: "A collage of phone mockups showing the Lipo Beauty Tea Black Friday and Cyber Monday emails",
+        width: 1640,
+        height: 924,
+      },
+    ],
+    gallery: [
+      {
+        src: "/case-studies/lipo-beauty-tea/email-last-chance.png",
+        alt: "Lipo Beauty Tea last-chance email: Onze Lipo detox-thee vliegt de deur uit, with a 40% discount code button and three benefit icons",
+        width: 600,
+        height: 1814,
+      },
+      {
+        src: "/case-studies/lipo-beauty-tea/email-black-friday.png",
+        alt: "Lipo Beauty Tea Black Friday email with a 40% discount, a customer review from Sandra Kox, and icons for weight loss support, energy, and reduced bloating",
+        width: 600,
+        height: 2218,
+      },
+      {
+        src: "/case-studies/lipo-beauty-tea/email-cyber-monday.png",
+        alt: "Lipo Beauty Tea Cyber Monday email: buy one get one free, with a 24-hour countdown timer and product photo",
+        width: 599,
+        height: 1970,
       },
     ],
   },

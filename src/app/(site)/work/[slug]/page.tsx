@@ -178,6 +178,20 @@ export default async function CaseStudyPage({
                   {caseStudy.resultPoints && (
                     <div>
                       <CaseSection title="The results" items={caseStudy.resultPoints} />
+                      {caseStudy.resultsImages?.map((img) => (
+                        <div
+                          key={img.src}
+                          className="mt-8 overflow-hidden rounded-lg border border-border-hairline bg-card"
+                        >
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            width={img.width}
+                            height={img.height}
+                            className="block h-auto w-full"
+                          />
+                        </div>
+                      ))}
                       {caseStudy.resultsChart && (
                         <figure className="mt-8">
                           <div className="overflow-hidden rounded-lg border border-border-hairline bg-card">
