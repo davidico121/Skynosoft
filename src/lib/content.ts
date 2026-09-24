@@ -51,7 +51,7 @@ export const services: Service[] = [
 export type CaseStudy = {
   slug: string;
   brand: string;
-  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements";
+  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care";
   services: string[];
   summary: string;
   metrics: { value: string; label: string }[];
@@ -444,6 +444,85 @@ export const caseStudies: CaseStudy[] = [
         alt: "Lipo Beauty Tea Cyber Monday email: buy one get one free, with a 24-hour countdown timer and product photo",
         width: 599,
         height: 1970,
+      },
+    ],
+  },
+  {
+    slug: "feno",
+    brand: "Feno",
+    category: "Oral Care",
+    services: ["Email Marketing", "Email Template Design"],
+    summary:
+      "Klaviyo email flows and template design for an AI-driven oral health brand, reaching a 59.5% open rate and a 22.5% lift in click-through rate.",
+    metrics: [
+      { value: "59.5%", label: "Open rate" },
+      { value: "+22.5%", label: "CTR lift" },
+      { value: "+18.3%", label: "Revenue per email" },
+    ],
+    logoInitial: "F",
+    heroImage: {
+      src: "/case-studies/feno/hero.jpg",
+      alt: "The Feno homepage hero, showing the Smartbrush with the headline 20-Second Brush. Stroke Defense",
+      width: 1200,
+      height: 675,
+    },
+    brandDescription:
+      "Feno is an AI-driven oral health brand behind the Feno Smartbrush, a 20-second brush with a companion app that tracks brushing habits and gives users an oral health report.",
+    challengePoints: ["Low engagement", "High drop-off rates"],
+    goal: [
+      "Lift engagement and retention with better email and site experience",
+      "Help new customers set up and get more from their Smartbrush",
+    ],
+    execution: [
+      "Optimized the website flow and streamlined checkout",
+      "Refined email sequences and designed Klaviyo email templates",
+      "Designed a setup email that walks new customers through getting their brush running in 5 minutes, with app store download buttons",
+      "Designed a follow-up email with tips for getting more from the brush and the Feno app, including a pro tip and a call to action to see it in the app",
+    ],
+    resultPoints: [
+      "59.5% open rate and 3.86% click rate across 180,615 recipients over 30 days",
+      "22.5% lift in click-through rate",
+      "18.3% increase in revenue per email",
+      "0.59% bounce rate, 0.29% unsubscribe rate, and 0.01% spam complaint rate",
+    ],
+    resultsImages: [
+      {
+        src: "/case-studies/feno/results-metrics.jpg",
+        alt: "Feno results summary: 59.5% open rate, 18.3% increase in revenue per email, 22.5% CTR boost, and Klaviyo key metrics for the past 30 days",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/feno/email-mockups.jpg",
+        alt: "A collage of phone mockups showing Feno emails, including the Smartbrush setup steps and the Mastering Your Brushing Experience tips",
+        width: 1640,
+        height: 924,
+      },
+      {
+        src: "/case-studies/feno/key-metrics.jpg",
+        alt: "Klaviyo key metrics for Feno over 30 days: 59.5% open rate, 3.86% click rate, 0.59% bounce rate, 0.29% unsubscribe rate, 0.01% spam complaint rate, 180,615 total recipients",
+        width: 1640,
+        height: 924,
+      },
+    ],
+    gallery: [
+      {
+        src: "/case-studies/feno/email-setup.png",
+        alt: "Feno setup email: Get ready for the smartest brush of your life, with five steps to set up the Smartbrush in 5 minutes",
+        width: 280,
+        height: 2578,
+      },
+      {
+        src: "/case-studies/feno/email-mastering.png",
+        alt: "Feno email: Mastering your brushing experience, with a tip on adjusting brushing speed in the Feno app and a pro tip",
+        width: 280,
+        height: 1787,
+      },
+      {
+        src: "/case-studies/feno/email-mastering-alt.png",
+        alt: "An alternate version of the Feno Mastering Your Brushing Experience email with a product photo header",
+        width: 280,
+        height: 1704,
       },
     ],
   },
