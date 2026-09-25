@@ -182,6 +182,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "2 weeks", label: "Since the new flows went live" },
     ],
     logoInitial: "M",
+    logo: { src: "/case-studies/maxsleek/logo.png", width: 544, height: 70 },
     heroImage: {
       src: "/case-studies/maxsleek/hero-lifestyle.png",
       alt: "Lifestyle marketing imagery used in MaxSleek's own email campaigns",
@@ -474,6 +475,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "+18.3%", label: "Revenue per email" },
     ],
     logoInitial: "F",
+    logo: { src: "/case-studies/feno/logo.svg", width: 525, height: 164 },
     heroImage: {
       src: "/case-studies/feno/hero.jpg",
       alt: "The Feno homepage hero, showing the Smartbrush with the headline 20-Second Brush. Stroke Defense",
@@ -553,6 +555,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "+52.6%", label: "Enrollment growth" },
     ],
     logoInitial: "S",
+    logo: { src: "/case-studies/streaky-academy/logo.png", width: 600, height: 88 },
     heroImage: {
       src: "/case-studies/streaky-academy/hero.jpg",
       alt: "The Streaky Academy welcome email header, with the headline Welcome To Streaky Academy and a WELCOME10 code for 10% off a first order",
@@ -728,6 +731,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "+54.2%", label: "Repeat purchases" },
     ],
     logoInitial: "B",
+    logo: { src: "/case-studies/bwll/logo.svg", width: 383, height: 161 },
     heroImage: {
       src: "/case-studies/bwll/hero.jpg",
       alt: "The BWLL homepage hero, showing a woman holding a BWLL nasal strip pouch beside the headline Breathe Well. Sleep Well. Live Well.",

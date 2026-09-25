@@ -17,21 +17,23 @@ export function CaseStudyCard({
       href={`${baseUrl}/work/${caseStudy.slug}`}
       className="group flex flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
     >
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between gap-4">
         <div className="flex flex-wrap gap-2">
           {caseStudy.services.map((s) => (
             <Chip key={s}>{s}</Chip>
           ))}
         </div>
         {caseStudy.logo ? (
-          <Image
-            src={caseStudy.logo.src}
-            alt={`${caseStudy.brand} logo`}
-            width={caseStudy.logo.width}
-            height={caseStudy.logo.height}
-            unoptimized={caseStudy.logo.src.endsWith(".svg")}
-            className="h-12 w-auto max-w-[120px] shrink-0 object-contain object-right"
-          />
+          <div className="h-8 w-28 shrink-0">
+            <Image
+              src={caseStudy.logo.src}
+              alt={`${caseStudy.brand} logo`}
+              width={caseStudy.logo.width}
+              height={caseStudy.logo.height}
+              unoptimized={caseStudy.logo.src.endsWith(".svg")}
+              className="h-full w-full object-contain object-right"
+            />
+          </div>
         ) : (
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-surface-container-high font-heading text-headline-md text-foreground-muted">
             {caseStudy.logoInitial}
