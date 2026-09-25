@@ -1,9 +1,11 @@
 import { Testimonial } from "@/lib/content";
+import { QuoteBadge } from "./QuoteBadge";
 
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <figure className="flex h-full flex-col justify-between rounded-xl border border-border-hairline bg-card p-8">
-      <blockquote className="font-heading text-headline-md font-medium leading-snug">
+    <figure className="flex h-full flex-col justify-between rounded-xl bg-[#f7f6f3] p-8">
+      <QuoteBadge />
+      <blockquote className="mt-6 font-heading text-headline-md font-medium leading-snug">
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>
       <figcaption className="mt-8 font-label text-label-mono uppercase tracking-wide text-foreground-muted">

@@ -10,6 +10,7 @@ import {
   UserCirclePlus,
   WarningCircle,
 } from "@phosphor-icons/react/dist/ssr";
+import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
 import { strategyPitches, type StrategyIconKey, type StrategyShot } from "@/lib/strategy";
@@ -57,17 +58,6 @@ export async function generateMetadata({
     title: `A note for ${pitch.brand} | Skynosoft`,
     robots: { index: false, follow: false },
   };
-}
-
-function QuoteIcon() {
-  return (
-    <svg width="20" height="16" viewBox="0 0 40 32" fill="none" aria-hidden className="text-primary">
-      <path
-        d="M0 32V19.2C0 13.44 1.6 8.8 4.8 5.28C8 1.76 12.16 0 17.28 0V6.72C14.72 6.72 12.72 7.52 11.28 9.12C9.84 10.72 9.12 12.8 9.12 15.36H17.28V32H0ZM22.72 32V19.2C22.72 13.44 24.32 8.8 27.52 5.28C30.72 1.76 34.88 0 40 0V6.72C37.44 6.72 35.44 7.52 34 9.12C32.56 10.72 31.84 12.8 31.84 15.36H40V32H22.72Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
 }
 
 function Wrap({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -313,9 +303,10 @@ export default async function StrategyPage({
                   {pitch.problemSolution.reviews.items.map((review) => (
                     <figure
                       key={review.name}
-                      className="rounded-xl border border-border-hairline bg-white p-8"
+                      className="rounded-xl bg-[#f7f6f3] p-6 md:p-8"
                     >
-                      <blockquote className="font-body text-lg text-foreground text-pretty">
+                      <QuoteBadge />
+                      <blockquote className="mt-6 font-body text-lg text-foreground text-pretty">
                         &ldquo;{review.quote}&rdquo;
                       </blockquote>
                       <figcaption className="mt-4 font-body text-base text-foreground-muted">
@@ -431,9 +422,7 @@ export default async function StrategyPage({
             </div>
             {reviewCase?.clientReview && (
               <figure className="mt-6 rounded-xl bg-[#f7f6f3] p-6 md:p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
-                  <QuoteIcon />
-                </div>
+                <QuoteBadge />
                 <blockquote className="mt-6 max-w-[680px] font-body text-xl text-foreground-muted text-pretty">
                   &ldquo;{reviewCase.clientReview.quote}&rdquo;
                 </blockquote>
