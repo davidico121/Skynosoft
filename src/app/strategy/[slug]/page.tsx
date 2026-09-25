@@ -16,7 +16,7 @@ import { strategyPitches, type StrategyIconKey, type StrategyShot } from "@/lib/
 import { Reveal, TaglineReveal } from "../Reveal";
 import { IslandNav } from "../IslandNav";
 import logo from "../../../../public/brand/skynosoft-logo-horizontal.png";
-import founderPhoto from "../../../../public/brand/david-owoeye.jpg";
+import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
 
 export const dynamicParams = false;
 
@@ -57,6 +57,17 @@ export async function generateMetadata({
     title: `A note for ${pitch.brand} | Skynosoft`,
     robots: { index: false, follow: false },
   };
+}
+
+function QuoteIcon() {
+  return (
+    <svg width="20" height="16" viewBox="0 0 40 32" fill="none" aria-hidden className="text-primary">
+      <path
+        d="M0 32V19.2C0 13.44 1.6 8.8 4.8 5.28C8 1.76 12.16 0 17.28 0V6.72C14.72 6.72 12.72 7.52 11.28 9.12C9.84 10.72 9.12 12.8 9.12 15.36H17.28V32H0ZM22.72 32V19.2C22.72 13.44 24.32 8.8 27.52 5.28C30.72 1.76 34.88 0 40 0V6.72C37.44 6.72 35.44 7.52 34 9.12C32.56 10.72 31.84 12.8 31.84 15.36H40V32H22.72Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
 }
 
 function Wrap({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -419,8 +430,11 @@ export default async function StrategyPage({
               ))}
             </div>
             {reviewCase?.clientReview && (
-              <figure className="mt-6 rounded-xl border border-border-hairline bg-card p-8">
-                <blockquote className="max-w-[680px] font-body text-xl text-foreground-muted text-pretty">
+              <figure className="mt-6 rounded-xl bg-[#f7f6f3] p-6 md:p-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">
+                  <QuoteIcon />
+                </div>
+                <blockquote className="mt-6 max-w-[680px] font-body text-xl text-foreground-muted text-pretty">
                   &ldquo;{reviewCase.clientReview.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-6 font-body text-base text-foreground">
@@ -477,40 +491,15 @@ export default async function StrategyPage({
 
         <Section id="book">
           <Reveal>
-            <div className="grid items-center gap-12 md:grid-cols-[320px_minmax(0,1fr)] md:gap-16">
-              <figure className="mx-auto w-full max-w-[320px]">
-                <div className="overflow-hidden rounded-xl border border-border-hairline bg-card">
-                  <Image
-                    src={founderPhoto}
-                    alt="David Owoeye of Skynosoft"
-                    className="block h-auto w-full"
-                    sizes="320px"
-                  />
-                </div>
-                <figcaption className="mt-4 font-body text-base text-foreground-muted">
-                  David Owoeye, Skynosoft Ltd.
-                </figcaption>
-              </figure>
-              <div>
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
-                  <ShieldCheck size={24} weight="duotone" aria-hidden />
-                </span>
-                <h2 className="mt-6 max-w-[680px] font-heading text-3xl font-semibold text-balance md:text-4xl">
-                  {pitch.risk.heading}
-                </h2>
-                <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
-                  {pitch.risk.text}
-                </p>
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-8 ${BUTTON}`}
-                >
-                  {hero.cta}
-                </a>
-              </div>
-            </div>
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
+              <ShieldCheck size={24} weight="duotone" aria-hidden />
+            </span>
+            <h2 className="mt-6 max-w-[680px] font-heading text-3xl font-semibold text-balance md:text-4xl">
+              {pitch.risk.heading}
+            </h2>
+            <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
+              {pitch.risk.text}
+            </p>
             <div className="mt-12 overflow-hidden rounded-xl border border-border-hairline bg-card">
               <iframe
                 src={CALENDLY_URL}
@@ -519,6 +508,19 @@ export default async function StrategyPage({
                 className="block"
                 title="Book a call with Skynosoft"
               />
+            </div>
+            <div className="mt-12 flex flex-col items-center text-center">
+              <Image
+                src={founderAvatar}
+                alt="David Owoeye"
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-full object-cover"
+              />
+              <p className="mt-4 font-heading text-lg font-semibold">David Owoeye</p>
+              <p className="mt-1 font-body text-base text-foreground-muted">
+                Founder &amp; CEO, Skynosoft Ltd.
+              </p>
             </div>
           </Reveal>
         </Section>

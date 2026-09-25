@@ -253,7 +253,7 @@ export const strategyPitches: StrategyPitch[] = [
     caseStudySlugs: ["bwll", "cannonbalm"],
     reviewFromCaseStudy: "cannonbalm",
     tagline:
-      "Do this and MYOwellness stops depending entirely on new customer acquisition to grow. Your existing, already convinced customers start compounding on their own, the way AG1 and Grunds customers do.",
+      "Do this and MYOwellness stops depending entirely on new customer acquisition to grow. Your existing, already convinced customers start compounding on their own, the way AG1 and Gruns customers do.",
     faqHeading: "Before you book",
     faqs: [
       {
