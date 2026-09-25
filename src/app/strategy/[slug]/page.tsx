@@ -42,6 +42,33 @@ function SectionHeading({ label, title }: { label: string; title: string }) {
   );
 }
 
+function Paragraphs({ items }: { items: string[] }) {
+  return (
+    <div className="mt-6 flex flex-col gap-5">
+      {items.map((text) => (
+        <p key={text} className="font-body text-body-lg text-foreground-muted">
+          {text}
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function Narrative({ heading, children }: { heading: string; children: React.ReactNode }) {
+  return (
+    <section className="border-t border-border-hairline">
+      <Container className="py-section-gap">
+        <div className="max-w-3xl">
+          <h2 className="font-heading text-headline-md font-semibold md:text-headline-lg">
+            {heading}
+          </h2>
+          {children}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 export default async function StrategyPage({
   params,
 }: {
@@ -68,14 +95,42 @@ export default async function StrategyPage({
           aria-hidden
         />
         <Container className="relative py-20 md:py-28">
-          <Chip>{`Prepared for ${pitch.brand}`}</Chip>
+          <Chip>{pitch.eyebrow}</Chip>
           <h1 className="mt-6 max-w-4xl font-heading text-headline-md font-bold tracking-tight md:text-headline-lg">
-            {pitch.heroSummary}
+            {pitch.headline}
           </h1>
+          <div className="max-w-2xl">
+            <Paragraphs items={pitch.problem} />
+          </div>
         </Container>
       </section>
 
-      <section>
+      <Narrative heading={pitch.amplify.heading}>
+        <Paragraphs items={pitch.amplify.paragraphs} />
+      </Narrative>
+
+      <Narrative heading={pitch.story.heading}>
+        <Paragraphs items={pitch.story.paragraphs} />
+      </Narrative>
+
+      <Narrative heading={pitch.transformation.heading}>
+        <ul className="mt-6 flex flex-col gap-3">
+          {pitch.transformation.points.map((point) => (
+            <li key={point} className="flex gap-3 font-body text-body-lg text-foreground-muted">
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+        <Paragraphs items={[pitch.transformation.closing]} />
+      </Narrative>
+
+      <Narrative heading={pitch.offer.heading}>
+        <Paragraphs items={pitch.offer.paragraphs} />
+      </Narrative>
+
+      <div id="plan" className="scroll-mt-24">
+      <section className="border-t border-border-hairline">
         <Container className="py-section-gap">
           <SectionHeading label="Current state" title="Where the customer journey breaks." />
           <ol className="mt-14 grid gap-4 md:grid-cols-4">
@@ -179,10 +234,12 @@ export default async function StrategyPage({
         </Container>
       </section>
 
+      </div>
+
       <section id="book" className="scroll-mt-24 border-t border-border-hairline">
         <Container className="py-section-gap">
           <h2 className="mx-auto max-w-3xl text-center font-heading text-headline-md font-semibold md:text-headline-lg">
-            {pitch.ctaHeadline}
+            {pitch.response.heading}
           </h2>
           <div className="mt-12 overflow-hidden rounded-xl border border-border-hairline bg-card">
             <iframe
@@ -190,10 +247,13 @@ export default async function StrategyPage({
               width="100%"
               height="700"
               className="block"
-              title={`Book a call with Skynosoft`}
+              title="Book a call with Skynosoft"
             />
           </div>
-          <p className="mt-8 text-center font-body text-body-md text-foreground-muted">
+          <p className="mx-auto mt-8 max-w-2xl text-center font-body text-body-lg text-foreground-muted">
+            P.S. {pitch.response.ps}
+          </p>
+          <p className="mt-4 text-center font-body text-body-md text-foreground-muted">
             David Owoeye, Skynosoft Ltd.
           </p>
         </Container>

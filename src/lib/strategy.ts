@@ -7,8 +7,20 @@ export type StrategyPitch = {
   /** URL slug: strategy.skynosoft.net/<slug>. */
   slug: string;
   brand: string;
-  /** One-line summary of the opportunity, shown as the hero headline. */
-  heroSummary: string;
+  /** Eyebrow above the headline, e.g. "A note for {brand}". */
+  eyebrow: string;
+  /** The hero headline: the problem, told through something real about this brand. */
+  headline: string;
+  /** Paragraphs under the headline. */
+  problem: string[];
+  /** What the problem is costing them. */
+  amplify: { heading: string; paragraphs: string[] };
+  /** Proof that the site was actually checked. */
+  story: { heading: string; paragraphs: string[] };
+  /** What it looks like fixed. */
+  transformation: { heading: string; points: string[]; closing: string };
+  /** Leads into the flow, infrastructure, impact and timeline sections below it. */
+  offer: { heading: string; paragraphs: string[] };
   currentState: {
     /** The customer journey, in order. Mark the steps where it breaks with leak: true. */
     steps: { title: string; detail: string; leak?: boolean }[];
@@ -21,15 +33,54 @@ export type StrategyPitch = {
   impact: { value: string; label: string }[];
   /** 3-4 phases. */
   timeline: { week: string; title: string; description: string }[];
-  ctaHeadline: string;
+  /** Closing section above the Calendly embed. */
+  response: { heading: string; ps: string };
 };
 
 export const strategyPitches: StrategyPitch[] = [
   {
     slug: "myowellness",
     brand: "MYOwellness",
-    heroSummary:
-      "Your products deliver real results. Your retention infrastructure doesn't exist yet, and that's costing you repeat revenue.",
+    eyebrow: "A note for MYOwellness",
+    headline:
+      "Debbie's hair stopped falling out. Ling's skin cleared up. And neither of them heard from you again.",
+    problem: [
+      "I read through your reviews before writing this. Real people are getting real results from your collagen and your mushroom blend. That's rare. Most supplement brands can't say that honestly. You can. But right now, the story stops the moment someone completes checkout.",
+    ],
+    amplify: {
+      heading: "Here's what that's actually costing you",
+      paragraphs: [
+        "Collagen doesn't last forever. Neither does a 900g protein pouch. Everyone taking Hydrolysed Bovine Collagen daily is going to run out, probably in 30 to 40 days. That's not a maybe, it's built into the product itself.",
+        "Right now, when that happens, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer.",
+        "Multiply that across every collagen customer, every protein customer, everyone who bought Immune Defence heading into cold season. That's not a small leak. Over a year, it's most of your repeat revenue disappearing before it ever shows up as a number, because it never registers as a lost sale. It just registers as silence.",
+      ],
+    },
+    story: {
+      heading: "I went looking",
+      paragraphs: [
+        "I checked the site properly before writing this, not just the homepage. There's no pop-up capturing intent. The only email signup live right now is one field buried in the footer that says \"Keep up to date with us.\" No incentive, no promise, no reason to give you an email address.",
+        "And if someone finds it and signs up anyway, there's nothing waiting for them. No welcome email. No story about why the collagen works. No nudge toward a first order.",
+        "This isn't a knock on the brand. The product side is genuinely strong, which is exactly why this gap stands out. You've done the hard part. The infrastructure that should carry that hard part into repeat revenue just isn't built yet.",
+      ],
+    },
+    transformation: {
+      heading: "What this looks like fixed",
+      points: [
+        "Someone curious about collagen for hair health gets a real reason to hand over their email, not \"keep up to date\"",
+        "A first-time buyer gets welcomed properly and told what to expect, so they don't quietly give up before results kick in",
+        "A collagen customer gets an email right around day 25 to 30, timed to when their pouch is actually running low",
+        "A customer gone quiet for 60+ days gets a specific win-back sequence instead of falling off the list forever",
+      ],
+      closing:
+        "Do this and MYOwellness stops depending entirely on new customer acquisition to grow. Your existing, already-convinced customers start compounding on their own, the way AG1 and Grunds customers do.",
+    },
+    offer: {
+      heading: "What I'd do",
+      paragraphs: [
+        "I've mapped this out specifically for your product range below. Before you spend anything, I want you to see exactly what I'm proposing.",
+        "If it's worth a conversation, we get on a short call, I ask a few questions about your actual reorder cycles and customer behavior, and we build from there: welcome sequence, reorder nurture, subscription layer, win-back flow, live before BFCM.",
+      ],
+    },
     currentState: {
       steps: [
         {
@@ -110,6 +161,9 @@ export const strategyPitches: StrategyPitch[] = [
           "Flows go live ahead of BFCM, with recovery automation activated for existing lapsed customers.",
       },
     ],
-    ctaHeadline: "Let's put this infrastructure in place before BFCM",
+    response: {
+      heading: "Let's talk it through",
+      ps: "This isn't a sales call. Bring your questions, not your card.",
+    },
   },
 ];
