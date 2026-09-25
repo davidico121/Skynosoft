@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
+import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { MetricStat } from "@/components/ui/MetricStat";
 import { caseStudies } from "@/lib/content";
@@ -55,7 +56,9 @@ function CaseSection({
     <div>
       <h2 className="font-heading text-headline-md font-semibold">{title}</h2>
       {intro && (
-        <p className="mt-4 font-body text-body-lg text-foreground-muted">{intro}</p>
+        <div className="mt-4">
+          <Paragraphs text={intro} className="font-body text-body-lg text-foreground-muted" />
+        </div>
       )}
       {items && <BulletList items={items} />}
     </div>
@@ -248,9 +251,13 @@ export default async function CaseStudyPage({
                   </h2>
                   <div className="mt-8 rounded-lg bg-[#f7f6f3] p-6 md:p-8">
                     <QuoteBadge />
-                    <p className="mt-6 font-body text-body-lg leading-7 text-foreground-muted">
-                      &ldquo;{caseStudy.clientReview.quote}&rdquo;
-                    </p>
+                    <div className="mt-6">
+                      <Paragraphs
+                        quote
+                        text={caseStudy.clientReview.quote}
+                        className="font-body text-body-lg leading-7 text-foreground-muted"
+                      />
+                    </div>
                     <p className="mt-5 font-body text-body-lg text-foreground">
                       {caseStudy.clientReview.name}
                     </p>

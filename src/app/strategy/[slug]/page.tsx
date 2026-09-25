@@ -10,6 +10,8 @@ import {
   UserCirclePlus,
   WarningCircle,
 } from "@phosphor-icons/react/dist/ssr";
+import { Paragraphs } from "@/components/ui/Paragraphs";
+import { splitParagraphs } from "@/lib/paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
@@ -270,9 +272,10 @@ export default async function StrategyPage({
                   <h3 className="font-heading text-2xl font-semibold">
                     {pitch.problemSolution.problem.title}
                   </h3>
-                  <p className="mt-4 font-body text-lg text-foreground-muted text-pretty">
-                    {pitch.problemSolution.problem.text}
-                  </p>
+                  <Paragraphs
+                    text={pitch.problemSolution.problem.text}
+                    className="font-body text-lg text-foreground-muted text-pretty"
+                  />
                 </div>
                 <div className="rounded-xl border border-border-hairline bg-white p-8">
                   <h3 className="font-heading text-2xl font-semibold">
@@ -306,8 +309,12 @@ export default async function StrategyPage({
                       className="rounded-xl bg-[#f7f6f3] p-6 md:p-8"
                     >
                       <QuoteBadge />
-                      <blockquote className="mt-6 font-body text-lg text-foreground text-pretty">
-                        &ldquo;{review.quote}&rdquo;
+                      <blockquote className="mt-6">
+                        <Paragraphs
+                          quote
+                          text={review.quote}
+                          className="font-body text-lg text-foreground text-pretty"
+                        />
                       </blockquote>
                       <figcaption className="mt-4 font-body text-base text-foreground-muted">
                         {review.name}
@@ -423,8 +430,13 @@ export default async function StrategyPage({
             {reviewCase?.clientReview && (
               <figure className="mt-6 rounded-xl bg-[#f7f6f3] p-6 md:p-8">
                 <QuoteBadge />
-                <blockquote className="mt-6 max-w-[680px] font-body text-xl text-foreground-muted text-pretty">
-                  &ldquo;{reviewCase.clientReview.quote}&rdquo;
+                <blockquote className="mt-6 max-w-[680px]">
+                  <Paragraphs
+                    quote
+                    gap="mt-4"
+                    text={reviewCase.clientReview.quote}
+                    className="font-body text-xl text-foreground-muted text-pretty"
+                  />
                 </blockquote>
                 <figcaption className="mt-6 font-body text-base text-foreground">
                   {reviewCase.clientReview.name}, {reviewCase.brand}
@@ -435,10 +447,15 @@ export default async function StrategyPage({
         </Section>
 
         <Section>
-          <TaglineReveal
-            text={pitch.tagline}
-            className="max-w-[680px] font-heading text-4xl font-semibold text-pretty"
-          />
+          <div className="flex flex-col gap-8">
+            {splitParagraphs(pitch.tagline, 100, 100).map((para) => (
+              <TaglineReveal
+                key={para}
+                text={para}
+                className="max-w-[680px] font-heading text-4xl font-semibold text-pretty"
+              />
+            ))}
+          </div>
         </Section>
 
         <Section id="faq" tint>
@@ -469,9 +486,12 @@ export default async function StrategyPage({
                       className={`shrink-0 transition-transform duration-500 ${EASE} group-open:rotate-180`}
                     />
                   </summary>
-                  <p className="mt-4 font-body text-base text-foreground-muted text-pretty">
-                    {f.a}
-                  </p>
+                  <div className="mt-4">
+                    <Paragraphs
+                      text={f.a}
+                      className="font-body text-base text-foreground-muted text-pretty"
+                    />
+                  </div>
                 </details>
               ))}
             </Reveal>
@@ -486,9 +506,12 @@ export default async function StrategyPage({
             <h2 className="mt-6 max-w-[680px] font-heading text-3xl font-semibold text-balance md:text-4xl">
               {pitch.risk.heading}
             </h2>
-            <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
-              {pitch.risk.text}
-            </p>
+            <div className="mt-4 max-w-[680px]">
+              <Paragraphs
+                text={pitch.risk.text}
+                className="font-body text-lg text-foreground-muted text-pretty"
+              />
+            </div>
             <div className="mt-12 overflow-hidden rounded-xl border border-border-hairline bg-card">
               <iframe
                 src={CALENDLY_URL}
