@@ -803,7 +803,7 @@ export const caseStudies: CaseStudy[] = [
       "Website design and seamless store migrations for a thyroid support supplement brand, moving from Squarespace to Shopify to Wix while keeping the site high converting.",
     metrics: [],
     logoInitial: "T",
-    logo: { src: "/case-studies/thyvita/logo.png", width: 200, height: 200 },
+    logo: { src: "/case-studies/thyvita/logo.png", width: 193, height: 90 },
     heroImage: {
       src: "/case-studies/thyvita/hero.jpg",
       alt: "The ThyVita homepage hero, with the Women's Ultra bottle beside the headline Still exhausted and bloated with normal labs?",
@@ -851,37 +851,6 @@ export const caseStudies: CaseStudy[] = [
         height: 6692,
       },
     ],
-  },
-];
-
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-  brand: string;
-};
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Skynosoft rebuilt our site and our email system in the same month — revenue hasn't dipped below +100% year-over-year since.",
-    name: "Priya Nandan",
-    role: "Founder",
-    brand: "Aurelle Skincare",
-  },
-  {
-    quote:
-      "We'd tried three other agencies before this. The difference is they treat the website and email like one machine, not two separate projects.",
-    name: "Marcus Webb",
-    role: "CEO",
-    brand: "North Fields",
-  },
-  {
-    quote:
-      "Launched our brand from nothing to six figures a month in under a year. Skynosoft built the whole growth engine.",
-    name: "Ines Duarte",
-    role: "Co-founder",
-    brand: "Haven Home",
   },
 ];
 

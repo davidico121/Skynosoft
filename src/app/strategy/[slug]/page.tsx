@@ -16,7 +16,7 @@ import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
 import { strategyPitches, type StrategyIconKey, type StrategyShot } from "@/lib/strategy";
-import { Reveal, TaglineReveal } from "../Reveal";
+import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
 import { IslandNav } from "../IslandNav";
 import logo from "../../../../public/brand/skynosoft-logo-horizontal.png";
 import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
