@@ -3,10 +3,17 @@ import { CaseStudy } from "@/lib/content";
 import { Chip } from "@/components/ui/Chip";
 import { MetricStat } from "@/components/ui/MetricStat";
 
-export function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
+export function CaseStudyCard({
+  caseStudy,
+  baseUrl = "",
+}: {
+  caseStudy: CaseStudy;
+  /** Prefix for the link, for pages served from another host. */
+  baseUrl?: string;
+}) {
   return (
     <Link
-      href={`/work/${caseStudy.slug}`}
+      href={`${baseUrl}/work/${caseStudy.slug}`}
       className="group flex flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
     >
       <div className="flex items-start justify-between">
