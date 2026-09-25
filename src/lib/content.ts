@@ -56,6 +56,7 @@ export type CaseStudy = {
   summary: string;
   metrics: { value: string; label: string }[];
   logoInitial: string;
+  logo?: { src: string; width: number; height: number };
   /** Optional real narrative — falls back to generic copy on the detail page when omitted. */
   challenge?: string;
   approach?: string[];
@@ -92,6 +93,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "6", label: "Lifecycle flows built" },
     ],
     logoInitial: "N",
+    logo: { src: "/case-studies/novaya/logo.png", width: 489, height: 130 },
     heroImage: {
       src: "/case-studies/novaya/hero-product.png",
       alt: "Product photography from the Novaya welcome email showing the brand's menswear styling",
@@ -253,6 +255,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "60 days", label: "CRO sprint length" },
     ],
     logoInitial: "A",
+    logo: { src: "/case-studies/afrocenchix/logo.svg", width: 636, height: 158 },
     brandDescription:
       "Afrocenchix is a Diverse Owned vegan haircare brand making safe, effective products for Afro, tightly coiled, and curly hair. Its Shopify store is priced in GBP and has been featured in Vogue, the Daily Mail, Forbes, and the BBC.",
     goal: [
@@ -396,6 +399,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "-21.7%", label: "Reduced cart abandonment" },
     ],
     logoInitial: "L",
+    logo: { src: "/case-studies/lipo-beauty-tea/logo.png", width: 500, height: 157 },
     heroImage: {
       src: "/case-studies/lipo-beauty-tea/hero.jpg",
       alt: "The Lipo Beauty Tea homepage hero, with a video thumbnail of the founder and the headline Feel powerful, feel beautiful: Discover the power of Lipo Beauty Tea",
@@ -631,6 +635,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "3.7K", label: "Leads from popups" },
     ],
     logoInitial: "C",
+    logo: { src: "/case-studies/cannonbalm/logo.webp", width: 235, height: 42 },
     heroImage: {
       src: "/case-studies/cannonbalm/hero.jpg",
       alt: "The CannonBalm homepage hero, showing the Ultimate, Let-Go, Magic Touch and Muscle-Aid balms under the headline Rapid Pain Relief Naturally",
@@ -794,6 +799,7 @@ export const caseStudies: CaseStudy[] = [
       "Website design and seamless store migrations for a thyroid support supplement brand, moving from Squarespace to Shopify to Wix while keeping the site high converting.",
     metrics: [],
     logoInitial: "T",
+    logo: { src: "/case-studies/thyvita/logo.png", width: 200, height: 200 },
     heroImage: {
       src: "/case-studies/thyvita/hero.jpg",
       alt: "The ThyVita homepage hero, with the Women's Ultra bottle beside the headline Still exhausted and bloated with normal labs?",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CaseStudy } from "@/lib/content";
 import { Chip } from "@/components/ui/Chip";
@@ -22,9 +23,20 @@ export function CaseStudyCard({
             <Chip key={s}>{s}</Chip>
           ))}
         </div>
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-surface-container-high font-heading text-headline-md text-foreground-muted">
-          {caseStudy.logoInitial}
-        </div>
+        {caseStudy.logo ? (
+          <Image
+            src={caseStudy.logo.src}
+            alt={`${caseStudy.brand} logo`}
+            width={caseStudy.logo.width}
+            height={caseStudy.logo.height}
+            unoptimized={caseStudy.logo.src.endsWith(".svg")}
+            className="h-12 w-auto max-w-[120px] shrink-0 object-contain object-right"
+          />
+        ) : (
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-surface-container-high font-heading text-headline-md text-foreground-muted">
+            {caseStudy.logoInitial}
+          </div>
+        )}
       </div>
 
       <h3 className="mt-6 font-heading text-headline-md font-semibold">
