@@ -38,11 +38,15 @@ export type StrategyPitch = {
     heading: string;
     problem: { title: string; text: string };
     solution: { title: string; points: string[] };
+    /** Real customer reviews from the brand's own site, shown beside the problem. */
+    reviews?: { heading: string; items: { quote: string; name: string }[] };
   };
   /** 3-5 outcome-led benefits, each with a short description. */
   benefits: {
     heading: string;
     items: { icon: StrategyIconKey; title: string; detail: string }[];
+    /** Real product photos from the brand's site, shown beside the benefits. */
+    products?: { name: string; image: StrategyShot }[];
   };
   how: {
     heading: string;
@@ -139,9 +143,51 @@ export const strategyPitches: StrategyPitch[] = [
           "A customer gone quiet for 60+ days gets a specific win back sequence instead of falling off the list forever",
         ],
       },
+      reviews: {
+        heading: "What your customers already say",
+        items: [
+          {
+            quote: "my hair loss has stopped and new growth has started.",
+            name: "Debbie Smyth, verified customer",
+          },
+          {
+            quote: "It really help with my skin infection, i will buy more.",
+            name: "Ling Wilson, verified customer",
+          },
+        ],
+      },
     },
     benefits: {
       heading: "Four pieces that turn one purchase into a habit",
+      products: [
+        {
+          name: "Collagen",
+          image: {
+            src: "/pitch-assets/myowellness/product-collagen.jpg",
+            alt: "MYOwellness Hydrolysed Bovine Collagen pouch with a bowl of powder",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Protein",
+          image: {
+            src: "/pitch-assets/myowellness/product-protein.jpg",
+            alt: "MYOwellness Whey Blend Protein Shake pouch",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Mushroom",
+          image: {
+            src: "/pitch-assets/myowellness/product-mushroom.jpg",
+            alt: "MYOwellness Superfoods Complete Mushroom Balance pouch with powder",
+            width: 900,
+            height: 900,
+          },
+        },
+      ],
       items: [
         {
           icon: "welcome",

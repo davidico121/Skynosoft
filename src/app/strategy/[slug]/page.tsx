@@ -254,34 +254,65 @@ export default async function StrategyPage({
             <div className="mt-4">
               <H2>{pitch.problemSolution.heading}</H2>
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-border-hairline bg-white p-8">
-                <h3 className="font-heading text-2xl font-semibold">
-                  {pitch.problemSolution.problem.title}
-                </h3>
-                <p className="mt-4 font-body text-lg text-foreground-muted text-pretty">
-                  {pitch.problemSolution.problem.text}
-                </p>
+            <div
+              className={`mt-12 grid gap-6 ${
+                pitch.problemSolution.reviews ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)]" : ""
+              }`}
+            >
+              <div
+                className={`grid gap-6 ${
+                  pitch.problemSolution.reviews ? "" : "md:grid-cols-2"
+                }`}
+              >
+                <div className="rounded-xl border border-border-hairline bg-white p-8">
+                  <h3 className="font-heading text-2xl font-semibold">
+                    {pitch.problemSolution.problem.title}
+                  </h3>
+                  <p className="mt-4 font-body text-lg text-foreground-muted text-pretty">
+                    {pitch.problemSolution.problem.text}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border-hairline bg-white p-8">
+                  <h3 className="font-heading text-2xl font-semibold">
+                    {pitch.problemSolution.solution.title}
+                  </h3>
+                  <ul className="mt-4 flex flex-col gap-3">
+                    {pitch.problemSolution.solution.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-3 font-body text-base text-foreground-muted text-pretty"
+                      >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                          aria-hidden
+                        />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="rounded-xl border border-border-hairline bg-white p-8">
-                <h3 className="font-heading text-2xl font-semibold">
-                  {pitch.problemSolution.solution.title}
-                </h3>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {pitch.problemSolution.solution.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex gap-3 font-body text-base text-foreground-muted text-pretty"
+
+              {pitch.problemSolution.reviews && (
+                <div className="flex flex-col gap-6">
+                  <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
+                    {pitch.problemSolution.reviews.heading}
+                  </p>
+                  {pitch.problemSolution.reviews.items.map((review) => (
+                    <figure
+                      key={review.name}
+                      className="rounded-xl border border-border-hairline bg-white p-8"
                     >
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
-                        aria-hidden
-                      />
-                      <span>{point}</span>
-                    </li>
+                      <blockquote className="font-body text-lg text-foreground text-pretty">
+                        &ldquo;{review.quote}&rdquo;
+                      </blockquote>
+                      <figcaption className="mt-4 font-body text-base text-foreground-muted">
+                        {review.name}
+                      </figcaption>
+                    </figure>
                   ))}
-                </ul>
-              </div>
+                </div>
+              )}
             </div>
           </Reveal>
         </Section>
@@ -292,24 +323,47 @@ export default async function StrategyPage({
             <div className="mt-4">
               <H2>{pitch.benefits.heading}</H2>
             </div>
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {pitch.benefits.items.map(({ icon, title, detail }) => {
-                const Icon = icons[icon];
-                return (
-                  <div
-                    key={title}
-                    className={`rounded-xl border border-border-hairline bg-card p-8 transition-all duration-500 ${EASE} hover:-translate-y-1`}
-                  >
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
-                      <Icon size={24} weight="duotone" aria-hidden />
-                    </span>
-                    <h3 className="mt-6 font-heading text-xl font-semibold">{title}</h3>
-                    <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
-                      {detail}
-                    </p>
-                  </div>
-                );
-              })}
+            <div
+              className={`mt-12 grid gap-12 ${
+                pitch.benefits.products ? "lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-16" : ""
+              }`}
+            >
+              {pitch.benefits.products && (
+                <div className="grid grid-cols-3 gap-3 lg:grid-cols-1 lg:gap-6 lg:self-start">
+                  {pitch.benefits.products.map((product) => (
+                    <figure
+                      key={product.name}
+                      className="relative overflow-hidden rounded-xl border border-border-hairline bg-card"
+                    >
+                      <ShotImage shot={product.image} />
+                      <figcaption className="absolute bottom-2 left-2 rounded-full bg-white/90 px-3 py-1 font-label text-xs uppercase tracking-wide text-foreground lg:bottom-3 lg:left-3">
+                        {product.name}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              )}
+              <div
+                className={`grid gap-6 ${pitch.benefits.products ? "" : "md:grid-cols-2"}`}
+              >
+                {pitch.benefits.items.map(({ icon, title, detail }) => {
+                  const Icon = icons[icon];
+                  return (
+                    <div
+                      key={title}
+                      className={`rounded-xl border border-border-hairline bg-card p-8 transition-all duration-500 ${EASE} hover:-translate-y-1`}
+                    >
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
+                        <Icon size={24} weight="duotone" aria-hidden />
+                      </span>
+                      <h3 className="mt-6 font-heading text-xl font-semibold">{title}</h3>
+                      <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
+                        {detail}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </Reveal>
         </Section>
