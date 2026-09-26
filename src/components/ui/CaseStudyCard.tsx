@@ -14,7 +14,7 @@ export function CaseStudyCard({
 }) {
   return (
     <Link
-      href={`${baseUrl}/work/${caseStudy.slug}`}
+      href={`${baseUrl}/case-studies/${caseStudy.slug}`}
       className="group flex flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
     >
       <div className="flex items-start justify-between gap-4">

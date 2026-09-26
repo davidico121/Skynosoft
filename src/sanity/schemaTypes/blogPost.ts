@@ -190,7 +190,7 @@ export const blogPost = defineType({
               title: "Link URL",
               type: "string",
               description:
-                "Must be a real path on the site: /services, /work/<case-study-slug>, or /contact.",
+                "Must be a real path on the site: /services, /case-studies/<case-study-slug>, or /contact.",
               validation: (rule) => rule.required(),
             }),
             defineField({

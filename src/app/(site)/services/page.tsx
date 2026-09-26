@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 </Link>
                 <p className="max-w-[420px] font-body text-base text-foreground-muted text-pretty">
                   <Link
-                    href="/work/afrocenchix"
+                    href="/case-studies/afrocenchix"
                     className={`font-semibold text-foreground underline underline-offset-4 hover:text-primary-soft ${FOCUS}`}
                   >
                     Afrocenchix

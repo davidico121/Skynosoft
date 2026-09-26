@@ -76,6 +76,8 @@ export type CaseStudy = {
   category: "Fashion" | "Medical Apparel" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care" | "Online Courses" | "Wellness";
   services: string[];
   summary: string;
+  /** Outcome led page headline, written only from the metrics and facts in this entry. */
+  headline: string;
   metrics: { value: string; label: string }[];
   logoInitial: string;
   logo?: { src: string; width: number; height: number };
@@ -107,6 +109,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Novaya",
     category: "Fashion",
     services: ["Email & SMS Marketing", "Lifecycle Flow Strategy"],
+    headline: "$300K+ in revenue from rebuilt email flows",
     summary:
       "Rebuilt a Klaviyo account running on untouched default flows into a full lifecycle system, then iterated on the highest-leverage flows twice more once the data showed where they were leaking.",
     metrics: [
@@ -196,6 +199,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "MaxSleek",
     category: "Fashion",
     services: ["Email Marketing", "Lifecycle Flow Rebuild"],
+    headline: "Three lifecycle flows live where there were none",
     summary:
       "Took over a Klaviyo account with no welcome or abandoned-cart automation and a weekly sale-campaign program that wasn't converting, and rebuilt the core lifecycle flows from scratch. Two weeks in, this is the honest early read, not a results showcase yet.",
     metrics: [
@@ -270,6 +274,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Afrocenchix",
     category: "Haircare",
     services: ["Website Redesign", "CRO"],
+    headline: "+23% add to cart rate in a 60 day CRO sprint",
     summary:
       "A 60-day CRO sprint and Shopify redesign for a premium vegan haircare brand, built around clearer product discovery and stronger brand storytelling.",
     metrics: [
@@ -279,6 +284,12 @@ export const caseStudies: CaseStudy[] = [
     ],
     logoInitial: "A",
     logo: { src: "/case-studies/afrocenchix/logo.svg", width: 636, height: 158 },
+    heroImage: {
+      src: "/case-studies/afrocenchix/hero.jpg",
+      alt: "The Afrocenchix homepage, with a promotional hero, shop by category navigation and featured press logos",
+      width: 1200,
+      height: 750,
+    },
     brandDescription:
       "Afrocenchix is a Diverse Owned vegan haircare brand making safe, effective products for Afro, tightly coiled, and curly hair. Its Shopify store is priced in GBP and has been featured in Vogue, the Daily Mail, Forbes, and the BBC.",
     goal: [
@@ -326,6 +337,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Heron Cycling",
     category: "Activewear",
     services: ["Website Redesign", "CRO"],
+    headline: "+42% revenue growth in a 90 day partnership",
     summary:
       "A 90-day partnership building a conversion-focused Shopify store for a performance cycling brand, designed to match its bold identity while cutting abandonment.",
     metrics: [
@@ -381,6 +393,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Elissa & Stef",
     category: "Activewear",
     services: ["Website Redesign", "CRO"],
+    headline: "A Shopify revamp that gave the brand one consistent look",
     summary:
       "A Shopify revamp for a fashion and activewear brand whose site lacked branding and a consistent layout, rebuilt to look like one brand and optimized for conversion.",
     metrics: [],
@@ -414,6 +427,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Lipo Beauty Tea",
     category: "Supplements",
     services: ["Email Marketing", "CRO"],
+    headline: "$26K from a single email campaign",
     summary:
       "Targeted Klaviyo campaigns and a refined checkout for a premium wellness tea brand, producing $26K from a single email campaign and open rates up to 43.61%.",
     metrics: [
@@ -489,6 +503,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Feno",
     category: "Oral Care",
     services: ["Email Marketing", "Email Template Design"],
+    headline: "A 59.5% open rate and a 22.5% lift in click through rate",
     summary:
       "Klaviyo email flows and template design for an AI-driven oral health brand, reaching a 59.5% open rate and a 22.5% lift in click-through rate.",
     metrics: [
@@ -569,6 +584,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Streaky Academy",
     category: "Online Courses",
     services: ["Email Marketing", "CRO"],
+    headline: "$75K from email on $242K in total revenue",
     summary:
       "Targeted Klaviyo campaigns and a streamlined enrollment funnel for an online course platform, helping drive $242K in total revenue with $75K attributed to email.",
     metrics: [
@@ -652,6 +668,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "CannonBalm",
     category: "Wellness",
     services: ["Email Marketing", "Popups"],
+    headline: "$32.8K from email on $96.7K in total revenue",
     summary:
       "A rebuilt Klaviyo strategy for an Australian natural pain relief brand: targeted popups, optimized post-purchase flows, and win-back campaigns that helped drive $96.7K in total revenue, with $32.8K attributed to email.",
     metrics: [
@@ -745,6 +762,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "BWLL",
     category: "Wellness",
     services: ["Email Marketing"],
+    headline: "$75K from email on $187K in total revenue",
     summary:
       "A Klaviyo revamp built around real customer stories and exclusive offers for an Australian nasal strip brand, generating $187K in total revenue with $75K attributed to email.",
     metrics: [
@@ -821,6 +839,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "ThyVita",
     category: "Supplements",
     services: ["Website Design", "Store Migration", "CRO", "Email Marketing"],
+    headline: "Two store migrations, one site that kept converting",
     summary:
       "Website design and seamless store migrations for a thyroid support supplement brand, moving from Squarespace to Shopify to Wix while keeping the site high converting.",
     metrics: [],
@@ -879,6 +898,7 @@ export const caseStudies: CaseStudy[] = [
     brand: "Medgear",
     category: "Medical Apparel",
     services: ["Shopify CRO", "A/B Testing", "Funnel Optimization"],
+    headline: "Monthly revenue from $32K to $60K",
     summary:
       "A full funnel conversion program for a Shopify scrubs brand, using a structured testing roadmap from landing page to checkout to take monthly revenue from $32K to $60K.",
     metrics: [

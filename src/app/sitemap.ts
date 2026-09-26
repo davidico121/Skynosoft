@@ -4,7 +4,7 @@ import { client } from "@/sanity/client";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["", "/about", "/services", "/work", "/blog", "/contact"].map(
+  const staticRoutes = ["", "/about", "/services", "/case-studies", "/blog", "/contact"].map(
     (path) => ({
       url: `${SITE_URL}${path}`,
       lastModified: new Date(),
@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const workRoutes = caseStudies.map((caseStudy) => ({
-    url: `${SITE_URL}/work/${caseStudy.slug}`,
+    url: `${SITE_URL}/case-studies/${caseStudy.slug}`,
     lastModified: new Date(),
   }));
 

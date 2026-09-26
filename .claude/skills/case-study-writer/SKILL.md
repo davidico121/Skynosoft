@@ -1,11 +1,11 @@
 ---
 name: case-study-writer
-description: Build a real, data-backed case study page for skynosoft.net from an actual client's Klaviyo (and eventually other) account — real metrics, real email/campaign screenshots, real narrative. Use when the user asks to create, add, or update a case study in /work, or says a client's data/screenshots are ready to turn into one.
+description: Build a real, data-backed case study page for skynosoft.net from an actual client's Klaviyo (and eventually other) account — real metrics, real email/campaign screenshots, real narrative. Use when the user asks to create, add, or update a case study in /case-studies, or says a client's data/screenshots are ready to turn into one.
 ---
 
 # Skynosoft Case Study Writer
 
-Turns one real client engagement into a full `/work/<slug>` page: hero,
+Turns one real client engagement into a full `/case-studies/<slug>` page: hero,
 metrics, brand/challenge/goal/strategy/execution/results/why-it-worked
 narrative, a horizontal gallery of real email screenshots, an optional
 results chart, and (when the client supplies one) a review section.

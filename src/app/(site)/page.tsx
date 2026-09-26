@@ -105,7 +105,7 @@ export default async function Home() {
                 </Link>
                 <p className="max-w-[420px] font-body text-base text-foreground-muted text-pretty">
                   <Link
-                    href="/work/novaya"
+                    href="/case-studies/novaya"
                     className={`font-semibold text-foreground underline underline-offset-4 hover:text-primary-soft ${FOCUS}`}
                   >
                     Novaya
@@ -157,7 +157,7 @@ export default async function Home() {
             {logoBrands.map((cs) => (
               <li key={cs.slug}>
                 <Link
-                  href={`/work/${cs.slug}`}
+                  href={`/case-studies/${cs.slug}`}
                   aria-label={`${cs.brand} case study`}
                   className={`block h-8 w-28 rounded transition-opacity duration-300 ${EASE} opacity-80 hover:opacity-100 ${FOCUS}`}
                 >
@@ -268,7 +268,7 @@ export default async function Home() {
                 <H2>Real brands, real revenue.</H2>
               </div>
             </div>
-            <Link href="/work" className={BUTTON_SECONDARY}>
+            <Link href="/case-studies" className={BUTTON_SECONDARY}>
               View all case studies
             </Link>
           </div>

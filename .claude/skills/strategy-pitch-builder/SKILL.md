@@ -142,7 +142,7 @@ so `Reveal` sections trigger. Look at every section and check:
 - Gap steps: the leak step reads as the problem.
 - Reviews use the quote badge card, paragraphs are short.
 - Benefits: product photos load and labels do not wrap oddly.
-- Proof cards link to `https://www.skynosoft.net/work/<slug>` and show logos.
+- Proof cards link to `https://www.skynosoft.net/case-studies/<slug>` and show logos.
 - FAQ opens, tagline reveals word by word, Calendly loads, sign off circle photo shows.
 - No horizontal scroll at 390px. No console errors, no broken images.
 

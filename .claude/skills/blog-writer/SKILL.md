@@ -13,7 +13,7 @@ always reviews and publishes it themselves in `/studio`.
 Adapted from a general ecommerce-blog content-engine skill (research → gate
 → write → gate → publish) for a services agency on Next.js + Sanity instead
 of a Shopify product store: internal links drive to `/services` and
-`/work/<case-study>` (the conversion path here is a booked call, not a
+`/case-studies/<case-study>` (the conversion path here is a booked call, not a
 checkout). The page template already renders a single "Book a Call / Audit"
 CTA on every post automatically — no need to hand-build a closing CTA in
 the body. (A multi-card "pick a service" version was tried and reverted:
@@ -32,8 +32,8 @@ Body content also supports comparison tables and inline CTA cards natively
    document without the `drafts.` prefix. Publishing is the human's decision.
 2. **Never invent internal link targets.** Valid links are exactly:
    - `/services` (single page — there is no `/services/<slug>` route)
-   - `/work/aurelle-skincare`, `/work/north-fields-supplements`,
-     `/work/haven-home`, `/work/lumen-fashion` (check `src/lib/content.ts`
+   - `/case-studies/aurelle-skincare`, `/case-studies/north-fields-supplements`,
+     `/case-studies/haven-home`, `/case-studies/lumen-fashion` (check `src/lib/content.ts`
      for the current list — it may have grown since this was written)
    - `/contact`
    - Other posts already in Sanity, for related-topic cross-linking
@@ -184,7 +184,7 @@ Universal rules, non-negotiable:
     "_key": "unique-key",
     "heading": "See it in action",
     "body": "One sentence of context for the link.",
-    "linkHref": "/work/north-fields-supplements",
+    "linkHref": "/case-studies/north-fields-supplements",
     "linkLabel": "See the case study"
   }
   ```

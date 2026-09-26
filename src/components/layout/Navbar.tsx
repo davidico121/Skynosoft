@@ -9,7 +9,7 @@ import logo from "../../../public/brand/skynosoft-logo-horizontal.png";
 
 const links = [
   { href: "/services", label: "Services" },
-  { href: "/work", label: "Case Studies" },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
 ];
