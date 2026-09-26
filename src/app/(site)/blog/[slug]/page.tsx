@@ -34,11 +34,11 @@ import {
 
 export const revalidate = 60;
 
-const caseSlugByCategory: Record<string, string> = {
-  CRO: "medgear",
-  "Website Design": "afrocenchix",
-  "Email Marketing": "novaya",
-  Strategy: "thyvita",
+const caseSlugsByCategory: Record<string, string[]> = {
+  CRO: ["medgear", "afrocenchix"],
+  "Website Design": ["afrocenchix", "thyvita"],
+  "Email Marketing": ["novaya", "bwll"],
+  Strategy: ["thyvita", "novaya"],
 };
 
 function slugify(text: string): string {
@@ -274,9 +274,9 @@ export default async function BlogPostPage({
     },
   };
 
-  const featuredCase = caseStudies.find(
-    (c) => c.slug === caseSlugByCategory[post.category],
-  );
+  const featuredCases = (caseSlugsByCategory[post.category] ?? [])
+    .map((s) => caseStudies.find((c) => c.slug === s))
+    .filter((c) => c !== undefined);
 
   return (
     <article>
@@ -381,15 +381,17 @@ export default async function BlogPostPage({
         </Wrap>
       </section>
 
-      {featuredCase && (
+      {featuredCases.length > 0 && (
         <Section tint>
           <Reveal>
             <Eyebrow>See it in practice</Eyebrow>
             <h2 className="mt-4 max-w-[680px] font-heading text-3xl font-semibold text-balance md:text-4xl">
-              The same ideas, on a real store
+              The same ideas, on real stores
             </h2>
-            <div className="mt-12 max-w-[680px]">
-              <CaseStudyCard caseStudy={featuredCase} />
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {featuredCases.map((cs) => (
+                <CaseStudyCard key={cs.slug} caseStudy={cs} />
+              ))}
             </div>
           </Reveal>
         </Section>
