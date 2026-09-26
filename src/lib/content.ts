@@ -73,7 +73,7 @@ export const processSteps = [
 export type CaseStudy = {
   slug: string;
   brand: string;
-  category: "Fashion" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care" | "Online Courses" | "Wellness";
+  category: "Fashion" | "Medical Apparel" | "Activewear" | "Skincare" | "Haircare" | "Home Decor" | "Supplements" | "Oral Care" | "Online Courses" | "Wellness";
   services: string[];
   summary: string;
   metrics: { value: string; label: string }[];
@@ -871,6 +871,67 @@ export const caseStudies: CaseStudy[] = [
         alt: "The ThyVita Thyroid Support Starter Kit product page, with a photo gallery, Afterpay pricing, the clinical expertise section, and FAQs",
         width: 1200,
         height: 6692,
+      },
+    ],
+  },
+  {
+    slug: "medgear",
+    brand: "Medgear",
+    category: "Medical Apparel",
+    services: ["Shopify CRO", "A/B Testing", "Funnel Optimization"],
+    summary:
+      "A full funnel conversion program for a Shopify scrubs brand, using a structured testing roadmap from landing page to checkout to take monthly revenue from $32K to $60K.",
+    metrics: [
+      { value: "$60K", label: "Monthly revenue, up from $32K" },
+      { value: "+87.5%", label: "Monthly revenue growth" },
+      { value: "4 stages", label: "Funnel stages optimized" },
+    ],
+    logoInitial: "M",
+    logo: { src: "/case-studies/medgear/logo.png", width: 599, height: 155 },
+    heroImage: {
+      src: "/case-studies/medgear/hero.jpg",
+      alt: "The Medgear homepage hero, showing a nurse in black scrubs beside the headline New underscrub color Oat Milk",
+      width: 1200,
+      height: 750,
+    },
+    brandDescription:
+      "Medgear is a women owned Shopify brand selling modern medical scrubs, underscrubs and accessories for nurses and healthcare professionals.",
+    strategy: {
+      intro:
+        "The work was treated as one connected funnel instead of separate page fixes, with a structured testing roadmap behind every change.",
+      points: [
+        "Mapped the conversion blockers across the landing page, product page, cart and checkout",
+        "Prioritized every test by expected impact and effort",
+        "Fed the learnings from each test into the next round, so gains compounded",
+      ],
+    },
+    execution: [
+      "Optimized the homepage messaging, collection page structure, product page hierarchy and checkout experience",
+      "Ran A/B tests on offer architecture, trust signals and product recommendations",
+      "Tested checkout form changes to reduce friction and improve revenue per visitor",
+    ],
+    resultPoints: [
+      "Monthly revenue grew from $32K to $60K",
+      "Gains came from compounded testing learnings and systematic conversion rate improvements across every funnel stage",
+    ],
+    gallery: [
+      {
+        src: "/case-studies/medgear/home.jpg",
+        alt: "The Medgear homepage, with a promotional hero, best selling scrubs, featured collections, the MG-LUX launch, a customer quote and customer reviews",
+        width: 1200,
+        height: 3600,
+      },
+      {
+        src: "/case-studies/medgear/collection.jpg",
+        alt: "The Medgear All Scrubs Women collection page, a filterable grid of scrub sets with color swatches and prices",
+        width: 1200,
+        height: 3000,
+      },
+      {
+        src: "/case-studies/medgear/product.jpg",
+        alt: "A Medgear product page for the Stella quarter zip scrub set, with color and size options, a description, related products and customer reviews",
+        width: 1200,
+        height: 4200,
       },
     ],
   },
