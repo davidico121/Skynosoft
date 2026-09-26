@@ -29,7 +29,7 @@ export default async function BlogPage() {
     <>
       <section>
         <Wrap className="pb-24 pt-16">
-          <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,680px)_1fr]">
+          <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,460px)_1fr]">
             <Reveal>
               <Eyebrow>Blog</Eyebrow>
               <h1 className="mt-6 bg-linear-to-r from-[#000000] to-[#666666] bg-clip-text font-heading text-4xl font-bold text-balance text-transparent md:text-5xl">
@@ -51,14 +51,14 @@ export default async function BlogPage() {
                   className={`group block overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-lg transition-all duration-300 ${EASE} hover:-translate-y-1 active:scale-[0.99] ${FOCUS}`}
                 >
                   {latest.coverImage && (
-                    <div className="relative aspect-[16/9] w-full">
+                    <div className="relative aspect-[2/1] w-full">
                       <Image
                         src={urlForImage(latest.coverImage).width(1200).height(675).fit("crop").url()}
                         alt={latest.coverImage.alt || latest.title}
                         fill
                         priority
                         className="object-cover"
-                        sizes="(min-width: 1024px) 560px, 100vw"
+                        sizes="(min-width: 1024px) 640px, 100vw"
                       />
                       <span className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 font-label text-xs uppercase tracking-wide text-white">
                         Latest
