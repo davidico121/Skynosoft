@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Browsers,
-  CaretDown,
   ChartLineUp,
   CheckCircle,
   EnvelopeSimple,
@@ -23,15 +22,13 @@ import {
   Wrap,
 } from "@/components/ui/page-kit";
 import { splitParagraphs } from "@/lib/paragraphs";
-import { caseStudies, services } from "@/lib/content";
+import { CTA_LABEL, caseStudies, services } from "@/lib/content";
+import { FaqSection, FinalCta, ProcessSection } from "@/components/ui/sections";
 import { client } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
-import founderAvatar from "../../../public/brand/david-owoeye-avatar.jpg";
 
 export const revalidate = 60;
-
-const CTA_LABEL = "Book a free audit";
 
 const serviceIcons = {
   "website-design-cro": Browsers,
@@ -51,27 +48,6 @@ const solutionPoints = [
 
 const tagline =
   "Every visitor you paid for should have a reason to buy today, and a reason to come back next month. We build both halves.";
-
-const steps = [
-  {
-    step: "01",
-    title: "Audit",
-    description:
-      "We go through your site, funnel and email program and show you exactly where revenue is leaking.",
-  },
-  {
-    step: "02",
-    title: "Build",
-    description:
-      "A website, funnel or email system designed around your customer, not a template.",
-  },
-  {
-    step: "03",
-    title: "Scale",
-    description:
-      "Ongoing testing on the site and the emails, so what works gets bigger every month.",
-  },
-];
 
 const featuredSlugs = ["novaya", "streaky-academy", "bwll", "cannonbalm"];
 
@@ -98,16 +74,6 @@ const faqs = [
   },
 ];
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default async function Home() {
   const latestPosts = await client.fetch<BlogPostSummary[]>(allBlogPostsQuery);
   const logoBrands = caseStudies.filter((cs) => cs.logo);
@@ -118,11 +84,6 @@ export default async function Home() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-
       <section>
         <Wrap className="pb-24 pt-16">
           <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,680px)_1fr]">
@@ -275,7 +236,7 @@ export default async function Home() {
                     {service.tagline}
                   </p>
                   <p className="mt-4 font-body text-base text-foreground-muted text-pretty">
-                    {service.description.replace(/ — /g, ", ").replace(/-/g, " ")}
+                    {service.description}
                   </p>
                 </Link>
               );
@@ -296,27 +257,7 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section id="how" tint>
-        <Reveal>
-          <Eyebrow>How it works</Eyebrow>
-          <div className="mt-4">
-            <H2>From audit to scale in three steps.</H2>
-          </div>
-          <ol className="mt-12 grid gap-6 md:grid-cols-3">
-            {steps.map((s) => (
-              <li key={s.step} className="rounded-xl border border-border-hairline bg-white p-8">
-                <p className="font-heading text-4xl font-semibold text-outline-variant">
-                  {s.step}
-                </p>
-                <h3 className="mt-4 font-heading text-2xl font-semibold">{s.title}</h3>
-                <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
-                  {s.description}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-      </Section>
+      <ProcessSection />
 
       <Section id="proof">
         <Reveal>
@@ -363,45 +304,7 @@ export default async function Home() {
         </Reveal>
       </Section>
 
-      <Section id="faq" tint>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
-          <Reveal className="lg:sticky lg:top-32 lg:self-start">
-            <Eyebrow>Questions</Eyebrow>
-            <div className="mt-4">
-              <H2>Before you book</H2>
-            </div>
-            <Link href="/contact" className={`mt-8 ${BUTTON}`}>
-              {CTA_LABEL}
-            </Link>
-          </Reveal>
-          <Reveal className="flex flex-col gap-4" delay={100}>
-            {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="group rounded-xl border border-border-hairline bg-white p-6"
-              >
-                <summary
-                  className={`flex cursor-pointer list-none items-center justify-between gap-4 rounded font-heading text-lg font-semibold ${FOCUS} [&::-webkit-details-marker]:hidden`}
-                >
-                  {f.q}
-                  <CaretDown
-                    size={20}
-                    weight="bold"
-                    aria-hidden
-                    className={`shrink-0 transition-transform duration-500 ${EASE} group-open:rotate-180`}
-                  />
-                </summary>
-                <div className="mt-4">
-                  <Paragraphs
-                    text={f.a}
-                    className="font-body text-base text-foreground-muted text-pretty"
-                  />
-                </div>
-              </details>
-            ))}
-          </Reveal>
-        </div>
-      </Section>
+      <FaqSection faqs={faqs} />
 
       {latestPosts.length > 0 && (
         <Section id="blog">
@@ -453,30 +356,7 @@ export default async function Home() {
         </Section>
       )}
 
-      <Section id="book" tint>
-        <Reveal className="flex flex-col items-center text-center">
-          <h2 className="max-w-[680px] font-heading text-3xl font-semibold text-balance md:text-4xl">
-            See where your store is leaking revenue before you spend anything
-          </h2>
-          <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
-            This isn&rsquo;t a sales call. Bring your store URL and your questions, not your card.
-          </p>
-          <Link href="/contact" className={`mt-8 ${BUTTON}`}>
-            {CTA_LABEL}
-          </Link>
-          <Image
-            src={founderAvatar}
-            alt="David Owoeye"
-            width={96}
-            height={96}
-            className="mt-12 h-24 w-24 rounded-full object-cover"
-          />
-          <p className="mt-4 font-heading text-lg font-semibold">David Owoeye</p>
-          <p className="mt-1 font-body text-base text-foreground-muted">
-            Founder &amp; CEO, Skynosoft Ltd.
-          </p>
-        </Reveal>
-      </Section>
+      <FinalCta />
     </>
   );
 }

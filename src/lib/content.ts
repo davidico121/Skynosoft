@@ -12,12 +12,12 @@ export const services: Service[] = [
     name: "Website Design & CRO",
     tagline: "Turn traffic into revenue",
     description:
-      "Ground-up ecommerce website and funnel design, or conversion rate optimization on your existing store — built around how your specific customers actually buy.",
+      "Ground up ecommerce website and funnel design, or conversion rate optimization on your existing store, built around how your specific customers actually buy.",
     deliverables: [
-      "Full Shopify/ecommerce site design & build",
-      "Landing page & funnel design",
-      "CRO audits + A/B testing roadmap",
-      "Checkout & mobile conversion fixes",
+      "Full Shopify and ecommerce site design and build",
+      "Landing page and funnel design",
+      "CRO audits and A/B testing roadmap",
+      "Checkout and mobile conversion fixes",
     ],
   },
   {
@@ -25,26 +25,48 @@ export const services: Service[] = [
     name: "Email & SMS Marketing",
     tagline: "Recover lost revenue, on autopilot",
     description:
-      "Klaviyo flows and campaigns engineered to recover abandoned revenue, grow your list, and turn one-time buyers into repeat customers.",
+      "Klaviyo flows and campaigns engineered to recover abandoned revenue, grow your list, and turn one time buyers into repeat customers.",
     deliverables: [
-      "Full flow build-out (welcome, abandoned cart, post-purchase, win-back)",
-      "Weekly campaign strategy & copy",
-      "List growth & segmentation",
-      "Deliverability & revenue reporting",
+      "Full flow build out: welcome, abandoned cart, post purchase and win back",
+      "Weekly campaign strategy and copy",
+      "List growth and segmentation",
+      "Deliverability and revenue reporting",
     ],
   },
   {
     slug: "growth-partnership",
     name: "Full Growth Partnership",
-    tagline: "Website + email, working as one system",
+    tagline: "Website and email, working as one system",
     description:
-      "The combination Skynosoft is built on — a highly converting site paired with email flows and campaigns that compound, so every dollar of traffic works harder.",
+      "The combination Skynosoft is built on: a highly converting site paired with email flows and campaigns that compound, so every dollar of traffic works harder.",
     deliverables: [
       "Everything in Website Design & CRO",
       "Everything in Email & SMS Marketing",
       "Unified reporting on revenue impact",
       "Ongoing optimization sprints",
     ],
+  },
+];
+
+export const CTA_LABEL = "Book a free audit";
+
+export const processSteps = [
+  {
+    step: "01",
+    title: "Audit",
+    description:
+      "We go through your site, funnel and email program and show you exactly where revenue is leaking.",
+  },
+  {
+    step: "02",
+    title: "Build",
+    description: "A website, funnel or email system designed around your customer, not a template.",
+  },
+  {
+    step: "03",
+    title: "Scale",
+    description:
+      "Ongoing testing on the site and the emails, so what works gets bigger every month.",
   },
 ];
 

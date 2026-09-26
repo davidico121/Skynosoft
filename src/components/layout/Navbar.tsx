@@ -18,8 +18,6 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => setOpen(false), [pathname]);
-
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -114,6 +112,7 @@ export function Navbar() {
               <Link
                 href={link.href}
                 tabIndex={open ? 0 : -1}
+                onClick={() => setOpen(false)}
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`font-heading text-3xl font-semibold transition-colors duration-300 ${EASE} hover:text-primary ${FOCUS} ${
                   isActive(link.href) ? "text-primary" : "text-foreground"
