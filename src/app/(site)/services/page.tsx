@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const proofByService: Record<string, { caseStudy: string; review?: string }> = {
   "website-design-cro": { caseStudy: "afrocenchix", review: "afrocenchix" },
   "email-marketing": { caseStudy: "novaya", review: "cannonbalm" },
-  "growth-partnership": { caseStudy: "streaky-academy" },
+  "growth-partnership": { caseStudy: "thyvita", review: "thyvita" },
 };
 
 const tagline =

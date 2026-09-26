@@ -820,7 +820,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "thyvita",
     brand: "ThyVita",
     category: "Supplements",
-    services: ["Website Design", "Store Migration", "CRO"],
+    services: ["Website Design", "Store Migration", "CRO", "Email Marketing"],
     summary:
       "Website design and seamless store migrations for a thyroid support supplement brand, moving from Squarespace to Shopify to Wix while keeping the site high converting.",
     metrics: [],
