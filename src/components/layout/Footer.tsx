@@ -1,61 +1,69 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
+import { Wrap, BUTTON, FOCUS, EASE } from "@/components/ui/page-kit";
+import { CTA_LABEL } from "@/lib/content";
 import logo from "../../../public/brand/skynosoft-logo-horizontal.png";
 
 const columns = [
   {
     heading: "Company",
     links: [
-      { href: "/services", label: "Services" },
-      { href: "/case-studies", label: "Case Studies" },
       { href: "/about", label: "About" },
+      { href: "/case-studies", label: "Case studies" },
       { href: "/blog", label: "Blog" },
+      { href: "/contact", label: "Contact" },
     ],
   },
   {
-    heading: "Get Started",
-    links: [{ href: "/contact", label: "Book a Call / Audit" }],
+    heading: "Services",
+    links: [
+      { href: "/services#website-design-cro", label: "Website design and CRO" },
+      { href: "/services#email-marketing", label: "Email and SMS marketing" },
+      { href: "/services#growth-partnership", label: "Full growth partnership" },
+    ],
   },
 ];
 
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-border-hairline">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr]">
+      <Wrap className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
-          <Image src={logo} alt="Skynosoft — ...where brands fly" height={40} className="w-auto" />
-          <p className="mt-4 max-w-sm font-body text-body-md text-foreground-muted">
-            High-converting ecommerce websites and email marketing systems
-            for fashion, skincare, home decor, and supplement brands scaling
-            to 7 figures and beyond.
+          <Image src={logo} alt="Skynosoft, where brands fly" height={40} className="w-auto" />
+          <p className="mt-4 max-w-sm font-body text-base text-foreground-muted text-pretty">
+            Ecommerce websites and Klaviyo email systems for fashion, skincare, wellness and
+            supplement brands.
           </p>
+          <Link href="/contact" className={`mt-6 ${BUTTON}`}>
+            {CTA_LABEL}
+          </Link>
         </div>
         {columns.map((col) => (
-          <div key={col.heading}>
-            <div className="font-label text-label-mono uppercase tracking-wide text-foreground-muted">
+          <nav key={col.heading} aria-label={col.heading}>
+            <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
               {col.heading}
-            </div>
+            </p>
             <ul className="mt-4 flex flex-col gap-3">
               {col.links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-body-md text-foreground transition-colors hover:text-primary-soft"
+                    className={`rounded font-body text-base text-foreground transition-colors duration-300 ${EASE} hover:text-primary-soft ${FOCUS}`}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         ))}
-      </Container>
-      <Container className="flex flex-col gap-2 border-t border-border-hairline py-6 text-foreground-muted md:flex-row md:items-center md:justify-between">
+      </Wrap>
+      <Wrap className="flex flex-col gap-2 border-t border-border-hairline py-6 text-foreground-muted md:flex-row md:items-center md:justify-between">
         <p className="font-body text-sm">
-          © {new Date().getFullYear()} Skynosoft. All rights reserved.
+          © {new Date().getFullYear()} Skynosoft Ltd. All rights reserved.
         </p>
-      </Container>
+        <p className="font-body text-sm">Founded by David Owoeye</p>
+      </Wrap>
     </footer>
   );
 }
