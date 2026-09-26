@@ -967,7 +967,7 @@ export const team: TeamMember[] = [
   {
     name: "David Owoeye",
     role: "Founder",
-    bio: "Leads strategy across every engagement — the connective thread between conversion design and email revenue.",
+    bio: "Leads strategy across every engagement, the connective thread between conversion design and email revenue.",
   },
 ];
 

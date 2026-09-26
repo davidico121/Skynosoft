@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/page-kit";
 import { splitParagraphs } from "@/lib/paragraphs";
 import { CTA_LABEL, caseStudies, services } from "@/lib/content";
-import { FaqSection, FinalCta, ProcessSection } from "@/components/ui/sections";
+import { FaqSection, FinalCta, LogoStrip, ProcessSection } from "@/components/ui/sections";
 import { client } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
@@ -76,7 +76,6 @@ const faqs = [
 
 export default async function Home() {
   const latestPosts = await client.fetch<BlogPostSummary[]>(allBlogPostsQuery);
-  const logoBrands = caseStudies.filter((cs) => cs.logo);
   const featured = featuredSlugs
     .map((slug) => caseStudies.find((cs) => cs.slug === slug))
     .filter((cs) => cs !== undefined);
@@ -148,33 +147,7 @@ export default async function Home() {
         </Wrap>
       </section>
 
-      <section className="border-t border-border-hairline">
-        <Wrap className="py-12">
-          <p className="text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
-            Brands we have worked with
-          </p>
-          <ul className="mx-auto mt-8 flex max-w-[960px] flex-wrap items-center justify-center gap-x-12 gap-y-8">
-            {logoBrands.map((cs) => (
-              <li key={cs.slug}>
-                <Link
-                  href={`/case-studies/${cs.slug}`}
-                  aria-label={`${cs.brand} case study`}
-                  className={`block h-8 w-28 rounded transition-opacity duration-300 ${EASE} opacity-80 hover:opacity-100 ${FOCUS}`}
-                >
-                  <Image
-                    src={cs.logo!.src}
-                    alt={cs.brand}
-                    width={cs.logo!.width}
-                    height={cs.logo!.height}
-                    unoptimized={cs.logo!.src.endsWith(".svg")}
-                    className="h-full w-full object-contain"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Wrap>
-      </section>
+      <LogoStrip />
 
       <Section id="problem" tint>
         <Reveal>

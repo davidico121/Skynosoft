@@ -3,8 +3,8 @@ import Link from "next/link";
 import { CaretDown } from "@phosphor-icons/react/dist/ssr";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { Reveal } from "@/components/ui/Reveal";
-import { BUTTON, EASE, Eyebrow, FOCUS, H2, Section } from "@/components/ui/page-kit";
-import { CTA_LABEL, processSteps } from "@/lib/content";
+import { BUTTON, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
+import { CTA_LABEL, caseStudies, processSteps } from "@/lib/content";
 import founderAvatar from "../../../public/brand/david-owoeye-avatar.jpg";
 
 export type Faq = { q: string; a: string };
@@ -21,9 +21,9 @@ export function faqJsonLd(faqs: Faq[]) {
   };
 }
 
-export function ProcessSection() {
+export function ProcessSection({ tint = true }: { tint?: boolean }) {
   return (
-    <Section id="how" tint>
+    <Section id="how" tint={tint}>
       <Reveal>
         <Eyebrow>How it works</Eyebrow>
         <div className="mt-4">
@@ -119,5 +119,38 @@ export function FinalCta({ tint = true }: { tint?: boolean }) {
         </p>
       </Reveal>
     </Section>
+  );
+}
+
+export function LogoStrip({ divider = true }: { divider?: boolean }) {
+  const brands = caseStudies.filter((cs) => cs.logo);
+  return (
+    <section className={divider ? "border-t border-border-hairline" : ""}>
+      <Wrap className="py-12">
+        <p className="text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
+          Brands we have worked with
+        </p>
+        <ul className="mx-auto mt-8 flex max-w-[960px] flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          {brands.map((cs) => (
+            <li key={cs.slug}>
+              <Link
+                href={`/case-studies/${cs.slug}`}
+                aria-label={`${cs.brand} case study`}
+                className={`block h-8 w-28 rounded transition-opacity duration-300 ${EASE} opacity-80 hover:opacity-100 ${FOCUS}`}
+              >
+                <Image
+                  src={cs.logo!.src}
+                  alt={cs.brand}
+                  width={cs.logo!.width}
+                  height={cs.logo!.height}
+                  unoptimized={cs.logo!.src.endsWith(".svg")}
+                  className="h-full w-full object-contain"
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Wrap>
+    </section>
   );
 }
