@@ -6,6 +6,7 @@ import {
   CheckCircle,
   EnvelopeSimple,
 } from "@phosphor-icons/react/dist/ssr";
+import { BlogCard } from "@/components/blog/BlogCard";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
@@ -25,7 +26,6 @@ import { splitParagraphs } from "@/lib/paragraphs";
 import { CTA_LABEL, caseStudies, services } from "@/lib/content";
 import { FaqSection, FinalCta, LogoStrip, ProcessSection } from "@/components/ui/sections";
 import { client } from "@/sanity/client";
-import { urlForImage } from "@/sanity/image";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
 export const revalidate = 60;
@@ -295,34 +295,7 @@ export default async function Home() {
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {latestPosts.slice(0, 3).map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug?.current}`}
-                  className={`flex flex-col overflow-hidden rounded-xl border border-border-hairline bg-card transition-all duration-300 ${EASE} hover:-translate-y-1 hover:border-border-hairline-strong active:scale-[0.99] ${FOCUS}`}
-                >
-                  {post.coverImage && (
-                    <div className="relative aspect-[16/9] w-full">
-                      <Image
-                        src={urlForImage(post.coverImage).width(800).height(450).fit("crop").url()}
-                        alt={post.coverImage.alt || post.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 33vw, 100vw"
-                      />
-                    </div>
-                  )}
-                  <div className="flex flex-1 flex-col p-6">
-                    <p className="font-label text-sm uppercase tracking-wide text-primary-soft">
-                      {post.category}
-                    </p>
-                    <h3 className="mt-3 font-heading text-lg font-semibold text-balance">
-                      {post.title}
-                    </h3>
-                    <p className="mt-2 flex-1 font-body text-base text-foreground-muted text-pretty">
-                      {post.excerpt}
-                    </p>
-                  </div>
-                </Link>
+                <BlogCard key={post._id} post={post} />
               ))}
             </div>
           </Reveal>

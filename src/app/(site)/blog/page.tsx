@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { Chip } from "@/components/ui/Chip";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { Reveal } from "@/components/ui/Reveal";
+import { BUTTON, Eyebrow, Section, Wrap } from "@/components/ui/page-kit";
+import { FinalCta } from "@/components/ui/sections";
+import { CTA_LABEL } from "@/lib/content";
 import { client } from "@/sanity/client";
-import { urlForImage } from "@/sanity/image";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Blog — Skynosoft",
   description:
-    "CRO, ecommerce website design, and email marketing insights from Skynosoft.",
+    "CRO, ecommerce website design and email marketing notes from the campaigns and rebuilds Skynosoft runs every day.",
   alternates: {
     canonical: "/blog",
   },
@@ -23,73 +24,48 @@ export default async function BlogPage() {
 
   return (
     <>
-      <section className="border-b border-border-hairline">
-        <Container className="py-24 text-center md:py-28">
-          <Chip>Blog</Chip>
-          <h1 className="mx-auto mt-6 max-w-3xl font-heading text-display-xl-mobile font-bold tracking-tight md:text-headline-lg">
-            Notes on ecommerce growth.
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-body-lg text-foreground-muted">
-            CRO, website design, and email marketing insights from the
-            campaigns and rebuilds we run every day.
-          </p>
-        </Container>
+      <section>
+        <Wrap className="pb-24 pt-16">
+          <Reveal>
+            <Eyebrow>Blog</Eyebrow>
+            <h1 className="mt-6 max-w-[680px] bg-linear-to-r from-[#000000] to-[#666666] bg-clip-text font-heading text-4xl font-bold text-balance text-transparent md:text-5xl">
+              Notes on ecommerce growth.
+            </h1>
+            <p className="mt-6 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
+              CRO, website design and email marketing notes from the campaigns and rebuilds we run
+              every day.
+            </p>
+            <Link href="/contact" className={`mt-8 ${BUTTON}`}>
+              {CTA_LABEL}
+            </Link>
+          </Reveal>
+        </Wrap>
       </section>
 
-      <section>
-        <Container className="py-section-gap">
-          {posts.length === 0 ? (
-            <p className="text-center font-body text-body-lg text-foreground-muted">
-              No posts published yet — check back soon.
+      <Section tint>
+        {posts.length === 0 ? (
+          <div className="mx-auto max-w-[680px] rounded-xl border border-border-hairline bg-white p-8 text-center">
+            <h2 className="font-heading text-2xl font-semibold">New posts are on the way</h2>
+            <p className="mt-4 font-body text-base text-foreground-muted text-pretty">
+              Nothing is published yet. In the meantime, the case studies show the work behind the
+              advice.
             </p>
-          ) : (
-            <div className="grid gap-6 md:grid-cols-3">
-              {posts.map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug?.current}`}
-                  className="flex flex-col overflow-hidden rounded-xl border border-border-hairline bg-card transition-colors hover:border-border-hairline-strong"
-                >
-                  {post.coverImage && (
-                    <div className="relative aspect-[16/9] w-full">
-                      <Image
-                        src={urlForImage(post.coverImage)
-                          .width(800)
-                          .height(450)
-                          .fit("crop")
-                          .url()}
-                        alt={post.coverImage.alt || post.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 33vw, 100vw"
-                      />
-                    </div>
-                  )}
-                  <div className="flex flex-1 flex-col p-8">
-                    <p className="font-label text-label-mono uppercase tracking-wide text-primary-soft">
-                      {post.category}
-                    </p>
-                    <h2 className="mt-4 font-heading text-headline-md font-semibold">
-                      {post.title}
-                    </h2>
-                    <p className="mt-3 flex-1 font-body text-body-md text-foreground-muted">
-                      {post.excerpt}
-                    </p>
-                    <p className="mt-6 font-label text-label-mono text-foreground-muted">
-                      {post.publishedAt &&
-                        new Date(post.publishedAt).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </Container>
-      </section>
+            <Link href="/case-studies" className={`mt-6 ${BUTTON}`}>
+              See case studies
+            </Link>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-3">
+            {posts.map((post) => (
+              <Reveal key={post._id}>
+                <BlogCard post={post} showDate />
+              </Reveal>
+            ))}
+          </div>
+        )}
+      </Section>
+
+      <FinalCta tint={false} />
     </>
   );
 }
