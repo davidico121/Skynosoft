@@ -149,12 +149,12 @@ const portableTextComponents: PortableTextComponents = {
     ctaCard: ({ value }: { value: CtaCardBlock }) => (
       <div className="my-8 flex flex-col gap-4 rounded-xl border border-border-hairline-strong bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-heading text-lg font-semibold">{value.heading}</p>
+          <p className="font-heading text-lg font-semibold text-foreground">{value.heading}</p>
           <p className="mt-1 font-body text-base text-foreground-muted">
             {value.body}
           </p>
         </div>
-        <Link href={value.linkHref} className={`shrink-0 ${BUTTON}`}>
+        <Link href={value.linkHref} data-button className={`shrink-0 no-underline ${BUTTON}`}>
           {value.linkLabel}
         </Link>
       </div>

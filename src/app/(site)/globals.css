@@ -166,7 +166,7 @@ h6 {
   list-style: decimal;
 }
 
-.prose-blog a {
+.prose-blog a:not([data-button]) {
   color: var(--color-primary-soft);
   text-decoration: underline;
 }
