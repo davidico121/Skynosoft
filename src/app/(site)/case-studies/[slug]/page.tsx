@@ -10,7 +10,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import {
   BUTTON,
   BUTTON_SECONDARY,
-  EASE,
   Eyebrow,
   FOCUS,
   Section,
@@ -102,18 +101,6 @@ export default async function CaseStudyPage({
   const caseStudy = caseStudies.find((cs) => cs.slug === slug);
   if (!caseStudy) notFound();
 
-  const toc = [
-    caseStudy.brandDescription && { id: "brand", label: "The brand" },
-    caseStudy.challengePoints && { id: "challenge", label: "The challenge" },
-    caseStudy.goal && { id: "goal", label: "The goal" },
-    caseStudy.strategy && { id: "strategy", label: "The strategy" },
-    caseStudy.execution && { id: "execution", label: "The execution" },
-    caseStudy.resultPoints && { id: "results", label: "The results" },
-    caseStudy.clientReview && { id: "review", label: "Client review" },
-    caseStudy.whyItWorked && { id: "why", label: "Why this worked" },
-    caseStudy.gallery && caseStudy.gallery.length > 0 && { id: "work", label: "The work" },
-  ].filter((x): x is { id: string; label: string } => Boolean(x));
-
   return (
     <>
       <section>
@@ -197,32 +184,23 @@ export default async function CaseStudyPage({
       )}
 
       <Section>
-        <div className="grid gap-16 lg:grid-cols-[240px_minmax(0,1fr)]">
-          <aside className="hidden lg:block">
-            <div className="sticky top-32 flex flex-col gap-6">
-              <nav aria-label="On this page">
-                <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
-                  On this page
-                </p>
-                <ul className="mt-4 flex flex-col gap-2">
-                  {toc.map((item) => (
-                    <li key={item.id}>
-                      <a
-                        href={`#${item.id}`}
-                        className={`block rounded font-body text-base text-foreground-muted transition-colors duration-300 ${EASE} hover:text-foreground ${FOCUS}`}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-              <div className="rounded-xl border border-border-hairline bg-card p-6">
-                <p className="font-heading text-xl font-semibold">Want this for your brand?</p>
-                <Link href="/contact" className={`mt-4 w-full ${BUTTON}`}>
-                  {CTA_LABEL}
-                </Link>
-              </div>
+        <div className="grid gap-16 lg:grid-cols-[280px_minmax(0,1fr)]">
+          <aside className="lg:sticky lg:top-32 lg:self-start">
+            <div className="rounded-xl border border-border-hairline bg-card p-6">
+              <Image
+                src="/brand/skynosoft-icon.png"
+                alt="Skynosoft"
+                width={40}
+                height={40}
+                className="rounded-md"
+              />
+              <p className="mt-4 font-label text-sm uppercase tracking-wide text-foreground-muted">
+                Want this for your brand?
+              </p>
+              <p className="mt-2 font-heading text-3xl font-semibold">Book a call</p>
+              <Link href="/contact" className={`mt-6 w-full ${BUTTON}`}>
+                {CTA_LABEL}
+              </Link>
             </div>
           </aside>
 

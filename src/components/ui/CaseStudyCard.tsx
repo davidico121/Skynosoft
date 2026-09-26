@@ -52,7 +52,7 @@ export function CaseStudyCard({
       </p>
 
       {caseStudy.metrics.length > 0 && (
-        <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border-hairline pt-6">
+        <div className="mt-8 grid grid-cols-1 gap-6 border-t border-border-hairline pt-6 sm:grid-cols-3 sm:gap-4">
           {caseStudy.metrics.slice(0, 3).map((m) => (
             <MetricStat key={m.label} value={m.value} label={m.label} size="sm" />
           ))}
