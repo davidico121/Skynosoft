@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
 /** Which real case study and client review backs up each service. */
 const proofByService: Record<string, { caseStudy: string; review?: string }> = {
   "website-design-cro": { caseStudy: "afrocenchix", review: "afrocenchix" },
-  "email-marketing": { caseStudy: "novaya", review: "cannonbalm" },
+  "email-marketing": { caseStudy: "cannonbalm", review: "cannonbalm" },
   "growth-partnership": { caseStudy: "thyvita", review: "thyvita" },
 };
 
