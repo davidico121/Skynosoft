@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CaretDown } from "@phosphor-icons/react/dist/ssr";
+import { BookCallCard } from "@/components/ui/BookCallCard";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { Reveal } from "@/components/ui/Reveal";
 import { BUTTON, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
@@ -74,9 +75,9 @@ export function FaqSection({ faqs, tint = true }: { faqs: Faq[]; tint?: boolean 
           <div className="mt-4">
             <H2>Before you book</H2>
           </div>
-          <Link href="/contact" className={`mt-8 ${BUTTON}`}>
-            {CTA_LABEL}
-          </Link>
+          <div className="mt-8 max-w-[320px]">
+            <BookCallCard className={tint ? "bg-white" : "bg-card"} />
+          </div>
         </Reveal>
         <Reveal className="flex flex-col gap-4" delay={100}>
           {faqs.map((f) => (

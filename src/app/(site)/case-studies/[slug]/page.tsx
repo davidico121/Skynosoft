@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BookCallCard } from "@/components/ui/BookCallCard";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { Chip } from "@/components/ui/Chip";
 import { Paragraphs } from "@/components/ui/Paragraphs";
@@ -200,22 +201,7 @@ export default async function CaseStudyPage({
       <Section>
         <div className="grid gap-16 lg:grid-cols-[280px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-32 lg:self-start">
-            <div className="rounded-xl border border-border-hairline bg-card p-6">
-              <Image
-                src="/brand/skynosoft-icon.png"
-                alt="Skynosoft"
-                width={40}
-                height={40}
-                className="rounded-md"
-              />
-              <p className="mt-4 font-label text-sm uppercase tracking-wide text-foreground-muted">
-                Want this for your brand?
-              </p>
-              <p className="mt-2 font-heading text-3xl font-semibold">Book a call</p>
-              <Link href="/contact" className={`mt-6 w-full ${BUTTON}`}>
-                {CTA_LABEL}
-              </Link>
-            </div>
+            <BookCallCard />
           </aside>
 
           <div className="flex min-w-0 flex-col gap-16">
