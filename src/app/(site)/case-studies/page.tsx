@@ -37,9 +37,9 @@ export default function CaseStudiesPage() {
       </section>
 
       <Section tint>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="columns-1 gap-6 md:columns-2">
           {caseStudies.map((cs) => (
-            <Reveal key={cs.slug}>
+            <Reveal key={cs.slug} className="mb-6 break-inside-avoid">
               <CaseStudyCard caseStudy={cs} />
             </Reveal>
           ))}
