@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preconnect } from "react-dom";
 import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
@@ -23,6 +24,8 @@ const expect = [
 ];
 
 export default function ContactPage() {
+  preconnect("https://calendly.com");
+  preconnect("https://assets.calendly.com");
   return (
     <section>
       <Wrap className="pb-24 pt-16">

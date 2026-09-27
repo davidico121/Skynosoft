@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preconnect } from "react-dom";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
@@ -147,6 +148,8 @@ export default async function StrategyPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  preconnect("https://calendly.com");
+  preconnect("https://assets.calendly.com");
   const { slug } = await params;
   const pitch = strategyPitches.find((p) => p.slug === slug);
   if (!pitch) notFound();
@@ -514,7 +517,7 @@ export default async function StrategyPage({
               />
             </div>
             <div className="mt-12">
-              <CalendlyEmbed url={CALENDLY_URL} />
+              <CalendlyEmbed url={CALENDLY_URL} lazy />
             </div>
             <div className="mt-12 flex flex-col items-center text-center">
               <Image
