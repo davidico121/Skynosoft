@@ -19,9 +19,7 @@ import { FinalCta } from "@/components/ui/sections";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { CTA_LABEL, SITE_NAME, SITE_URL, caseStudies } from "@/lib/content";
 import { client } from "@/sanity/client";
-import { getCommentsClient, type Comment } from "@/sanity/commentsClient";
 import { urlForImage } from "@/sanity/image";
-import { CommentForm } from "@/components/blog/CommentForm";
 import {
   allBlogPostsQuery,
   allBlogSlugsQuery,
@@ -234,11 +232,6 @@ export default async function BlogPostPage({
     .filter((p) => p.slug?.current !== slug)
     .slice(0, 3);
 
-  const comments = await getCommentsClient().fetch<Comment[]>(
-    `*[_type == "comment" && postSlug == $slug && approved == true] | order(createdAt asc){_id, name, body, createdAt}`,
-    { slug },
-  );
-
   const coverImageUrl = post.coverImage
     ? urlForImage(post.coverImage).width(1600).height(900).fit("crop").url()
     : undefined;
@@ -398,45 +391,6 @@ export default async function BlogPostPage({
           </Reveal>
         </Section>
       )}
-
-      <Section>
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-3xl font-semibold text-balance">
-            Comments {comments.length > 0 && `(${comments.length})`}
-          </h2>
-
-          {comments.length > 0 && (
-            <div className="mt-8 flex flex-col gap-6">
-              {comments.map((c) => (
-                <div
-                  key={c._id}
-                  className="rounded-xl border border-border-hairline bg-card p-6"
-                >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <p className="font-heading text-base font-semibold">
-                      {c.name}
-                    </p>
-                    <p className="font-label text-sm text-foreground-muted">
-                      {new Date(c.createdAt).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
-                  </div>
-                  <p className="mt-2 font-body text-base text-foreground-muted">
-                    {c.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="mt-8">
-            <CommentForm postSlug={slug} />
-          </div>
-        </div>
-      </Section>
 
       {relatedPosts.length > 0 && (
         <Section tint>

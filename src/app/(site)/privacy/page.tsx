@@ -34,11 +34,6 @@ export default function PrivacyPage() {
           your request before entering into a contract.
         </li>
         <li>
-          <strong>Blog comments.</strong> If you post a comment we store your name, your comment
-          and, if you give it, your email address. Your email is never published. Comments are
-          moderated before they appear. Our legal basis is your consent.
-        </li>
-        <li>
           <strong>Server logs.</strong> Our hosting provider records technical data such as your IP
           address, browser and the pages requested, to keep the site secure and working. Our legal
           basis is our legitimate interest in running a secure website.
@@ -51,24 +46,22 @@ export default function PrivacyPage() {
 
       <h2>Cookies</h2>
       <p>
-        Skynosoft does not set cookies of its own on this site. The booking calendar is provided by
-        Calendly and is only loaded after you choose to load it. Once loaded, Calendly may set its
-        own cookies under its own privacy policy. If you would rather not load it, you can open
-        Calendly in a separate tab instead.
+        Skynosoft does not set cookies of its own on this site. The booking calendar on the contact
+        page is provided by Calendly, which may set its own cookies under its own privacy policy.
+        You can also open Calendly in a separate tab from the link under the calendar.
       </p>
 
       <h2>Who we share data with</h2>
       <p>
         We use a small number of service providers to run the site: Calendly (scheduling), Sanity
-        (content and comments storage) and Vercel (hosting). They process data on our behalf. Some
+        (content storage) and Vercel (hosting). They process data on our behalf. Some
         of them are based in the United States. Where data leaves the UK or the European Economic
         Area, it is protected by approved safeguards such as standard contractual clauses.
       </p>
 
       <h2>How long we keep data</h2>
       <p>
-        Comments stay until you ask us to remove them or we delete them. Booking details are kept
-        for as long as needed to run the conversation and for our legal and accounting
+        Booking details are kept for as long as needed to run the conversation and for our legal and accounting
         obligations. Server logs are kept for a short period set by our hosting provider.
       </p>
 

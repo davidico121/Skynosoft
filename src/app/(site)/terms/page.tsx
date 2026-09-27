@@ -37,10 +37,9 @@ export default function TermsPage() {
         our work.
       </p>
 
-      <h2>Blog and comments</h2>
+      <h2>Blog</h2>
       <p>
         Blog posts are general information, not professional advice for your particular business.
-        Comments are moderated. We may remove any comment that is abusive, off topic or promotional.
       </p>
 
       <h2>Third party services and links</h2>
