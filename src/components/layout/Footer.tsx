@@ -62,7 +62,21 @@ export function Footer() {
         <p className="font-body text-sm">
           © {new Date().getFullYear()} Skynosoft Ltd. All rights reserved.
         </p>
-        <p className="font-body text-sm">Founded by David Owoeye</p>
+        <ul className="flex gap-6">
+          {[
+            { href: "/privacy", label: "Privacy policy" },
+            { href: "/terms", label: "Terms of use" },
+          ].map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                className={`rounded font-body text-sm underline-offset-4 hover:text-foreground hover:underline ${FOCUS}`}
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Wrap>
     </footer>
   );

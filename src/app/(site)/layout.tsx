@@ -3,6 +3,7 @@ import { Sora, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_NAME, SITE_URL } from "@/lib/content";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import "./globals.css";
 
 const sora = Sora({
@@ -21,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const defaultDescription =
-  "Skynosoft is an ecommerce growth agency combining high-converting website design, CRO, and email marketing to scale DTC brands to 7 figures and beyond.";
+  "Skynosoft is an ecommerce growth agency combining website design, CRO and Klaviyo email marketing for fashion, skincare, wellness and supplement brands.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -35,14 +36,14 @@ export const metadata: Metadata = {
     description: defaultDescription,
     url: SITE_URL,
     siteName: SITE_NAME,
-    images: [{ url: "/brand/skynosoft-logo.jpg", width: 500, height: 500 }],
+    images: [DEFAULT_OG_IMAGE],
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Skynosoft — ...where brands fly",
     description: defaultDescription,
-    images: ["/brand/skynosoft-logo.jpg"],
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 
@@ -52,7 +53,7 @@ const organizationJsonLd = {
   name: SITE_NAME,
   url: SITE_URL,
   description:
-    "Skynosoft is an ecommerce growth agency combining high-converting website design, CRO, and email marketing to scale DTC brands to 7 figures and beyond.",
+    "Skynosoft is an ecommerce growth agency combining website design, CRO and Klaviyo email marketing for fashion, skincare, wellness and supplement brands.",
 };
 
 const websiteJsonLd = {

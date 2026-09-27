@@ -16,6 +16,7 @@ import {
   Wrap,
 } from "@/components/ui/page-kit";
 import { FinalCta } from "@/components/ui/sections";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { CTA_LABEL, SITE_NAME, SITE_URL, caseStudies } from "@/lib/content";
 import { client } from "@/sanity/client";
 import { getCommentsClient, type Comment } from "@/sanity/commentsClient";
@@ -113,7 +114,7 @@ const portableTextComponents: PortableTextComponents = {
               {value.headers.map((header, i) => (
                 <th
                   key={i}
-                  className="whitespace-nowrap px-4 py-3 font-label text-label-mono uppercase tracking-wide text-foreground-muted"
+                  className="whitespace-nowrap px-4 py-3 font-label text-sm uppercase tracking-wide text-foreground-muted"
                 >
                   {header}
                 </th>
@@ -205,13 +206,14 @@ export async function generateMetadata({
       url: `${SITE_URL}/blog/${slug}`,
       type: "article",
       publishedTime: post.publishedAt,
-      images: ogImages,
+      siteName: SITE_NAME,
+      images: ogImages ?? [DEFAULT_OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ogImages?.map((image) => image.url),
+      images: (ogImages ?? [DEFAULT_OG_IMAGE]).map((image) => image.url),
     },
   };
 }

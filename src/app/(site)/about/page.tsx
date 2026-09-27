@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { CurrencyDollar, LinkSimple, Rocket } from "@phosphor-icons/react/dist/ssr";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
-import { BUTTON, Eyebrow, H2, Section, Wrap } from "@/components/ui/page-kit";
+import { BUTTON, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
+import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { FinalCta, LogoStrip, ProcessSection } from "@/components/ui/sections";
 import { CTA_LABEL, caseStudies, team } from "@/lib/content";
 import { splitParagraphs } from "@/lib/paragraphs";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About — Skynosoft",
   description:
     "Skynosoft is an ecommerce growth agency that builds the website and the email system as one, led by founder David Owoeye.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+  path: "/about",
+});
+
 
 const values = [
   {
@@ -25,18 +26,21 @@ const values = [
     title: "Revenue, not vanity metrics",
     description:
       "Traffic and impressions don't pay bills. Every decision is measured against checkout revenue and email attributed revenue.",
+    proof: "chart",
   },
   {
     icon: LinkSimple,
     title: "One system, not two vendors",
     description:
       "Your website and your email program should work together. We build both, so nothing falls through the gap between agencies.",
+    proof: "thyvita",
   },
   {
     icon: Rocket,
     title: "Built to keep working as you grow",
     description:
       "We design systems that hold up as a brand scales, so you are not rebuilding the same flows and pages a year from now.",
+    proof: "medgear",
   },
 ];
 
@@ -132,23 +136,75 @@ export default function AboutPage() {
           <div className="mt-4">
             <H2>Three rules behind every project.</H2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="rounded-xl border border-border-hairline bg-card p-8"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
-                  <v.icon size={24} weight="duotone" aria-hidden />
-                </span>
-                <h3 className="mt-6 font-heading text-2xl font-semibold">{v.title}</h3>
-                <p className="mt-4 font-body text-base text-foreground-muted text-pretty">
-                  {v.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </Reveal>
+        <div className="mt-16 flex flex-col gap-24">
+          {values.map((v) => {
+            const thyvita = caseStudies.find((c) => c.slug === "thyvita");
+            const medgear = caseStudies.find((c) => c.slug === "medgear");
+            return (
+              <Reveal key={v.title}>
+                <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+                  <div>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
+                      <v.icon size={24} weight="duotone" aria-hidden />
+                    </span>
+                    <h3 className="mt-6 max-w-[680px] font-heading text-3xl font-semibold text-balance">
+                      {v.title}
+                    </h3>
+                    <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
+                      {v.description}
+                    </p>
+                  </div>
+                  <div>
+                    {v.proof === "chart" && (
+                      <figure>
+                        <div className="overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-lg">
+                          <Image
+                            src="/case-studies/novaya/revenue-chart.png"
+                            alt="A bar chart of Novaya flow attributed revenue by lifecycle stage, led by $173,929 from the welcome flow"
+                            width={1300}
+                            height={700}
+                            className="block h-auto w-full"
+                          />
+                        </div>
+                        <figcaption className="mt-3 font-body text-base text-foreground-muted">
+                          Novaya: email revenue by lifecycle stage.{" "}
+                          <Link
+                            href="/case-studies/novaya"
+                            className={`rounded font-semibold text-primary-soft underline underline-offset-4 ${FOCUS}`}
+                          >
+                            Read the case study
+                          </Link>
+                        </figcaption>
+                      </figure>
+                    )}
+                    {v.proof === "thyvita" && thyvita && <CaseStudyCard caseStudy={thyvita} />}
+                    {v.proof === "medgear" && medgear && (
+                      <Link
+                        href="/case-studies/medgear"
+                        className={`group block rounded-xl border border-border-hairline bg-card p-8 transition-all duration-300 ${EASE} hover:-translate-y-1 hover:border-border-hairline-strong active:scale-[0.99] ${FOCUS}`}
+                      >
+                        <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
+                          Medgear monthly revenue
+                        </p>
+                        <p className="mt-4 font-heading text-5xl font-bold text-growth-green">
+                          $32K to $60K
+                        </p>
+                        <p className="mt-4 font-body text-base text-foreground-muted text-pretty">
+                          Compounded testing learnings across the homepage, collections, product
+                          pages and checkout.
+                        </p>
+                        <p className="mt-6 font-body text-base font-semibold text-primary-soft">
+                          Read the case study →
+                        </p>
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
       </Section>
 
       <Section>

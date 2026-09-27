@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 
 const inputClasses =
-  "w-full rounded-lg border border-border-hairline bg-background px-4 py-3 font-body text-body-md text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none";
+  "w-full rounded-xl border border-border-hairline-strong bg-background px-4 py-3 font-body text-base text-foreground placeholder:text-foreground-muted transition-colors duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
 export function CommentForm({ postSlug }: { postSlug: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
@@ -41,7 +41,7 @@ export function CommentForm({ postSlug }: { postSlug: string }) {
 
   if (status === "success") {
     return (
-      <p className="rounded-lg border border-border-hairline bg-card p-6 font-body text-body-md text-foreground-muted">
+      <p className="rounded-xl border border-border-hairline bg-card p-6 font-body text-base text-foreground-muted">
         Thanks. Your comment has been submitted and will appear once it&rsquo;s reviewed.
       </p>
     );
@@ -87,12 +87,12 @@ export function CommentForm({ postSlug }: { postSlug: string }) {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex items-center justify-center gap-2 rounded bg-primary px-6 py-3 font-body text-body-md font-medium text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center justify-center rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary/90 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {status === "submitting" ? "Submitting..." : "Post Comment"}
+          {status === "submitting" ? "Submitting" : "Post Comment"}
         </button>
         {status === "error" && (
-          <p className="font-body text-body-md text-red-400">
+          <p className="font-body text-base text-red-700">
             Something went wrong. Please try again.
           </p>
         )}

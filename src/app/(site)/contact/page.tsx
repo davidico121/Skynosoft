@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/ui/Reveal";
-import { Eyebrow, FOCUS, Wrap } from "@/components/ui/page-kit";
+import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
+import { Eyebrow, Wrap } from "@/components/ui/page-kit";
 import { CALENDLY_URL } from "@/lib/content";
 import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Book a free audit — Skynosoft",
   description:
     "Book a free audit call with Skynosoft. We look at your store and email setup together and show you where revenue is leaking.",
-  alternates: {
-    canonical: "/contact",
-  },
-};
+  path: "/contact",
+});
+
 
 const expect = [
   "You bring your store URL and your questions, not your card.",
@@ -65,27 +66,7 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={150}>
-            <div className="overflow-hidden rounded-xl border border-border-hairline bg-card">
-              <iframe
-                src={CALENDLY_URL}
-                width="100%"
-                height="700"
-                className="block"
-                title="Book a call with Skynosoft"
-              />
-            </div>
-            <p className="mt-6 font-body text-sm text-foreground-muted">
-              Trouble loading the calendar?{" "}
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`rounded text-primary-soft underline underline-offset-4 ${FOCUS}`}
-              >
-                Open it in a new tab
-              </a>
-              .
-            </p>
+            <CalendlyEmbed url={CALENDLY_URL} />
           </Reveal>
         </div>
       </Wrap>

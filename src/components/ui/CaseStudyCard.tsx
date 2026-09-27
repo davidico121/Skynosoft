@@ -35,19 +35,19 @@ export function CaseStudyCard({
             />
           </div>
         ) : (
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-surface-container-high font-heading text-headline-md text-foreground-muted">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-container-high font-heading text-2xl font-semibold text-foreground-muted">
             {caseStudy.logoInitial}
           </div>
         )}
       </div>
 
-      <h3 className="mt-6 font-heading text-headline-md font-semibold">
+      <h3 className="mt-6 font-heading text-3xl font-semibold text-balance">
         {caseStudy.brand}
       </h3>
-      <p className="mt-1 font-label text-label-mono uppercase tracking-wide text-foreground-muted">
+      <p className="mt-1 font-label text-sm uppercase tracking-wide text-foreground-muted">
         {caseStudy.category}
       </p>
-      <p className="mt-4 font-body text-body-md text-foreground-muted">
+      <p className="mt-4 font-body text-base text-foreground-muted text-pretty">
         {caseStudy.summary}
       </p>
 

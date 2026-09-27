@@ -29,14 +29,30 @@ export function ProcessSection({ tint = true }: { tint?: boolean }) {
         <div className="mt-4">
           <H2>From audit to scale in three steps.</H2>
         </div>
-        <ol className="mt-12 grid gap-6 md:grid-cols-3">
-          {processSteps.map((s) => (
-            <li key={s.step} className="rounded-xl border border-border-hairline bg-white p-8">
-              <p className="font-heading text-4xl font-semibold text-outline-variant">{s.step}</p>
-              <h3 className="mt-4 font-heading text-2xl font-semibold">{s.title}</h3>
-              <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
-                {s.description}
-              </p>
+        <ol className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+          {processSteps.map((s, i) => (
+            <li key={s.step} className="relative flex gap-6 md:block">
+              {i < processSteps.length - 1 && (
+                <>
+                  <span
+                    aria-hidden
+                    className="absolute left-6 top-14 h-[calc(100%+24px)] w-px bg-border-hairline-strong md:hidden"
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute left-16 -right-4 top-6 hidden h-px bg-border-hairline-strong md:block"
+                  />
+                </>
+              )}
+              <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary font-heading text-lg font-semibold text-white">
+                {s.step}
+              </span>
+              <div className="md:mt-6">
+                <h3 className="font-heading text-2xl font-semibold">{s.title}</h3>
+                <p className="mt-3 max-w-[420px] font-body text-base text-foreground-muted text-pretty">
+                  {s.description}
+                </p>
+              </div>
             </li>
           ))}
         </ol>

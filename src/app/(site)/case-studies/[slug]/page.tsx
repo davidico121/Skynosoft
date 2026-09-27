@@ -16,7 +16,8 @@ import {
   Wrap,
 } from "@/components/ui/page-kit";
 import { FinalCta } from "@/components/ui/sections";
-import { CTA_LABEL, caseStudies, type CaseStudy } from "@/lib/content";
+import { CTA_LABEL, SITE_NAME, SITE_URL, caseStudies, type CaseStudy } from "@/lib/content";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -38,7 +39,20 @@ export async function generateMetadata({
     openGraph: {
       title,
       description: caseStudy.summary,
-      images: caseStudy.heroImage ? [{ url: caseStudy.heroImage.src }] : undefined,
+      url: `${SITE_URL}/case-studies/${slug}`,
+      siteName: SITE_NAME,
+      type: "article",
+      images: [
+        caseStudy.heroImage
+          ? { url: caseStudy.heroImage.src, width: caseStudy.heroImage.width, height: caseStudy.heroImage.height, alt: caseStudy.heroImage.alt }
+          : DEFAULT_OG_IMAGE,
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: caseStudy.summary,
+      images: [caseStudy.heroImage ? caseStudy.heroImage.src : DEFAULT_OG_IMAGE.url],
     },
   };
 }

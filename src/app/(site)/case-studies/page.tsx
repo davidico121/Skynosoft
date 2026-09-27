@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { Reveal } from "@/components/ui/Reveal";
@@ -6,14 +7,13 @@ import { BUTTON, Eyebrow, Section, Wrap } from "@/components/ui/page-kit";
 import { FinalCta } from "@/components/ui/sections";
 import { CTA_LABEL, caseStudies } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Case Studies — Skynosoft",
   description:
     "Case studies from ecommerce fashion, skincare, wellness and supplement brands, with the real numbers behind each website and email project.",
-  alternates: {
-    canonical: "/case-studies",
-  },
-};
+  path: "/case-studies",
+});
+
 
 export default function CaseStudiesPage() {
   return (

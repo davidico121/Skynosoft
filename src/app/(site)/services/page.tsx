@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
@@ -11,14 +12,13 @@ import { FaqSection, FinalCta, ProcessSection } from "@/components/ui/sections";
 import { CTA_LABEL, caseStudies, services } from "@/lib/content";
 import { splitParagraphs } from "@/lib/paragraphs";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Services — Skynosoft",
   description:
     "Ecommerce website design, conversion rate optimization and Klaviyo email marketing, planned as one system by one team.",
-  alternates: {
-    canonical: "/services",
-  },
-};
+  path: "/services",
+});
+
 
 /** Which real case study and client review backs up each service. */
 const proofByService: Record<string, { caseStudy: string; review?: string }> = {

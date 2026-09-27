@@ -12,6 +12,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { splitParagraphs } from "@/lib/paragraphs";
+import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
@@ -512,14 +513,8 @@ export default async function StrategyPage({
                 className="font-body text-lg text-foreground-muted text-pretty"
               />
             </div>
-            <div className="mt-12 overflow-hidden rounded-xl border border-border-hairline bg-card">
-              <iframe
-                src={CALENDLY_URL}
-                width="100%"
-                height="700"
-                className="block"
-                title="Book a call with Skynosoft"
-              />
+            <div className="mt-12">
+              <CalendlyEmbed url={CALENDLY_URL} />
             </div>
             <div className="mt-12 flex flex-col items-center text-center">
               <Image

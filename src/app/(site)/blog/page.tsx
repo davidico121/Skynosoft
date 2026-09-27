@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogCard } from "@/components/blog/BlogCard";
@@ -10,14 +11,13 @@ import { urlForImage } from "@/sanity/image";
 import { client } from "@/sanity/client";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Blog — Skynosoft",
   description:
     "CRO, ecommerce website design and email marketing notes from the campaigns and rebuilds Skynosoft runs every day.",
-  alternates: {
-    canonical: "/blog",
-  },
-};
+  path: "/blog",
+});
+
 
 export const revalidate = 60;
 

@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   Browsers,
@@ -27,6 +29,13 @@ import { CTA_LABEL, caseStudies, services } from "@/lib/content";
 import { FaqSection, FinalCta, LogoStrip, ProcessSection } from "@/components/ui/sections";
 import { client } from "@/sanity/client";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Skynosoft — Websites that convert, email that brings customers back",
+  description:
+    "Skynosoft builds Shopify stores and Klaviyo email systems for fashion, skincare, wellness and supplement brands, planned as one system.",
+  path: "/",
+});
 
 export const revalidate = 60;
 
