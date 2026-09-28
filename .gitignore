@@ -42,3 +42,6 @@ next-env.d.ts
 
 # blog-writer skill scratch output
 /scripts/drafts
+
+# working scratch files, never meant to be committed
+/scratch

@@ -14,11 +14,7 @@ export function BookCallCard({ className = "bg-card" }: { className?: string }) 
         className="rounded-md"
       />
       <p className="mt-4 font-heading text-2xl font-semibold text-balance">
-        Want results like this for your brand?
-      </p>
-      <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
-        We look at your store and your emails together and show you where revenue is leaking. It
-        is free, and you leave with a plan.
+        Find your revenue leak
       </p>
       <Link href="/contact" className={`mt-6 w-full ${BUTTON}`}>
         {CTA_LABEL}
