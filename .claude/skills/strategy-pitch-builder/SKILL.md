@@ -111,6 +111,51 @@ Copy checks before moving on (the "specificity checklist"):
 - No em dashes, no hyphens in copy (write "win back", "first time buyer").
 - Numbers written the way the brand writes them (currency, spelling: UK vs US).
 
+### The six agreements (run every page through this before shipping)
+
+Before someone books a call, the copy has to earn six agreements in order.
+Each maps to an existing field, so this is a check on what is already
+there, not a new section to write. Skipping one is the usual reason a
+page reads fine but does not convert.
+
+1. **"This is for me."** `hero.eyebrow` + `hero.headline` + `hero.subheading`.
+   Open with something only their exact buyer would recognize (a named
+   customer, their product, their specific moment), not a claim that could
+   sit on any Klaviyo pitch. If the first line could be about any
+   ecommerce brand, rewrite it.
+2. **"This problem really matters."** `gap` + `problemSolution.problem`.
+   Do not just state what is missing (`status: "Nothing sent"`); name what
+   it costs them if they leave it. Which competitor picks up the lapsed
+   customer, what the lost reorder is worth, what happens by BFCM if the
+   flow still is not live. Loss framed beats gain framed, people feel
+   losing something they have more than missing something they never had.
+3. **"My current approach will not get me there."** Usually missing.
+   Before pitching the system, name the thing they are probably already
+   doing that will not close the gap (a generic post purchase email, a
+   one off newsletter, "we will get to it after BFCM") and say plainly why
+   more of that does not solve it. This can live in `problemSolution.problem`
+   or as an extra beat before `problemSolution.solution`, one or two
+   sentences, not a new field.
+4. **"There is a better way."** `problemSolution.solution.points` +
+   `benefits`. Each point should read as a new way of seeing the problem,
+   not a feature list. "Timed to when their pouch runs low" is a
+   reframe; "we send automated flows" is not.
+5. **"This will work for me."** `problemSolution.reviews`,
+   `caseStudySlugs`, `reviewFromCaseStudy`, `hero.proof`. Already the
+   strongest part of the template, keep it that way: real reviews from
+   their own customers plus a case study in their category or adjacent to
+   it. If they have no case study close enough, say so to David rather
+   than stretching `caseStudySlugs`.
+6. **"I cannot keep putting this off."** `how` (the BFCM/deadline framing),
+   `risk`, and the FAQ's timing question. State the specific cost of
+   waiting (a missed peak window, another season of the same leak) rather
+   than a generic "let's chat soon." `risk.text` should make starting feel
+   safe ("see the plan before you spend anything") precisely so the
+   urgency in `how`/FAQ does not read as pressure.
+
+If a page is flat despite good design, it is almost always #3 or #6 that
+got skipped, not a visual problem.
+
 ## Step 4: Assets
 
 - Put files in `public/pitch-assets/<slug>/` and reference them as
