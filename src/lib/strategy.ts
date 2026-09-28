@@ -132,7 +132,7 @@ export const strategyPitches: StrategyPitch[] = [
       heading: "Your customers already believe in the product. Nothing brings them back.",
       problem: {
         title: "Right now",
-        text: "When a pouch runs out, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer.",
+        text: "When a pouch runs out, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer. Every one of those is a customer you already paid to acquire once, gone for the cost of a single email you never sent. And it will not fix itself. Your only signup right now is a footer field that says keep up to date with us, it already proves you know emails matter, there just is not anything automatic waiting on the other side of it.",
       },
       solution: {
         title: "With the system in place",
@@ -274,7 +274,7 @@ export const strategyPitches: StrategyPitch[] = [
       },
       {
         q: "Can it be live before BFCM?",
-        a: "The plan runs four weeks, so starting soon keeps the flows live comfortably ahead of peak traffic.",
+        a: "The plan runs four weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it.",
       },
       {
         q: "What does it cost?",
