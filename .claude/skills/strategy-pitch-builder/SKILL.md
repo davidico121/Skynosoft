@@ -37,13 +37,43 @@ component that needed extending, a copy pattern that landed).
    easing, states). Fonts stay Sora / Hanken Grotesk / JetBrains Mono.
 6. **Personal, not corporate.** No em dashes, no hyphens in copy, no
    "solutions/leverage/streamline". Write scenes, not stats: a named customer
-   and what happened to them beats a percentage.
+   and what happened to them beats a percentage. See "Voice" below for the
+   register this should land in.
 7. **Reviews and testimonials always use the shared `QuoteBadge`**
    (`src/components/ui/QuoteBadge.tsx`) on the beige `#f7f6f3` card. Long
    copy goes through `Paragraphs` / `splitParagraphs` so no block of text is
    dense (breaks at sentence boundaries above ~160 characters).
 8. **Commit and push to main** once tested (standing instruction), then
    deploy.
+
+## Voice
+
+This is the register every page's copy should land in (established from
+David's own draft, 2026-09-28). It is raw and direct, closer to a message
+from David than a landing page. When writing or rewriting a page, read a
+section out loud, if it sounds like brand copy instead of David talking,
+rewrite it.
+
+- **Short sentences stacked in twos and threes.** Let fragments do work.
+  "They ghost. The reorder never happens." beats one long connected
+  sentence saying the same thing.
+- **Direct second person, no hedging.** "Look," "Here's the thing," and
+  plain declaratives ("That's not a loss. That's a spiral.") instead of
+  "this may result in" or "could potentially."
+- **A rhetorical question early**, right after the opening hook, that
+  makes the reader answer before the page continues ("Does that sound
+  familiar?").
+- **Numbers shown as arithmetic in prose, not a stat block.** "You spent
+  X on ads. If Y% of that went to customers who buy once, that's Z gone."
+  Walk the math, don't just state the result, and only with real numbers
+  (see rule 1 and the six agreements section below).
+- **Repetition as the closing beat**, not a single polished CTA line.
+  Short repeated fragments ("Not next week. Now.") land harder than one
+  smooth sentence.
+- **Section headings are spoken lines**, not labels. "Why throwing more
+  money at ads won't work," not "The Problem With Ad Spend."
+- Still bound by the hard rules above: no em dashes, no hyphens (write
+  "customers who buy once," not "one-time customers"), nothing invented.
 
 ## Step 1: Intake
 
