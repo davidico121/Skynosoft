@@ -13,6 +13,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { splitParagraphs } from "@/lib/paragraphs";
+import { renderRich } from "@/lib/richText";
 import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
@@ -184,7 +185,7 @@ export default async function StrategyPage({
                   ))}
                 </h1>
                 <p className="mt-6 font-body text-lg text-foreground-muted text-pretty">
-                  {hero.subheading}
+                  {renderRich(hero.subheading)}
                 </p>
                 <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
                   <a href="#book" className={`shrink-0 ${BUTTON}`}>
@@ -295,7 +296,7 @@ export default async function StrategyPage({
                           className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
                           aria-hidden
                         />
-                        <span>{point}</span>
+                        <span>{renderRich(point)}</span>
                       </li>
                     ))}
                   </ul>
@@ -372,7 +373,7 @@ export default async function StrategyPage({
                       </span>
                       <h3 className="mt-6 font-heading text-xl font-semibold">{title}</h3>
                       <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
-                        {detail}
+                        {renderRich(detail)}
                       </p>
                     </div>
                   );

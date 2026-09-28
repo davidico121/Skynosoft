@@ -79,7 +79,7 @@ export const strategyPitches: StrategyPitch[] = [
         "not new ones you pay to find",
       ],
       subheading:
-        "Debbie's hair stopped falling out. Ling's skin cleared up. Neither heard from you again after that. Here's the system that fixes it, live before BFCM.",
+        "Debbie's hair stopped falling out. Ling's skin cleared up. Neither heard from you again after that. **Here's the system that fixes it**, live before BFCM.",
       cta: "Book a strategy call",
       proof: {
         source: "From a verified review on your site",
@@ -132,15 +132,15 @@ export const strategyPitches: StrategyPitch[] = [
       heading: "Your customers already believe in the product. Nothing brings them back.",
       problem: {
         title: "Right now",
-        text: "When a pouch runs out, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer. That's not a lapsed customer. That's a customer you already paid to acquire, gone for the cost of one email you never sent. And it won't fix itself. Your only signup right now says keep up to date with us. That already proves you know emails matter, there's just nothing automatic waiting on the other side of it.",
+        text: "When a pouch runs out, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer. **That's not a lapsed customer. That's a customer you already paid to acquire, gone for the cost of one email you never sent.** And it won't fix itself. Your only signup right now says keep up to date with us. That already proves you know emails matter, there's just nothing automatic waiting on the other side of it.",
       },
       solution: {
         title: "With the system in place",
         points: [
-          "Someone curious about collagen for hair health gets an actual reason to hand over their email. Not \"keep up to date\"",
-          "A first time buyer gets welcomed properly, told what to expect, so they don't quietly give up before results even kick in",
-          "A collagen customer hears from you right around day 25 to 30, exactly when the pouch is running low",
-          "Someone quiet for 60+ days gets a real win back sequence, not silence until they're gone for good",
+          "Someone curious about collagen for hair health gets **an actual reason to hand over their email**. Not \"keep up to date\"",
+          "A first time buyer gets **welcomed properly**, told what to expect, so they don't quietly give up before results even kick in",
+          "A collagen customer hears from you **right around day 25 to 30**, exactly when the pouch is running low",
+          "Someone quiet for 60+ days gets **a real win back sequence**, not silence until they're gone for good",
         ],
       },
       reviews: {
@@ -193,25 +193,25 @@ export const strategyPitches: StrategyPitch[] = [
           icon: "welcome",
           title: "Buyers who stay past week one",
           detail:
-            "A welcome sequence confirms the purchase and sets expectations for results, sent while the customer is most engaged, not a week later.",
+            "A welcome sequence confirms the purchase and sets expectations for results, **sent while the customer is most engaged**, not a week later.",
         },
         {
           icon: "reorder",
           title: "Reorders before the pouch runs out",
           detail:
-            "Timed to typical product usage, a 30 day collagen pouch means an email lands right before it runs out, not after.",
+            "Timed to typical product usage, a 30 day collagen pouch means **an email lands right before it runs out**, not after.",
         },
         {
           icon: "subscription",
           title: "Subscribers, not customers who buy once",
           detail:
-            "A clear incentive turns customers who buy once into subscribers, so growth stops depending entirely on repeat cold traffic.",
+            "A clear incentive turns customers who buy once into subscribers, so **growth stops depending entirely on repeat cold traffic**.",
         },
         {
           icon: "winback",
           title: "Quiet customers brought back",
           detail:
-            "An automated win back flow for customers who've gone quiet recovers revenue you're currently writing off entirely.",
+            "An automated win back flow for customers who've gone quiet **recovers revenue you're currently writing off entirely**.",
         },
       ],
     },
@@ -258,27 +258,27 @@ export const strategyPitches: StrategyPitch[] = [
     faqs: [
       {
         q: "What do you need from us to start?",
-        a: "Access to your email platform and store, and a short conversation about how long each product lasts. Week one is spent confirming usage cycles and segments before anything is built.",
+        a: "**Access to your email platform and store**, and a short conversation about how long each product lasts. Week one is spent confirming usage cycles and segments before anything is built.",
       },
       {
         q: "How do you decide when the reorder email goes out?",
-        a: "It's timed to how long the product actually lasts. For a 30 day collagen pouch that's roughly day 25 to 30, and we confirm the exact timing with you in week one.",
+        a: "**It's timed to how long the product actually lasts.** For a 30 day collagen pouch that's roughly day 25 to 30, and we confirm the exact timing with you in week one.",
       },
       {
         q: "What if a customer has already reordered?",
-        a: "The flows check for a new purchase and stop, so nobody gets a reorder reminder after they've already bought again.",
+        a: "**The flows check for a new purchase and stop**, so nobody gets a reorder reminder after they've already bought again.",
       },
       {
         q: "Is the 40 to 50% a guarantee?",
-        a: "No. It's the target this plan is aimed at, and we check it against your real reorder cycles in week one before anything is built.",
+        a: "No. **It's the target this plan is aimed at**, and we check it against your real reorder cycles in week one before anything is built.",
       },
       {
         q: "Can it be live before BFCM?",
-        a: "The plan runs four weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it. Not after BFCM. Now.",
+        a: "The plan runs four weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it. **Not after BFCM. Now.**",
       },
       {
         q: "What does it cost?",
-        a: "We cover scope and pricing on the call, once we know which of the four pieces you want.",
+        a: "**We cover scope and pricing on the call**, once we know which of the four pieces you want.",
       },
     ],
     risk: {

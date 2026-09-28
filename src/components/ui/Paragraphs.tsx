@@ -1,4 +1,5 @@
 import { splitParagraphs } from "@/lib/paragraphs";
+import { renderRich } from "@/lib/richText";
 
 /** Renders long copy as several short paragraphs; `className` styles each one. */
 export function Paragraphs({
@@ -17,7 +18,7 @@ export function Paragraphs({
       {splitParagraphs(text).map((p, i, all) => (
         <p key={i} className={`${i > 0 ? gap : ""} ${className}`}>
           {quote && i === 0 ? "\u201c" : ""}
-          {p}
+          {renderRich(p)}
           {quote && i === all.length - 1 ? "\u201d" : ""}
         </p>
       ))}

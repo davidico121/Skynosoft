@@ -43,7 +43,21 @@ component that needed extending, a copy pattern that landed).
    (`src/components/ui/QuoteBadge.tsx`) on the beige `#f7f6f3` card. Long
    copy goes through `Paragraphs` / `splitParagraphs` so no block of text is
    dense (breaks at sentence boundaries above ~160 characters).
-8. **Commit and push to main** once tested (standing instruction), then
+8. **Bold the one key phrase or sentence per block for skimmability.**
+   Wrap it in `**double asterisks**` directly in the content string, e.g.
+   `"Someone quiet for 60+ days gets **a real win back sequence**, not
+   silence until they're gone for good"`. `renderRich`
+   (`src/lib/richText.tsx`) parses this into `<strong>` and is already
+   wired into `Paragraphs` plus the template's solution points, benefit
+   details, and hero subheading, so it works anywhere in
+   `problemSolution.problem.text`, `solution.points`, `benefits.items[].detail`,
+   `hero.subheading`, and `faqs[].a` without extra plumbing. One bold span
+   per block, the payoff or the direct answer, never a whole paragraph and
+   never more than one per sentence or it stops reading as emphasis.
+   Do not use it in `tagline`, `TaglineReveal` splits on raw whitespace so
+   the asterisks would render literally, that field already gets its own
+   word-by-word scroll emphasis.
+9. **Commit and push to main** once tested (standing instruction), then
    deploy.
 
 ## Voice
