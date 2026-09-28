@@ -249,7 +249,7 @@ export const strategyPitches: StrategyPitch[] = [
         },
       ],
     },
-    proofHeading: "The same kind of work, for wellness brands like yours",
+    proofHeading: "A dormant list, then $32.8K from email: the same fix",
     caseStudySlugs: ["bwll", "cannonbalm"],
     reviewFromCaseStudy: "cannonbalm",
     tagline:

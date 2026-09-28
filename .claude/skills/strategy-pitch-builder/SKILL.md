@@ -116,42 +116,70 @@ Copy checks before moving on (the "specificity checklist"):
 Before someone books a call, the copy has to earn six agreements in order.
 Each maps to an existing field, so this is a check on what is already
 there, not a new section to write. Skipping one is the usual reason a
-page reads fine but does not convert.
+page reads fine but does not convert. Every technique below is still bound
+by hard rule 1 (nothing invented): where a technique calls for a stat, a
+competitor tactic or a piece of research, use it only if it is real and
+verified, otherwise drop that technique for this brand rather than
+faking the specificity.
 
 1. **"This is for me."** `hero.eyebrow` + `hero.headline` + `hero.subheading`.
    Open with something only their exact buyer would recognize (a named
    customer, their product, their specific moment), not a claim that could
-   sit on any Klaviyo pitch. If the first line could be about any
+   sit on any Klaviyo pitch. A quote or pain line lifted straight from
+   their own reviews works best. If the first line could be about any
    ecommerce brand, rewrite it.
 2. **"This problem really matters."** `gap` + `problemSolution.problem`.
-   Do not just state what is missing (`status: "Nothing sent"`); name what
-   it costs them if they leave it. Which competitor picks up the lapsed
-   customer, what the lost reorder is worth, what happens by BFCM if the
-   flow still is not live. Loss framed beats gain framed, people feel
-   losing something they have more than missing something they never had.
+   Do not just state what is missing (`status: "Nothing sent"`); list what
+   it actually costs them, in their terms: money already spent acquiring
+   the customer now walking away, time lost starting Q1 from zero, a
+   named competitor who picks up the lapsed customer, momentum lost if
+   BFCM passes with the leak still open. Two or three concrete losses beat
+   one vague one. Loss framed beats gain framed, people feel losing
+   something they have more than missing something they never had.
 3. **"My current approach will not get me there."** Usually missing.
    Before pitching the system, name the thing they are probably already
    doing that will not close the gap (a generic post purchase email, a
-   one off newsletter, "we will get to it after BFCM") and say plainly why
-   more of that does not solve it. This can live in `problemSolution.problem`
-   or as an extra beat before `problemSolution.solution`, one or two
-   sentences, not a new field.
+   discount-led relaunch, "we will get to it after BFCM", more ad spend
+   chasing the same one time buyers) and say plainly why more of that does
+   not solve it. Use real math only when you have the brand's real
+   numbers (ad spend, repeat rate, CAC) from David or their own reporting,
+   e.g. "X% of buyers never order again, so Y of that spend produced
+   nothing repeatable." Never invent a spend figure or cite research you
+   have not actually read. Without real numbers, make the reframe
+   qualitative instead (see the myowellness footer-signup example below).
+   This can live in `problemSolution.problem` or as an extra beat before
+   `problemSolution.solution`, one or two sentences, not a new field.
 4. **"There is a better way."** `problemSolution.solution.points` +
    `benefits`. Each point should read as a new way of seeing the problem,
-   not a feature list. "Timed to when their pouch runs low" is a
-   reframe; "we send automated flows" is not.
+   not a feature list. "Timed to when their pouch runs low" is a reframe;
+   "we send automated flows" is not. A named comparable brand strengthens
+   this (myowellness's tagline points at "the way AG1 and Gruns customers
+   do"), but only name a brand and describe its tactic if you have
+   actually verified what that brand does. A vague "like the best brands
+   in your space" is weaker than naming one real thing, so prefer citing
+   Skynosoft's own `execution` list from a relevant case study over
+   guessing at a competitor's stack.
 5. **"This will work for me."** `problemSolution.reviews`,
-   `caseStudySlugs`, `reviewFromCaseStudy`, `hero.proof`. Already the
-   strongest part of the template, keep it that way: real reviews from
-   their own customers plus a case study in their category or adjacent to
-   it. If they have no case study close enough, say so to David rather
-   than stretching `caseStudySlugs`.
-6. **"I cannot keep putting this off."** `how` (the BFCM/deadline framing),
-   `risk`, and the FAQ's timing question. State the specific cost of
-   waiting (a missed peak window, another season of the same leak) rather
-   than a generic "let's chat soon." `risk.text` should make starting feel
-   safe ("see the plan before you spend anything") precisely so the
-   urgency in `how`/FAQ does not read as pressure.
+   `caseStudySlugs`, `reviewFromCaseStudy`, `hero.proof`, `proofHeading`.
+   Already the strongest part of the template because `CaseStudyCard`
+   surfaces real dollar metrics automatically, keep it that way: real
+   reviews from their own customers plus a case study in their category
+   or adjacent to it. Make `proofHeading` do more than announce the
+   section, pull the sharpest real number from the closer case study into
+   it (a before/after figure, not a generic claim) so the proof reads
+   specific before the cards even load. If they have no case study close
+   enough, say so to David rather than stretching `caseStudySlugs`.
+6. **"I cannot keep putting this off."** `how` (the BFCM/deadline
+   framing), `risk`, and the FAQ's timing question. State the specific
+   cost of waiting (a missed peak window, launching mid traffic surge
+   instead of ahead of it, another season of the same leak) rather than a
+   generic "let's chat soon." Avoid baking in an exact date or week count,
+   the page can sit unopened for weeks before David sends it, so anchor
+   urgency to the brand's own calendar event (BFCM, a launch) and the
+   plan's own timeline (`how.steps`), not to today's date. `risk.text`
+   should make starting feel safe ("see the plan before you spend
+   anything") precisely so the urgency in `how`/FAQ does not read as
+   pressure.
 
 If a page is flat despite good design, it is almost always #3 or #6 that
 got skipped, not a visual problem.
