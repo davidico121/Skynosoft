@@ -88,6 +88,9 @@ export default function AboutPage() {
                 <figcaption className="mt-4">
                   <p className="font-heading text-lg font-semibold">{founder.name}</p>
                   <p className="font-body text-base text-foreground-muted">
+                    DTC CRO &amp; Email Retention Specialist
+                  </p>
+                  <p className="font-body text-base text-foreground-muted">
                     Founder &amp; CEO, Skynosoft Ltd.
                   </p>
                   <SocialLinks className="mt-2 -ml-1" />

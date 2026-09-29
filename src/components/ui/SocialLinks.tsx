@@ -25,7 +25,7 @@ export function SocialLinks({ className = "" }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.label}
-          className={`flex h-8 w-8 items-center justify-center rounded-full text-foreground-muted transition-colors duration-300 ${EASE} hover:text-primary-soft ${FOCUS}`}
+          className={`flex h-8 w-8 items-center justify-center rounded-full text-primary transition-colors duration-300 ${EASE} hover:text-primary-soft ${FOCUS}`}
         >
           <link.icon size={20} weight="fill" aria-hidden />
         </a>

@@ -475,9 +475,16 @@ export default async function StrategyPage({
               <div className="mt-4">
                 <H2>{pitch.faqHeading}</H2>
               </div>
-              <a href="#book" className={`mt-8 ${BUTTON}`}>
-                {hero.cta}
-              </a>
+              <div className="mt-8 max-w-[320px] rounded-xl border border-border-hairline bg-white p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
+                  <ShieldCheck size={20} weight="duotone" aria-hidden />
+                </span>
+                <p className="mt-4 font-heading text-lg font-semibold">{pitch.risk.heading}</p>
+                <p className="mt-2 font-body text-sm text-foreground-muted">{pitch.risk.text}</p>
+                <a href="#book" className={`mt-4 w-full ${BUTTON}`}>
+                  {hero.cta}
+                </a>
+              </div>
             </Reveal>
             <Reveal className="flex flex-col gap-3">
               {pitch.faqs.map((f) => (
@@ -535,6 +542,9 @@ export default async function StrategyPage({
               />
               <p className="mt-4 font-heading text-lg font-semibold">David Owoeye</p>
               <p className="mt-1 font-body text-base text-foreground-muted">
+                DTC CRO &amp; Email Retention Specialist
+              </p>
+              <p className="font-body text-base text-foreground-muted">
                 Founder &amp; CEO, Skynosoft Ltd.
               </p>
               <SocialLinks className="mt-3" />

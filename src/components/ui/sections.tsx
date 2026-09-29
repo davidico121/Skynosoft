@@ -133,6 +133,9 @@ export function FinalCta({ tint = true }: { tint?: boolean }) {
         />
         <p className="mt-4 font-heading text-lg font-semibold">David Owoeye</p>
         <p className="mt-1 font-body text-base text-foreground-muted">
+          DTC CRO &amp; Email Retention Specialist
+        </p>
+        <p className="font-body text-base text-foreground-muted">
           Founder &amp; CEO, Skynosoft Ltd.
         </p>
         <SocialLinks className="mt-3" />
