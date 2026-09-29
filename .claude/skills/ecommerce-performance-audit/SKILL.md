@@ -115,13 +115,32 @@ full pitch treatment.
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it
 produced.`
 
-- 2026-09-29, naturesbest.co.uk: the site's own search box returned generic,
-  irrelevant results for the exact product names on the lead card, even
-  though the products were real and live. Trusting the search would have
-  wrongly concluded the lead card was wrong. Pulled the real URLs from
-  `/sitemap.xml` -> `sitemap_products_1.xml` instead, confirmed on the
-  product pages directly. Rule: never rely on a site's own search to confirm
-  or deny a claim, pull the URL from the sitemap.
+- 2026-09-29, naturesbest.co.uk: first reported their on-site search as
+  broken, based on navigating directly to `/search?q=...` and typing into
+  what looked like the visible search input. Both were wrong: the URL route
+  doesn't reflect their real predictive search, and the page had three
+  near-identical search inputs (one genuinely on screen, one an off-screen
+  duplicate, one a zero-size stub) and I'd been clicking/typing into the
+  wrong one, so I was reading stale leftover page links, not real results.
+  David caught it by testing the real search himself and getting correct
+  results. Retested against the actual visible input (found by comparing
+  bounding boxes/ids of all matches, not the first one that matched a
+  selector) and the search was fine all along. Rule: don't trust a single
+  matched element when a selector could match more than one, check the
+  bounding box or id and confirm you're driving the one a real visitor
+  would see and use; and when a live claim is about interactive behavior
+  (search, a form, a popup), drive the actual UI a user would use, not a
+  URL pattern that looks equivalent. A wrong "broken search" finding sent
+  to a prospect would have been worse than no finding at all, since they
+  could disprove it in ten seconds.
+- 2026-09-29, naturesbest.co.uk: confirming a negative (no welcome email
+  after a real signup) needed a real signup, something only David could do
+  since it needs a real inbox to check. The agent's own tools can confirm
+  "no popup fired" and "no visible back-in-stock form" on their own, but
+  "does the flow actually fire" sometimes needs the human in the loop. Rule:
+  say plainly which findings are fully self-verified versus which ones need
+  David to complete personally (a real signup, a real call, checking a real
+  inbox), don't imply both are equally solid.
 - 2026-09-29, naturesbest.co.uk: a domcontentloaded measurement varied
   wildly between two back to back runs (32s vs 10s), traced to one
   third-party script (their OrderGroove subscription widget) hanging once

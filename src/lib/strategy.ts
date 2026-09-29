@@ -286,4 +286,218 @@ export const strategyPitches: StrategyPitch[] = [
       text: "This isn't a sales call. Bring your questions, not your card.",
     },
   },
+  {
+    slug: "naturesbest",
+    brand: "Nature's Best",
+    hero: {
+      eyebrow: "A note for Nature's Best",
+      headline: [
+        "Every sold out product,",
+        "turned into a sale",
+        "the second it's back",
+      ],
+      subheading:
+        "Pukka Night Time Tea, HRI Water Balance, HRI Milk Thistle: all three sold out right now. Each one sends the shopper to your Nutrition Advice Team instead of asking for their email. **That's the last you hear from most of them.**",
+      cta: "Book a strategy call",
+      proof: {
+        source: "From a review on your HRI Milk Thistle page",
+        quote: "Great quality, with size and shape easy to swallow. A definite re-purchase for me.",
+        name: "Anonymous, verified customer",
+      },
+      visuals: {
+        url: "naturesbest.co.uk",
+        main: {
+          src: "/pitch-assets/naturesbest/site-home.jpg",
+          alt: "The Nature's Best homepage, with a supplement bundle hero and site wide Trustpilot rating",
+          width: 1200,
+          height: 750,
+        },
+        inset: {
+          src: "/pitch-assets/naturesbest/site-oos.jpg",
+          alt: "The HRI Milk Thistle product page, marked Sold out, with a notice directing shoppers to contact the Nutrition Advice Team instead of leaving an email",
+          width: 1140,
+          height: 340,
+          caption: "Sold out. No capture.",
+        },
+      },
+    },
+    gap: {
+      label: "What happens when HRI Milk Thistle sells out",
+      steps: [
+        {
+          day: "Right now",
+          title: "Someone wants it",
+          detail: "They land on the HRI Milk Thistle page ready to buy.",
+          status: "Sold out",
+        },
+        {
+          day: "Same visit",
+          title: "They're sent to a human",
+          detail: "The page points them to your Nutrition Advice Team instead of asking for an email.",
+          status: "No capture offered",
+          leak: true,
+        },
+        {
+          day: "After that",
+          title: "Nothing",
+          detail: "No back in stock alert. If they do sign up through the footer, no welcome email either.",
+          status: "Nothing sent",
+          leak: true,
+        },
+      ],
+    },
+    problemSolution: {
+      heading: "Your customers already trust you. Then they hit a dead end.",
+      problem: {
+        title: "Right now",
+        text: "Three of your best sellers are sold out today, Pukka Night Time Tea, HRI Water Balance, HRI Milk Thistle. The only option for someone who wants one is to email your Nutrition Advice Team and ask. Sound familiar? Most people don't bother, they just close the tab. Your only real email capture is a generic footer signup that never mentions the product they actually wanted. **We signed up through it ourselves and got no welcome email at all.** So even the ones who do leave an email hear nothing back.",
+      },
+      solution: {
+        title: "With the system in place",
+        points: [
+          "Someone who wants HRI Milk Thistle right now gets **a real way to ask to be told the second it's back**, not a dead end",
+          "Everyone who signs up, for any reason, gets **an actual welcome message**, not silence",
+          "The people who asked get told first, **before it's even back on the shelf for everyone else**",
+          "A shopper who leaves without buying anything still gets **one more real reason to come back**, not just a generic newsletter",
+        ],
+      },
+      reviews: {
+        heading: "What your customers already say",
+        items: [
+          {
+            quote: "Great quality, with size and shape easy to swallow. A definite re-purchase for me.",
+            name: "Anonymous, verified customer",
+          },
+          {
+            quote:
+              "I have noticed Natures Best do not sell their own high strength ones any more and these are half the amount of same price.",
+            name: "Christine J, verified customer",
+          },
+        ],
+      },
+    },
+    benefits: {
+      heading: "Three pieces that turn a sold out page into a sale",
+      products: [
+        {
+          name: "Pukka Tea",
+          image: {
+            src: "/pitch-assets/naturesbest/product-pukka-tea.jpg",
+            alt: "Pukka Night Time Tea Bags, 20 sachets, currently sold out on the Nature's Best site",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Water Balance",
+          image: {
+            src: "/pitch-assets/naturesbest/product-water-balance.jpg",
+            alt: "HRI Water Balance Tablets, 60 tablets, currently sold out on the Nature's Best site",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Milk Thistle",
+          image: {
+            src: "/pitch-assets/naturesbest/product-milk-thistle.jpg",
+            alt: "HRI Milk Thistle Tablets, 30 tablets, currently sold out on the Nature's Best site",
+            width: 900,
+            height: 900,
+          },
+        },
+      ],
+      items: [
+        {
+          icon: "welcome",
+          title: "Buyers who hear from you immediately",
+          detail:
+            "A welcome sequence fires **the moment someone signs up**, on the footer form or anywhere else, so silence stops being the default.",
+        },
+        {
+          icon: "reorder",
+          title: "Restocks that sell before they're public",
+          detail:
+            "Everyone who asked to be notified **hears about it before the shelf does**, timed to when the product actually goes live again.",
+        },
+        {
+          icon: "winback",
+          title: "Sold out shoppers brought back",
+          detail:
+            "A flow built around the specific product someone wanted, **not a generic newsletter blast**, brings them back when it matters.",
+        },
+      ],
+    },
+    how: {
+      heading: "Three steps, and every day you wait is another shopper who leaves for nothing",
+      steps: [
+        {
+          week: "Week 1",
+          title: "Map the real gaps",
+          description:
+            "Confirm which products run out often, and exactly what should happen the moment someone lands on one that's sold out.",
+        },
+        {
+          week: "Weeks 2 to 3",
+          title: "Build the flows",
+          description:
+            "Back in stock capture and notification, a real welcome sequence, and a win back flow for shoppers who leave empty handed, all built in Klaviyo.",
+        },
+        {
+          week: "Week 4",
+          title: "Test and launch",
+          description: "Flows go live, starting with the three products sold out today.",
+        },
+      ],
+      impact: [
+        {
+          value: "3",
+          label: "Best sellers sold out today, with no way to ask for a restock",
+        },
+        {
+          value: "0 → live",
+          label: "Welcome and back in stock flows, today versus what's proposed",
+        },
+        {
+          value: "36.6K",
+          label: "Trustpilot reviews already trusting the brand, with nothing keeping them close",
+        },
+      ],
+    },
+    proofHeading: "3.7K leads from one popup, on a brand with the same missing piece",
+    caseStudySlugs: ["lipo-beauty-tea", "cannonbalm"],
+    reviewFromCaseStudy: "cannonbalm",
+    tagline: "Do this and a sold out page stops being a dead end. It becomes the start of the next sale.",
+    faqHeading: "Before you book",
+    faqs: [
+      {
+        q: "What do you need from us to start?",
+        a: "**Access to your email platform and your product catalogue**, plus a quick list of which products actually run out most. Week one is spent mapping that before anything gets built.",
+      },
+      {
+        q: "How do you decide when the notify me email goes out?",
+        a: "**The moment a product is marked back in stock**, so the people who asked hear about it before it's even live on the site for everyone else.",
+      },
+      {
+        q: "What if a product never comes back in stock?",
+        a: "Then that person moves into a win back flow instead, **so the interest doesn't just disappear**.",
+      },
+      {
+        q: "How fast can this be live?",
+        a: "The build runs four weeks. **Every week it isn't live is another shopper who leaves for nothing.**",
+      },
+      {
+        q: "Is this a guarantee you'll recover every lost sale?",
+        a: "No. **It's the system that catches the demand you're currently losing**, not a promise every visitor converts.",
+      },
+      {
+        q: "What does it cost?",
+        a: "**We cover scope and pricing on the call**, once we know how many pieces of this you want built.",
+      },
+    ],
+    risk: {
+      heading: "See the plan before you spend anything",
+      text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+  },
 ];

@@ -57,6 +57,15 @@ component that needed extending, a copy pattern that landed).
    Do not use it in `tagline`, `TaglineReveal` splits on raw whitespace so
    the asterisks would render literally, that field already gets its own
    word-by-word scroll emphasis.
+   **The bold span must never contain a `.`, `!`, or `?`.** Any field routed
+   through `Paragraphs` (`problem.text`, `faqs[].a`, `hero.subheading`,
+   `benefits.items[].detail`) gets split into separate `<p>` blocks at
+   sentence boundaries by `splitParagraphs` before `renderRich` ever sees
+   it, each block rendered independently. A bold span that crosses a
+   sentence boundary can get cut in half by that split, one half keeps an
+   opening `**` with no closing one, and it prints as literal asterisks
+   instead of bold. Keep every bold span inside one sentence, this also
+   satisfies "never more than one per sentence" for free.
 9. **Commit and push to main** once tested (standing instruction), then
    deploy.
 
@@ -312,6 +321,13 @@ record any adopted rule below.
 
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it produced`.
 
+- 2026-09-29, naturesbest: a bold span in `problem.text` covered two
+  sentences ("**We signed up through it ourselves. No welcome email ever
+  arrived.**"), and `splitParagraphs` broke its paragraph exactly between
+  those two sentences, so each half rendered with an unmatched `**` and
+  printed literal asterisks on the live page, caught by screenshotting and
+  reading the rendered text, not by reading the source. Rule: added to
+  hard rule 8 above, keep every bold span inside one sentence.
 - 2026-09-25, myowellness: right hand side of sections felt empty at desktop
   width, so screenshots (hero), reviews (problem), and product photos
   (benefits) fill those columns. Rule: every two column section needs real
