@@ -132,7 +132,7 @@ export const strategyPitches: StrategyPitch[] = [
       heading: "Your customers already believe in the product. Nothing brings them back.",
       problem: {
         title: "Right now",
-        text: "When a pouch runs out, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer. **That's not a lapsed customer. That's a customer you already paid to acquire, gone for the cost of one email you never sent.** And it won't fix itself. Your only signup right now says keep up to date with us. That already proves you know emails matter, there's just nothing automatic waiting on the other side of it.",
+        text: "When a pouch runs out, nothing happens. No email tells them it's time to reorder. No sequence reminds them why they started. They pause, forget, maybe pick something up at Holland & Barrett, and quietly become someone else's customer. That's not a lapsed customer. **That's a customer you already paid to acquire, gone for the cost of one email you never sent.** And it won't fix itself. Your only signup right now says keep up to date with us. That already proves you know emails matter, there's just nothing automatic waiting on the other side of it.",
       },
       solution: {
         title: "With the system in place",
@@ -268,7 +268,7 @@ export const strategyPitches: StrategyPitch[] = [
       },
       {
         q: "Can it be live before BFCM?",
-        a: "The plan runs two weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it. **Not after BFCM. Now.**",
+        a: "The plan runs two weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it. Not after BFCM. **Now.**",
       },
       {
         q: "What does it cost?",
@@ -469,6 +469,197 @@ export const strategyPitches: StrategyPitch[] = [
       },
       {
         q: "What if a product never comes back in stock?",
+        a: "Then that person moves into a win back flow instead, **so the interest doesn't just disappear**.",
+      },
+      {
+        q: "How fast can this be live?",
+        a: "The build runs two weeks. **Every week it isn't live is another shopper who leaves for nothing, especially with BFCM getting closer.**",
+      },
+      {
+        q: "Is this a guarantee you'll recover every lost sale?",
+        a: "No. **It's the system that catches the demand you're currently losing**, not a promise every visitor converts.",
+      },
+      {
+        q: "What does it cost?",
+        a: "**We cover scope and pricing on the call**, once we know how many pieces of this you want built.",
+      },
+    ],
+    risk: {
+      heading: "See the plan before you spend anything",
+      text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+  },
+  {
+    slug: "nccsupplements",
+    brand: "NCC Supplements",
+    hero: {
+      eyebrow: "A note for NCC Supplements",
+      headline: [
+        "Five flavors crossed off,",
+        "and nothing catching",
+        "the people who wanted them",
+      ],
+      subheading:
+        "Mountain Joe's Protein Cake in Carrot Cake. Trained By JP Sustain in Orange & Mango. Five of eight Gas Mark 10 Cream of Rice flavors, gone at once. Each one just shows a line through the name. **Nobody asks for an email before they leave.**",
+      cta: "Book a strategy call",
+      visuals: {
+        url: "nccsupplements.co.uk",
+        main: {
+          src: "/pitch-assets/nccsupplements/site-home.jpg",
+          alt: "The NCC Supplements homepage, showing a performance nutrition hero and a 190+ brands trust bar",
+          width: 1200,
+          height: 750,
+        },
+        inset: {
+          src: "/pitch-assets/nccsupplements/site-oos.jpg",
+          alt: "The Gas Mark 10 Cream of Rice product page, showing five of eight flavors crossed out including Chocolate Brownie, with no way to ask to be notified",
+          width: 740,
+          height: 460,
+          caption: "5 of 8 flavors gone",
+        },
+      },
+    },
+    gap: {
+      label: "What happens when a flavor runs out",
+      steps: [
+        {
+          day: "Right now",
+          title: "A flavor sells out",
+          detail: "Carrot Cake, Orange & Mango, or one of five Cream of Rice flavors, gone.",
+          status: "Crossed out",
+        },
+        {
+          day: "Same visit",
+          title: "They try to select it anyway",
+          detail: "The flavor swatch is just crossed out. Nothing happens when they click it.",
+          status: "Not clickable",
+          leak: true,
+        },
+        {
+          day: "After that",
+          title: "Nothing",
+          detail: "No sold out message. No notify me option. Nothing captured, nothing sent.",
+          status: "Nothing sent",
+          leak: true,
+        },
+      ],
+    },
+    problemSolution: {
+      heading: "190 brands worth of demand. No system catching any of it.",
+      problem: {
+        title: "Right now",
+        text: "Mountain Joe's Protein Cake in Carrot Cake is gone. So is Trained By JP Sustain in Orange & Mango. Five of eight Gas Mark 10 Cream of Rice flavors are gone at once, including Chocolate Brownie. Every one of them just shows a line through the name. Nothing to click, nothing to ask for, nothing captured. Your footer does have a signup, the NCC edit. We joined it ourselves. **No welcome email ever arrived.** So even the shoppers who do try to stay in touch hear nothing back.",
+      },
+      solution: {
+        title: "With the system in place",
+        points: [
+          "Someone who wants Carrot Cake or Orange & Mango gets **a real way to ask to be told the moment it's back**, not a crossed out swatch",
+          "Everyone who joins the NCC edit, for any reason, gets **an actual welcome message**, not silence",
+          "The people who asked get told first, **before that flavor is even back on the site for everyone else**",
+          "A shopper who leaves without buying anything still gets **one more real reason to come back**, not just an occasional newsletter",
+        ],
+      },
+    },
+    benefits: {
+      heading: "Three pieces that turn a crossed out flavor into a sale",
+      products: [
+        {
+          name: "Protein Cake",
+          image: {
+            src: "/pitch-assets/nccsupplements/product-protein-cake.jpg",
+            alt: "Mountain Joe's Protein Cake 10x60g, Carrot Cake flavor currently crossed out on the NCC Supplements site",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Cream of Rice",
+          image: {
+            src: "/pitch-assets/nccsupplements/product-cream-of-rice.jpg",
+            alt: "Gas Mark 10 Cream of Rice 2kg, five of its eight flavors currently crossed out on the NCC Supplements site",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Intra Workout",
+          image: {
+            src: "/pitch-assets/nccsupplements/product-intra-workout.jpg",
+            alt: "Trained By JP Sustain Intra Workout 1800g, Orange & Mango flavor currently crossed out on the NCC Supplements site",
+            width: 900,
+            height: 900,
+          },
+        },
+      ],
+      items: [
+        {
+          icon: "welcome",
+          title: "Buyers who hear from you immediately",
+          detail:
+            "A welcome sequence fires **the moment someone joins the NCC edit**, so silence stops being the default.",
+        },
+        {
+          icon: "reorder",
+          title: "Restocks that sell before they're public",
+          detail:
+            "Everyone who asked to be notified **hears about it before the flavor is back on the shelf**, timed to when it's actually available again.",
+        },
+        {
+          icon: "winback",
+          title: "Shoppers who leave empty handed, brought back",
+          detail:
+            "A flow built around the exact flavor someone wanted, **not a generic occasional email**, brings them back when it matters.",
+        },
+      ],
+    },
+    how: {
+      heading: "Two steps, two weeks, live before BFCM",
+      steps: [
+        {
+          week: "Week 1",
+          title: "Map and build",
+          description:
+            "Confirm which flavors and brands run out most often, then build back in stock capture, a real welcome sequence, and a win back flow, all in Klaviyo.",
+        },
+        {
+          week: "Week 2",
+          title: "Test and launch",
+          description:
+            "Flows go live, starting with the flavors crossed out today, well ahead of BFCM traffic.",
+        },
+      ],
+      impact: [
+        {
+          value: "5",
+          label: "Flavors crossed out on one product page alone, with no way to ask for a restock",
+        },
+        {
+          value: "0 → live",
+          label: "Welcome and back in stock flows, today versus what's proposed",
+        },
+        {
+          value: "190+",
+          label: "Brands on one site, all sharing the same missing system",
+        },
+      ],
+    },
+    proofHeading: "$26K from a single email campaign: the same fix, applied here",
+    caseStudySlugs: ["lipo-beauty-tea", "cannonbalm"],
+    reviewFromCaseStudy: "cannonbalm",
+    tagline:
+      "Do this and every flavor that runs out becomes the start of the next sale, not a dead end. That is how a catalog like yours starts compounding the way AG1 and Gruns customers already do.",
+    faqHeading: "Before you book",
+    faqs: [
+      {
+        q: "What do you need from us to start?",
+        a: "**Access to your email platform and your product catalogue**, plus a quick list of which flavors and products run out most, confirmed in the first couple of days before the build starts.",
+      },
+      {
+        q: "How do you decide when the notify me email goes out?",
+        a: "**The moment a flavor is marked back in stock**, so the people who asked hear about it before it's even live on the site for everyone else.",
+      },
+      {
+        q: "What if a flavor never comes back?",
         a: "Then that person moves into a win back flow instead, **so the interest doesn't just disappear**.",
       },
       {

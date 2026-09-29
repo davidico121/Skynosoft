@@ -57,15 +57,19 @@ component that needed extending, a copy pattern that landed).
    Do not use it in `tagline`, `TaglineReveal` splits on raw whitespace so
    the asterisks would render literally, that field already gets its own
    word-by-word scroll emphasis.
-   **The bold span must never contain a `.`, `!`, or `?`.** Any field routed
-   through `Paragraphs` (`problem.text`, `faqs[].a`, `hero.subheading`,
+   **Keep the bold span inside one sentence.** Any field routed through
+   `Paragraphs` (`problem.text`, `faqs[].a`, `hero.subheading`,
    `benefits.items[].detail`) gets split into separate `<p>` blocks at
    sentence boundaries by `splitParagraphs` before `renderRich` ever sees
    it, each block rendered independently. A bold span that crosses a
    sentence boundary can get cut in half by that split, one half keeps an
    opening `**` with no closing one, and it prints as literal asterisks
-   instead of bold. Keep every bold span inside one sentence, this also
-   satisfies "never more than one per sentence" for free.
+   instead of bold. `splitParagraphs` itself is now fixed to keep a
+   closing `**` attached to its sentence even when the marker sits right
+   after the period (see its own comment), so this is a belt and braces
+   rule, not the only thing standing between you and broken output, but
+   still keep bold inside one sentence, it also satisfies "never more than
+   one per sentence" for free and is easier to reason about either way.
 9. **Commit and push to main** once tested (standing instruction), then
    deploy.
 
