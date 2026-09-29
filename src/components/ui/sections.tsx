@@ -4,6 +4,7 @@ import { CaretDown } from "@phosphor-icons/react/dist/ssr";
 import { BookCallCard } from "@/components/ui/BookCallCard";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { Reveal } from "@/components/ui/Reveal";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { BUTTON, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
 import { CTA_LABEL, caseStudies, processSteps } from "@/lib/content";
 import founderAvatar from "../../../public/brand/david-owoeye-avatar.jpg";
@@ -134,6 +135,7 @@ export function FinalCta({ tint = true }: { tint?: boolean }) {
         <p className="mt-1 font-body text-base text-foreground-muted">
           Founder &amp; CEO, Skynosoft Ltd.
         </p>
+        <SocialLinks className="mt-3" />
       </Reveal>
     </Section>
   );

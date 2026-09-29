@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/ui/Reveal";
 import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { Eyebrow, Wrap } from "@/components/ui/page-kit";
 import { CALENDLY_URL } from "@/lib/content";
 import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
@@ -64,6 +65,7 @@ export default function ContactPage() {
                 <p className="font-body text-base text-foreground-muted">
                   Founder &amp; CEO, Skynosoft Ltd.
                 </p>
+                <SocialLinks className="mt-2 -ml-1" />
               </div>
             </div>
           </Reveal>

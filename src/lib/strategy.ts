@@ -216,22 +216,16 @@ export const strategyPitches: StrategyPitch[] = [
       ],
     },
     how: {
-      heading: "Three steps, four weeks, live before BFCM",
+      heading: "Two steps, two weeks, live before BFCM",
       steps: [
         {
           week: "Week 1",
-          title: "Strategy & Mapping",
+          title: "Strategy & Build",
           description:
-            "Confirm product usage cycles, customer segments, and exact flow logic with MYOwellness before any build begins.",
+            "Confirm product usage cycles and customer segments with MYOwellness, then design and build the welcome sequence, post purchase nurture, and subscription mechanics in Klaviyo.",
         },
         {
-          week: "Weeks 2 to 3",
-          title: "Build & Design",
-          description:
-            "Welcome sequence, post purchase nurture, and subscription mechanics designed and built in Klaviyo.",
-        },
-        {
-          week: "Week 4",
+          week: "Week 2",
           title: "Test & Launch",
           description:
             "Flows go live ahead of BFCM, with recovery automation activated for existing lapsed customers.",
@@ -258,11 +252,11 @@ export const strategyPitches: StrategyPitch[] = [
     faqs: [
       {
         q: "What do you need from us to start?",
-        a: "**Access to your email platform and store**, and a short conversation about how long each product lasts. Week one is spent confirming usage cycles and segments before anything is built.",
+        a: "**Access to your email platform and store**, and a short conversation about how long each product lasts, confirmed in the first couple of days before the build starts.",
       },
       {
         q: "How do you decide when the reorder email goes out?",
-        a: "**It's timed to how long the product actually lasts.** For a 30 day collagen pouch that's roughly day 25 to 30, and we confirm the exact timing with you in week one.",
+        a: "**It's timed to how long the product actually lasts.** For a 30 day collagen pouch that's roughly day 25 to 30, and we confirm the exact timing with you early on.",
       },
       {
         q: "What if a customer has already reordered?",
@@ -270,11 +264,11 @@ export const strategyPitches: StrategyPitch[] = [
       },
       {
         q: "Is the 40 to 50% a guarantee?",
-        a: "No. **It's the target this plan is aimed at**, and we check it against your real reorder cycles in week one before anything is built.",
+        a: "No. **It's the target this plan is aimed at**, and we check it against your real reorder cycles before the flows go live.",
       },
       {
         q: "Can it be live before BFCM?",
-        a: "The plan runs four weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it. **Not after BFCM. Now.**",
+        a: "The plan runs two weeks. Every week you wait is a week closer to BFCM traffic hitting a store with no flows running yet, so starting now is what keeps this comfortably ahead of peak instead of built in the middle of it. **Not after BFCM. Now.**",
       },
       {
         q: "What does it cost?",
@@ -429,24 +423,19 @@ export const strategyPitches: StrategyPitch[] = [
       ],
     },
     how: {
-      heading: "Three steps, and every day you wait is another shopper who leaves for nothing",
+      heading: "Two steps, two weeks, live before BFCM",
       steps: [
         {
           week: "Week 1",
-          title: "Map the real gaps",
+          title: "Map and build",
           description:
-            "Confirm which products run out often, and exactly what should happen the moment someone lands on one that's sold out.",
+            "Confirm which products run out often, then build back in stock capture, a real welcome sequence, and a win back flow, all in Klaviyo.",
         },
         {
-          week: "Weeks 2 to 3",
-          title: "Build the flows",
-          description:
-            "Back in stock capture and notification, a real welcome sequence, and a win back flow for shoppers who leave empty handed, all built in Klaviyo.",
-        },
-        {
-          week: "Week 4",
+          week: "Week 2",
           title: "Test and launch",
-          description: "Flows go live, starting with the three products sold out today.",
+          description:
+            "Flows go live, starting with the three products sold out today, well ahead of BFCM traffic.",
         },
       ],
       impact: [
@@ -472,7 +461,7 @@ export const strategyPitches: StrategyPitch[] = [
     faqs: [
       {
         q: "What do you need from us to start?",
-        a: "**Access to your email platform and your product catalogue**, plus a quick list of which products actually run out most. Week one is spent mapping that before anything gets built.",
+        a: "**Access to your email platform and your product catalogue**, plus a quick list of which products actually run out most, confirmed in the first couple of days before the build starts.",
       },
       {
         q: "How do you decide when the notify me email goes out?",
@@ -484,7 +473,7 @@ export const strategyPitches: StrategyPitch[] = [
       },
       {
         q: "How fast can this be live?",
-        a: "The build runs four weeks. **Every week it isn't live is another shopper who leaves for nothing.**",
+        a: "The build runs two weeks. **Every week it isn't live is another shopper who leaves for nothing, especially with BFCM getting closer.**",
       },
       {
         q: "Is this a guarantee you'll recover every lost sale?",

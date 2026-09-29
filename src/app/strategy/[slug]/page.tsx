@@ -16,6 +16,7 @@ import { splitParagraphs } from "@/lib/paragraphs";
 import { renderRich } from "@/lib/richText";
 import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
 import { strategyPitches, type StrategyIconKey, type StrategyShot } from "@/lib/strategy";
@@ -389,7 +390,11 @@ export default async function StrategyPage({
             <div className="mt-4">
               <H2>{pitch.how.heading}</H2>
             </div>
-            <ol className="mt-12 grid gap-6 md:grid-cols-3">
+            <ol
+              className={`mt-12 grid gap-6 ${
+                pitch.how.steps.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
+              }`}
+            >
               {pitch.how.steps.map((phase, i) => (
                 <li
                   key={phase.week}
@@ -481,7 +486,7 @@ export default async function StrategyPage({
                   className="group rounded-xl border border-border-hairline bg-white p-6"
                 >
                   <summary
-                    className={`flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-lg font-semibold ${FOCUS}`}
+                    className={`flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-lg font-semibold ${FOCUS} [&::-webkit-details-marker]:hidden`}
                   >
                     {f.q}
                     <CaretDown
@@ -532,6 +537,7 @@ export default async function StrategyPage({
               <p className="mt-1 font-body text-base text-foreground-muted">
                 Founder &amp; CEO, Skynosoft Ltd.
               </p>
+              <SocialLinks className="mt-3" />
             </div>
           </Reveal>
         </Section>

@@ -149,7 +149,7 @@ Add one object to `strategyPitches` in `src/lib/strategy.ts`, typed as
 | `gap` | 3 step journey | `leak: true` on the step where nothing happens; `status` says exactly what is (not) sent |
 | `problemSolution` | problem paragraph, 3 to 5 solution points, `reviews` | problem is one scene, solution points are concrete moments not features |
 | `benefits` | 3 to 5 items + `products` | icon key must be one of `welcome`, `reorder`, `subscription`, `winback`; add a key plus a Phosphor icon in the page if none fits |
-| `how` | 3 weekly steps + 3 impact boxes | impact numbers are targets and must match the FAQ wording |
+| `how` | 2 weekly steps + 3 impact boxes | **default the build to two weeks** (Week 1 covers strategy and build together, Week 2 is test and launch), not the four-week/three-step split from the first build; impact numbers are targets and must match the FAQ wording |
 | `caseStudySlugs` | 2 slugs | closest category first |
 | `reviewFromCaseStudy` | slug | must have `clientReview` |
 | `tagline` | closing statement | 2 sentences; it splits into separate word reveal paragraphs automatically |
@@ -223,16 +223,19 @@ faking the specificity.
    specific before the cards even load. If they have no case study close
    enough, say so to David rather than stretching `caseStudySlugs`.
 6. **"I cannot keep putting this off."** `how` (the BFCM/deadline
-   framing), `risk`, and the FAQ's timing question. State the specific
-   cost of waiting (a missed peak window, launching mid traffic surge
-   instead of ahead of it, another season of the same leak) rather than a
-   generic "let's chat soon." Avoid baking in an exact date or week count,
-   the page can sit unopened for weeks before David sends it, so anchor
-   urgency to the brand's own calendar event (BFCM, a launch) and the
-   plan's own timeline (`how.steps`), not to today's date. `risk.text`
-   should make starting feel safe ("see the plan before you spend
-   anything") precisely so the urgency in `how`/FAQ does not read as
-   pressure.
+   framing), `risk`, and the FAQ's timing question. **Always anchor to
+   BFCM by default.** Nearly every ecommerce brand cares about Black
+   Friday and Cyber Monday, so unless the brand has a more specific,
+   verified event (a launch, a relaunch date David gives you), use BFCM in
+   `how.heading` and the FAQ's timing answer, don't skip it. State the
+   specific cost of waiting (a missed peak window, launching mid traffic
+   surge instead of ahead of it, another season of the same leak) rather
+   than a generic "let's chat soon." Avoid baking in an exact date, the
+   page can sit unopened for weeks before David sends it, so anchor to the
+   calendar event itself (BFCM) and the plan's own timeline (`how.steps`),
+   not to today's date. `risk.text` should make starting feel safe ("see
+   the plan before you spend anything") precisely so the urgency in
+   `how`/FAQ does not read as pressure.
 
 If a page is flat despite good design, it is almost always #3 or #6 that
 got skipped, not a visual problem.
@@ -299,13 +302,16 @@ per brand.
   nav, hero with browser frame visuals, gap steps, problem and solution with
   customer reviews, benefits with product photos, how it works with impact
   boxes, proof cards and client review, tagline reveal, FAQ, risk reversal,
-  Calendly embed, circular founder sign off.
+  Calendly embed, circular founder sign off (David's name, title, and
+  `SocialLinks` to his real LinkedIn and Instagram, this pair belongs on
+  every founder sign off sitewide, not just here, don't drop it on a new
+  page).
 - Optional fields (`visuals`, `reviews`, `products`, `reviewFromCaseStudy`,
   `proof`) collapse their layout cleanly when absent, so a thin brief still
   produces a good page, but the reference build shows the target quality.
 - Shared parts: `Reveal` and `TaglineReveal` (IntersectionObserver, no scroll
   listeners), `IslandNav`, `CaseStudyCard` (with `baseUrl` for the strategy
-  host), `QuoteBadge`, `Paragraphs`.
+  host), `QuoteBadge`, `Paragraphs`, `SocialLinks`.
 - Calendly URL is `CALENDLY_URL` in `src/lib/content.ts`.
 
 ## Improving the template
@@ -321,6 +327,18 @@ record any adopted rule below.
 
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it produced`.
 
+- 2026-09-29, myowellness & naturesbest: David wanted the build compressed
+  to two weeks (was four across three `how.steps`) and BFCM added as a
+  standing default rather than an optional touch, both fixed and both
+  hard rule + field table entries updated above. Also found the strategy
+  page's own FAQ `<summary>` was missing
+  `[&::-webkit-details-marker]:hidden` (present on the shared site
+  `FaqSection` but never copied over here), so some Chromium builds
+  rendered the native disclosure triangle stacked next to the custom
+  `CaretDown` icon, two chevrons on one button. Rule: any new
+  `<details>/<summary>` with a custom icon needs both `list-none` (Tailwind
+  `list-style: none`) and `[&::-webkit-details-marker]:hidden`, one alone
+  is not reliably enough.
 - 2026-09-29, naturesbest: a bold span in `problem.text` covered two
   sentences ("**We signed up through it ourselves. No welcome email ever
   arrived.**"), and `splitParagraphs` broke its paragraph exactly between

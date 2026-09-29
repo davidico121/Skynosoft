@@ -6,6 +6,7 @@ import { CurrencyDollar, LinkSimple, Rocket } from "@phosphor-icons/react/dist/s
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { BUTTON, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { FinalCta, LogoStrip, ProcessSection } from "@/components/ui/sections";
@@ -89,6 +90,7 @@ export default function AboutPage() {
                   <p className="font-body text-base text-foreground-muted">
                     Founder &amp; CEO, Skynosoft Ltd.
                   </p>
+                  <SocialLinks className="mt-2 -ml-1" />
                 </figcaption>
               </figure>
             </Reveal>
