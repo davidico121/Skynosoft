@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { ProofMarquee } from "@/components/ui/ProofMarquee";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
@@ -157,6 +158,8 @@ export default async function Home() {
       </section>
 
       <LogoStrip />
+
+      <ProofMarquee />
 
       <Section id="problem" tint>
         <Reveal>
