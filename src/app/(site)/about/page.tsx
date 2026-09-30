@@ -165,17 +165,17 @@ export default function AboutPage() {
                       <figure>
                         <div className="overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-lg">
                           <Image
-                            src="/case-studies/novaya/revenue-chart.png"
-                            alt="A bar chart of Novaya flow attributed revenue by lifecycle stage, led by $173,929 from the welcome flow"
-                            width={1300}
-                            height={700}
+                            src="/case-studies/bwll/revenue-summary.jpg"
+                            alt="Klaviyo business performance summary for BWLL: $187,156.95 total revenue up 202%, and $75,377.60 attributed revenue, 40.28% of total, up 783%, split across campaigns and flows"
+                            width={1640}
+                            height={924}
                             className="block h-auto w-full"
                           />
                         </div>
                         <figcaption className="mt-3 font-body text-base text-foreground-muted">
-                          Novaya: email revenue by lifecycle stage.{" "}
+                          BWLL: Klaviyo performance summary.{" "}
                           <Link
-                            href="/case-studies/novaya"
+                            href="/case-studies/bwll"
                             className={`rounded font-semibold text-primary-soft underline underline-offset-4 ${FOCUS}`}
                           >
                             Read the case study

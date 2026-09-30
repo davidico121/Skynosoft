@@ -58,7 +58,7 @@ const solutionPoints = [
 const tagline =
   "Every visitor you paid for should have a reason to buy today, and a reason to come back next month. We build both halves.";
 
-const featuredSlugs = ["novaya", "streaky-academy", "bwll", "cannonbalm"];
+const featuredSlugs = ["afrocenchix", "streaky-academy", "bwll", "cannonbalm"];
 
 const faqs = [
   {
@@ -113,12 +113,12 @@ export default async function Home() {
                 </Link>
                 <p className="max-w-[420px] font-body text-base text-foreground-muted text-pretty">
                   <Link
-                    href="/case-studies/novaya"
+                    href="/case-studies/streaky-academy"
                     className={`font-semibold text-foreground underline underline-offset-4 hover:text-primary-soft ${FOCUS}`}
                   >
-                    Novaya
+                    Streaky Academy
                   </Link>{" "}
-                  earned $300K+ from email flows we built.
+                  earned $75K from email flows we built.
                 </p>
               </div>
             </Reveal>
