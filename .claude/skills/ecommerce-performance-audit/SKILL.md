@@ -115,6 +115,22 @@ full pitch treatment.
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it
 produced.`
 
+- 2026-09-30, lovelifesupplements.co.uk: both the lead card's claims (no
+  mobile sticky ATC, no cross-sell) and David's own added note (no popup,
+  no email signup at all) turned out to be wrong, verified live: a real
+  sticky Add to Cart bar on all 4 named PDPs, a real cross-sell module
+  ("Complete your routine"), and a real, working 20% off email popup that
+  fires automatically within about 15 seconds on both mobile and desktop.
+  The popup is the likely explanation for David's own miss, it uses a
+  dismiss cookie, so a returning visitor in a browser that already saw it
+  once won't see it again, easy to conclude "no popup" from that. Rule:
+  hard rule 1 (verify everything, correct the record) applies exactly as
+  much to what David tells you he already checked as to the scanner's
+  card, a human can be fooled by a dismissed-once cookie the same way a
+  scanner can miss JS-rendered content. When every flagged claim turns out
+  false, say so plainly and do not manufacture a different angle just to
+  keep the pipeline moving, some leads are not worth pitching.
+
 - 2026-09-29, naturesbest.co.uk: first reported their on-site search as
   broken, based on navigating directly to `/search?q=...` and typing into
   what looked like the visible search input. Both were wrong: the URL route
