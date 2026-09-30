@@ -680,4 +680,196 @@ export const strategyPitches: StrategyPitch[] = [
       text: "This isn't a sales call. Bring your questions, not your card.",
     },
   },
+  {
+    slug: "alimentnutrition",
+    brand: "Aliment Nutrition",
+    hero: {
+      eyebrow: "A note for Aliment Nutrition",
+      headline: [
+        "A welcome email that works,",
+        "sitting behind a signup",
+        "almost nobody sees",
+      ],
+      subheading:
+        "We signed up through your footer form. What came back was a real welcome email with a working ALIMENT10 code. **Your footer never mentions a discount at all.**",
+      cta: "Book a strategy call",
+      visuals: {
+        url: "alimentnutrition.co.uk",
+        main: {
+          src: "/pitch-assets/alimentnutrition/site-home.jpg",
+          alt: "The Aliment Nutrition homepage, showing a 3 for 2 mix and match promotion and the supplement range",
+          width: 1200,
+          height: 750,
+        },
+        inset: {
+          src: "/pitch-assets/alimentnutrition/site-footer-signup.jpg",
+          alt: "The Aliment Nutrition footer newsletter signup, reading Sign up for our newsletter, be the first to hear about special offers and discounts, with no specific offer mentioned",
+          width: 1440,
+          height: 420,
+          caption: "No discount shown here",
+        },
+      },
+    },
+    gap: {
+      label: "What happens when someone lands on ProVen BioForm today",
+      steps: [
+        {
+          day: "Right now",
+          title: "They're ready to buy on mobile",
+          detail: "No sticky add to cart bar, so the button scrolls away the moment they read anything.",
+          status: "No sticky bar",
+          leak: true,
+        },
+        {
+          day: "Same visit",
+          title: "The only signup is at the very bottom",
+          detail: "A plain newsletter form. No mention of the discount code that actually exists.",
+          status: "No offer shown",
+          leak: true,
+        },
+        {
+          day: "After that",
+          title: "A popup sits dormant in the code",
+          detail: "Built, installed, and never shown to a single fresh visitor.",
+          status: "Not firing",
+          leak: true,
+        },
+      ],
+    },
+    problemSolution: {
+      heading: "The flow already works. Almost nobody reaches it.",
+      problem: {
+        title: "Right now",
+        text: "Someone shopping on mobile for ProVen BioForm, the Neuro Plus Bundle, or Alkalising Salts scrolls past the add to cart button with nothing pinned to bring it back. Three of your five core product pages show no cross-sell at all, so a customer who came for one thing is never shown a second. And the one real incentive you have, an actual working discount code, only reaches someone who scrolls all the way to the footer and signs up for a newsletter that promises nothing specific. **We found a popup already built into your site that has never once shown itself to a real visitor.** The infrastructure exists. It just isn't switched on where it would matter.",
+      },
+      solution: {
+        title: "With the system in place",
+        points: [
+          "A mobile shopper gets **the add to cart button pinned in view**, all the way through the page, not just at the top",
+          "Someone on Alkalising Salts or the Neuro Plus Bundle gets **a real cross-sell shown**, not a page that just ends",
+          "The discount you already send by email gets **offered up front**, not buried behind a vague footer form",
+          "That existing popup gets **turned on and actually shown**, so the welcome flow that already works finally has something to welcome",
+        ],
+      },
+    },
+    benefits: {
+      heading: "Three pieces that put your own welcome flow to work",
+      products: [
+        {
+          name: "BioForm",
+          image: {
+            src: "/pitch-assets/alimentnutrition/product-bioform.jpg",
+            alt: "ProVen BioForm 30 capsules, one of the five core products with no mobile sticky add to cart",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Neuro Plus",
+          image: {
+            src: "/pitch-assets/alimentnutrition/product-neuro-plus.jpg",
+            alt: "The Neuro Plus Bundle for cognitive support, a product page with no cross-sell shown",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Alkalising Salts",
+          image: {
+            src: "/pitch-assets/alimentnutrition/product-alkalising-salts.jpg",
+            alt: "Aliment Alkalising Salts electrolytes, a product page with no cross-sell shown",
+            width: 900,
+            height: 900,
+          },
+        },
+      ],
+      items: [
+        {
+          icon: "welcome",
+          title: "A popup that actually greets people",
+          detail:
+            "The discount you already email out gets offered **the moment someone lands**, not hidden behind a scroll to the footer.",
+        },
+        {
+          icon: "reorder",
+          title: "A cart button that stays in reach",
+          detail:
+            "A sticky mobile bar keeps add to cart pinned **through the entire page**, on every core product.",
+        },
+        {
+          icon: "winback",
+          title: "A second sale on every product page",
+          detail:
+            "Real cross-sell recommendations on the pages that don't have any, **not just the two that already do**.",
+        },
+      ],
+    },
+    how: {
+      heading: "Two steps, two weeks, live before BFCM",
+      steps: [
+        {
+          week: "Week 1",
+          title: "Map and build",
+          description:
+            "Confirm the discount logic already behind ALIMENT10, then build the popup, the sticky add to cart bar, and cross-sell for the pages missing it.",
+        },
+        {
+          week: "Week 2",
+          title: "Test and launch",
+          description:
+            "Everything goes live together, well ahead of BFCM traffic.",
+        },
+      ],
+      impact: [
+        {
+          value: "0 → live",
+          label: "A working popup, today versus what's proposed",
+        },
+        {
+          value: "3 of 5",
+          label: "Core product pages with no cross-sell shown at all",
+        },
+        {
+          value: "5",
+          label: "Core products with no mobile sticky add to cart",
+        },
+      ],
+    },
+    proofHeading: "3.7K leads from one popup: the same fix, on the same kind of gap",
+    caseStudySlugs: ["lipo-beauty-tea", "cannonbalm"],
+    reviewFromCaseStudy: "cannonbalm",
+    tagline:
+      "Do this and the welcome email you already built finally has a real front door. The flow was never the problem, the doorway was.",
+    faqHeading: "Before you book",
+    faqs: [
+      {
+        q: "What do you need from us to start?",
+        a: "**Access to your Shopify theme and your email platform**, plus the discount logic already behind ALIMENT10, confirmed in the first couple of days before the build starts.",
+      },
+      {
+        q: "Why not just turn the existing popup back on?",
+        a: "We can look at it first. If it's solid, **we switch it on and improve the offer**, we don't rebuild what already works.",
+      },
+      {
+        q: "Will the sticky cart bar work across all our products, not just the five?",
+        a: "Yes. **We build it once, into the theme**, so it applies everywhere, not just the pages we audited.",
+      },
+      {
+        q: "How fast can this be live?",
+        a: "The build runs two weeks. **Every week it isn't live is another shopper who leaves for nothing, especially with BFCM getting closer.**",
+      },
+      {
+        q: "Is this a guarantee you'll recover every lost sale?",
+        a: "No. **It's the system that catches the demand you're currently losing**, not a promise every visitor converts.",
+      },
+      {
+        q: "What does it cost?",
+        a: "**We cover scope and pricing on the call**, once we know how many pieces of this you want built.",
+      },
+    ],
+    risk: {
+      heading: "See the plan before you spend anything",
+      text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+  },
 ];
