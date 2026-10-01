@@ -12,8 +12,6 @@ const left = [
   { src: "/home/scroll-emails/lipo-black-friday.jpg", alt: "Lipo Beauty Tea Black Friday email" },
   { src: "/home/scroll-emails/streaky-welcome.jpg", alt: "Streaky Academy welcome email" },
   { src: "/home/scroll-emails/bwll-real-stories.jpg", alt: "BWLL 'Real Stories' customer email" },
-  { src: "/home/scroll-emails/cannonbalm-ultimate.jpg", alt: "CannonBalm Ultimate 120ml launch email" },
-  { src: "/home/scroll-emails/maxsleek-welcome.jpg", alt: "MaxSleek welcome email" },
 ];
 
 const right = [
@@ -22,7 +20,6 @@ const right = [
   { src: "/home/scroll-emails/bwll-welcome.jpg", alt: "BWLL welcome email" },
   { src: "/home/scroll-emails/feno-setup.jpg", alt: "Feno setup email" },
   { src: "/home/scroll-emails/cannonbalm-spend-more.jpg", alt: "CannonBalm spend and save email" },
-  { src: "/home/scroll-emails/lipo-last-chance.jpg", alt: "Lipo Beauty Tea last chance email" },
   { src: "/home/scroll-emails/streaky-social-proof.jpg", alt: "Streaky Academy social proof email" },
 ];
 
@@ -59,6 +56,7 @@ function Column({
               width={CARD_W}
               height={CARD_H}
               sizes="(min-width: 1024px) 200px, (min-width: 768px) 160px, (min-width: 640px) 130px, 88px"
+              quality={65}
               className="block h-auto w-full"
             />
           </li>
@@ -89,7 +87,7 @@ export function CreativeColumns() {
         <div className="relative z-10 mx-auto max-w-[240px] rounded-2xl border border-border-hairline bg-white/90 p-5 text-center shadow-xl backdrop-blur-sm sm:max-w-[380px] sm:p-7 md:max-w-[560px] md:p-10">
           <Eyebrow>Real creative</Eyebrow>
           <h2 className="mt-4 font-heading text-xl font-semibold text-balance sm:text-2xl md:text-4xl">
-            Emails and ads we actually wrote, designed and sent.
+            Emails we actually wrote, designed and sent.
           </h2>
           <p className="mt-4 font-body text-sm text-foreground-muted text-pretty sm:text-base">
             Every one of these went to a real list for a real client. No templates, no stock
