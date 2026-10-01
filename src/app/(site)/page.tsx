@@ -245,6 +245,8 @@ export default async function Home() {
 
       <ProcessSection />
 
+      <CreativeColumns />
+
       <Section id="proof">
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -289,8 +291,6 @@ export default async function Home() {
           </div>
         </Reveal>
       </Section>
-
-      <CreativeColumns />
 
       <FaqSection faqs={faqs} />
 
