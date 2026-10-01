@@ -273,8 +273,11 @@ export default async function Home() {
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {reviews.map((cs) => (
-                <figure key={cs.slug} className="rounded-xl bg-[#f7f6f3] p-6 md:p-8">
-                  <QuoteBadge />
+                <figure
+                  key={cs.slug}
+                  className="rounded-xl border border-border-hairline bg-[#f7f6f3] p-6 shadow-sm md:p-8"
+                >
+                  <QuoteBadge size="lg" />
                   <blockquote className="mt-6">
                     <Paragraphs
                       quote
@@ -282,8 +285,31 @@ export default async function Home() {
                       className="font-body text-lg text-foreground-muted text-pretty"
                     />
                   </blockquote>
-                  <figcaption className="mt-6 font-body text-base text-foreground">
-                    {cs.clientReview!.name}, {cs.brand}
+                  <figcaption className="mt-6 flex items-center gap-3">
+                    {cs.logo ? (
+                      <div className="flex h-9 max-w-[88px] shrink-0 items-center rounded-lg border border-border-hairline-strong bg-white px-2 py-1.5">
+                        <Image
+                          src={cs.logo.src}
+                          alt={`${cs.brand} logo`}
+                          width={cs.logo.width}
+                          height={cs.logo.height}
+                          unoptimized={cs.logo.src.endsWith(".svg")}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-container-high font-heading text-sm font-semibold text-foreground-muted">
+                        {cs.logoInitial}
+                      </div>
+                    )}
+                    <div>
+                      <p className="font-body text-base font-medium text-foreground">
+                        {cs.clientReview!.name}
+                      </p>
+                      <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
+                        {cs.brand}
+                      </p>
+                    </div>
                   </figcaption>
                 </figure>
               ))}
