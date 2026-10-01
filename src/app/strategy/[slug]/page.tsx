@@ -384,6 +384,35 @@ export default async function StrategyPage({
           </Reveal>
         </Section>
 
+        {pitch.builtForYou && (
+          <Section id="built-for-you">
+            <Reveal>
+              <Eyebrow>Already built</Eyebrow>
+              <div className="mt-4">
+                <H2>{pitch.builtForYou.heading}</H2>
+              </div>
+              {pitch.builtForYou.subheading && (
+                <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
+                  {renderRich(pitch.builtForYou.subheading)}
+                </p>
+              )}
+              <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+                {pitch.builtForYou.emails.map((email) => (
+                  <figure
+                    key={email.label}
+                    className="min-w-0 overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-sm"
+                  >
+                    <figcaption className="border-b border-border-hairline bg-card px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
+                      {email.label}
+                    </figcaption>
+                    <ShotImage shot={email.image} />
+                  </figure>
+                ))}
+              </div>
+            </Reveal>
+          </Section>
+        )}
+
         <Section id="how" tint>
           <Reveal>
             <Eyebrow>How it works</Eyebrow>

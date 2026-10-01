@@ -55,6 +55,12 @@ export type StrategyPitch = {
     /** Three metric boxes. */
     impact: { value: string; label: string }[];
   };
+  /** Real, finished creative already built for this brand on spec, shown as proof, not a mockup. */
+  builtForYou?: {
+    heading: string;
+    subheading?: string;
+    emails: { label: string; image: StrategyShot }[];
+  };
   proofHeading: string;
   /** Slugs from caseStudies to show as relevant proof. */
   caseStudySlugs: string[];
@@ -801,6 +807,40 @@ export const strategyPitches: StrategyPitch[] = [
           title: "A second sale on every product page",
           detail:
             "Real cross-sell recommendations on the pages that don't have any, **not just the two that already do**.",
+        },
+      ],
+    },
+    builtForYou: {
+      heading: "Three emails, already designed and ready to send",
+      subheading:
+        "We didn't wait for a yes. **Here's a welcome email and two Black Friday campaigns, built for Aliment Nutrition specifically**, ready to plug into your flow.",
+      emails: [
+        {
+          label: "Welcome Email",
+          image: {
+            src: "/pitch-assets/alimentnutrition/email-welcome-design.jpg",
+            alt: "A designed welcome email for Aliment Nutrition offering 10% off, featuring the Omega Plus+ product and brand story sections",
+            width: 480,
+            height: 3949,
+          },
+        },
+        {
+          label: "Black Friday",
+          image: {
+            src: "/pitch-assets/alimentnutrition/email-bfcm-design.jpg",
+            alt: "A designed Black Friday email for Aliment Nutrition titled Black Friday Reimagined, offering 30% off with bundle and best-seller sections",
+            width: 480,
+            height: 3129,
+          },
+        },
+        {
+          label: "Early Access",
+          image: {
+            src: "/pitch-assets/alimentnutrition/email-bfcm-early-design.jpg",
+            alt: "A designed early access Black Friday email for Aliment Nutrition titled Shop Before the Rush, offering 30% off ahead of the main sale",
+            width: 480,
+            height: 3728,
+          },
         },
       ],
     },
