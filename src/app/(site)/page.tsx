@@ -10,6 +10,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { CreativeColumns } from "@/components/ui/CreativeColumns";
 import { ProofMarquee } from "@/components/ui/ProofMarquee";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
@@ -288,6 +289,8 @@ export default async function Home() {
           </div>
         </Reveal>
       </Section>
+
+      <CreativeColumns />
 
       <FaqSection faqs={faqs} />
 
