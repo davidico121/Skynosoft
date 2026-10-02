@@ -92,24 +92,29 @@ export function IslandNav({
         }`}
       >
         <ul className="flex flex-col items-center gap-6">
-          {links.map((link, i) => (
-            <li
-              key={link.href}
-              style={{ transitionDelay: open ? `${100 + i * 50}ms` : "0ms" }}
-              className={`transition-all duration-700 ${EASE} ${
-                open ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-              }`}
-            >
-              <a
-                href={link.href}
-                tabIndex={open ? 0 : -1}
-                onClick={() => setOpen(false)}
-                className={`font-heading text-3xl font-semibold text-foreground transition-colors duration-300 ${EASE} hover:text-primary ${FOCUS}`}
+          {links.map((link, i) => {
+            const isCta = i === links.length - 1;
+            return (
+              <li
+                key={link.href}
+                style={{ transitionDelay: open ? `${100 + i * 50}ms` : "0ms" }}
+                className={`transition-all duration-700 ${EASE} ${
+                  open ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                }`}
               >
-                {link.label}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={link.href}
+                  tabIndex={open ? 0 : -1}
+                  onClick={() => setOpen(false)}
+                  className={`font-heading text-3xl font-semibold transition-colors duration-300 ${EASE} ${FOCUS} ${
+                    isCta ? "text-primary hover:text-primary-soft" : "text-foreground hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>
