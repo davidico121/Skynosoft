@@ -11,6 +11,7 @@ export type SendPitchEmailInput = {
 export type SendPitchEmailResult = { ok: true } | { ok: false; error: string };
 
 const SITE_URL = "https://www.skynosoft.net";
+const REPLY_TO_EMAIL = "david@skynosoft.net";
 
 /**
  * Table-based layout with inline styles throughout: the only markup that
@@ -92,6 +93,7 @@ export async function sendPitchEmail(input: SendPitchEmailInput): Promise<SendPi
             },
           },
         ],
+        reply_to: [{ address: REPLY_TO_EMAIL, name: fromName }],
         subject: input.subject,
         htmlbody: textToHtml(input.text),
       }),
