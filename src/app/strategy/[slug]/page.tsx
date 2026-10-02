@@ -405,7 +405,9 @@ export default async function StrategyPage({
                     <figcaption className="border-b border-border-hairline bg-card px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
                       {email.label}
                     </figcaption>
-                    <ShotImage shot={email.image} />
+                    <div className="hide-scrollbar h-[500px] overflow-y-auto">
+                      <ShotImage shot={email.image} />
+                    </div>
                   </figure>
                 ))}
               </div>

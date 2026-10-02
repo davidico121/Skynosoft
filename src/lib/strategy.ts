@@ -819,9 +819,9 @@ export const strategyPitches: StrategyPitch[] = [
           label: "Welcome Email",
           image: {
             src: "/pitch-assets/alimentnutrition/email-welcome-design.jpg",
-            alt: "A designed welcome email for Aliment Nutrition offering 10% off, featuring the Omega Plus+ product and brand story sections",
-            width: 480,
-            height: 3949,
+            alt: "A designed welcome email for Aliment Nutrition offering 10% off, featuring the Four Essentials pack and a product range",
+            width: 1200,
+            height: 9116,
           },
         },
         {
@@ -829,8 +829,8 @@ export const strategyPitches: StrategyPitch[] = [
           image: {
             src: "/pitch-assets/alimentnutrition/email-bfcm-design.jpg",
             alt: "A designed Black Friday email for Aliment Nutrition titled Black Friday Reimagined, offering 30% off with bundle and best-seller sections",
-            width: 480,
-            height: 3129,
+            width: 1200,
+            height: 6415,
           },
         },
         {
@@ -838,8 +838,8 @@ export const strategyPitches: StrategyPitch[] = [
           image: {
             src: "/pitch-assets/alimentnutrition/email-bfcm-early-design.jpg",
             alt: "A designed early access Black Friday email for Aliment Nutrition titled Shop Before the Rush, offering 30% off ahead of the main sale",
-            width: 480,
-            height: 3728,
+            width: 1200,
+            height: 8960,
           },
         },
       ],
