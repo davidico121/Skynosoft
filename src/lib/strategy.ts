@@ -5,7 +5,13 @@
  */
 export type StrategyShot = { src: string; alt: string; width: number; height: number };
 
-export type StrategyIconKey = "welcome" | "reorder" | "subscription" | "winback";
+export type StrategyIconKey =
+  | "welcome"
+  | "reorder"
+  | "subscription"
+  | "winback"
+  | "popup"
+  | "palette";
 
 export type StrategyPitch = {
   /** URL slug: strategy.skynosoft.net/<slug>. */
@@ -911,6 +917,188 @@ export const strategyPitches: StrategyPitch[] = [
       {
         q: "Will the sticky cart bar work across all our products, not just the five?",
         a: "Yes. **We build it once, into the theme**, so it applies everywhere, not just the pages we audited.",
+      },
+      {
+        q: "How fast can this be live?",
+        a: "The build runs two weeks. **Every week it isn't live is another shopper who leaves for nothing, especially with BFCM getting closer.**",
+      },
+      {
+        q: "Is this a guarantee you'll recover every lost sale?",
+        a: "No. **It's the system that catches the demand you're currently losing**, not a promise every visitor converts.",
+      },
+      {
+        q: "What does it cost?",
+        a: "**We cover scope and pricing on the call**, once we know how many pieces of this you want built.",
+      },
+    ],
+    risk: {
+      heading: "See the plan before you spend anything",
+      text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+  },
+  {
+    slug: "holygrailofbeauty",
+    brand: "Holy Grail of Beauty",
+    hero: {
+      eyebrow: "A note for Holy Grail of Beauty",
+      headline: [
+        "The gold goddess feeling",
+        "that sells on your homepage,",
+        "carried all the way to checkout",
+      ],
+      subheading:
+        "Your homepage has a real goddess luxury identity, gold tones, Athena inspired imagery, the kind of design that makes a store feel expensive. **Then someone clicks into a product page and all of that disappears into plain white.**",
+      cta: "Book a strategy call",
+    },
+    gap: {
+      label: "What happens when someone browses past your homepage",
+      steps: [
+        {
+          day: "Right now",
+          title: "They click into a collection or product page",
+          detail: "The gold and brown palette drops out completely, replaced by a plain white background that could belong to any store.",
+          status: "Plain white",
+          leak: true,
+        },
+        {
+          day: "If they stick around",
+          title: "The only signup is a basic popup",
+          detail: "Built in Klaviyo, but with none of the luxury styling the rest of the homepage promises.",
+          status: "No luxury styling",
+          leak: true,
+        },
+        {
+          day: "Especially now",
+          title: "Holiday shoppers expect a moment, not a form",
+          detail: "A scratch and reveal or gift style interaction converts better in exactly the season you're entering.",
+          status: "Standard form only",
+          leak: true,
+        },
+      ],
+    },
+    problemSolution: {
+      heading: "The goddess feeling stops at the homepage. It shouldn't.",
+      problem: {
+        title: "Right now",
+        text: "Someone lands on your homepage and the Athena gold goddess concept stops them, it's the kind of design that makes a luxury brand feel real. Then they click into a product or collection page and that feeling disappears. The gold and brown give way to plain white backgrounds that could belong to any store. The newsletter popup trying to capture that same visitor is just as plain, a basic signup box with none of the luxury your homepage already promised. **Holiday traffic is about to hit pages that are still wearing a different brand's template.**",
+      },
+      solution: {
+        title: "With the system in place",
+        points: [
+          "A scratch and reveal popup that feels like **a gift, not a form**, on brand and built for the holiday season already arriving",
+          "Collection and product pages brought into the same gold and brown palette as the homepage, so **the goddess feeling never drops**",
+          "A welcome email already designed and ready to send, so new subscribers get the same luxury from their first message",
+        ],
+      },
+    },
+    benefits: {
+      heading: "Three pieces that keep the luxury going past the homepage",
+      items: [
+        {
+          icon: "popup",
+          title: "A popup that feels like a gift, not a form",
+          detail:
+            "Scratch and reveal, styled to match the gold goddess aesthetic, **built for the holiday rush already here**.",
+        },
+        {
+          icon: "palette",
+          title: "Product and collection pages that keep the gold",
+          detail:
+            "The same warm palette as your homepage, carried through to checkout, so **the luxury never drops**.",
+        },
+        {
+          icon: "welcome",
+          title: "A welcome email already built",
+          detail:
+            "A real redesign, ready to compare side by side with what you send today, **not a mockup**.",
+        },
+      ],
+    },
+    builtForYou: {
+      heading: "A welcome email and a glow campaign, already designed",
+      subheading:
+        "We didn't wait for a yes. **Here's your welcome email redesigned and a full glow campaign**, both already built in your gold and brown palette.",
+      comparison: {
+        heading: "The welcome email you send today, next to the one we built",
+        before: {
+          label: "What goes out today",
+          image: {
+            src: "/pitch-assets/holygrailofbeauty/email-original-welcome.jpg",
+            alt: "The current Holy Grail of Beauty welcome email: a plain beige header, a short paragraph, and a flat white product grid",
+            width: 1200,
+            height: 2480,
+          },
+        },
+        after: {
+          label: "What we'd send instead",
+          image: {
+            src: "/pitch-assets/holygrailofbeauty/email-welcome-design.jpg",
+            alt: "A redesigned Holy Grail of Beauty welcome email in the gold and brown Athena goddess palette, with a model hero image, best sellers, and a what makes us different section",
+            width: 1200,
+            height: 8250,
+          },
+        },
+      },
+      emails: [
+        {
+          label: "Glow Campaign",
+          image: {
+            src: "/pitch-assets/holygrailofbeauty/email-glow-design.jpg",
+            alt: "A designed Holy Grail of Beauty glow campaign email titled Stand Out Without Trying, offering 10% off with radiance and best seller sections",
+            width: 600,
+            height: 6008,
+          },
+        },
+      ],
+    },
+    how: {
+      heading: "Two steps, two weeks, live before BFCM",
+      steps: [
+        {
+          week: "Week 1",
+          title: "Map and build",
+          description:
+            "Build the scratch and reveal popup, and bring the gold and brown palette to your product and collection pages.",
+        },
+        {
+          week: "Week 2",
+          title: "Test and launch",
+          description: "Everything goes live together, ready well ahead of BFCM traffic.",
+        },
+      ],
+      impact: [
+        {
+          value: "Basic → on brand",
+          label: "Popup experience, today versus what's proposed",
+        },
+        {
+          value: "White → gold",
+          label: "Product and collection page palette",
+        },
+        {
+          value: "2",
+          label: "Ready to send emails already built for you",
+        },
+      ],
+    },
+    proofHeading: "3.7K leads from one popup redesign: the same kind of gap sitting on your site right now",
+    caseStudySlugs: ["cannonbalm", "lipo-beauty-tea"],
+    reviewFromCaseStudy: "cannonbalm",
+    tagline:
+      "The gold goddess feeling should not stop at your homepage. Build it into every page someone actually buys from.",
+    faqHeading: "Before you book",
+    faqs: [
+      {
+        q: "What do you need from us to start?",
+        a: "**Access to your Shopify theme and your Klaviyo account**, plus a final yes on the palette and popup style, confirmed in the first couple of days before the build starts.",
+      },
+      {
+        q: "Why a scratch and reveal popup specifically?",
+        a: "It fits a luxury, gift led brand like yours, **and it's built for the holiday season already arriving**, not a generic signup form.",
+      },
+      {
+        q: "Will the product and collection pages still load fast?",
+        a: "Yes. **We carry the gold and brown palette into your existing theme structure**, not a rebuild from scratch.",
       },
       {
         q: "How fast can this be live?",

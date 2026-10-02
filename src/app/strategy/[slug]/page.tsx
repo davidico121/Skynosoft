@@ -5,7 +5,9 @@ import { notFound } from "next/navigation";
 import {
   CaretDown,
   ClockCountdown,
+  Gift,
   HandWaving,
+  Palette,
   Repeat,
   ShieldCheck,
   UserCirclePlus,
@@ -46,6 +48,8 @@ const icons: Record<StrategyIconKey, typeof HandWaving> = {
   reorder: ClockCountdown,
   subscription: Repeat,
   winback: UserCirclePlus,
+  popup: Gift,
+  palette: Palette,
 };
 
 export function generateStaticParams() {
@@ -175,7 +179,9 @@ export default async function StrategyPage({
       <main id="main">
         <section className="pt-32">
           <Wrap className="pb-24">
-            <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,680px)_1fr]">
+            <div
+              className={`grid items-center gap-16 ${hero.visuals ? "lg:grid-cols-[minmax(0,680px)_1fr]" : ""}`}
+            >
               <Reveal>
                 <Eyebrow>{hero.eyebrow}</Eyebrow>
                 <h1 className="mt-6 bg-linear-to-r from-[#000000] to-[#666666] bg-clip-text font-heading text-3xl font-bold text-transparent md:text-4xl">
