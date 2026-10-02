@@ -19,27 +19,27 @@ const SITE_URL = "https://www.skynosoft.net";
  */
 function buildSignatureHtml(): string {
   return `
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:32px; border-top:1px solid #e5e7eb; padding-top:20px; font-family:-apple-system,Helvetica,Arial,sans-serif;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:28px; border-top:1px solid #e5e7eb; padding-top:16px; font-family:-apple-system,Helvetica,Arial,sans-serif;">
   <tr>
-    <td style="padding-right:16px; vertical-align:top;">
-      <img src="${SITE_URL}/brand/david-owoeye-avatar.jpg" width="60" height="60" alt="David Owoeye" style="display:block; width:60px; height:60px; border-radius:50%;" />
+    <td style="padding-right:14px; vertical-align:top;">
+      <img src="${SITE_URL}/brand/david-owoeye-avatar.jpg" width="54" height="54" alt="David Owoeye" style="display:block; width:54px; height:54px; border-radius:50%;" />
     </td>
     <td style="vertical-align:top;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td style="font-size:16px; font-weight:700; color:#14161a; padding-bottom:2px;">
+          <td style="font-size:15px; line-height:1.3; font-weight:700; color:#14161a; padding-bottom:1px;">
             David Owoeye
-            <img src="${SITE_URL}/brand/verified-badge.png" width="16" height="16" alt="Verified" style="vertical-align:middle; margin-left:4px;" />
+            <img src="${SITE_URL}/brand/verified-badge.png" width="14" height="14" alt="Verified" style="vertical-align:middle; margin-left:3px;" />
           </td>
         </tr>
         <tr>
-          <td style="font-size:14px; font-weight:600; color:#14161a; padding-bottom:2px;">DTC CRO &amp; Email Retention Specialist</td>
+          <td style="font-size:13px; line-height:1.3; font-weight:600; color:#14161a; padding-bottom:1px;">DTC CRO &amp; Email Retention Specialist</td>
         </tr>
         <tr>
-          <td style="font-size:14px; color:#5b6472; padding-bottom:6px;">Founder, Skynosoft Ltd.</td>
+          <td style="font-size:13px; line-height:1.3; color:#5b6472; padding-bottom:2px;">Founder, Skynosoft Ltd.</td>
         </tr>
         <tr>
-          <td style="font-size:14px;">
+          <td style="font-size:13px; line-height:1.3;">
             <a href="https://www.linkedin.com/in/david-owoeye" style="color:#0099ff; text-decoration:none;">linkedin.com/in/david-owoeye</a>
           </td>
         </tr>
