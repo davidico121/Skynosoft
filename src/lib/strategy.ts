@@ -828,9 +828,9 @@ export const strategyPitches: StrategyPitch[] = [
           label: "Black Friday",
           image: {
             src: "/pitch-assets/alimentnutrition/email-bfcm-design.jpg",
-            alt: "A designed Black Friday email for Aliment Nutrition titled Black Friday Reimagined, offering 30% off with bundle and best-seller sections",
+            alt: "A designed Black Friday email for Aliment Nutrition titled Black Friday Reimagined, offering 30% off with bundle, best-seller and brand footer sections",
             width: 1200,
-            height: 6415,
+            height: 7822,
           },
         },
         {
