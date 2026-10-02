@@ -154,6 +154,7 @@ Add one object to `strategyPitches` in `src/lib/strategy.ts`, typed as
 | `problemSolution` | problem paragraph, 3 to 5 solution points, `reviews` | problem is one scene, solution points are concrete moments not features |
 | `benefits` | 3 to 5 items + `products` | icon key must be one of `welcome`, `reorder`, `subscription`, `winback`; add a key plus a Phosphor icon in the page if none fits |
 | `how` | 2 weekly steps + 3 impact boxes | **default the build to two weeks** (Week 1 covers strategy and build together, Week 2 is test and launch), not the four-week/three-step split from the first build; impact numbers are targets and must match the FAQ wording |
+| `builtForYou` | optional: real finished creative already designed for THEM, shown between `benefits` and `how` | only use this when David has actually designed real creative on spec, never a mockup labeled as finished work (hard rule 1 still applies). See "Optional: already-built creative" below. |
 | `caseStudySlugs` | 2 slugs | closest category first |
 | `reviewFromCaseStudy` | slug | must have `clientReview` |
 | `tagline` | closing statement | 2 sentences; it splits into separate word reveal paragraphs automatically |
@@ -244,6 +245,58 @@ faking the specificity.
 If a page is flat despite good design, it is almost always #3 or #6 that
 got skipped, not a visual problem.
 
+### Optional: already-built creative (`builtForYou`)
+
+When David has actually designed real email creative for the brand on
+spec (not a mockup, the real thing, ready to send), it is the strongest
+proof the page can carry, stronger than a case study from someone else,
+because it is proof specific to THIS brand. Use `builtForYou`:
+
+```ts
+builtForYou: {
+  heading: string;
+  subheading?: string;        // one bold span max, routed through renderRich
+  comparison?: {               // optional: a real before/after
+    heading: string;
+    before: { label: string; image: StrategyShot }; // their actual current email
+    after: { label: string; image: StrategyShot };  // the one David built
+  };
+  emails: { label: string; image: StrategyShot }[]; // the rest of what's ready
+}
+```
+
+Rendering (already wired into the template, `src/app/strategy/[slug]/page.tsx`):
+tall email screenshots show inside a `hide-scrollbar h-[500px] overflow-y-auto`
+window, not the full image at full height. That is **taller than the
+400px** used for the case-study gallery (`(site)/case-studies/[slug]/page.tsx`)
+on purpose, so it reads as "scroll me" rather than a cramped crop. The
+`comparison` pair renders in a 2 column grid above the main `emails` grid;
+the `after` card gets a `border-primary` + `ring-primary/30` treatment and a
+tinted label so it visually reads as the better one without needing copy
+to say so. The `emails` grid's column count must match its length
+(`sm:grid-cols-2` for 2 items, `md:grid-cols-3` for 3) or you get an
+empty, awkward column, same rule as `how.steps.length`.
+
+If `comparison` is used and one of the `comparison.after` images is also
+the brand's only/best example of that email type, do not also repeat it
+in the `emails` list below, that is a duplicate image shown twice for no
+reason. Show it once, in the comparison, and let `emails` cover the
+pieces that do not have a real before to pair against.
+
+**Cropping real email screenshots**: cut the brand's own footer out of
+each image (logo, socials, address, unsubscribe) so the card reads as
+pure creative, not administrivia. Exception: if the footer sits on a
+photo background that continues without a seam from the section above
+it (a product photo flowing straight into the branded sign off), keep
+the whole thing, cropping mid-photo looks more broken than a short real
+footer does. Finding the exact cut line: do not assume the footer is a
+flat color block, sample it. A script that scans a single pixel column
+for a target RGB and stops on the first match will false-positive on
+product photography that happens to share the brand's teal/dark tone;
+require a sustained run (30-40+ consecutive matching rows) before
+trusting a match, and always crop-and-reopen the result to confirm by
+eye before shipping.
+
 ## Step 4: Assets
 
 - Put files in `public/pitch-assets/<slug>/` and reference them as
@@ -268,20 +321,90 @@ npm run start
 Open `http://strategy.localhost:3000/<slug>` (Chrome resolves `*.localhost`)
 or `curl -H "Host: strategy.localhost:3000" localhost:3000/<slug>`.
 
-Screenshot with Playwright at 1440 and 390 wide. Scroll the full page first
-so `Reveal` sections trigger. Look at every section and check:
+Screenshot at 1440 and 390 wide using the headless Chrome pattern below
+(never the `mcp__playwright__*` tool, see "Tooling notes"). Scroll the
+full page first so `Reveal` sections trigger. Look at every section and
+check:
 
 - Hero: headline lines break well, browser frame screenshots load, caption pill does not wrap on mobile.
 - Gap steps: the leak step reads as the problem.
 - Reviews use the quote badge card, paragraphs are short.
 - Benefits: product photos load and labels do not wrap oddly.
+- `builtForYou` (if present): comparison pair and emails grid both scroll inside their card, footer cropped or intentionally kept (see above), grid columns match item count.
 - Proof cards link to `https://www.skynosoft.net/case-studies/<slug>` and show logos.
 - FAQ opens, tagline reveals word by word, Calendly loads, sign off circle photo shows.
-- No horizontal scroll at 390px. No console errors, no broken images.
+- No console errors, no broken images. Treat a 390px screenshot's "cut off" text as inconclusive on its own (see below) and confirm with a curl/class check if anything looks wrong.
 
-Tooling notes: the scratchpad's `node_modules` gets wiped between sessions.
-Reinstall with `npm init -y && npm install --no-save playwright-core` there;
-launch with `executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`.
+### Tooling notes (screenshots, verified 2026-10-01)
+
+**Never use the `mcp__playwright__*` tool for this.** It drives the user's
+actual, real Chrome (real profiles, real tabs), not an isolated instance.
+Using it here before caused a real incident: a `pkill` meant to clear a
+hung launch force-quit the user's live Chrome and broke sync sign-in
+across their profiles. Also never `pkill`/force-quit anything matching
+plain `"Google Chrome"`, only ever a specific throwaway
+`--user-data-dir=` path you yourself created (see below).
+
+`playwright-core`'s own browser downloads do not work on this machine:
+`npx playwright install chromium` and `...install webkit` both fail
+outright (`ERROR: Playwright does not support chromium/webkit on
+mac12`, this macOS is too old for Playwright's bundled browsers, any
+engine). Do not spend time retrying this, it is a dead end here, not a
+flake.
+
+What actually works: launch the real installed Chrome.app directly in
+headless mode with your own throwaway profile, completely separate from
+the user's real browser:
+
+```bash
+rm -rf /tmp/chrome-headless-mycheck && mkdir -p /tmp/chrome-headless-mycheck
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless --disable-gpu --disable-extensions \
+  --user-data-dir=/tmp/chrome-headless-mycheck \
+  --window-size=1440,1400 \
+  --virtual-time-budget=4000 \
+  --host-resolver-rules="MAP strategy.localtest localhost" \
+  --screenshot=/tmp/out.png \
+  "http://strategy.localtest:3000/<slug>"
+```
+
+(`--host-resolver-rules` is how you get a `strategy.*` Host header locally
+without touching `/etc/hosts`; for a pure content check, `curl -H "Host:
+strategy.localhost:3000" localhost:3000/<slug>` needs none of this.)
+
+Known quirks of this setup, all harmless once you know them:
+- Headless Chrome sometimes does not exit after writing the screenshot
+  file. Check the file exists, then
+  `pkill -f "user-data-dir=/tmp/chrome-headless-mycheck"` (that exact
+  path, never a bare `chrome` match) to free it for the next shot.
+- A long session launching many of these can exhaust resources and the
+  next launch crashes with no screenshot written. Clean up
+  `/tmp/chrome-headless-*` between attempts; if it keeps failing, fall
+  back to the curl/structural checks below rather than retrying blindly.
+- Full page screenshots need the height guessed upfront
+  (`--window-size=W,H`); `sharp().trim({ threshold: 8 })` (no fixed
+  `background`, let it sample the real corner color) cuts the leftover
+  blank space after.
+- **Narrow viewports (390px) can show false "content cut off at the
+  edge" artifacts that are not real.** Confirmed by reproducing the
+  identical cutoff on a page already proven correct by other means.
+  Do not treat one narrow headless screenshot as proof of a mobile bug,
+  corroborate with a curl-based class/structure check first.
+- If the `[slug]` page or `all` ever stop responding while a dev server
+  that was already running goes quiet, it may have just been stopped
+  earlier in a long session, not crashed: `curl localhost:3000/` to
+  check, restart with `npm run start &` (or `run dev` while iterating)
+  if dead.
+
+For rendering a brand's raw HTML export of an email into an image (when
+only `.html` is available, not `.png`): bundled/self-unpacking HTML
+pages need `--virtual-time-budget=6000` or the screenshot captures the
+loading placeholder before the unpack script finishes, and still need
+the generous-height-plus-trim approach above since you don't know the
+rendered height upfront. **Prefer a direct PNG export from whoever
+designed the email when one exists**, it is far more reliable than
+rendering HTML and skips all of the above.
+
 Image Read fails above 2000px, so resize with sharp or `sips` before viewing.
 
 ## Step 6: Ship
@@ -304,19 +427,28 @@ per brand.
 - `src/app/strategy/[slug]/page.tsx` is the template (`dynamicParams = false`,
   `generateStaticParams` from `strategyPitches`). It renders, in order: island
   nav, hero with browser frame visuals, gap steps, problem and solution with
-  customer reviews, benefits with product photos, how it works with impact
-  boxes, proof cards and client review, tagline reveal, FAQ, risk reversal,
-  Calendly embed, circular founder sign off (David's name, title, and
-  `SocialLinks` to his real LinkedIn and Instagram, this pair belongs on
-  every founder sign off sitewide, not just here, don't drop it on a new
-  page).
+  customer reviews, benefits with product photos, already-built creative
+  (`builtForYou`, if present, with its before/after comparison before the
+  rest of the emails), how it works with impact boxes, proof cards and
+  client review, tagline reveal, FAQ, risk reversal, Calendly embed,
+  circular founder sign off (David's name, title, and `SocialLinks` to his
+  real LinkedIn and Instagram, this pair belongs on every founder sign off
+  sitewide, not just here, don't drop it on a new page).
 - Optional fields (`visuals`, `reviews`, `products`, `reviewFromCaseStudy`,
-  `proof`) collapse their layout cleanly when absent, so a thin brief still
-  produces a good page, but the reference build shows the target quality.
+  `proof`, `builtForYou`) collapse their layout cleanly when absent, so a
+  thin brief still produces a good page, but the reference build shows the
+  target quality.
 - Shared parts: `Reveal` and `TaglineReveal` (IntersectionObserver, no scroll
-  listeners), `IslandNav`, `CaseStudyCard` (with `baseUrl` for the strategy
-  host), `QuoteBadge`, `Paragraphs`, `SocialLinks`.
-- Calendly URL is `CALENDLY_URL` in `src/lib/content.ts`.
+  listeners), `IslandNav` (desktop shows every link inline with the last one
+  as a filled button; the mobile drawer colors that same last link
+  `text-primary` instead of plain black so the CTA still reads as the CTA
+  once the nav collapses, match this if you touch the drawer), `CaseStudyCard`
+  (with `baseUrl` for the strategy host), `QuoteBadge` (takes an optional
+  `size: "lg"` for a bigger quote mark where it's a visual anchor), `Paragraphs`,
+  `SocialLinks`.
+- Calendly URL is `CALENDLY_URL` in `src/lib/content.ts`, currently
+  `https://calendly.com/david_owoeye/discuss`. One source of truth, every
+  page's "Book a strategy call" and the Calendly embed both read from it.
 
 ## Improving the template
 
@@ -331,6 +463,55 @@ record any adopted rule below.
 
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it produced`.
 
+- 2026-10-01, alimentnutrition: added the `builtForYou` field (real
+  finished email creative, shown between `benefits` and `how`) after
+  David designed three real emails for the brand and wanted them shown
+  so the prospect could see actual finished work, not another audit.
+  Also added its `comparison` sub-feature (a real before/after: their
+  actual current welcome email next to David's rebuild of it) after David
+  asked for the two side by side so the difference needs no explaining.
+  Rule: when David has done real creative work for a brand already, it
+  belongs on the page as direct proof, stronger than a borrowed case
+  study. Full pattern and rendering details in "Optional: already-built
+  creative" above.
+- 2026-10-01, alimentnutrition: first pass used a width/height-matched
+  Image sized to its natural (very tall) height directly in the grid. It
+  looked fine on desktop but made the section enormous and buried the
+  rest of the page in scroll. Rule: any full length email screenshot
+  shown in a grid card goes inside a fixed height scroll window
+  (`hide-scrollbar h-[500px] overflow-y-auto`), not at full natural
+  height, see the `builtForYou` section above for the exact pattern and
+  why 500px (taller than the case study gallery's 400px) on purpose.
+- 2026-10-01, alimentnutrition: spent real time chasing an apparent
+  mobile overflow bug in the new `builtForYou` grid (text looked cut off
+  at a 390px headless screenshot's edge) before proving it was a
+  rendering artifact of headless Chrome at narrow widths on this
+  machine, not a real bug, by reproducing the identical cutoff on the
+  already-shipped, already-correct homepage using the same screenshot
+  method. Rule: a narrow headless screenshot that shows something cut
+  off is not proof by itself, try the same check against a known-good
+  page first before trusting it (see "Tooling notes" below for the full
+  writeup and the safe screenshot pattern that replaced it).
+- 2026-10-01, alimentnutrition: David supplied PNG exports of the real
+  emails on a second pass, after an earlier pass had to render raw HTML
+  exports through headless Chrome (self-unpacking "Bundled Page" files,
+  needed `--virtual-time-budget` and a height guess plus trim). The PNG
+  pass was faster and more reliable with zero rendering risk. Rule:
+  always ask whether a direct image export exists before reaching for
+  the HTML-render workaround, prefer it when it does.
+- 2026-10-01, alimentnutrition: a footer-crop detection script that
+  scanned for a single pixel matching the brand's flat teal stopped
+  early on a dark product photo that happened to share the same tone,
+  cutting off mid photo. Rule: require a sustained run of matching rows
+  before trusting a footer boundary, not a lone pixel match, and always
+  re-open the cropped result to confirm by eye (see "Optional:
+  already-built creative" above).
+- 2026-10-01, template-wide: the `IslandNav` mobile drawer rendered the
+  CTA link ("Book a call") in the same plain black text as every other
+  link, so it lost the visual priority it has as a filled button on
+  desktop. Fixed by coloring just the last link `text-primary` in the
+  drawer. Applies to every strategy page automatically since `IslandNav`
+  is shared, nothing to do per brand.
 - 2026-09-29, myowellness & naturesbest: David wanted the build compressed
   to two weeks (was four across three `how.steps`) and BFCM added as a
   standing default rather than an optional touch, both fixed and both
