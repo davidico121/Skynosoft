@@ -59,6 +59,12 @@ export type StrategyPitch = {
   builtForYou?: {
     heading: string;
     subheading?: string;
+    /** An actual email the brand currently sends, shown next to our rebuild of it. */
+    comparison?: {
+      heading: string;
+      before: { label: string; image: StrategyShot };
+      after: { label: string; image: StrategyShot };
+    };
     emails: { label: string; image: StrategyShot }[];
   };
   proofHeading: string;
@@ -814,9 +820,19 @@ export const strategyPitches: StrategyPitch[] = [
       heading: "Three emails, already designed and ready to send",
       subheading:
         "We didn't wait for a yes. **Here's a welcome email and two Black Friday campaigns, built for Aliment Nutrition specifically**, ready to plug into your flow.",
-      emails: [
-        {
-          label: "Welcome Email",
+      comparison: {
+        heading: "The welcome email you send today, next to the one we built",
+        before: {
+          label: "What goes out today",
+          image: {
+            src: "/pitch-assets/alimentnutrition/email-original-welcome.jpg",
+            alt: "The current Aliment Nutrition welcome email: a plain white header, one line of text, an Apply Discount button, and a flat four-product grid",
+            width: 1200,
+            height: 2644,
+          },
+        },
+        after: {
+          label: "What we'd send instead",
           image: {
             src: "/pitch-assets/alimentnutrition/email-welcome-design.jpg",
             alt: "A designed welcome email for Aliment Nutrition offering 10% off, featuring the Four Essentials pack and a product range",
@@ -824,6 +840,8 @@ export const strategyPitches: StrategyPitch[] = [
             height: 9116,
           },
         },
+      },
+      emails: [
         {
           label: "Black Friday",
           image: {

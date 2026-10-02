@@ -396,7 +396,38 @@ export default async function StrategyPage({
                   {renderRich(pitch.builtForYou.subheading)}
                 </p>
               )}
-              <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+
+              {pitch.builtForYou.comparison && (
+                <div className="mt-12">
+                  <h3 className="font-heading text-2xl font-semibold text-balance">
+                    {pitch.builtForYou.comparison.heading}
+                  </h3>
+                  <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <figure className="min-w-0 overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-sm">
+                      <figcaption className="border-b border-border-hairline bg-card px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
+                        {pitch.builtForYou.comparison.before.label}
+                      </figcaption>
+                      <div className="hide-scrollbar h-[500px] overflow-y-auto">
+                        <ShotImage shot={pitch.builtForYou.comparison.before.image} />
+                      </div>
+                    </figure>
+                    <figure className="min-w-0 overflow-hidden rounded-xl border border-primary bg-white shadow-sm ring-1 ring-primary/30">
+                      <figcaption className="border-b border-primary/30 bg-primary/10 px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-primary-soft">
+                        {pitch.builtForYou.comparison.after.label}
+                      </figcaption>
+                      <div className="hide-scrollbar h-[500px] overflow-y-auto">
+                        <ShotImage shot={pitch.builtForYou.comparison.after.image} />
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              )}
+
+              <div
+                className={`mt-12 grid grid-cols-1 gap-6 ${
+                  pitch.builtForYou.emails.length === 2 ? "sm:grid-cols-2" : "md:grid-cols-3"
+                }`}
+              >
                 {pitch.builtForYou.emails.map((email) => (
                   <figure
                     key={email.label}
