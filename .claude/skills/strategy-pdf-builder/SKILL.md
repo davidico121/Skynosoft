@@ -192,8 +192,19 @@ every step was answered, just confirm and build.
 ## Section 3: Page structure (absorbed from `strategy-pitch-builder`)
 
 Build these sections, in order, into `references/pitch-template.html`
-(copy it to the scratchpad first, fill in every placeholder). Field by
-field, with the six agreements they have to earn mapped to each:
+(copy it to the scratchpad first, fill in every placeholder). Every
+section's styling must match Skynosoft's actual brand exactly, not an
+approximation, that's non-negotiable, which is why both
+`pitch-template.html` and `references/branded-report-example.html`
+(a real, previously shipped report, same CSS tokens, different
+component shapes: data tables, stat tiles, status/priority chips, an
+alert callout) exist as the two canonical references. If a brand's
+pitch needs something `pitch-template.html` doesn't already have a
+block for (a results table, a flagged warning, a stat row), copy the
+matching component's CSS from `branded-report-example.html` rather than
+inventing a new visual pattern, then add it to `pitch-template.html`
+too so the two stay in sync. Field by field, with the six agreements
+they have to earn mapped to each:
 
 | Section | What goes here | Which agreement it earns |
 | --- | --- | --- |
@@ -276,6 +287,13 @@ Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
 well in a real reply, a funnel step that confused someone.
 
+- 2026-10-03: Added `references/branded-report-example.html`, a second
+  real example (the MaxSleek report) built from the exact same CSS
+  tokens as `pitch-template.html`, confirmed identical, after being
+  asked to make sure the output styling matched it. It covers component
+  shapes the pitch template doesn't need on its own (data tables, stat
+  tiles, status/priority chips, an alert callout), kept as a copy-from
+  source rather than duplicating a new visual language, see Section 3.
 - 2026-10-03: Rebuilt as an explicit, numbered, step-announcing
   interview (was a looser "ask one phase at a time" before), and pulled
   the real substance of `ecommerce-performance-audit` (verification
