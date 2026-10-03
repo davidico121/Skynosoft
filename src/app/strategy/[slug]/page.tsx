@@ -431,7 +431,11 @@ export default async function StrategyPage({
 
               <div
                 className={`mt-12 grid grid-cols-1 gap-6 ${
-                  pitch.builtForYou.emails.length === 2 ? "sm:grid-cols-2" : "md:grid-cols-3"
+                  pitch.builtForYou.emails.length === 1
+                    ? "max-w-[380px]"
+                    : pitch.builtForYou.emails.length === 2
+                      ? "sm:grid-cols-2"
+                      : "md:grid-cols-3"
                 }`}
               >
                 {pitch.builtForYou.emails.map((email) => (
