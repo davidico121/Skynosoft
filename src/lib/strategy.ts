@@ -1063,8 +1063,8 @@ export const strategyPitches: StrategyPitch[] = [
           image: {
             src: "/pitch-assets/holygrailofbeauty/email-glow-design.jpg",
             alt: "A designed Holy Grail of Beauty glow campaign email titled Stand Out Without Trying, offering 10% off with radiance and best seller sections",
-            width: 600,
-            height: 6008,
+            width: 1200,
+            height: 12016,
           },
         },
       ],
