@@ -36,8 +36,8 @@ export const revalidate = 60;
 const caseSlugsByCategory: Record<string, string[]> = {
   CRO: ["medgear", "afrocenchix"],
   "Website Design": ["afrocenchix", "thyvita"],
-  "Email Marketing": ["novaya", "bwll"],
-  Strategy: ["thyvita", "novaya"],
+  "Email Marketing": ["streaky-academy", "bwll"],
+  Strategy: ["thyvita", "medgear"],
 };
 
 function slugify(text: string): string {

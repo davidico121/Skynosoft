@@ -10,6 +10,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { CreativeColumns } from "@/components/ui/CreativeColumns";
+import { ProofMarquee } from "@/components/ui/ProofMarquee";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
@@ -58,7 +60,7 @@ const solutionPoints = [
 const tagline =
   "Every visitor you paid for should have a reason to buy today, and a reason to come back next month. We build both halves.";
 
-const featuredSlugs = ["novaya", "streaky-academy", "bwll", "cannonbalm"];
+const featuredSlugs = ["afrocenchix", "streaky-academy", "bwll", "cannonbalm"];
 
 const faqs = [
   {
@@ -113,12 +115,12 @@ export default async function Home() {
                 </Link>
                 <p className="max-w-[420px] font-body text-base text-foreground-muted text-pretty">
                   <Link
-                    href="/case-studies/novaya"
+                    href="/case-studies/streaky-academy"
                     className={`font-semibold text-foreground underline underline-offset-4 hover:text-primary-soft ${FOCUS}`}
                   >
-                    Novaya
+                    Streaky Academy
                   </Link>{" "}
-                  earned $300K+ from email flows we built.
+                  earned $75K from email flows we built.
                 </p>
               </div>
             </Reveal>
@@ -157,6 +159,8 @@ export default async function Home() {
       </section>
 
       <LogoStrip />
+
+      <ProofMarquee />
 
       <Section id="problem" tint>
         <Reveal>
@@ -241,6 +245,8 @@ export default async function Home() {
 
       <ProcessSection />
 
+      <CreativeColumns />
+
       <Section id="proof">
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -267,8 +273,11 @@ export default async function Home() {
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {reviews.map((cs) => (
-                <figure key={cs.slug} className="rounded-xl bg-[#f7f6f3] p-6 md:p-8">
-                  <QuoteBadge />
+                <figure
+                  key={cs.slug}
+                  className="rounded-xl border border-border-hairline bg-[#f7f6f3] p-6 shadow-sm md:p-8"
+                >
+                  <QuoteBadge size="lg" />
                   <blockquote className="mt-6">
                     <Paragraphs
                       quote
@@ -276,8 +285,31 @@ export default async function Home() {
                       className="font-body text-lg text-foreground-muted text-pretty"
                     />
                   </blockquote>
-                  <figcaption className="mt-6 font-body text-base text-foreground">
-                    {cs.clientReview!.name}, {cs.brand}
+                  <figcaption className="mt-6 flex items-center gap-3">
+                    {cs.logo ? (
+                      <div className="flex h-9 max-w-[88px] shrink-0 items-center rounded-lg border border-border-hairline-strong bg-white px-2 py-1.5">
+                        <Image
+                          src={cs.logo.src}
+                          alt={`${cs.brand} logo`}
+                          width={cs.logo.width}
+                          height={cs.logo.height}
+                          unoptimized={cs.logo.src.endsWith(".svg")}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-container-high font-heading text-sm font-semibold text-foreground-muted">
+                        {cs.logoInitial}
+                      </div>
+                    )}
+                    <div>
+                      <p className="font-body text-base font-medium text-foreground">
+                        {cs.clientReview!.name}
+                      </p>
+                      <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
+                        {cs.brand}
+                      </p>
+                    </div>
                   </figcaption>
                 </figure>
               ))}

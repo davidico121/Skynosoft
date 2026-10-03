@@ -105,16 +105,16 @@ export default function ServicesPage() {
                 <figure className="absolute -bottom-10 -left-4 w-[70%] sm:-left-6 lg:-left-10">
                   <div className="overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-lg">
                     <Image
-                      src="/case-studies/novaya/revenue-chart.png"
-                      alt="A bar chart of Novaya flow attributed revenue by lifecycle stage, led by $173,929 from the welcome flow"
-                      width={1300}
-                      height={700}
+                      src="/case-studies/cannonbalm/revenue-summary.jpg"
+                      alt="Klaviyo business performance summary for CannonBalm: $96,717 total revenue up 39%, and $32,847 attributed revenue, 33.96% of total, up 77%, split across campaigns and flows"
+                      width={1640}
+                      height={924}
                       className="block h-auto w-full"
                     />
                   </div>
                   <figcaption className="mt-2 inline-flex items-center gap-2 rounded-full bg-growth-green px-3 py-1 font-label text-xs uppercase tracking-wide text-white">
                     <CheckCircle size={16} weight="bold" aria-hidden />
-                    Novaya: revenue by flow
+                    CannonBalm: revenue by flow
                   </figcaption>
                 </figure>
               </div>

@@ -5,7 +5,11 @@
  */
 export function splitParagraphs(text: string, max = 160, target = 160): string[] {
   if (text.length <= max) return [text];
-  const sentences = text.match(/[^.!?]+[.!?]+["”’]*\s*|[^.!?]+$/g)?.map((s) => s.trim()) ?? [text];
+  // The trailing-character class also matches `*`, so a closing `**` right after a
+  // sentence's period (e.g. "...arrived.**") stays attached to that sentence instead
+  // of leaking onto the front of the next paragraph, which would orphan the opening
+  // `**` and print literal asterisks instead of bold.
+  const sentences = text.match(/[^.!?]+[.!?]+["”’*]*\s*|[^.!?]+$/g)?.map((s) => s.trim()) ?? [text];
   const out: string[] = [];
   let current = "";
   for (const s of sentences) {

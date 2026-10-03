@@ -89,6 +89,8 @@ export type CaseStudy = {
   resultsImages?: { src: string; alt: string; width: number; height: number }[];
   resultsChart?: { src: string; alt: string; width: number; height: number; caption?: string };
   clientReview?: { quote: string; name: string; role?: string };
+  /** Set true to pull this case study off the live site without deleting its data. */
+  hidden?: boolean;
   /**
    * Fuller structure (Brand/Challenge/Goal/Strategy/Execution/Results/Why it worked).
    * When brandDescription is present, the detail page renders this instead of the
@@ -103,9 +105,10 @@ export type CaseStudy = {
   whyItWorked?: string[];
 };
 
-export const caseStudies: CaseStudy[] = [
+const allCaseStudies: CaseStudy[] = [
   {
     slug: "novaya",
+    hidden: true,
     brand: "Novaya",
     category: "Fashion",
     services: ["Email & SMS Marketing", "Lifecycle Flow Strategy"],
@@ -956,6 +959,9 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
 ];
+
+/** Live case studies only. A hidden entry stays in allCaseStudies with its data intact. */
+export const caseStudies: CaseStudy[] = allCaseStudies.filter((cs) => !cs.hidden);
 
 export type TeamMember = {
   name: string;

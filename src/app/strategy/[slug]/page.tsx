@@ -5,7 +5,9 @@ import { notFound } from "next/navigation";
 import {
   CaretDown,
   ClockCountdown,
+  Gift,
   HandWaving,
+  Palette,
   Repeat,
   ShieldCheck,
   UserCirclePlus,
@@ -16,6 +18,7 @@ import { splitParagraphs } from "@/lib/paragraphs";
 import { renderRich } from "@/lib/richText";
 import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
 import { strategyPitches, type StrategyIconKey, type StrategyShot } from "@/lib/strategy";
@@ -45,6 +48,8 @@ const icons: Record<StrategyIconKey, typeof HandWaving> = {
   reorder: ClockCountdown,
   subscription: Repeat,
   winback: UserCirclePlus,
+  popup: Gift,
+  palette: Palette,
 };
 
 export function generateStaticParams() {
@@ -174,7 +179,9 @@ export default async function StrategyPage({
       <main id="main">
         <section className="pt-32">
           <Wrap className="pb-24">
-            <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,680px)_1fr]">
+            <div
+              className={`grid items-center gap-16 ${hero.visuals ? "lg:grid-cols-[minmax(0,680px)_1fr]" : ""}`}
+            >
               <Reveal>
                 <Eyebrow>{hero.eyebrow}</Eyebrow>
                 <h1 className="mt-6 bg-linear-to-r from-[#000000] to-[#666666] bg-clip-text font-heading text-3xl font-bold text-transparent md:text-4xl">
@@ -380,8 +387,93 @@ export default async function StrategyPage({
                 })}
               </div>
             </div>
+
+            {pitch.benefits.reference && (
+              <div className="mt-12 grid gap-8 rounded-xl border border-border-hairline bg-card p-8 sm:grid-cols-[1fr_200px] sm:items-center">
+                <div>
+                  <p className="font-label text-sm uppercase tracking-wide text-primary-soft">
+                    Reference, from {pitch.benefits.reference.sourceBrand}
+                  </p>
+                  <h3 className="mt-3 font-heading text-xl font-semibold">
+                    {pitch.benefits.reference.heading}
+                  </h3>
+                  <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
+                    {pitch.benefits.reference.caption}
+                  </p>
+                </div>
+                <div className="overflow-hidden rounded-xl border border-border-hairline-strong shadow-sm">
+                  <ShotImage shot={pitch.benefits.reference.image} />
+                </div>
+              </div>
+            )}
           </Reveal>
         </Section>
+
+        {pitch.builtForYou && (
+          <Section id="built-for-you">
+            <Reveal>
+              <Eyebrow>Already built</Eyebrow>
+              <div className="mt-4">
+                <H2>{pitch.builtForYou.heading}</H2>
+              </div>
+              {pitch.builtForYou.subheading && (
+                <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
+                  {renderRich(pitch.builtForYou.subheading)}
+                </p>
+              )}
+
+              {pitch.builtForYou.comparison && (
+                <div className="mt-12">
+                  <h3 className="font-heading text-2xl font-semibold text-balance">
+                    {pitch.builtForYou.comparison.heading}
+                  </h3>
+                  <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <figure className="min-w-0 overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-sm">
+                      <figcaption className="border-b border-border-hairline bg-card px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
+                        {pitch.builtForYou.comparison.before.label}
+                      </figcaption>
+                      <div className="hide-scrollbar h-[500px] overflow-y-auto">
+                        <ShotImage shot={pitch.builtForYou.comparison.before.image} />
+                      </div>
+                    </figure>
+                    <figure className="min-w-0 overflow-hidden rounded-xl border border-primary bg-white shadow-sm ring-1 ring-primary/30">
+                      <figcaption className="border-b border-primary/30 bg-primary/10 px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-primary-soft">
+                        {pitch.builtForYou.comparison.after.label}
+                      </figcaption>
+                      <div className="hide-scrollbar h-[500px] overflow-y-auto">
+                        <ShotImage shot={pitch.builtForYou.comparison.after.image} />
+                      </div>
+                    </figure>
+                  </div>
+                </div>
+              )}
+
+              <div
+                className={`mt-12 grid grid-cols-1 gap-6 ${
+                  pitch.builtForYou.emails.length === 1
+                    ? "max-w-[380px]"
+                    : pitch.builtForYou.emails.length === 2
+                      ? "sm:grid-cols-2"
+                      : "md:grid-cols-3"
+                }`}
+              >
+                {pitch.builtForYou.emails.map((email) => (
+                  <figure
+                    key={email.label}
+                    className="min-w-0 overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-sm"
+                  >
+                    <figcaption className="border-b border-border-hairline bg-card px-4 py-3 text-center font-label text-sm uppercase tracking-wide text-foreground-muted">
+                      {email.label}
+                    </figcaption>
+                    <div className="hide-scrollbar h-[500px] overflow-y-auto">
+                      <ShotImage shot={email.image} />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            </Reveal>
+          </Section>
+        )}
 
         <Section id="how" tint>
           <Reveal>
@@ -389,7 +481,11 @@ export default async function StrategyPage({
             <div className="mt-4">
               <H2>{pitch.how.heading}</H2>
             </div>
-            <ol className="mt-12 grid gap-6 md:grid-cols-3">
+            <ol
+              className={`mt-12 grid gap-6 ${
+                pitch.how.steps.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
+              }`}
+            >
               {pitch.how.steps.map((phase, i) => (
                 <li
                   key={phase.week}
@@ -470,9 +566,16 @@ export default async function StrategyPage({
               <div className="mt-4">
                 <H2>{pitch.faqHeading}</H2>
               </div>
-              <a href="#book" className={`mt-8 ${BUTTON}`}>
-                {hero.cta}
-              </a>
+              <div className="mt-8 max-w-[320px] rounded-xl border border-border-hairline bg-white p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
+                  <ShieldCheck size={20} weight="duotone" aria-hidden />
+                </span>
+                <p className="mt-4 font-heading text-lg font-semibold">{pitch.risk.heading}</p>
+                <p className="mt-2 font-body text-sm text-foreground-muted">{pitch.risk.text}</p>
+                <a href="#book" className={`mt-4 w-full ${BUTTON}`}>
+                  {hero.cta}
+                </a>
+              </div>
             </Reveal>
             <Reveal className="flex flex-col gap-3">
               {pitch.faqs.map((f) => (
@@ -481,7 +584,7 @@ export default async function StrategyPage({
                   className="group rounded-xl border border-border-hairline bg-white p-6"
                 >
                   <summary
-                    className={`flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-lg font-semibold ${FOCUS}`}
+                    className={`flex cursor-pointer list-none items-center justify-between gap-4 font-heading text-lg font-semibold ${FOCUS} [&::-webkit-details-marker]:hidden`}
                   >
                     {f.q}
                     <CaretDown
@@ -518,20 +621,44 @@ export default async function StrategyPage({
               />
             </div>
             <div className="mt-12">
-              <CalendlyEmbed url={CALENDLY_URL} lazy />
+              <CalendlyEmbed url={pitch.pitcher ? pitch.pitcher.calendlyUrl : CALENDLY_URL} lazy />
             </div>
             <div className="mt-12 flex flex-col items-center text-center">
-              <Image
-                src={founderAvatar}
-                alt="David Owoeye"
-                width={96}
-                height={96}
-                className="h-24 w-24 rounded-full object-cover"
-              />
-              <p className="mt-4 font-heading text-lg font-semibold">David Owoeye</p>
-              <p className="mt-1 font-body text-base text-foreground-muted">
-                Founder &amp; CEO, Skynosoft Ltd.
+              {pitch.pitcher ? (
+                <Image
+                  src={pitch.pitcher.photo.src}
+                  alt={pitch.pitcher.name}
+                  width={pitch.pitcher.photo.width}
+                  height={pitch.pitcher.photo.height}
+                  className="h-24 w-24 rounded-full object-cover shadow-[0_0_24px_4px_rgba(0,153,255,0.2)] ring-4 ring-primary/10"
+                />
+              ) : (
+                <Image
+                  src={founderAvatar}
+                  alt="David Owoeye"
+                  width={96}
+                  height={96}
+                  className="h-24 w-24 rounded-full object-cover shadow-[0_0_24px_4px_rgba(0,153,255,0.2)] ring-4 ring-primary/10"
+                />
+              )}
+              <p className="mt-4 font-heading text-lg font-semibold">
+                {pitch.pitcher ? pitch.pitcher.name : "David Owoeye"}
               </p>
+              {pitch.pitcher ? (
+                <p className="mt-1 font-body text-base text-foreground-muted">
+                  {pitch.pitcher.title}
+                </p>
+              ) : (
+                <>
+                  <p className="mt-1 font-body text-base text-foreground-muted">
+                    DTC CRO &amp; Email Retention Specialist
+                  </p>
+                  <p className="font-body text-base text-foreground-muted">
+                    Founder &amp; CEO, Skynosoft Ltd.
+                  </p>
+                </>
+              )}
+              {(pitch.pitcher?.socials ?? true) && <SocialLinks className="mt-3" />}
             </div>
           </Reveal>
         </Section>
