@@ -53,6 +53,12 @@ export type StrategyPitch = {
     items: { icon: StrategyIconKey; title: string; detail: string }[];
     /** Real product photos from the brand's site, shown beside the benefits. */
     products?: { name: string; image: StrategyShot }[];
+    /**
+     * A real example from ANOTHER brand, shown purely so the prospect can see
+     * a format in action before we build their own version of it. Never
+     * implies this was built for them, sourceBrand is always shown.
+     */
+    reference?: { heading: string; caption: string; sourceBrand: string; image: StrategyShot };
   };
   how: {
     heading: string;
@@ -1001,7 +1007,7 @@ export const strategyPitches: StrategyPitch[] = [
       },
     },
     benefits: {
-      heading: "Three pieces that bring the goddess feeling into the inbox",
+      heading: "Four pieces that bring the goddess feeling into the inbox, and before it",
       items: [
         {
           icon: "welcome",
@@ -1021,7 +1027,24 @@ export const strategyPitches: StrategyPitch[] = [
           detail:
             "Three real designs already built, so **the whole welcome experience is considered, not just the first message**.",
         },
+        {
+          icon: "popup",
+          title: "A popup that feels like a gift, not a form",
+          detail:
+            "Scratch and reveal, the same format shown below, **built for the holiday rush already here**.",
+        },
       ],
+      reference: {
+        heading: "Scratch and reveal, in action",
+        caption: "A real scratch and reveal popup from Kopari, shown so you can see the format before we build yours.",
+        sourceBrand: "Kopari",
+        image: {
+          src: "/pitch-assets/holygrailofbeauty/reference-scratch-popup.jpg",
+          alt: "A real scratch and reveal popup from Kopari reading Try Your Luck, Scratch below to see what you win, with a gold scratch card partially revealing a 10% off code",
+          width: 660,
+          height: 1280,
+        },
+      },
     },
     builtForYou: {
       heading: "Three real emails, already designed and ready to send",

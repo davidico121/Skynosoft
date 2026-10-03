@@ -387,6 +387,25 @@ export default async function StrategyPage({
                 })}
               </div>
             </div>
+
+            {pitch.benefits.reference && (
+              <div className="mt-12 grid gap-8 rounded-xl border border-border-hairline bg-card p-8 sm:grid-cols-[1fr_200px] sm:items-center">
+                <div>
+                  <p className="font-label text-sm uppercase tracking-wide text-primary-soft">
+                    Reference, from {pitch.benefits.reference.sourceBrand}
+                  </p>
+                  <h3 className="mt-3 font-heading text-xl font-semibold">
+                    {pitch.benefits.reference.heading}
+                  </h3>
+                  <p className="mt-3 font-body text-base text-foreground-muted text-pretty">
+                    {pitch.benefits.reference.caption}
+                  </p>
+                </div>
+                <div className="overflow-hidden rounded-xl border border-border-hairline-strong shadow-sm">
+                  <ShotImage shot={pitch.benefits.reference.image} />
+                </div>
+              </div>
+            )}
           </Reveal>
         </Section>
 
