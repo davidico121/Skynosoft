@@ -630,7 +630,7 @@ export default async function StrategyPage({
                   alt={pitch.pitcher.name}
                   width={pitch.pitcher.photo.width}
                   height={pitch.pitcher.photo.height}
-                  className="h-24 w-24 rounded-full object-cover"
+                  className="h-24 w-24 rounded-full object-cover shadow-[0_0_24px_4px_rgba(0,153,255,0.2)] ring-4 ring-primary/10"
                 />
               ) : (
                 <Image
@@ -638,7 +638,7 @@ export default async function StrategyPage({
                   alt="David Owoeye"
                   width={96}
                   height={96}
-                  className="h-24 w-24 rounded-full object-cover"
+                  className="h-24 w-24 rounded-full object-cover shadow-[0_0_24px_4px_rgba(0,153,255,0.2)] ring-4 ring-primary/10"
                 />
               )}
               <p className="mt-4 font-heading text-lg font-semibold">

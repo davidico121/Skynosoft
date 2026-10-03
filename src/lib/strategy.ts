@@ -1173,14 +1173,13 @@ export const strategyPitches: StrategyPitch[] = [
     },
     pitcher: {
       name: "Dennis Owoeye",
-      // TODO: confirm Dennis's actual title/tagline, this is a placeholder.
-      title: "Skynosoft Team",
+      title: "Head Designer | Skynosoft Ltd.",
       photo: {
         src: "/brand/dennis-owoeye-avatar.jpg",
         width: 192,
         height: 192,
       },
-      calendlyUrl: "https://calendly.com/skynosoft/30min",
+      calendlyUrl: "https://calendly.com/dennis-owoeye/chat",
       socials: false,
     },
   },
