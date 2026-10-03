@@ -2,17 +2,25 @@
 """
 Embeds every external asset a strategy PDF page needs so the resulting
 HTML file is fully self-contained (no network access needed to render or
-print it, anywhere, ever).
+print it, anywhere, ever) and does NOT depend on the Skynosoft repo being
+present on disk, only on this skill's own folder. That makes the skill
+safe to export and install standalone (e.g. as a claude.ai custom Skill),
+not just inside a Claude Code session with the repo attached.
 
 Replaces, in the given HTML:
   - __FONT_SORA_B64__, __FONT_HANKEN_B64__, __FONT_JETBRAINS_B64__
     with base64 of this skill's bundled font files (assets/fonts/).
-  - __LOGO_B64__ with base64 of the repo's real Skynosoft logo
-    (public/brand/skynosoft-logo-horizontal.png).
-  - Any <img> immediately preceded by <!-- EMBED: /path/to/file.jpg -->
-    gets its src swapped for a base64 data URI of that local file.
-    Path is resolved relative to the current working directory, or as
-    given if absolute.
+  - Any <img> immediately preceded by <!-- EMBED: path --> gets its src
+    swapped for a base64 data URI of that file. Two path forms:
+      - "skill:brand/logo.png" resolves inside this skill's own
+        assets/ folder, wherever the skill actually lives. Use this for
+        the Skynosoft logo and David's default sign off photo, both
+        bundled in assets/brand/, so the template never depends on the
+        Skynosoft repo's public/brand/ existing on disk.
+      - any other path (absolute, or relative) resolves against the
+        current working directory, for a real per-brand asset the team
+        member uploaded this session (a mockup, a screenshot, a
+        different sender's photo).
 
 Usage:
   python3 embed-assets.py <input.html> <output.html>
@@ -24,7 +32,6 @@ import sys
 from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parents[1]  # .../strategy-pdf-builder
-REPO_ROOT = SKILL_DIR.parents[2]  # strategy-pdf-builder -> skills -> .claude -> repo root
 
 
 def b64_file(path: Path) -> str:
@@ -46,13 +53,6 @@ def main():
         "__FONT_HANKEN_B64__": b64_file(fonts_dir / "hanken.woff2"),
         "__FONT_JETBRAINS_B64__": b64_file(fonts_dir / "jetbrains.woff2"),
     }
-
-    logo_path = REPO_ROOT / "public" / "brand" / "skynosoft-logo-horizontal.png"
-    if logo_path.exists():
-        replacements["__LOGO_B64__"] = b64_file(logo_path)
-    elif "__LOGO_B64__" in html:
-        print(f"Warning: logo not found at {logo_path}, __LOGO_B64__ left unreplaced", file=sys.stderr)
-
     for placeholder, b64 in replacements.items():
         html = html.replace(placeholder, b64)
 
@@ -67,12 +67,16 @@ def main():
 
     missing = []
 
+    def resolve_path(raw_path: str) -> Path:
+        if raw_path.startswith("skill:"):
+            return SKILL_DIR / "assets" / raw_path[len("skill:"):]
+        p = Path(raw_path)
+        return p if p.is_absolute() else Path.cwd() / p
+
     def embed_image(match: "re.Match[str]") -> str:
         embed_comment_body, prefix, _old_src, suffix = match.groups()
         raw_path = embed_comment_body.split()[0] if embed_comment_body.split() else ""
-        img_path = Path(raw_path)
-        if not img_path.is_absolute():
-            img_path = Path.cwd() / img_path
+        img_path = resolve_path(raw_path)
         if not img_path.exists():
             missing.append(raw_path)
             return match.group(0)

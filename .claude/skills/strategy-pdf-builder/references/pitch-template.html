@@ -138,7 +138,7 @@
 <div class="page">
 
   <div class="doc-header">
-    <!-- EMBED: public/brand/skynosoft-logo-horizontal.png -->
+    <!-- EMBED: skill:brand/logo.png -->
     <img src="logo.png" alt="Skynosoft" />
     <div class="doc-meta">Prepared by Skynosoft<br>{{DATE}}</div>
   </div>
@@ -263,8 +263,10 @@
   <p class="closing-statement">{{CLOSING_STATEMENT}}</p>
 
   <div class="signoff">
-    <!-- Swap for the sender's own photo if they have one. -->
-    <!-- EMBED: public/brand/david-owoeye-avatar.jpg -->
+    <!-- Defaults to David's photo. Swap the path for the sender's own
+         photo (a real local file, absolute or relative to wherever you
+         run embed-assets.py from) if someone else is sending this. -->
+    <!-- EMBED: skill:brand/david-avatar.jpg -->
     <img src="sender.jpg" alt="{{SENDER_NAME}}" />
     <div>
       <div class="name">{{SENDER_NAME}}</div>
@@ -285,14 +287,18 @@
      current.jpg, sender.jpg, etc.) is a placeholder, it never needs to
      resolve to a real file on its own. embed-assets.py finds the EMBED
      comment directly above each <img> and swaps that img's src for a
-     base64 data URI of the real file at the path named in the comment,
-     resolved relative to wherever you run the script from (the repo
-     root, if you run it from there). Keep every EMBED comment directly
-     above its <img>, nothing in between. Note for whoever edits this
-     template: never write a literal EMBED comment as example text
-     inside this trailing notes block (or any other HTML comment), a
-     comment's own closing sequence inside another comment ends it early
-     and everything after becomes visible text in the rendered page.
+     base64 data URI of the real file at the path named in the comment.
+     Two path forms: a "skill:..." path (the logo and David's default
+     photo use this) resolves inside this skill's own bundled assets/
+     folder wherever the skill actually lives, so it works whether or
+     not the Skynosoft repo is on disk. Any other path resolves against
+     the current working directory, for a real asset the team member
+     uploaded this session. Keep every EMBED comment directly above its
+     <img>, nothing in between. Note for whoever edits this template:
+     never write a literal EMBED comment as example text inside this
+     trailing notes block (or any other HTML comment), a comment's own
+     closing sequence inside another comment ends it early and
+     everything after becomes visible text in the rendered page.
 
   2. Every {{PLACEHOLDER}} must be filled with real content from the
      interview before running embed-assets.py. Delete optional blocks
