@@ -326,6 +326,19 @@ Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
 well in a real reply, a funnel step that confused someone.
 
+- 2026-10-03, Berries (round 3): checked actual mobile legibility, not
+  just eyeballed it, by rendering the PDF's real pages with `pymupdf` at
+  a phone's true physical pixel width, then downscaling to its logical
+  CSS width (the number that actually determines how large text reads
+  on screen). Most body text held up fine, but the smallest mono-caps
+  labels (`.proof-card .metric-label` at 9.5px, plus `.gap-step .day`,
+  `.asset-gallery figcaption`, `.proof-card .category`, `.footer`, all
+  at 10.5px) were genuinely tiny at that scale, the kind of text that
+  forces a pinch-zoom on its own even though the surrounding body copy
+  reads fine. Bumped them to 11-11.5px. If a future brand's pitch adds
+  another small mono-caps label, size it in that same 11-11.5px range
+  rather than copying the smaller values this replaced.
+
 - 2026-10-03, Berries (round 2, after the first corrected PDF): three
   more fixes from the same live pitch. (1) The CTA button sat flush
   against the next section heading (`h2.section:first-of-type` was
