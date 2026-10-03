@@ -63,7 +63,12 @@ export default function AllPitchesPage() {
                     </div>
                   )}
                   <div className="flex flex-1 flex-col p-6">
-                    <Eyebrow>{pitch.hero.eyebrow}</Eyebrow>
+                    <div className="flex items-center justify-between gap-2">
+                      <Eyebrow>{pitch.hero.eyebrow}</Eyebrow>
+                      <span className="shrink-0 rounded-full bg-surface-container-high px-2.5 py-1 font-label text-xs uppercase tracking-wide text-foreground-muted">
+                        {(pitch.pitcher?.name ?? "David Owoeye").split(" ")[0]}
+                      </span>
+                    </div>
                     <h2 className="mt-3 font-heading text-2xl font-semibold">{pitch.brand}</h2>
                     <p className="mt-2 flex-1 font-body text-base text-foreground-muted text-pretty">
                       {pitch.hero.headline.join(" ")}

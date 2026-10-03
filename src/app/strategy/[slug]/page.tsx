@@ -621,24 +621,44 @@ export default async function StrategyPage({
               />
             </div>
             <div className="mt-12">
-              <CalendlyEmbed url={CALENDLY_URL} lazy />
+              <CalendlyEmbed url={pitch.pitcher ? pitch.pitcher.calendlyUrl : CALENDLY_URL} lazy />
             </div>
             <div className="mt-12 flex flex-col items-center text-center">
-              <Image
-                src={founderAvatar}
-                alt="David Owoeye"
-                width={96}
-                height={96}
-                className="h-24 w-24 rounded-full object-cover"
-              />
-              <p className="mt-4 font-heading text-lg font-semibold">David Owoeye</p>
-              <p className="mt-1 font-body text-base text-foreground-muted">
-                DTC CRO &amp; Email Retention Specialist
+              {pitch.pitcher ? (
+                <Image
+                  src={pitch.pitcher.photo.src}
+                  alt={pitch.pitcher.name}
+                  width={pitch.pitcher.photo.width}
+                  height={pitch.pitcher.photo.height}
+                  className="h-24 w-24 rounded-full object-cover"
+                />
+              ) : (
+                <Image
+                  src={founderAvatar}
+                  alt="David Owoeye"
+                  width={96}
+                  height={96}
+                  className="h-24 w-24 rounded-full object-cover"
+                />
+              )}
+              <p className="mt-4 font-heading text-lg font-semibold">
+                {pitch.pitcher ? pitch.pitcher.name : "David Owoeye"}
               </p>
-              <p className="font-body text-base text-foreground-muted">
-                Founder &amp; CEO, Skynosoft Ltd.
-              </p>
-              <SocialLinks className="mt-3" />
+              {pitch.pitcher ? (
+                <p className="mt-1 font-body text-base text-foreground-muted">
+                  {pitch.pitcher.title}
+                </p>
+              ) : (
+                <>
+                  <p className="mt-1 font-body text-base text-foreground-muted">
+                    DTC CRO &amp; Email Retention Specialist
+                  </p>
+                  <p className="font-body text-base text-foreground-muted">
+                    Founder &amp; CEO, Skynosoft Ltd.
+                  </p>
+                </>
+              )}
+              {(pitch.pitcher?.socials ?? true) && <SocialLinks className="mt-3" />}
             </div>
           </Reveal>
         </Section>

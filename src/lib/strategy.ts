@@ -89,6 +89,19 @@ export type StrategyPitch = {
   faqHeading: string;
   faqs: { q: string; a: string }[];
   risk: { heading: string; text: string };
+  /**
+   * Which team member sent this pitch, shown in the sign off and used for
+   * the Calendly link/embed. Defaults to David Owoeye (with socials) when
+   * absent, so existing pages need no changes.
+   */
+  pitcher?: {
+    name: string;
+    title: string;
+    photo: { src: string; width: number; height: number };
+    calendlyUrl: string;
+    /** Show the LinkedIn/Instagram icons under the name. David has them; not every team member needs to. */
+    socials?: boolean;
+  };
 };
 
 export const strategyPitches: StrategyPitch[] = [
@@ -1157,6 +1170,18 @@ export const strategyPitches: StrategyPitch[] = [
     risk: {
       heading: "See the plan before you spend anything",
       text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+    pitcher: {
+      name: "Dennis Owoeye",
+      // TODO: confirm Dennis's actual title/tagline, this is a placeholder.
+      title: "Skynosoft Team",
+      photo: {
+        src: "/brand/dennis-owoeye-avatar.jpg",
+        width: 192,
+        height: 192,
+      },
+      calendlyUrl: "https://calendly.com/skynosoft/30min",
+      socials: false,
     },
   },
 ];
