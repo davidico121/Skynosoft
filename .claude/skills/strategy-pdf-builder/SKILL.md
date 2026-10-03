@@ -176,6 +176,17 @@ down their answer verbatim-ish as the caption, and note which section of
 the page it belongs near (see Section 3's `asset-gallery` guidance). Fine
 to have nothing, the page works without visuals.
 
+If a phone screenshot includes the status bar and browser chrome (clock,
+battery, the URL bar, open tab count), crop that off before embedding.
+Same real pixels, just trimmed, it is the difference between looking
+like a professional document and looking like someone's phone. `sharp`
+is already a project dependency if you're in a Claude Code session with
+this repo attached; `.extract({ left, top, width, height })` with top
+set to just past the URL bar (keep the site's own nav bar, that is real
+content) is the pattern. If you don't have image tooling available in
+this session, say so and send the uncropped version rather than silently
+skipping the crop.
+
 ### Step 5 of 7: Strategic angle
 Say: "Step 5 of 7: angle. Is this mainly a CRO pitch, an email marketing
 pitch, or both? And what's the urgency, BFCM, Q1 reset, rising ad costs,
@@ -216,12 +227,12 @@ they have to earn mapped to each:
 | --- | --- | --- |
 | Hero (eyebrow, headline, subheading) | Outcome for THEIR customers, something only their exact buyer would recognize, a named customer/moment from Step 2/3 notes if one exists | **1. "This is for me."** If the first line could sit on any brand's pitch, rewrite it. |
 | Gap (3 steps) | The real customer journey from Step 2/3: first touch, the moment that should trigger something, what actually happens (nothing). `leak` styling on the step(s) where it breaks. | **2. "This problem matters."** Don't just say what's missing, name what it costs: money already spent acquiring that customer, momentum lost into BFCM, time lost starting Q1 from zero. Two or three concrete losses beat one vague one. |
-| Problem / solution | Problem is one real scene from the audit notes, not a generic statement. Solution is 3 to 5 reframes, not a feature list. | **3 and 4.** Before the fix, name what they're probably already doing that won't close the gap (more ad spend, a generic newsletter, "we'll get to it after BFCM") and say why, only with real numbers if you have them (hard rule 1), otherwise keep it qualitative. Then the reframe: "timed to when their pouch runs low," not "we send automated flows." |
-| Benefits (3 to 5) | Outcome led, concrete moments. Place any `asset-gallery` images here whose captions say they belong (a before/after, a mockup), as many as exist, captioned per what the team member actually said each one is, not a forced "current vs redesign" pair. An image whose stated purpose fits better elsewhere (a brand reference near the reframe, say) gets its own `asset-gallery` there instead, see Section 4's template notes. | Supports #4, makes the better way tangible. |
-| Proof (1 to 2 case studies) | Real Skynosoft case studies from `src/lib/content.ts`, closest category first, their real dollar metrics, never invented. | **5. "This will work for me."** If no case study is close enough, say so rather than stretching a far one. |
+| Problem / solution | Problem is one real scene from the audit notes, written as **2 to 4 short paragraphs** (`{{PROBLEM_TEXT_P1}}` etc. in the template), not one dense block, same discipline as the live site's `Paragraphs` component: break at a sentence boundary once a paragraph passes roughly 160 characters. A jam-packed wall of text is the single biggest thing that makes this panel unreadable, don't let the real content outrun the paragraph breaks. Solution is 3 to 5 reframes, not a feature list. | **3 and 4.** Before the fix, name what they're probably already doing that won't close the gap (more ad spend, a generic newsletter, "we'll get to it after BFCM") and say why, only with real numbers if you have them (hard rule 1), otherwise keep it qualitative. Then the reframe: "timed to when their pouch runs low," not "we send automated flows." |
+| Benefits (3 to 5) | Outcome led, concrete moments. Place any `asset-gallery` images here whose captions say they belong (a before/after, a mockup), as many as exist, captioned per what the team member actually said each one is, not a forced "current vs redesign" pair. An image whose stated purpose fits better elsewhere (a brand reference near the reframe, say) gets its own `asset-gallery` there instead, see Section 4's template notes. Before writing any EMBED path, state in one line what that specific image actually shows and check it against what the team member said, don't trust upload order or filename, a wrong caption-to-image match is a real mistake this skill has already shipped once. | Supports #4, makes the better way tangible. |
+| Proof (1 to 2 case studies) | Real Skynosoft case studies from `src/lib/content.ts`, closest category first, their real dollar metrics, never invented. Include the brand's real logo: this skill bundles the logo for every case study that has one in `assets/case-study-logos/` (currently: `novaya.png`, `maxsleek.png`, `afrocenchix.svg`, `lipo-beauty-tea.png`, `feno.svg`, `streaky-academy.png`, `cannonbalm.webp`, `bwll.svg`, `thyvita.png`, `medgear.png`, check the folder for the current list and exact extension, don't guess one). `heron-cycling` and `elissa-and-stef` have no logo file on the live site either, for those (or any future case study added to `content.ts` without a bundled logo yet) use the `logo-initial` fallback in the template (the brand's first letter, matching the live site's own fallback, `CaseStudyCard.tsx`), never invent a logo image. | **5. "This will work for me."** If no case study is close enough, say so rather than stretching a far one. |
 | The plan (3 short numbered steps) | A short, concrete build plan. Default to 2 weeks total (week 1 strategy and build together, week 2 test and launch), matching the live template's current default, not a longer spread unless they specifically want one. | **6. "Can't keep putting this off."** Anchor timing to the BFCM/angle from Step 5, not to today's date, the PDF might sit unsent for a while. |
 | Risk reversal | "See the plan before you spend anything" pattern, makes starting feel safe precisely so the urgency elsewhere doesn't read as pressure. | Supports #6 without adding pressure. |
-| Closing statement + sign off | One or two sentence big closing line, then the sender's real name/title from Step 1. | Closes the funnel. |
+| Closing statement + sign off | One or two sentence big closing line, then the sender's real name/title from Step 1. **No photo unless you actually have one for that specific sender.** The template's sign off photo has no default person baked in for exactly this reason, don't improvise one, showing the wrong real person's face under someone else's name is worse than showing no photo at all. | Closes the funnel. |
 
 Copy checks before finalizing (the specificity checklist, same as the
 live pages):
@@ -230,10 +241,16 @@ live pages):
 - Is there a named person, product, or moment from THEIR site somewhere
   in the hero, the problem, and at least one benefit?
 - No em dashes, no hyphens in copy.
+- Every long-form text block (the problem paragraph is the usual one)
+  is written as multiple short paragraphs, not a single dense block.
+  Read it back, if it looks like a wall of text, it needs another break.
 - Bold exactly one key phrase per paragraph/point where it earns
   emphasis, written directly as `<strong>...</strong>` in the filled
   HTML (this is static HTML with no markdown parser, unlike the live
   site, don't leave `**asterisks**` in the output).
+- Every uploaded image's EMBED path matches what the team member
+  actually said that image is, verified against their words, not
+  assumed from upload order.
 
 ## Section 4: Building the HTML and PDF
 
@@ -292,6 +309,32 @@ David's, unless David is the one running the skill.
 Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
 well in a real reply, a funnel step that confused someone.
+
+- 2026-10-03, Berries (first live run of the skill): five real fixes
+  from one actual pitch. (1) Case study logos weren't rendering at all,
+  the proof-card markup never had an `<img>` for one. Bundled every
+  case study's real logo into `assets/case-study-logos/` so it works
+  without the repo, plus a `logo-initial` fallback (matching the live
+  site's own) for the two case studies that have no logo file there
+  either. (2) The problem paragraph read as one dense block. Split it
+  into `{{PROBLEM_TEXT_P1/P2/P3}}`, several short template slots instead
+  of one, same discipline as the live site's `Paragraphs` rule. (3)
+  Large empty gaps before a page break: `break-inside: avoid` was on
+  whole grid containers (`.two-col`, `.benefits-grid`, etc.), so the
+  entire grid jumped to the next page the moment it didn't fully fit.
+  Moved the avoidance to the individual cards instead, the grid can now
+  straddle a page break while each card stays intact. (4) Base font
+  sizes bumped roughly 10%, a PDF viewed on a phone has no responsive
+  breakpoint to lean on, the whole page just scales down, so the only
+  lever is a bigger base size. (5) I personally mismatched two uploaded
+  screenshots to the wrong caption slots before catching it against what
+  the team member actually said, added an explicit "state what the image
+  shows, check it against their words" step before every EMBED path
+  (Section 3 and the template's own trailing notes) so that doesn't
+  repeat. Also: cropping a phone screenshot's status bar and browser
+  chrome before embedding makes a real, not cosmetic, difference to how
+  professional the final PDF looks, worth doing by default when a
+  screenshot includes it.
 
 - 2026-10-03: Added `references/branded-report-example.html`, a second
   real example (the MaxSleek report) built from the exact same CSS
