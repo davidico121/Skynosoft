@@ -949,6 +949,15 @@ export const strategyPitches: StrategyPitch[] = [
       subheading:
         "Your homepage has a real goddess luxury identity, gold tones, Athena inspired imagery, the kind of design that makes a store feel expensive. **Then someone clicks into a product page and all of that disappears into plain white.**",
       cta: "Book a strategy call",
+      visuals: {
+        url: "holygrailofbeauty.com",
+        main: {
+          src: "/pitch-assets/holygrailofbeauty/site-home.jpg",
+          alt: "The Holy Grail of Beauty homepage, with an Athena goddess logo, a model hero image, and a Luxury Begins With Your Skin headline over a gold ornamental background",
+          width: 1200,
+          height: 675,
+        },
+      },
     },
     gap: {
       label: "What happens when someone browses past your homepage",
