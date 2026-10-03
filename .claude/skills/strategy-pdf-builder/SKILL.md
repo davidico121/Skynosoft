@@ -226,6 +226,7 @@ they have to earn mapped to each:
 | Section | What goes here | Which agreement it earns |
 | --- | --- | --- |
 | Hero (eyebrow, headline, subheading) | Outcome for THEIR customers, something only their exact buyer would recognize, a named customer/moment from Step 2/3 notes if one exists | **1. "This is for me."** If the first line could sit on any brand's pitch, rewrite it. |
+| Hero visual (right column) | Prefer a real screenshot of the brand's own homepage/hero (one of the Step 4 uploads, cropped to a clean square if it reads well, or ask for one if none exists yet). If no usable screenshot exists, fall back to their logo/wordmark (`class="hero-visual logo-only"` on the div) instead of leaving it generic, crop one from an uploaded screenshot if there's no standalone logo file (a clean wordmark crop counts, see the Berries build for the pattern). If genuinely nothing brand-specific exists, delete the whole `.hero-visual` div, don't fabricate a stock image or invented logo, and don't leave an empty placeholder. | **1. "This is for me."** The single fastest "built specifically for us" signal in the whole document, lands before they read a word of copy. |
 | Gap (3 steps) | The real customer journey from Step 2/3: first touch, the moment that should trigger something, what actually happens (nothing). `leak` styling on the step(s) where it breaks. | **2. "This problem matters."** Don't just say what's missing, name what it costs: money already spent acquiring that customer, momentum lost into BFCM, time lost starting Q1 from zero. Two or three concrete losses beat one vague one. |
 | Problem / solution | Problem is one real scene from the audit notes, written as **2 to 4 short paragraphs** (`{{PROBLEM_TEXT_P1}}` etc. in the template), not one dense block, same discipline as the live site's `Paragraphs` component: break at a sentence boundary once a paragraph passes roughly 160 characters. A jam-packed wall of text is the single biggest thing that makes this panel unreadable, don't let the real content outrun the paragraph breaks. Solution is 3 to 5 reframes, not a feature list. | **3 and 4.** Before the fix, name what they're probably already doing that won't close the gap (more ad spend, a generic newsletter, "we'll get to it after BFCM") and say why, only with real numbers if you have them (hard rule 1), otherwise keep it qualitative. Then the reframe: "timed to when their pouch runs low," not "we send automated flows." |
 | Benefits (3 to 5) | Outcome led, concrete moments. Place any `asset-gallery` images here whose captions say they belong (a before/after, a mockup), as many as exist, captioned per what the team member actually said each one is, not a forced "current vs redesign" pair. An image whose stated purpose fits better elsewhere (a brand reference near the reframe, say) gets its own `asset-gallery` there instead, see Section 4's template notes. Before writing any EMBED path, state in one line what that specific image actually shows and check it against what the team member said, don't trust upload order or filename, a wrong caption-to-image match is a real mistake this skill has already shipped once. | Supports #4, makes the better way tangible. |
@@ -278,7 +279,22 @@ live pages):
    pagination: no orphaned headings at the bottom of a page, nothing
    splitting awkwardly. The template's `@media print` rules handle most
    of this, but check the real output.
-5. Send both files to the user (`SendUserFile`), the PDF as the primary
+5. Verify the booking CTA is a real clickable link in the PDF, not just
+   styled text, before calling the build done. `<a href>` in the source
+   HTML does carry through Chromium's print-to-pdf as a proper link
+   annotation (confirmed, don't take it on faith every time), but check
+   it on anything that touches the hero markup:
+   ```
+   python3 -c "import pymupdf; d=pymupdf.open('<final.pdf>'); print(d[0].get_links())"
+   ```
+   (`pip install pymupdf` first if it's not already available in the
+   session). Expect one link whose `uri` matches `{{CALENDLY_URL}}`
+   exactly. The template also prints the URL itself as a second,
+   separately-clickable line under the button (`.cta-fallback-link`) so
+   the link still works for a reader on paper or in a viewer that
+   doesn't surface the button's own annotation clearly, that's
+   redundancy, not a substitute for actually checking the annotation.
+6. Send both files to the user (`SendUserFile`), the PDF as the primary
    deliverable, the HTML in case they want to tweak and reprint it later.
 
 ## Section 5: The pitch email
@@ -309,6 +325,28 @@ David's, unless David is the one running the skill.
 Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
 well in a real reply, a funnel step that confused someone.
+
+- 2026-10-03, Berries (round 2, after the first corrected PDF): three
+  more fixes from the same live pitch. (1) The CTA button sat flush
+  against the next section heading (`h2.section:first-of-type` was
+  `margin-top: 0`, meant to hug the hero, but read as cramped under the
+  button). Changed to `28px`. (2) Checked whether the booking link was
+  actually clickable in the output, not just styled like a button, it
+  was (Chromium's print-to-pdf does carry `<a href>` through as a real
+  link annotation, confirmed with `pymupdf`'s `page.get_links()`), but
+  added a second, visible, separately-clickable `.cta-fallback-link`
+  line printing the URL itself under the button anyway, so it still
+  works on paper or in a viewer that doesn't surface the annotation
+  clearly, and added the `pymupdf` check itself to Section 4 so this
+  gets verified every time instead of assumed. (3) The hero was generic,
+  copy only, nothing a brand's team would recognize as specifically
+  theirs at a glance. Added a two-column hero (`.hero-grid`): copy on
+  the left, a brand-specific visual on the right, preferring a real
+  screenshot of their own homepage (a square crop of an uploaded
+  screenshot worked well, didn't need a dedicated upload) and falling
+  back to their logo/wordmark if no usable screenshot exists, never a
+  stock image. The whole `.hero-visual` div gets deleted, not emptied,
+  if there's genuinely nothing brand-specific available.
 
 - 2026-10-03, Berries (first live run of the skill): five real fixes
   from one actual pitch. (1) Case study logos weren't rendering at all,
