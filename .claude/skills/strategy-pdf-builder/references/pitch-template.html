@@ -93,10 +93,17 @@
   .benefit-card h3 { margin-top: 0; font-size: 15px; }
   .benefit-card p { font-size: 13px; margin-bottom: 0; }
   .asset-shot { width: 100%; border-radius: 8px; border: 1px solid var(--hairline); display: block; margin-top: 16px; }
-  .asset-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
-  .asset-compare figure { margin: 0; }
-  .asset-compare img { width: 100%; border-radius: 8px; border: 1px solid var(--hairline); display: block; }
-  .asset-compare figcaption { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--foreground-muted); margin-top: 6px; text-align: center; }
+  /* A flexible N-up image gallery, not a fixed 2-slot before/after.
+     auto-fit + minmax handles 1 image (stretches full width), 2 (sits
+     side by side), or 3+ (wraps to a new row) with the same markup, no
+     column-count math needed per use. Use as many of these blocks as
+     the content actually needs, wherever they fit contextually, not
+     only directly under Benefits, see the template notes at the bottom
+     of this file. */
+  .asset-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+  .asset-gallery figure { margin: 0; }
+  .asset-gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--hairline); display: block; }
+  .asset-gallery figcaption { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--foreground-muted); margin-top: 6px; text-align: center; }
 
   /* ---- Proof / case studies ---- */
   .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -209,18 +216,30 @@
     </div>
   </div>
 
-  <!-- OPTIONAL: only include this block if the team member uploaded a
-       before/after or mockup asset in Phase 3. Delete if unused. -->
-  <div class="asset-compare">
+  <!-- OPTIONAL: only include an asset-gallery block if the team member
+       actually uploaded something in Step 4. Delete entirely if unused.
+       This example shows 3 images with 3 different kinds of captions
+       (a before, an after, and a brand reference) to make the point
+       that this is NOT a fixed "current vs redesign" pair, it's
+       whatever the team member said each image is for, verbatim or
+       close to it, never guessed from the filename. One image alone is
+       just as valid, so is five. Add or remove <figure> elements to
+       match what you actually have. -->
+  <div class="asset-gallery">
     <figure>
       <!-- EMBED: /path/to/their-current-email-screenshot.jpg -->
-      <img src="current.jpg" alt="{{CURRENT_ASSET_ALT}}" />
-      <figcaption>Their current {{ASSET_TYPE}}</figcaption>
+      <img src="asset-1.jpg" alt="{{ASSET_1_ALT}}" />
+      <figcaption>{{ASSET_1_CAPTION}}</figcaption>
     </figure>
     <figure>
       <!-- EMBED: /path/to/our-redesign-mockup.jpg -->
-      <img src="redesign.jpg" alt="{{REDESIGN_ASSET_ALT}}" />
-      <figcaption>The redesign</figcaption>
+      <img src="asset-2.jpg" alt="{{ASSET_2_ALT}}" />
+      <figcaption>{{ASSET_2_CAPTION}}</figcaption>
+    </figure>
+    <figure>
+      <!-- EMBED: /path/to/a-brand-reference.jpg -->
+      <img src="asset-3.jpg" alt="{{ASSET_3_ALT}}" />
+      <figcaption>{{ASSET_3_CAPTION}}</figcaption>
     </figure>
   </div>
 
@@ -302,12 +321,21 @@
 
   2. Every {{PLACEHOLDER}} must be filled with real content from the
      interview before running embed-assets.py. Delete optional blocks
-     (asset-compare) entirely if there's nothing to put there, don't
+     (asset-gallery) entirely if there's nothing to put there, don't
      leave an empty section.
 
   3. Add or remove benefit-card / gap-step / proof-card / li elements
      to match how many you actually have, 3 to 5 benefits and 1 to 2
-     case studies is the right range, don't pad to hit a number.
+     case studies is the right range, don't pad to hit a number. Same
+     for asset-gallery <figure> elements, as few or as many as there are
+     real images, each captioned with what the team member actually
+     said it shows (never assume "current" or "after" from where it
+     sits). If images belong to different parts of the story (a before/
+     after under Benefits, a separate brand reference nearer the
+     Problem/solution reframe), use a separate asset-gallery block in
+     each relevant spot instead of forcing everything into one place,
+     same markup and CSS, just positioned where it's contextually
+     relevant.
 
   4. Bold exactly one key phrase per paragraph/point with
      **double asterisks** where it earns emphasis (the six agreements

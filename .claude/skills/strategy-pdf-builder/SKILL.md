@@ -164,11 +164,17 @@ per Section 1 that this one genuinely needs their own inbox, you can't
 verify it for them.
 
 ### Step 4 of 7: Assets
-Say: "Step 4 of 7: anything to show. Do you have mockups, a redesign, or
-a screenshot of their current email/popup to compare against?" Have them
-attach files directly in chat. Note which slot each goes to (before/
-after comparison, a benefit card image) as they're uploaded. Fine to
-have nothing, the page works without visuals.
+Say: "Step 4 of 7: anything to show. Do you have mockups, a redesign, a
+screenshot of their current email/popup, a reference from another brand,
+or anything else visual?" This is an open-ended gallery, not a fixed
+before/after pair, they might send one image or several, for several
+different reasons, don't assume the shape. For every image they attach,
+ask what it is and where it fits ("what does this show, and is it their
+current version, your proposed redesign, a brand reference, or something
+else?") rather than guessing from the filename or upload order. Write
+down their answer verbatim-ish as the caption, and note which section of
+the page it belongs near (see Section 3's `asset-gallery` guidance). Fine
+to have nothing, the page works without visuals.
 
 ### Step 5 of 7: Strategic angle
 Say: "Step 5 of 7: angle. Is this mainly a CRO pitch, an email marketing
@@ -211,7 +217,7 @@ they have to earn mapped to each:
 | Hero (eyebrow, headline, subheading) | Outcome for THEIR customers, something only their exact buyer would recognize, a named customer/moment from Step 2/3 notes if one exists | **1. "This is for me."** If the first line could sit on any brand's pitch, rewrite it. |
 | Gap (3 steps) | The real customer journey from Step 2/3: first touch, the moment that should trigger something, what actually happens (nothing). `leak` styling on the step(s) where it breaks. | **2. "This problem matters."** Don't just say what's missing, name what it costs: money already spent acquiring that customer, momentum lost into BFCM, time lost starting Q1 from zero. Two or three concrete losses beat one vague one. |
 | Problem / solution | Problem is one real scene from the audit notes, not a generic statement. Solution is 3 to 5 reframes, not a feature list. | **3 and 4.** Before the fix, name what they're probably already doing that won't close the gap (more ad spend, a generic newsletter, "we'll get to it after BFCM") and say why, only with real numbers if you have them (hard rule 1), otherwise keep it qualitative. Then the reframe: "timed to when their pouch runs low," not "we send automated flows." |
-| Benefits (3 to 5) | Outcome led, concrete moments. Pull in uploaded assets here (Step 4) if any exist. | Supports #4, makes the better way tangible. |
+| Benefits (3 to 5) | Outcome led, concrete moments. Place any `asset-gallery` images here whose captions say they belong (a before/after, a mockup), as many as exist, captioned per what the team member actually said each one is, not a forced "current vs redesign" pair. An image whose stated purpose fits better elsewhere (a brand reference near the reframe, say) gets its own `asset-gallery` there instead, see Section 4's template notes. | Supports #4, makes the better way tangible. |
 | Proof (1 to 2 case studies) | Real Skynosoft case studies from `src/lib/content.ts`, closest category first, their real dollar metrics, never invented. | **5. "This will work for me."** If no case study is close enough, say so rather than stretching a far one. |
 | The plan (3 short numbered steps) | A short, concrete build plan. Default to 2 weeks total (week 1 strategy and build together, week 2 test and launch), matching the live template's current default, not a longer spread unless they specifically want one. | **6. "Can't keep putting this off."** Anchor timing to the BFCM/angle from Step 5, not to today's date, the PDF might sit unsent for a while. |
 | Risk reversal | "See the plan before you spend anything" pattern, makes starting feel safe precisely so the urgency elsewhere doesn't read as pressure. | Supports #6 without adding pressure. |
