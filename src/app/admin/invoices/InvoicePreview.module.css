@@ -1,0 +1,229 @@
+/* Plain, hex-based CSS (no Tailwind utility classes, no oklch/color-mix)
+   so html2canvas can rasterize this node reliably for the PDF download.
+   Visual language mirrors the Skynosoft strategy-pitch-builder PDFs:
+   Sora headings, Hanken Grotesk body, JetBrains Mono labels, the same
+   brand blue. Keep any future edits to this file plain-CSS only. */
+
+.page {
+  width: 816px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #14161a;
+  font-family: var(--font-hanken), "Hanken Grotesk", sans-serif;
+  padding: 48px 64px 40px;
+  box-sizing: border-box;
+}
+
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 32px;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 24px 0 32px;
+  color: #0a0a0b;
+}
+
+.partiesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.partyBlock h2 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0 0 10px;
+  color: #0a0a0b;
+}
+
+.partyBlock .companyName {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 4px;
+  color: #14161a;
+}
+
+.partyLine {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #5b6472;
+  white-space: pre-line;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+}
+
+.metaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 260px;
+}
+
+.metaLine {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13.5px;
+  color: #14161a;
+}
+
+.metaLine span:first-child {
+  color: #5b6472;
+}
+
+.amountDueBox {
+  background: #f1f2f5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.itemsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+.itemsTable thead th {
+  font-family: var(--font-jetbrains), "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #5b6472;
+  text-align: left;
+  padding: 0 0 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+
+.itemsTable thead th.numCol {
+  text-align: right;
+}
+
+.itemsTable tbody td {
+  font-size: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+
+.itemsTable tbody td.numCol {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.totalsBlock {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 20px;
+}
+
+.totalsInner {
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.totalsLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: #5b6472;
+}
+
+.totalsLine.grandTotal {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+  margin-top: 6px;
+  padding-top: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #14161a;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.footerGrid h3 {
+  font-family: var(--font-sora), "Sora", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0 0 10px;
+  color: #0a0a0b;
+}
+
+.notesText {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #5b6472;
+  white-space: pre-line;
+}
+
+.bankLine {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #5b6472;
+}
+
+.bankLine strong {
+  color: #14161a;
+  font-weight: 600;
+}
+
+.brandFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.brandFooterLogo {
+  height: 28px;
+  width: auto;
+}
+
+.brandFooterText {
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #5b6472;
+}
+
+.brandFooterText strong {
+  color: #0099ff;
+}
