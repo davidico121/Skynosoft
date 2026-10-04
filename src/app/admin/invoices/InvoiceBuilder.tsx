@@ -123,8 +123,8 @@ export function InvoiceBuilder() {
             <label className={labelClass()}>
               <span className={labelTextClass()}>Date</span>
               <input
+                type="date"
                 className={fieldClass()}
-                placeholder="e.g. June 2, 2026"
                 value={data.invoiceDate}
                 onChange={(e) => update("invoiceDate", e.target.value)}
               />
@@ -132,8 +132,8 @@ export function InvoiceBuilder() {
             <label className={labelClass()}>
               <span className={labelTextClass()}>Due date</span>
               <input
+                type="date"
                 className={fieldClass()}
-                placeholder="e.g. June 3, 2026"
                 value={data.dueDate}
                 onChange={(e) => update("dueDate", e.target.value)}
               />

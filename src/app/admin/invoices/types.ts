@@ -93,3 +93,14 @@ export function computeTotals(data: InvoiceData) {
 export function formatUSD(amount: number): string {
   return `$${amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
+
+// invoiceDate/dueDate are stored as the raw "YYYY-MM-DD" value an
+// <input type="date"> produces, so the date-picker UI round-trips
+// cleanly. This formats that for display on the invoice itself.
+export function formatDisplayDate(isoDate: string): string {
+  if (!isoDate) return "";
+  const [year, month, day] = isoDate.split("-").map(Number);
+  if (!year || !month || !day) return isoDate;
+  const date = new Date(year, month - 1, day);
+  return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}

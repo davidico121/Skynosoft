@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import type { InvoiceData } from "./types";
-import { computeTotals, formatUSD } from "./types";
+import { computeTotals, formatUSD, formatDisplayDate } from "./types";
 import styles from "./InvoicePreview.module.css";
 
 type Props = {
@@ -55,11 +55,11 @@ export const InvoicePreview = forwardRef<HTMLDivElement, Props>(function Invoice
         <div className={styles.metaBox}>
           <div className={styles.metaLine}>
             <span>Invoice date</span>
-            <span>{data.invoiceDate || "—"}</span>
+            <span>{formatDisplayDate(data.invoiceDate) || "—"}</span>
           </div>
           <div className={styles.metaLine}>
             <span>Due date</span>
-            <span>{data.dueDate || "—"}</span>
+            <span>{formatDisplayDate(data.dueDate) || "—"}</span>
           </div>
           <div className={styles.amountDueBox}>
             <span>Amount due (USD)</span>
