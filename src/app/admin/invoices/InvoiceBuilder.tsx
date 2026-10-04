@@ -186,7 +186,7 @@ export function InvoiceBuilder() {
             </label>
           </div>
           <label className={labelClass()}>
-            <span className={labelTextClass()}>Phone</span>
+            <span className={labelTextClass()}>Phone (optional)</span>
             <input
               className={fieldClass()}
               value={data.clientPhone}

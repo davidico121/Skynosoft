@@ -47,7 +47,7 @@ export const InvoicePreview = forwardRef<HTMLDivElement, Props>(function Invoice
           <p className={styles.partyLine}>{data.clientAddress}</p>
           <p className={styles.partyLine}>{data.clientContactName}</p>
           <p className={styles.partyLine}>{data.clientEmail}</p>
-          <p className={styles.partyLine}>{data.clientPhone}</p>
+          {data.clientPhone && <p className={styles.partyLine}>{data.clientPhone}</p>}
         </div>
       </div>
 

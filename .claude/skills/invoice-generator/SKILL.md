@@ -42,7 +42,7 @@ Default sender details:
 Skynosoft Ltd.
 RC 7872372
 David Owoeye
-davidowoeye4@gmail.com
+david@skynosoft.net
 +234 911 075 0517
 96, Irepodun Street,
 Osogbo, Osun State,
@@ -65,9 +65,10 @@ Bank address: 1801 Main St., Kansas City, MO 64108
 Run this as a short funnel, not a wall of questions at once.
 
 1. **Client.** "Who's this invoice for? Company name, address, tax/VAT
-   number if they have one, and a contact name/email/phone if you have
-   them." A client address is the one thing worth pushing for if
-   missing, everything else can be left blank.
+   number if they have one, and a contact name/email if you have them.
+   Phone number is optional, skip it if you don't have it handy." A
+   client address is the one thing worth pushing for if missing,
+   everything else (including phone) can be left blank.
 2. **What's being billed.** "What are the line items? For each: a
    description, quantity, and price." Repeat back the computed amount
    per line as you go so a typo gets caught immediately, not after the
@@ -95,8 +96,9 @@ Run this as a short funnel, not a wall of questions at once.
    block in the items table once per item (same pattern as this repo's
    other PDF-building skills), numbering the placeholder names
    (`{{ITEM_2_DESCRIPTION}}` etc.) to match. Delete the discount/tax/
-   notes/tax-number lines entirely (not just blank them) wherever Hard
-   rule 3 or the interview said they don't apply.
+   notes/tax-number/client-phone lines entirely (not just blank them)
+   wherever Hard rule 3 or the interview said they don't apply, client
+   phone is optional and commonly left out.
 2. Embed the brand fonts and the Skynosoft logo (both bundled in this
    skill's own `assets/`, resolved via `skill:` paths, no repo
    dependency):
@@ -122,6 +124,16 @@ Run this as a short funnel, not a wall of questions at once.
 
 Add newest first: a rule that would have saved time, a template fix, a
 rendering quirk worth documenting.
+
+- 2026-10-04: Two corrections from David. (1) Default sender email is
+  `david@skynosoft.net`, not the personal Gmail it was first built
+  with, updated here and in `/admin/invoices` on the web page to keep
+  the two in sync. (2) Client phone is optional, same tier as the
+  tax/VAT number, not something to chase if the team member doesn't
+  have it. The template's `{{CLIENT_PHONE}}` line now carries the same
+  "delete if not given" comment the tax number line already had, and
+  the interview script asks for it as optional rather than bundling it
+  into the same ask as contact name/email.
 
 - 2026-10-04: First real render of `invoice-template.html` (a 3-item
   test invoice) spilled 2 lines plus the whole brand footer onto an

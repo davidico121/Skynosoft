@@ -52,7 +52,7 @@ export function createDefaultInvoiceData(): InvoiceData {
     senderName: "Skynosoft Ltd.",
     senderRcNumber: "RC 7872372",
     senderContactName: "David Owoeye",
-    senderEmail: "davidowoeye4@gmail.com",
+    senderEmail: "david@skynosoft.net",
     senderPhone: "+234 911 075 0517",
     senderAddress: "96, Irepodun Street,\nOsogbo, Osun State,\n230001",
 
