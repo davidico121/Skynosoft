@@ -2,7 +2,14 @@
 
 import { useRef, useState } from "react";
 import { InvoicePreview } from "./InvoicePreview";
-import { createDefaultInvoiceData, computeTotals, formatUSD, type InvoiceData, type LineItem } from "./types";
+import {
+  createDefaultInvoiceData,
+  computeTotals,
+  computeCommission,
+  formatUSD,
+  type InvoiceData,
+  type LineItem,
+} from "./types";
 import { logout } from "./actions";
 
 function fieldClass() {
@@ -248,6 +255,85 @@ export function InvoiceBuilder() {
           >
             + Add line item
           </button>
+        </Section>
+
+        <Section title="Commission / profit-share (optional)">
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={data.commissionEnabled}
+              onChange={(e) => update("commissionEnabled", e.target.checked)}
+            />
+            <span className="font-body text-sm">This is a commission/profit-share invoice</span>
+          </label>
+          {data.commissionEnabled && (
+            <>
+              <p className="font-body text-xs text-foreground-muted">
+                Purely a worked-out reference shown on the invoice, next to the billed line
+                item above, not something that fills it in for you. The final line item price
+                (and any rounding) is still yours to set by hand.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <label className={labelClass()}>
+                  <span className={labelTextClass()}>Revenue label</span>
+                  <input
+                    className={fieldClass()}
+                    value={data.commissionRevenueLabel}
+                    onChange={(e) => update("commissionRevenueLabel", e.target.value)}
+                  />
+                </label>
+                <label className={labelClass()}>
+                  <span className={labelTextClass()}>Revenue (USD)</span>
+                  <input
+                    type="number"
+                    min={0}
+                    step="0.01"
+                    className={fieldClass()}
+                    value={data.commissionRevenue}
+                    onChange={(e) => update("commissionRevenue", Number(e.target.value) || 0)}
+                  />
+                </label>
+                <label className={labelClass()}>
+                  <span className={labelTextClass()}>Deduction label</span>
+                  <input
+                    className={fieldClass()}
+                    value={data.commissionDeductionLabel}
+                    onChange={(e) => update("commissionDeductionLabel", e.target.value)}
+                  />
+                </label>
+                <label className={labelClass()}>
+                  <span className={labelTextClass()}>Deduction (USD)</span>
+                  <input
+                    type="number"
+                    min={0}
+                    step="0.01"
+                    className={fieldClass()}
+                    value={data.commissionDeduction}
+                    onChange={(e) => update("commissionDeduction", Number(e.target.value) || 0)}
+                  />
+                </label>
+                <label className={labelClass()}>
+                  <span className={labelTextClass()}>Rate %</span>
+                  <input
+                    type="number"
+                    min={0}
+                    max={100}
+                    step="0.01"
+                    className={fieldClass()}
+                    value={data.commissionRatePercent}
+                    onChange={(e) => update("commissionRatePercent", Number(e.target.value) || 0)}
+                  />
+                </label>
+              </div>
+              <p className="font-body text-xs text-foreground-muted">
+                Computes to{" "}
+                <strong className="text-foreground">
+                  {formatUSD(computeCommission(data).commissionAmount)}
+                </strong>{" "}
+                before rounding, net revenue {formatUSD(computeCommission(data).netRevenue)}.
+              </p>
+            </>
+          )}
         </Section>
 
         <Section title="Discount & tax">

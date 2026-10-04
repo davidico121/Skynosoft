@@ -107,6 +107,43 @@
   font-size: 14px;
 }
 
+/* Optional, commission/profit-share clients only. */
+.commissionBox {
+  background: #f7f8fa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 4px 0 6px;
+}
+
+.commissionBox h4 {
+  font-family: var(--font-jetbrains), "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #5b6472;
+  margin: 0 0 6px;
+}
+
+.commissionLine {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12.5px;
+  color: #5b6472;
+  padding: 1px 0;
+}
+
+.commissionLine.result {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+  margin-top: 4px;
+  padding-top: 5px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #14161a;
+}
+
 .itemsTable {
   width: 100%;
   border-collapse: collapse;

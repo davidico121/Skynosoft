@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import type { InvoiceData } from "./types";
-import { computeTotals, formatUSD, formatDisplayDate } from "./types";
+import { computeTotals, computeCommission, formatUSD, formatDisplayDate } from "./types";
 import styles from "./InvoicePreview.module.css";
 
 type Props = {
@@ -14,6 +14,7 @@ export const InvoicePreview = forwardRef<HTMLDivElement, Props>(function Invoice
   const { subtotal, discountAmount, taxAmount, total } = computeTotals(data);
   const hasDiscount = data.discountPercent > 0;
   const hasTax = data.taxPercent > 0;
+  const { netRevenue, commissionAmount } = computeCommission(data);
 
   return (
     <div ref={ref} className={styles.page}>
@@ -88,6 +89,28 @@ export const InvoicePreview = forwardRef<HTMLDivElement, Props>(function Invoice
           ))}
         </tbody>
       </table>
+
+      {data.commissionEnabled && (
+        <div className={styles.commissionBox}>
+          <h4>Commission calculation</h4>
+          <div className={styles.commissionLine}>
+            <span>{data.commissionRevenueLabel}</span>
+            <span>{formatUSD(data.commissionRevenue)}</span>
+          </div>
+          <div className={styles.commissionLine}>
+            <span>{data.commissionDeductionLabel}</span>
+            <span>-{formatUSD(data.commissionDeduction)}</span>
+          </div>
+          <div className={styles.commissionLine}>
+            <span>Net attributable revenue</span>
+            <span>{formatUSD(netRevenue)}</span>
+          </div>
+          <div className={`${styles.commissionLine} ${styles.result}`}>
+            <span>Commission ({data.commissionRatePercent}%)</span>
+            <span>{formatUSD(commissionAmount)}</span>
+          </div>
+        </div>
+      )}
 
       <div className={styles.totalsBlock}>
         <div className={styles.totalsInner}>

@@ -36,6 +36,14 @@
   .meta-line span:first-child { color: #5b6472; }
   .amount-due-box { background: #f1f2f5; border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; gap: 16px; margin-top: 4px; font-weight: 600; font-size: 14px; }
 
+  /* Optional, commission/profit-share clients only, see SKILL.md. Delete
+     the whole .commission-box block below (markup and all) if unused,
+     don't leave it empty. */
+  .commission-box { background: #f7f8fa; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 8px 16px; margin: 4px 0 6px; }
+  .commission-box h4 { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #5b6472; margin: 0 0 6px; }
+  .commission-line { display: flex; justify-content: space-between; gap: 16px; font-size: 12.5px; color: #5b6472; padding: 1px 0; }
+  .commission-line.result { border-top: 1px solid rgba(0,0,0,0.14); margin-top: 4px; padding-top: 5px; font-weight: 600; font-size: 13px; color: #14161a; }
+
   .title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.2; margin: 16px 0 20px; color: #0a0a0b; }
 
   .parties-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-bottom: 16px; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 16px; }
@@ -133,6 +141,20 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- Optional, commission/profit-share clients only. Delete this whole
+       block (not just blank it) for a normal invoice. See SKILL.md's
+       commission row. The commission figure is a worked-out reference
+       next to the billed line item above, not a replacement for it,
+       the actual billed amount still goes in the items table above
+       with whatever rounding the team member decided on, by hand. -->
+  <div class="commission-box">
+    <h4>Commission calculation</h4>
+    <div class="commission-line"><span>{{COMMISSION_REVENUE_LABEL}}</span><span>{{COMMISSION_REVENUE}}</span></div>
+    <div class="commission-line"><span>{{COMMISSION_DEDUCTION_LABEL}}</span><span>-{{COMMISSION_DEDUCTION}}</span></div>
+    <div class="commission-line"><span>Net attributable revenue</span><span>{{COMMISSION_NET}}</span></div>
+    <div class="commission-line result"><span>Commission ({{COMMISSION_RATE}}%)</span><span>{{COMMISSION_AMOUNT}}</span></div>
+  </div>
 
   <div class="totals-block">
     <div class="totals-inner">

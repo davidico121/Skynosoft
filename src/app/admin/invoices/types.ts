@@ -33,6 +33,18 @@ export type InvoiceData = {
 
   notes: string;
 
+  // Optional, for commission/profit-share clients: shows the math
+  // behind the billed amount (revenue, a deduction, a rate), purely
+  // informational. Does not write to `items`, the actual billed line
+  // item is still set by hand, this box is a worked-out reference next
+  // to it, not an auto-filled total, so rounding stays a human call.
+  commissionEnabled: boolean;
+  commissionRevenueLabel: string;
+  commissionRevenue: number;
+  commissionDeductionLabel: string;
+  commissionDeduction: number;
+  commissionRatePercent: number;
+
   bankAccountName: string;
   bankAccountNumber: string;
   bankWireRouting: string;
@@ -71,6 +83,13 @@ export function createDefaultInvoiceData(): InvoiceData {
 
     notes: "",
 
+    commissionEnabled: false,
+    commissionRevenueLabel: "Klaviyo attributed revenue",
+    commissionRevenue: 0,
+    commissionDeductionLabel: "Less: pre-existing flow (not managed by Skynosoft)",
+    commissionDeduction: 0,
+    commissionRatePercent: 15,
+
     bankAccountName: "Skynosoft Ltd.",
     bankAccountNumber: "219425290948",
     bankWireRouting: "101019644",
@@ -92,6 +111,12 @@ export function computeTotals(data: InvoiceData) {
 
 export function formatUSD(amount: number): string {
   return `$${amount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
+export function computeCommission(data: InvoiceData) {
+  const netRevenue = data.commissionRevenue - data.commissionDeduction;
+  const commissionAmount = netRevenue * (data.commissionRatePercent / 100);
+  return { netRevenue, commissionAmount };
 }
 
 // invoiceDate/dueDate are stored as the raw "YYYY-MM-DD" value an

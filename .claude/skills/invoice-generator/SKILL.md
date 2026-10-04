@@ -28,7 +28,11 @@ attached or from plain claude.ai chat.
    discount%. Taxable amount = subtotal − discount. Tax amount =
    taxable × tax%. Total = taxable + tax. Re-add the column by hand
    before calling the invoice done, a wrong total on a real invoice is
-   a real problem, not a cosmetic one.
+   a real problem, not a cosmetic one. Same rule for the optional
+   commission box (Section 3): net revenue = revenue − deduction,
+   commission = net revenue × rate%, computed by hand, the revenue and
+   deduction numbers themselves come from what the team member read off
+   their actual dashboard (Klaviyo or otherwise), never estimated.
 2. **Nothing invented.** Client details, line item descriptions, and
    amounts all come from what the team member actually tells you. If
    something's missing (a client address, a tax number), ask, don't
@@ -73,19 +77,30 @@ Run this as a short funnel, not a wall of questions at once.
    description, quantity, and price." Repeat back the computed amount
    per line as you go so a typo gets caught immediately, not after the
    PDF is built.
-3. **Discount or tax, if any.** "Any discount or tax/VAT on this one?
+3. **Commission/profit-share, if this is that kind of client.** "Is
+   this a commission or profit-share invoice? If so: what's the
+   revenue figure (and where's it from, e.g. the Klaviyo dashboard),
+   any deduction to subtract first (like a flow that existed before
+   Skynosoft started on the account), and what's the commission rate?"
+   Skip entirely for a normal flat-fee invoice, don't ask this by
+   default. When it applies, the commission box (see Building the PDF,
+   below) is a worked-out reference next to the billed line item, not
+   a replacement for it, the team member still tells you what to put
+   in the line item itself (they may round differently than the raw
+   computed commission, that's their call, not something to overwrite).
+4. **Discount or tax, if any.** "Any discount or tax/VAT on this one?
    What rate?" Skip entirely (delete those lines from the template,
    don't leave them at 0%) if neither applies, a 0% tax line reads as
    an afterthought, not a deliberate choice.
-4. **Dates and invoice number.** "What invoice number should this be,
+5. **Dates and invoice number.** "What invoice number should this be,
    and what's the invoice date and due date?" The web page doesn't
    persist a running count either (by design, see its own build notes
    in the Skynosoft repo), so this is always asked, not auto-generated.
-5. **Payment notes.** "Anything else on payment instructions? A VAT
+6. **Payment notes.** "Anything else on payment instructions? A VAT
    reverse-charge note, a different payment method, anything like
    that?" Optional, delete the notes line from the template if there's
    nothing to add.
-6. **Confirm and build.** Recap the client, line items, and total in
+7. **Confirm and build.** Recap the client, line items, and total in
    one or two lines so the team member can catch anything wrong before
    the PDF is built, then go.
 
@@ -98,7 +113,15 @@ Run this as a short funnel, not a wall of questions at once.
    (`{{ITEM_2_DESCRIPTION}}` etc.) to match. Delete the discount/tax/
    notes/tax-number/client-phone lines entirely (not just blank them)
    wherever Hard rule 3 or the interview said they don't apply, client
-   phone is optional and commonly left out.
+   phone is optional and commonly left out. The `.commission-box` block
+   (between the items table and the totals) is the same, delete the
+   whole block for a normal invoice, fill its 7 placeholders
+   (`{{COMMISSION_REVENUE_LABEL}}`, `{{COMMISSION_REVENUE}}`,
+   `{{COMMISSION_DEDUCTION_LABEL}}`, `{{COMMISSION_DEDUCTION}}`,
+   `{{COMMISSION_NET}}`, `{{COMMISSION_RATE}}`, `{{COMMISSION_AMOUNT}}`)
+   only when Step 3 of the interview said this is a commission client.
+   `{{COMMISSION_NET}}` and `{{COMMISSION_AMOUNT}}` are computed, not
+   asked for, see Hard rule 1.
 2. Embed the brand fonts and the Skynosoft logo (both bundled in this
    skill's own `assets/`, resolved via `skill:` paths, no repo
    dependency):
@@ -124,6 +147,20 @@ Run this as a short funnel, not a wall of questions at once.
 
 Add newest first: a rule that would have saved time, a template fix, a
 rendering quirk worth documenting.
+
+- 2026-10-04: Added the optional commission/profit-share box
+  (Interview step 3, `.commission-box` in the template), generalized
+  from a one-off edit David asked for on a real Klaviyo-commission
+  invoice (Novaprime/Maxsleek, September): Klaviyo attributed revenue
+  minus a pre-existing flow that predated Skynosoft's work, 15% of the
+  rest. Built the same feature into `/admin/invoices` at the same
+  time (a checkbox that reveals revenue/deduction/rate fields and
+  shows the live-computed box), keeping the two in sync as this file
+  already requires. Important design choice: the box is a reference
+  only, it never writes into the billed line item itself, rounding a
+  commission figure (David's own example: $132.6345 billed as $132,
+  not standard rounding) is a human call this skill should not make
+  silently.
 
 - 2026-10-04: Two corrections from David. (1) Default sender email is
   `david@skynosoft.net`, not the personal Gmail it was first built
