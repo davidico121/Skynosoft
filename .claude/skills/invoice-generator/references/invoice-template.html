@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{BRAND}} Invoice</title>
+<style>
+  /* Fonts embedded by scripts/embed-assets.py (see SKILL.md). This CSS
+     mirrors src/app/admin/invoices/InvoicePreview.module.css in the
+     Skynosoft repo exactly (same hex values, same class shapes), so a
+     PDF built here and one downloaded from /admin/invoices look
+     identical. If that file changes, update this one to match. */
+  @font-face { font-family: 'Sora'; font-weight: 500 800; src: url(data:font/woff2;base64,__FONT_SORA_B64__) format('woff2'); }
+  @font-face { font-family: 'Hanken Grotesk'; font-weight: 400 700; src: url(data:font/woff2;base64,__FONT_HANKEN_B64__) format('woff2'); }
+  @font-face { font-family: 'JetBrains Mono'; font-weight: 400 700; src: url(data:font/woff2;base64,__FONT_JETBRAINS_B64__) format('woff2'); }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e9ebef; -webkit-font-smoothing: antialiased; }
+
+  .page {
+    width: 816px;
+    margin: 32px auto;
+    background: #ffffff;
+    color: #14161a;
+    font-family: 'Hanken Grotesk', sans-serif;
+    padding: 24px 64px 16px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 12px 32px rgba(10,10,20,0.06);
+  }
+
+  .header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 20px; }
+  .logo { height: 32px; width: auto; display: block; }
+
+  .meta-box { display: flex; flex-direction: column; gap: 8px; min-width: 260px; }
+  .meta-line { display: flex; justify-content: space-between; gap: 16px; font-size: 13.5px; color: #14161a; }
+  .meta-line span:first-child { color: #5b6472; }
+  .amount-due-box { background: #f1f2f5; border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; gap: 16px; margin-top: 4px; font-weight: 600; font-size: 14px; }
+
+  .title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.2; margin: 16px 0 20px; color: #0a0a0b; }
+
+  .parties-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-bottom: 16px; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 16px; }
+  .party-block h2 { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 15px; margin: 0 0 10px; color: #0a0a0b; }
+  .party-block .company-name { font-weight: 600; font-size: 14px; margin: 0 0 4px; color: #14161a; }
+  .party-line { font-size: 13.5px; line-height: 1.6; color: #5b6472; white-space: pre-line; margin: 0; }
+
+  .meta-row { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+
+  .items-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+  .items-table thead th { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; color: #5b6472; text-align: left; padding: 0 0 8px; border-bottom: 1px solid rgba(0,0,0,0.14); }
+  .items-table thead th.num-col { text-align: right; }
+  .items-table tbody td { font-size: 14px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.08); vertical-align: top; }
+  .items-table tbody td.num-col { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .totals-block { display: flex; justify-content: flex-end; margin: 12px 0 12px; }
+  .totals-inner { min-width: 260px; display: flex; flex-direction: column; gap: 8px; }
+  .totals-line { display: flex; justify-content: space-between; font-size: 13.5px; color: #5b6472; }
+  .totals-line.grand-total { border-top: 1px solid rgba(0,0,0,0.14); margin-top: 6px; padding-top: 10px; font-weight: 700; font-size: 16px; color: #14161a; }
+
+  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 0; }
+  .footer-grid h3 { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 13px; margin: 0 0 10px; color: #0a0a0b; }
+  .notes-text { font-size: 13px; line-height: 1.6; color: #5b6472; white-space: pre-line; }
+  .bank-line { font-size: 13px; line-height: 1.7; color: #5b6472; }
+  .bank-line strong { color: #14161a; font-weight: 600; }
+
+  .brand-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.08); }
+  .brand-footer-logo { height: 28px; width: auto; }
+  .brand-footer-text { text-align: right; font-size: 12px; line-height: 1.6; color: #5b6472; }
+  .brand-footer-text strong { color: #0099ff; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header-row">
+    <!-- EMBED: skill:brand/skynosoft-icon.png -->
+    <img class="logo" src="logo.png" alt="Skynosoft" />
+    <div class="meta-box">
+      <div class="meta-line"><span>Invoice number</span><span>{{INVOICE_NUMBER}}</span></div>
+    </div>
+  </div>
+
+  <h1 class="title">{{TITLE}}</h1>
+
+  <div class="parties-grid">
+    <div class="party-block">
+      <h2>From</h2>
+      <p class="company-name">{{SENDER_NAME}}</p>
+      <p class="party-line">{{SENDER_RC_NUMBER}}</p>
+      <p class="party-line">{{SENDER_CONTACT_NAME}}</p>
+      <p class="party-line">{{SENDER_EMAIL}}</p>
+      <p class="party-line">{{SENDER_PHONE}}</p>
+      <p class="party-line">{{SENDER_ADDRESS}}</p>
+    </div>
+    <div class="party-block">
+      <h2>Bill to</h2>
+      <p class="company-name">{{CLIENT_COMPANY}}</p>
+      <!-- Delete this line entirely if the client has no tax/VAT number -->
+      <p class="party-line">{{CLIENT_TAX_NUMBER}}</p>
+      <p class="party-line">{{CLIENT_ADDRESS}}</p>
+      <p class="party-line">{{CLIENT_CONTACT_NAME}}</p>
+      <p class="party-line">{{CLIENT_EMAIL}}</p>
+      <p class="party-line">{{CLIENT_PHONE}}</p>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-box">
+      <div class="meta-line"><span>Invoice date</span><span>{{INVOICE_DATE}}</span></div>
+      <div class="meta-line"><span>Due date</span><span>{{DUE_DATE}}</span></div>
+      <div class="amount-due-box"><span>Amount due (USD)</span><span>{{TOTAL}}</span></div>
+    </div>
+  </div>
+
+  <!-- One <tr> per line item. Copy/repeat this row for each item, in
+       the same order the team member gave them, amount = qty * price,
+       computed by hand (no JS runs in the rendered PDF), see SKILL.md. -->
+  <table class="items-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th class="num-col">Qty</th>
+        <th class="num-col">Price</th>
+        <th class="num-col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ITEM_1_DESCRIPTION}}</td>
+        <td class="num-col">{{ITEM_1_QTY}}</td>
+        <td class="num-col">{{ITEM_1_PRICE}}</td>
+        <td class="num-col">{{ITEM_1_AMOUNT}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totals-block">
+    <div class="totals-inner">
+      <div class="totals-line"><span>Subtotal</span><span>{{SUBTOTAL}}</span></div>
+      <!-- Delete this line entirely if there's no discount -->
+      <div class="totals-line"><span>Discount ({{DISCOUNT_PERCENT}}%)</span><span>-{{DISCOUNT_AMOUNT}}</span></div>
+      <!-- Delete this line entirely if there's no tax/VAT -->
+      <div class="totals-line"><span>{{TAX_LABEL}} ({{TAX_PERCENT}}%)</span><span>{{TAX_AMOUNT}}</span></div>
+      <div class="totals-line grand-total"><span>Total</span><span>{{TOTAL}}</span></div>
+    </div>
+  </div>
+
+  <div class="footer-grid">
+    <div>
+      <h3>Payment instructions</h3>
+      <!-- Delete this line entirely if there are no extra notes -->
+      <p class="notes-text">{{NOTES}}</p>
+      <p class="bank-line">
+        <strong>Account name:</strong> {{BANK_ACCOUNT_NAME}}<br>
+        <strong>Account number:</strong> {{BANK_ACCOUNT_NUMBER}}<br>
+        <strong>Wire routing:</strong> {{BANK_WIRE_ROUTING}}<br>
+        <strong>ACH routing:</strong> {{BANK_ACH_ROUTING}}<br>
+        <strong>Account type:</strong> {{BANK_ACCOUNT_TYPE}}<br>
+        <strong>Bank:</strong> {{BANK_NAME}}<br>
+        <strong>Bank address:</strong> {{BANK_ADDRESS}}
+      </p>
+    </div>
+    <div>
+      <h3>Total due</h3>
+      <div class="amount-due-box"><span>Amount due (USD)</span><span>{{TOTAL}}</span></div>
+    </div>
+  </div>
+
+  <div class="brand-footer">
+    <!-- EMBED: skill:brand/skynosoft-logo-horizontal.png -->
+    <img class="brand-footer-logo" src="footer-logo.png" alt="Skynosoft — Where Brands Fly" />
+    <div class="brand-footer-text">
+      <strong>skynosoft.net</strong><br>
+      {{SENDER_PHONE}} &nbsp;|&nbsp; {{SENDER_EMAIL}}
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
