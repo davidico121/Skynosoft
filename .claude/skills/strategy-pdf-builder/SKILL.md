@@ -129,10 +129,20 @@ copy instead of a person talking, rewrite it.
 - No em dashes, no hyphens (write "customers who buy once," not
   "one-time customers"), nothing invented.
 
-For the pitch email specifically (Section 5), match the rhythm of
-`references/pitch-email-examples.md`: a one-line hook, a specific
-observation about their actual site, the mechanism of why it's costing
-them money, a credible but not overclaimed fix, a low pressure call to
+For the pitch email specifically (Section 5), **first person singular
+throughout, never "we."** It's signed by one named person (the team
+member from Step 1), not "the Skynosoft team," so "I noticed," "I
+rebuilt," "my calendar," all the way through, including when citing
+past case study work ("brands I've worked with," matching the Castore
+reference exactly, not "brands we've worked with"). Mixing singular and
+plural mid-email is the single fastest way to make it read like
+corporate copy wearing a person's name instead of an actual person,
+don't let that slip in.
+
+Also match the rhythm of `references/pitch-email-examples.md`: a
+one-line hook, a specific observation about their actual site, the
+mechanism of why it's costing them money, a credible but not overclaimed
+fix, a low pressure call to
 action, a PS that removes the sales-call anxiety.
 
 ## The interview (run this as the funnel, in this order, one step at a time)
@@ -247,7 +257,7 @@ they have to earn mapped to each:
 | Problem / solution | Problem is one real scene from the audit notes, written as **2 to 4 short paragraphs** (`{{PROBLEM_TEXT_P1}}` etc. in the template), not one dense block, same discipline as the live site's `Paragraphs` component: break at a sentence boundary once a paragraph passes roughly 160 characters. A jam-packed wall of text is the single biggest thing that makes this panel unreadable, don't let the real content outrun the paragraph breaks. Solution is 3 to 5 reframes, not a feature list. | **3 and 4.** Before the fix, name what they're probably already doing that won't close the gap (more ad spend, a generic newsletter, "we'll get to it after BFCM") and say why, only with real numbers if you have them (hard rule 1), otherwise keep it qualitative. Then the reframe: "timed to when their pouch runs low," not "we send automated flows." |
 | Benefits (3 to 5) | Outcome led, concrete moments. Place any `asset-gallery` images here whose captions say they belong (a before/after, a mockup), as many as exist, captioned per what the team member actually said each one is, not a forced "current vs redesign" pair. An image whose stated purpose fits better elsewhere (a brand reference near the reframe, say) gets its own `asset-gallery` there instead, see Section 4's template notes. Before writing any EMBED path, state in one line what that specific image actually shows and check it against what the team member said, don't trust upload order or filename, a wrong caption-to-image match is a real mistake this skill has already shipped once. | Supports #4, makes the better way tangible. |
 | Proof (1 to 2 case studies) | Real Skynosoft case studies from `src/lib/content.ts`, closest category first, their real dollar metrics, never invented. Include the brand's real logo: this skill bundles the logo for every case study that has one in `assets/case-study-logos/` (currently: `novaya.png`, `maxsleek.png`, `afrocenchix.svg`, `lipo-beauty-tea.png`, `feno.svg`, `streaky-academy.png`, `cannonbalm.webp`, `bwll.svg`, `thyvita.png`, `medgear.png`, check the folder for the current list and exact extension, don't guess one). `heron-cycling` and `elissa-and-stef` have no logo file on the live site either, for those (or any future case study added to `content.ts` without a bundled logo yet) use the `logo-initial` fallback in the template (the brand's first letter, matching the live site's own fallback, `CaseStudyCard.tsx`), never invent a logo image. | **5. "This will work for me."** If no case study is close enough, say so rather than stretching a far one. |
-| The plan (3 short numbered steps) | A short, concrete build plan. Default to 2 weeks total (week 1 strategy and build together, week 2 test and launch), matching the live template's current default, not a longer spread unless they specifically want one. | **6. "Can't keep putting this off."** Anchor timing to the BFCM/angle from Step 5, not to today's date, the PDF might sit unsent for a while. |
+| The plan (4 to 6 numbered steps) | **A real step-by-step, not a vague week label.** "Week 1: map the signup incentive, welcome flow, and product page trust elements, build all three together" tells them nothing they'd act on, it's a timeline with no content. Every step names the actual deliverable: what gets built, in what order, what they'll be looking at when it's done ("Build and test a 3-email welcome flow in their ESP," "Add trust signals, reviews, and a return policy callout to the product page template"). Default total timeline stays 2 weeks (matching the live template), but break it into 4 to 6 concrete steps across those 2 weeks, not 2 steps that just restate "week 1" and "week 2." Close with one short `.plan-outcome` line naming everything that will be live by the end, so a reader can picture the finished result before they ever get on a call, not just the process to get there. | **6. "Can't keep putting this off."** Anchor timing to the BFCM/angle from Step 5, not to today's date, the PDF might sit unsent for a while. Also directly supports **5. "This will work for me"**: a reader who can picture exactly what they're getting trusts the pitch more than one who only sees a critique and a vague promise to fix it. |
 | Risk reversal | "See the plan before you spend anything" pattern, makes starting feel safe precisely so the urgency elsewhere doesn't read as pressure. | Supports #6 without adding pressure. |
 | Closing statement + sign off | One or two sentence big closing line, then the sender's real name/title from Step 1. **No photo unless you actually have one for that specific sender.** The template's sign off photo has no default person baked in for exactly this reason, don't improvise one, showing the wrong real person's face under someone else's name is worse than showing no photo at all. | Closes the funnel. |
 
@@ -387,6 +397,22 @@ David's, unless David is the one running the skill.
 Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
 well in a real reply, a funnel step that confused someone.
+
+- 2026-10-04, Berries (round 5): two fixes after the client reviewed the
+  PDF and the Step 8 email together. (1) The plan section was two items
+  that just restated "week 1" and "week 2," no actual deliverables, a
+  reader couldn't picture what they'd get from working with Skynosoft,
+  only that something would happen over two weeks. Changed the plan row
+  to require 4 to 6 steps that each name a real deliverable (what gets
+  built, in what order), plus a new `.plan-outcome` line summarizing
+  everything that will be live by the end, so the plan reads as an
+  actual roadmap instead of a timeline with no content. (2) The Step 8
+  email mixed first person singular and plural ("I've put together" next
+  to "we tried signing up," "we rebuilt"), inconsistent with both its own
+  single-sender signature and the Castore reference example, which is
+  consistently "I" throughout. Added an explicit rule to Section 2:
+  first person singular only, never "we," for the pitch email, matching
+  the one named sender it's actually signed by.
 
 - 2026-10-04, Berries (round 4): the funnel stopped one step short, it
   built and delivered the PDF and treated that as done, leaving the

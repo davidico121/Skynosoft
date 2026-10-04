@@ -159,6 +159,11 @@
   /* ---- Plan ---- */
   ol.plan { margin: 0; padding-left: 20px; }
   ol.plan li { font-size: 16px; line-height: 1.7; margin-bottom: 8px; }
+  /* Closes the plan with exactly what will be live by the end, in one
+     line, so a reader can picture the finished result, not just the
+     process to get there, see SKILL.md Section 3's plan row. */
+  .plan-outcome { background: var(--growth-green-bg); border-radius: 10px; padding: 14px 18px; margin: 16px 0 0; font-size: 15px; line-height: 1.6; }
+  .plan-outcome strong { color: var(--foreground); }
 
   /* ---- Risk + closing ---- */
   .risk-box { background: var(--surface-low); border-radius: 10px; padding: 20px 22px; margin: 24px 0; }
@@ -362,13 +367,20 @@
   </div>
 
   <h2 class="section">{{PLAN_HEADING}}</h2>
-  <!-- Default to 2 steps/weeks (strategy+build together, then test and
-       launch), matching the live site template's current default. Add
-       a third <li> only if the brand genuinely needs a longer build. -->
+  <!-- 4 to 6 steps, each naming a real deliverable, not a vague week
+       label ("Week 1: map X, Y, Z" tells them nothing they'd act on).
+       Total timeline still defaults to 2 weeks, matching the live site
+       template, just broken into real steps across it instead of two
+       restated week numbers. See SKILL.md Section 3's plan row. -->
   <ol class="plan">
     <li>{{PLAN_STEP_1}}</li>
     <li>{{PLAN_STEP_2}}</li>
+    <li>{{PLAN_STEP_3}}</li>
+    <li>{{PLAN_STEP_4}}</li>
   </ol>
+  <!-- One line naming everything that will be live by the end, so the
+       reader pictures the finished result, not just the process. -->
+  <p class="plan-outcome">{{PLAN_OUTCOME}}</p>
 
   <div class="risk-box">
     <h3 class="sub">{{RISK_HEADING}}</h3>
