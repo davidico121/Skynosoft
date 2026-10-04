@@ -154,8 +154,15 @@ message up front, skip straight to confirming gaps and compiling, but
 still walk through anything ambiguous step by step rather than guessing.
 
 ### Step 1 of 8: The basics
-Say: "Step 1 of 8: the basics. What's the brand, their site URL, and
-who's sending this pitch (your name and title, for the sign off)?"
+Say: "Step 1 of 8: the basics. What's the brand, their site URL, who's
+sending this pitch (your name and title, for the sign off), and is
+there already contact with this lead, or is this a fresh cold pitch? If
+there's prior contact, how did it happen (replied to an 'is your store
+still active?' type message, a DM, a comment, a job post reply,
+something else) and what did they actually say?" This decides the
+email's opening in Step 8 (Section 5), a pitch that continues an
+existing reply reads very differently from one introducing itself cold,
+don't guess which one this is.
 
 ### Step 2 of 8: Site / CRO audit
 Say: "Step 2 of 8: site audit. Go spend a few minutes on their actual
@@ -329,9 +336,11 @@ This is Step 8, the funnel's last step, not an optional add-on offered
 after the fact. Write it immediately after the PDF is sent, same
 information already gathered in Steps 1 through 6, no new questions.
 Follow `references/pitch-email-examples.md` for structure and voice
-(the Castore example is the anchor, study its paragraph rhythm and
-specificity, not just the beats below). Always hand it back as a draft
-to read, edit, and send themselves, never send anything automatically.
+(the Castore example is the anchor for a fresh cold pitch, the
+continuation example is the anchor when there's prior contact, study
+their paragraph rhythm and specificity, not just the beats below).
+Always hand it back as a draft to read, edit, and send themselves, never
+send anything automatically.
 
 Give both pieces, clearly labeled, in one plain text block:
 ```
@@ -340,14 +349,41 @@ Subject: <subject line>
 <email body>
 ```
 
+**Two openers, picked from what Step 1 said about prior contact, never
+guessed:**
+
+- **Fresh cold pitch (no prior contact):** use the Required shape below
+  as written, points 1 and 2, a subject line that states the finding
+  and a specific observation opener, no greeting.
+- **Continuing an existing reply** (they already answered something,
+  most often "is your store still active?" with a yes): don't open cold,
+  that reads as if the earlier message never happened. Acknowledge what
+  they actually said first, in one short line that reacts to their real
+  reply (not a generic "Thanks for getting back to me"), then bridge
+  straight into the observation ("Glad it's still up — I actually took
+  a look while I had the tab open, and ..."). If this is a reply in the
+  same email thread, it needs no new subject line, say so explicitly
+  rather than inventing one (`Subject: (reply in the existing thread)`).
+  If the prior contact was on a different channel (a DM, a comment, a
+  job post reply), the subject can reference that specifically ("Following
+  up from Instagram"), never a generic hook. Skip point 1's finding-as-
+  subject-line pattern entirely for a same-thread reply, there's no new
+  subject to write. Everything from point 3 onward (what's working, the
+  problem, the fix, the estimate, the attachment line, the CTA, the PS)
+  stays the same regardless of which opener is used, only the opening
+  beats change.
+
 Required shape:
-1. **Subject line states the finding, not a generic hook.** "Your
-   welcome email buries the discount that drives conversions," not
-   "Quick question" or "Idea for {{BRAND}}." If the audit surfaced one
-   sharp, specific problem, that problem is the subject line.
+1. **Subject line states the finding, not a generic hook** (fresh cold
+   pitch only, see above). "Your welcome email buries the discount that
+   drives conversions," not "Quick question" or "Idea for {{BRAND}}." If
+   the audit surfaced one sharp, specific problem, that problem is the
+   subject line.
 2. A specific, real opening reaction to something on their actual site,
    not "Hi [Name]," and not generic flattery, a detail only someone who
-   actually looked would notice.
+   actually looked would notice. (For a continuing reply, this is
+   replaced by the acknowledgment-then-bridge opener above, not stacked
+   on top of it.)
 3. What's genuinely working (if true, from the audit notes), earns the
    right to critique before any critique happens.
 4. The specific problem, in plain mechanical terms: what's happening,
@@ -396,6 +432,23 @@ David's, unless David is the one running the skill.
 
 Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
+well in a real reply, a funnel step that confused someone.
+
+- 2026-10-04: the Step 8 email always assumed a fresh cold open (a
+  hook subject line, a stranger's first observation), but David's real
+  scouting workflow often isn't cold by the time the pitch goes out: he
+  finds a lead, sends a quick "is your store still active?", gets a
+  yes, and the pitch is the next message in that same exchange. Writing
+  it as a fresh cold open in that case ignores the reply that already
+  happened and reads like two different people wrote the two messages.
+  Added a Step 1 question (is there prior contact, and how) and split
+  Section 5 into two openers: fresh cold pitch keeps the existing
+  finding-as-subject-line pattern, a continuing reply acknowledges what
+  they actually said first, then bridges into the same observation/
+  problem/fix/CTA shape everything else already used, with no new
+  subject line needed for a same-thread reply. Added a second worked
+  example (`pitch-email-examples.md`) so the continuation shape has a
+  concrete anchor, not just a rule.
 well in a real reply, a funnel step that confused someone.
 
 - 2026-10-04, Berries (round 6): two more fixes. (1) The plan's welcome
