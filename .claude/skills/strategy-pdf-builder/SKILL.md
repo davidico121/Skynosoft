@@ -1,6 +1,6 @@
 ---
 name: strategy-pdf-builder
-description: Run a team member through the full outreach funnel, step by step, exactly as the password-gated web tool would have, and turn it into a Skynosoft-branded strategy PDF they can send cold. No live web page, no deploy, no API key. Use when a team member wants to build a client pitch themselves, or asks "help me pitch this brand" / "build a strategy PDF for X" / "walk me through an audit".
+description: Run a team member through the full outreach funnel, step by step, exactly as the password-gated web tool would have, and turn it into a Skynosoft-branded strategy PDF plus the cold email to send alongside it. No live web page, no deploy, no API key. Use when a team member wants to build a client pitch themselves, or asks "help me pitch this brand" / "build a strategy PDF for X" / "walk me through an audit".
 ---
 
 # Strategy PDF Builder
@@ -11,9 +11,13 @@ alternative, and it has to actually replace the tool's job, not just
 produce the same file a different way: **you drive the conversation.** The
 team member doesn't bring you a finished brief, you take them through it,
 one step at a time, the way the form would have: a question or two, their
-answer, confirmation, next step. Announce where they are ("Step 2 of 7:
+answer, confirmation, next step. Announce where they are ("Step 2 of 8:
 Email marketing audit") at the start of each step so it reads as a funnel
-with an end in sight, not an open ended chat.
+with an end in sight, not an open ended chat. The funnel has 8 steps, not
+7: building the PDF is not the last step, the cold email to send
+alongside it is (Step 8, Section 5). Don't stop at the PDF and wait to be
+asked for the email, that's a required, automatic step of the funnel
+itself, same as any other.
 
 This skill carries the real substance of two other skills, not just a
 pointer to them, so it works standalone even in a session where they
@@ -139,12 +143,12 @@ for their answer before moving on. If they dump everything in one
 message up front, skip straight to confirming gaps and compiling, but
 still walk through anything ambiguous step by step rather than guessing.
 
-### Step 1 of 7: The basics
-Say: "Step 1 of 7: the basics. What's the brand, their site URL, and
+### Step 1 of 8: The basics
+Say: "Step 1 of 8: the basics. What's the brand, their site URL, and
 who's sending this pitch (your name and title, for the sign off)?"
 
-### Step 2 of 7: Site / CRO audit
-Say: "Step 2 of 7: site audit. Go spend a few minutes on their actual
+### Step 2 of 8: Site / CRO audit
+Say: "Step 2 of 8: site audit. Go spend a few minutes on their actual
 site and tell me what you find." Then prompt with the Section 1
 checklist: homepage/popup, out of stock handling, cart and checkout
 steps, mobile, reviews, anything else that jumped out. Push back gently
@@ -153,8 +157,8 @@ on anything that sounds like a guess rather than something they saw
 assumption?"), per the verification discipline above. Offer to also
 check with Playwright if they share the URL and want a second pass.
 
-### Step 3 of 7: Email marketing audit
-Say: "Step 3 of 7: email audit. Actually sign up for their list (popup
+### Step 3 of 8: Email marketing audit
+Say: "Step 3 of 8: email audit. Actually sign up for their list (popup
 or footer form) and report back." Prompt: did a popup appear and what
 did it offer, did a welcome email arrive and how long did it take, what
 does it actually say and show (screenshot if possible, covered in Step
@@ -163,8 +167,8 @@ else (tone, design quality, broken links, no email at all). Remind them
 per Section 1 that this one genuinely needs their own inbox, you can't
 verify it for them.
 
-### Step 4 of 7: Assets
-Say: "Step 4 of 7: anything to show. Do you have mockups, a redesign, a
+### Step 4 of 8: Assets
+Say: "Step 4 of 8: anything to show. Do you have mockups, a redesign, a
 screenshot of their current email/popup, a reference from another brand,
 or anything else visual?" This is an open-ended gallery, not a fixed
 before/after pair, they might send one image or several, for several
@@ -187,24 +191,36 @@ content) is the pattern. If you don't have image tooling available in
 this session, say so and send the uncropped version rather than silently
 skipping the crop.
 
-### Step 5 of 7: Strategic angle
-Say: "Step 5 of 7: angle. Is this mainly a CRO pitch, an email marketing
+### Step 5 of 8: Strategic angle
+Say: "Step 5 of 8: angle. Is this mainly a CRO pitch, an email marketing
 pitch, or both? And what's the urgency, BFCM, Q1 reset, rising ad costs,
 a seasonal moment, or none?" Per the live template's standing rule,
 default to BFCM if nothing else applies and it's plausible timing,
 nearly every ecommerce brand cares about it, don't make them think of it
 themselves if it's the obvious fit.
 
-### Step 6 of 7: Anything else
-Say: "Step 6 of 7: anything you want emphasized or specifically avoided
+### Step 6 of 8: Anything else
+Say: "Step 6 of 8: anything you want emphasized or specifically avoided
 before I build this?" Last chance to add something that doesn't fit the
 earlier steps.
 
-### Step 7 of 7: Confirm and build
-Say: "Step 7 of 7: building the page." Briefly recap what you have (one
+### Step 7 of 8: Confirm and build
+Say: "Step 7 of 8: building the page." Briefly recap what you have (one
 line per step) so they can catch anything wrong before you write 800
 words around it, then go. Don't ask permission beyond that recap if
-every step was answered, just confirm and build.
+every step was answered, just confirm and build. Follow with Step 8
+immediately after sending the PDF, same turn, don't wait to be asked.
+
+### Step 8 of 8: The pitch email
+Say: "Step 8 of 8: the email to send alongside it." Draft the subject
+line and full email body right away, no new questions needed, everything
+required already came out of Steps 1 through 6. Follow Section 5 for the
+exact structure, voice, and required shape. Hand it back as a draft in
+a plain text block (not a second PDF, not an artifact) so it's trivial
+to copy straight into an email client, edit, and send, and say plainly
+that it still needs their own read before going out, never send anything
+on their behalf. This is the last step. Once it's delivered, the funnel
+is complete.
 
 ## Section 3: Page structure (absorbed from `strategy-pitch-builder`)
 
@@ -299,23 +315,69 @@ live pages):
 
 ## Section 5: The pitch email
 
-Once the PDF is approved, offer to draft the cold email too, same
-information, no new interview needed. Follow
-`references/pitch-email-examples.md` for structure and voice. Always
-hand it back as a draft to read, edit, and send themselves, never send
-anything automatically.
+This is Step 8, the funnel's last step, not an optional add-on offered
+after the fact. Write it immediately after the PDF is sent, same
+information already gathered in Steps 1 through 6, no new questions.
+Follow `references/pitch-email-examples.md` for structure and voice
+(the Castore example is the anchor, study its paragraph rhythm and
+specificity, not just the beats below). Always hand it back as a draft
+to read, edit, and send themselves, never send anything automatically.
+
+Give both pieces, clearly labeled, in one plain text block:
+```
+Subject: <subject line>
+
+<email body>
+```
 
 Required shape:
-1. A specific, real hook from the actual audit, not a generic opener.
-2. What's genuinely working (if true), earns the right to critique.
-3. The specific problem, in plain mechanical terms: what's happening,
-   why it costs money.
-4. The fix, framed as a reasonable next step, not a hard sell.
-5. A credible, honestly caveated result estimate ("typically unlocks X"
-   or "based on brands I've worked with"), never a guaranteed number.
-6. A low pressure call to action: a specific Calendly link, phrased as a
-   quick call.
-7. A PS that defuses sales anxiety.
+1. **Subject line states the finding, not a generic hook.** "Your
+   welcome email buries the discount that drives conversions," not
+   "Quick question" or "Idea for {{BRAND}}." If the audit surfaced one
+   sharp, specific problem, that problem is the subject line.
+2. A specific, real opening reaction to something on their actual site,
+   not "Hi [Name]," and not generic flattery, a detail only someone who
+   actually looked would notice.
+3. What's genuinely working (if true, from the audit notes), earns the
+   right to critique before any critique happens.
+4. The specific problem, in plain mechanical terms: what's happening,
+   why it costs money, tied to a real deadline from Step 5 (BFCM, Q1
+   reset, rising ad costs) if one applies, never invented urgency.
+5. The fix, framed as a reasonable next step, not a hard sell.
+6. A credible, honestly caveated result estimate ("typically unlocks X"
+   or "based on brands I've worked with"), sourced and ranged, never a
+   single suspiciously precise or guaranteed number.
+7. **A line that names the attached PDF specifically** ("I've put the
+   full breakdown together in the attached PDF" or similar, adapted to
+   what's actually in it), so the attachment doesn't sit there
+   unexplained, the reader should know to open it before the ask that
+   follows.
+8. A low pressure call to action: the real `{{CALENDLY_URL}}` from the
+   PDF, phrased as a quick call, plus permission to just reply instead
+   ("or just reply here if that's easier") so there's always a next
+   action available even for someone who won't click a scheduling link
+   cold.
+9. A PS that defuses sales anxiety (no pressure, no credit card, bring
+   questions not a commitment).
+
+Conversion psychology already baked into that shape, apply deliberately,
+don't skip reasoning about each one:
+- **Specificity over flattery** (point 2): a detail a template couldn't
+  have guessed is what earns "this was written for us," not compliments.
+- **Reciprocity**: the PDF itself is unpaid, already-done work handed
+  over before any ask, that's the whole premise of the attachment line
+  (point 7), lean on it rather than re-explaining the value prop in the
+  email body.
+- **Loss aversion over hype**: frame the cost of the gap (point 4) in
+  terms of what's already being spent or lost, not just what could be
+  gained, losses are felt harder than equivalent gains.
+- **Single, low-commitment CTA** (point 8): one ask, not two competing
+  ones ("book a call" and "reply" are the same ask with two doors, not
+  a call plus a separate "let's work together").
+- **Social proof, only if it's in the PDF already**: don't add a case
+  study claim to the email that isn't backed by what's in the attached
+  PDF, the email should make them want to open the attachment, not
+  duplicate it.
 
 Sign off with the team member's real name and title from Step 1, not
 David's, unless David is the one running the skill.
@@ -325,6 +387,19 @@ David's, unless David is the one running the skill.
 Add newest first: a rule that would have saved time, a template section
 that needed extending, a PDF pagination fix, a copy pattern that worked
 well in a real reply, a funnel step that confused someone.
+
+- 2026-10-04, Berries (round 4): the funnel stopped one step short, it
+  built and delivered the PDF and treated that as done, leaving the
+  cold email as something to separately ask for afterward. Made it
+  Step 8 of 8 instead of an "offer to draft" aside in Section 5, so it
+  always gets produced in the same turn right after the PDF, draft
+  subject line and body together, plain text, ready to paste into an
+  email client. Also tightened Section 5's required shape with an
+  explicit subject-line rule (state the finding, not a generic hook)
+  and a line that names the attached PDF specifically, since this
+  skill's deliverable is an attachment, not the hosted strategy page
+  `pitch-email-examples.md`'s one example (Castore) was originally
+  written for, the email needs to point at what's actually attached.
 
 - 2026-10-03, Berries (round 3): checked actual mobile legibility, not
   just eyeballed it, by rendering the PDF's real pages with `pymupdf` at
