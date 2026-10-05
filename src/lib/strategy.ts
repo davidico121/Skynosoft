@@ -1183,4 +1183,210 @@ export const strategyPitches: StrategyPitch[] = [
       socials: false,
     },
   },
+  {
+    slug: "ecyo",
+    brand: "ecyo",
+    hero: {
+      eyebrow: "A note for ecyo",
+      headline: [
+        "Lisa already trusts ecyo",
+        "more than the brands",
+        "at her own supermarket",
+      ],
+      subheading:
+        "She said so herself, in a review on your own site. But the product page she said it on doesn't show a price anywhere near the button, and the only invite to join your list takes its time showing up. **Here's the system that fixes both**, live before BFCM.",
+      cta: "Book a strategy call",
+      proof: {
+        source: "From a verified review on your hand soap refill page",
+        quote: "These work better than the major supermarket brands!",
+        name: "Lisa L, verified customer",
+      },
+      visuals: {
+        url: "ecyo.com.au",
+        main: {
+          src: "/pitch-assets/ecyo/site-home.jpg",
+          alt: "The ecyo homepage hero, showing laundry capsules and dishwasher tablets on a kitchen counter under the headline Try the eco cleaning products that work",
+          width: 1200,
+          height: 750,
+        },
+        inset: {
+          src: "/pitch-assets/ecyo/site-noprice.jpg",
+          alt: "The Eco Dishwasher Tablets, 30 pack product page, showing the title and an Add to cart button with no price shown anywhere near it",
+          width: 620,
+          height: 260,
+          caption: "No price shown here",
+        },
+      },
+    },
+    gap: {
+      label: "What happens when someone like Lisa tries to buy today",
+      steps: [
+        {
+          day: "Right now",
+          title: "They land ready to buy",
+          detail: "Someone pulls up the Eco Dishwasher Tablets, 30 pack, already convinced by a review like Lisa's.",
+          status: "Ready to buy",
+        },
+        {
+          day: "Same visit",
+          title: "The page makes them work for it",
+          detail: "No price anywhere near the Add to cart button, and if they do buy, the purchase option defaults to one time, not subscribe.",
+          status: "Price hidden, subscribe buried",
+          leak: true,
+        },
+        {
+          day: "If they hesitate instead",
+          title: "A slow flyout, not a popup",
+          detail: "By the time it appears, it's a flat 10% off asking for email and phone on the same step. We tested it ourselves. Nothing arrived.",
+          status: "Generic offer, nothing delivered",
+          leak: true,
+        },
+      ],
+    },
+    problemSolution: {
+      heading: "ecyo already earns trust like Lisa's. The site doesn't carry it through to checkout.",
+      problem: {
+        title: "Right now",
+        text: "A customer finds ecyo, likes it enough to say it beats the brands at her supermarket, and then runs into friction the brand itself didn't put there on purpose. A product page where the price is nowhere near the button. A purchase option defaulted to one time instead of subscribe. A signup offer that takes its time showing up and asks for a phone number before it's earned one. **None of that is a messaging problem, it's an experience ecyo hasn't finished wiring up.** A generic 10% off flyout gets some signups, but it won't turn them into subscribers, and it won't bring back the shopper who almost bought a 30 pack and didn't because the price wasn't where they expected it. The comparison to supermarket brands your own customers make for you never makes it into an email either, because there's no flow built to carry it yet.",
+      },
+      solution: {
+        title: "With the system in place",
+        points: [
+          "Someone browsing a product page sees **the price where they expect it**, not buried in a selector",
+          "The default purchase option is **subscribe, not one time**, so first orders start compounding instead of ending",
+          "A real popup replaces the flyout, fast enough to **catch someone before they leave**, not after",
+          "A welcome flow that actually arrives, built to **lean on what customers already say**: ecyo beats the brands at the supermarket",
+        ],
+      },
+      reviews: {
+        heading: "What your customers already say",
+        items: [
+          {
+            quote: "I absolutely love these products! My experience so far has been great. The cleaners are easy to prepare, they do the job that's expected of them, and they're really eco friendly.",
+            name: "Allison V., verified buyer",
+          },
+          {
+            quote: "Love the light foamy spray, it's great for the children, and heaps less waste than normal squirt soaps. Love using natural products on little hands.",
+            name: "Janelle R., verified buyer",
+          },
+        ],
+      },
+    },
+    benefits: {
+      heading: "Four pieces that turn Lisa's review into the norm, not the exception",
+      products: [
+        {
+          name: "Dishwasher tablets",
+          image: {
+            src: "/pitch-assets/ecyo/product-dishwasher.jpg",
+            alt: "ecyo Eco Dishwasher Tablets, 30 pack box",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Laundry capsules",
+          image: {
+            src: "/pitch-assets/ecyo/product-laundry.jpg",
+            alt: "ecyo Eco Laundry Capsules Value Bundle box with capsules spilling out, surrounded by eucalyptus leaves",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Hand soap refills",
+          image: {
+            src: "/pitch-assets/ecyo/product-handsoap.jpg",
+            alt: "ecyo hand soap refill tube beside a recycled plastic foam pump bottle, with mandarin segments and eucalyptus leaves",
+            width: 900,
+            height: 900,
+          },
+        },
+      ],
+      items: [
+        {
+          icon: "popup",
+          title: "A real popup, not a flyout",
+          detail:
+            "Fast and worth acting on, offering **something worth handing over an email for**, not a flat 10% that shows up after most visitors have already left.",
+        },
+        {
+          icon: "subscription",
+          title: "Subscribe as the default",
+          detail:
+            "The option is already there. Making it the one pre-selected choice **turns a one time dishwasher tablet order into a running subscription**.",
+        },
+        {
+          icon: "palette",
+          title: "A checkout and cart that still look like ecyo",
+          detail:
+            "Right now checkout drops the branding entirely. **Carrying it through, with real trust signals in the cart drawer**, keeps the experience you built intact to the last click.",
+        },
+        {
+          icon: "welcome",
+          title: "A welcome flow that actually arrives",
+          detail:
+            "We signed up through the flyout ourselves. Nothing came. **A welcome sequence that reliably lands, built on reviews like Lisa's**, does the selling the product page already deserves.",
+        },
+      ],
+    },
+    how: {
+      heading: "Two steps, two weeks, live before BFCM",
+      steps: [
+        {
+          week: "Week 1",
+          title: "Strategy & Build",
+          description:
+            "Confirm the subscribe mechanics and current checkout setup with ecyo, then design and build the popup, welcome flow, and checkout and cart experience in Klaviyo and Shopify.",
+        },
+        {
+          week: "Week 2",
+          title: "Test & Launch",
+          description:
+            "Flows and the new popup go live ahead of BFCM, with the subscribe default switched on and tested end to end before peak traffic hits.",
+        },
+      ],
+      impact: [
+        { value: "Hidden → visible", label: "Price positioning on every product page" },
+        { value: "One time → subscribe", label: "Default purchase option, switched before launch" },
+        { value: "BFCM", label: "Target window to have it all live before peak traffic" },
+      ],
+    },
+    proofHeading: "3.7K leads from one real popup, $32.8K from email: the same fix",
+    caseStudySlugs: ["cannonbalm", "bwll"],
+    reviewFromCaseStudy: "cannonbalm",
+    tagline:
+      "Do this and Lisa's review stops being a nice comment and starts being the reason people come back. The brands at her supermarket don't stand a chance against one she already prefers and actually hears from.",
+    faqHeading: "Before you book",
+    faqs: [
+      {
+        q: "What do you need from us to start?",
+        a: "**Access to your Shopify and Klaviyo accounts**, plus confirmation on how your current purchase options and checkout are set up, so we can switch the default safely.",
+      },
+      {
+        q: "How do you decide when everything goes live?",
+        a: "**We work backward from BFCM.** Every piece is scheduled to be fully tested and live with time to spare before peak traffic hits.",
+      },
+      {
+        q: "What if someone has already signed up through the current flyout?",
+        a: "**They're not re-added or duplicated.** The new popup and flows slot into your existing list without disturbing anyone already on it.",
+      },
+      {
+        q: "Is switching the default to subscribe enough on its own?",
+        a: "No single change does it alone. **It's the popup, the default, the welcome flow, and the checkout experience working together** that moves the number, not any one piece in isolation.",
+      },
+      {
+        q: "Can it be live before BFCM?",
+        a: "The plan runs two weeks. Every week this sits is a week closer to BFCM traffic landing on a site where the flyout is still slow and the default is still one time. Not after BFCM. **Now.**",
+      },
+      {
+        q: "What does it cost?",
+        a: "**We cover scope and pricing on the call**, once we know which pieces you want built.",
+      },
+    ],
+    risk: {
+      heading: "See the plan before you spend anything",
+      text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+  },
 ];
