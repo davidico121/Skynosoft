@@ -180,6 +180,16 @@ export default function DavidPortfolioPage() {
                 <CaseStudyCard key={cs.slug} caseStudy={cs} baseUrl="https://www.skynosoft.net" />
               ))}
             </div>
+            <div className="mt-10 flex justify-center">
+              <a
+                href="https://www.skynosoft.net/case-studies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={BUTTON_SECONDARY}
+              >
+                View more case studies
+              </a>
+            </div>
           </Reveal>
           {testimonial && (
             <Reveal delay={150} className="mt-12 max-w-[680px] rounded-xl bg-[#f7f6f3] p-8">
