@@ -18,7 +18,7 @@ export function CaseStudyCard({
   return (
     <Link
       href={`${baseUrl}/case-studies/${caseStudy.slug}`}
-      className="group flex flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
+      className="group flex h-full flex-col rounded-xl border border-border-hairline bg-card p-8 transition-colors hover:border-border-hairline-strong"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-wrap gap-2">
@@ -55,7 +55,7 @@ export function CaseStudyCard({
       </p>
 
       {caseStudy.metrics.length > 0 && (
-        <div className="mt-8 grid grid-cols-1 gap-6 border-t border-border-hairline pt-6 sm:grid-cols-3 sm:gap-4">
+        <div className="mt-auto grid grid-cols-3 gap-4 border-t border-border-hairline pt-8">
           {caseStudy.metrics.slice(0, 3).map((m) => (
             <MetricStat key={m.label} value={m.value} label={m.label} size="sm" />
           ))}
