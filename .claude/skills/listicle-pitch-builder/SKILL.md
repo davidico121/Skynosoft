@@ -221,6 +221,21 @@ in Vercel's project Domains settings. This is one-time setup, not per-brand.
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it
 produced.`
 
+- 2026-10-08, ecyo: first real build. Chose a listicle/news angle ("why
+  families are switching") over a personal-review angle ("I tried it")
+  because nobody on the team had actually used the product over time, a
+  first-person review would have implied experience that wasn't real.
+  Reused real product photos and reviews already captured for the
+  strategy.skynosoft.net/ecyo page rather than re-scraping the live site,
+  since nothing about the product or testimonials had changed. Sampled the
+  accent color directly from a pixel in the brand's own hero screenshot
+  (`sharp`, raw buffer, read the RGB at the dark CTA box) rather than
+  eyeballing it from a screenshot, landed on `#293237`, confirmed against
+  the live render to match their actual dark navy packaging and nav. Rule:
+  when real assets already exist from prior work on the same brand (an
+  audit, a strategy page), reuse them instead of re-researching from
+  scratch, and sample accent colors programmatically from a real screenshot
+  rather than guessing a hex by eye.
 - 2026-10-08, system built (no brand yet): researched what makes a listicle
   or advertorial convert before building anything. Found the
   `ecommerce-blog-writer` skill already has a full, compliance-checked
