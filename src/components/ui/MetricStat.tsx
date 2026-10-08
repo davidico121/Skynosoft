@@ -7,7 +7,7 @@ const toneClass: Record<Tone, string> = {
 };
 
 const sizeClass: Record<Size, string> = {
-  sm: "text-2xl md:text-3xl font-bold tracking-tight",
+  sm: "text-xl md:text-2xl font-bold tracking-tight whitespace-nowrap",
   lg: "text-4xl font-bold tracking-tight",
 };
 
