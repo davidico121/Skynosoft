@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { listiclePitches } from "@/lib/listicle";
+import { CALENDLY_URL } from "@/lib/content";
+import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
 
 export const dynamicParams = false;
 
@@ -220,11 +222,42 @@ export default async function ListiclePitchPage({
           </Link>
         </div>
 
-        <p className="mt-16 border-t border-[#eee] py-6 text-center font-sans text-xs text-[#999]">
-          Concept page built by Skynosoft as a sample of real, deployable advertorial work.
-          Not affiliated with or published by {pitch.brand}.
-        </p>
       </Wrap>
+
+      <div className="mt-20 bg-[#0a0a0b] py-14 font-sans text-white">
+        <Wrap className="flex flex-col items-center text-center">
+          <Image
+            src={founderAvatar}
+            alt="David Owoeye"
+            width={88}
+            height={88}
+            className="h-22 w-22 rounded-full object-cover"
+          />
+          <p className="mt-5 text-sm uppercase tracking-wide text-white/50">Like what you see?</p>
+          <h2 className="mt-2 max-w-[460px] text-2xl font-bold text-balance">
+            This is exactly what I&apos;d build for {pitch.brand}.
+          </h2>
+          <p className="mt-3 max-w-[460px] text-base text-white/70">
+            I built this concept page myself, real photos, real reviews, real copy, to show what
+            {` ${pitch.brand}`}&apos;s own advertorial could look like. If it's working on you, it'll
+            work on your customers too.
+          </p>
+          <Link
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-base font-semibold text-[#0a0a0b] transition-opacity hover:opacity-90"
+          >
+            Book a strategy call
+          </Link>
+          <p className="mt-5 text-sm font-semibold text-white">David Owoeye</p>
+          <p className="text-sm text-white/50">Ecommerce CRO &amp; Email Retention Specialist, Skynosoft</p>
+          <p className="mt-6 max-w-[460px] text-xs text-white/35">
+            Concept page built by Skynosoft as a sample of real, deployable work. Not affiliated
+            with or published by {pitch.brand}.
+          </p>
+        </Wrap>
+      </div>
     </main>
   );
 }

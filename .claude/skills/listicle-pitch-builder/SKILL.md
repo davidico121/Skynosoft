@@ -16,9 +16,13 @@ on the prospect's behalf. It exists to make a hiring manager or founder think
 2. **Never impersonate the brand as if this is their actual live page.** The
    page visually matches their brand (their product photos, their voice,
    their accent color) because that's the whole point, it's a concept of
-   exactly what we'd build for them, but the footer disclaimer
-   ("Concept page built by Skynosoft... not affiliated with or published by
-   [brand]") is mandatory on every page, never remove it.
+   exactly what we'd build for them, but the sign-off block (see "The
+   sign-off" below) is mandatory on every page and never removed. It's the
+   one element that deliberately breaks from the brand's visual language, a
+   distinct dark block with David's photo, a "Like what you see?" framing
+   naming the brand directly, a Calendly CTA, and the disclosure line. It
+   functions as both the honest disclosure and the conversion moment, the
+   watermark that makes clear who built this and how to hire them.
 3. **Real testimonials only**, pulled from the prospect's own reviews,
    quoted verbatim (typos and all). Never write a testimonial that reads
    real but isn't sourced from their actual site.
@@ -109,7 +113,30 @@ backbone:
 9. Real testimonials, named, with role/context, quoted verbatim.
 10. Closing CTA: first-person framing that mirrors the reader's own "yes"
     ("Yes, I'm ready to..."), not a generic "Shop now."
-11. The mandatory footer disclaimer (hard rule 2).
+11. The mandatory sign-off block (hard rule 2, see "The sign-off" below).
+
+### The sign-off
+
+Fixed, not per-brand data, rendered after everything else: a distinct dark
+block, visually unlike the rest of the page on purpose, so it reads as a
+clear break, not a continuation of the brand's own content.
+
+- David's photo (`public/brand/david-owoeye-avatar.jpg`).
+- "Like what you see?" eyebrow, then a headline naming the brand directly:
+  "This is exactly what I'd build for {brand}."
+- A short line making clear this is a real, personally built concept, not
+  AI slop: "I built this concept page myself, real photos, real reviews,
+  real copy, to show what {brand}'s own advertorial could look like."
+- "Book a strategy call" button, linked to `CALENDLY_URL` from
+  `src/lib/content.ts`.
+- Name and title underneath.
+- The disclosure line, folded in small at the bottom rather than as a
+  standalone legal notice: "Concept page built by Skynosoft as a sample of
+  real, deployable work. Not affiliated with or published by {brand}."
+
+This block is identical in structure across every pitch (only the brand
+name is templated in), so it never needs its own content entry, it's
+already wired into the page template.
 
 Copy rules: no em dashes anywhere (reads as an AI tell, matches the
 `ecommerce-blog-writer` skill's rule), plain style, no exclamation marks or
@@ -148,10 +175,14 @@ Screenshot at 1440 and 390 wide using the headless Chromium pattern from
 `strategy-pitch-builder`'s SKILL.md (never the `mcp__playwright__*` tool,
 same incident history applies). Check:
 
-- The footer disclaimer renders and isn't accidentally dropped.
-- Every CTA link actually points to the prospect's real product URL.
+- The sign-off block renders (photo, brand name in the headline, Calendly
+  link, disclosure line) and isn't accidentally dropped.
+- Every CTA link above the sign-off actually points to the prospect's real
+  product URL, and the sign-off's own CTA points to `CALENDLY_URL`.
 - Testimonials render with the real name/role, no placeholder text left in.
-- Accent color reads as the brand's own, not Skynosoft blue.
+- Accent color reads as the brand's own, not Skynosoft blue, except inside
+  the sign-off block itself, which is deliberately Skynosoft's own dark
+  treatment.
 - No console errors, no broken images, mobile doesn't overflow.
 
 ## Step 8: Ship
@@ -210,9 +241,15 @@ produced.`
 - 2026-10-08, system built: decided the template must NOT reuse Skynosoft's
   own page-kit components or brand identity (Sora font, primary blue),
   since the page is meant to read as the PROSPECT's own content, not
-  Skynosoft's. Added a mandatory footer disclaimer instead
-  ("Concept page built by Skynosoft... not affiliated with or published by
-  [brand]") so the page still functions honestly as a pitch artifact
-  without being mistakable for the brand's actual live page. Rule: a pitch
-  artifact that borrows a real brand's visual identity needs an explicit,
-  permanent disclaimer, not just internal knowledge that it's a concept.
+  Skynosoft's. First pass added a small plain-text disclaimer line at the
+  bottom; David asked for it to become a proper sign-off instead, his
+  photo, a "Like what you see?" headline naming the brand, a Calendly CTA,
+  his name and title, with the disclosure line folded in underneath rather
+  than standing alone. Rendered as a visually distinct dark block, which
+  does double duty: it's the honest disclosure (a pitch artifact that
+  borrows a real brand's visual identity needs one), and it's the
+  watermark and conversion moment in one, the single element that stays
+  obviously Skynosoft's on an otherwise fully brand-matched page. Rule:
+  disclosure and conversion don't have to be separate elements, folding
+  them together is both more honest-feeling (it's not hiding at the
+  bottom in fine print) and more useful to David than a bare legal line.
