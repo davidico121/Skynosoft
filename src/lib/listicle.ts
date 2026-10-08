@@ -69,4 +69,120 @@ export type ListiclePitch = {
   };
 };
 
-export const listiclePitches: ListiclePitch[] = [];
+export const listiclePitches: ListiclePitch[] = [
+  {
+    slug: "ecyo",
+    brand: "ecyo",
+    productUrl: "https://ecyo.com.au/products/eco-dishwasher-tablets-30-pack",
+    accentColor: "#293237",
+    meta: {
+      title: "Why Australian families are switching to ecyo",
+      description: "A look at why Supermarket Swap customers keep switching from supermarket cleaners to ecyo's plastic free, plant based formulas.",
+    },
+    hook: {
+      headline: "Why Australian families are quietly ditching supermarket cleaners for this one brand",
+      byline: "by The Skynosoft Team",
+      hero: {
+        src: "/pitch-assets/listicle-ecyo/hero.jpg",
+        alt: "The ecyo homepage hero, showing laundry capsules and dishwasher tablets on a kitchen counter",
+        width: 1200,
+        height: 750,
+      },
+    },
+    teaserList: [
+      "Activated charcoal and enzyme powered dishwasher tablets that naturally target tough stains, dishes and conscience both clean.",
+      "Zero palm oil, zero phosphates, and the foaming hand soap refills are grey water and septic safe.",
+      "A concentrated formula means less water shipped per wash, which means a lighter footprint on the way to your door.",
+      "Plastic free packaging, right down to the cardboard tube the hand soap refills ship in.",
+      "Started in 2020 by three Aussie sisters in Wagga, Orange and Sydney, not a venture backed import.",
+    ],
+    ctaLabel: "See why families are switching",
+    sections: [
+      {
+        number: 1,
+        title: "The switch that keeps surprising supermarket loyalists",
+        body: [
+          "A recurring pattern in ecyo's own reviews: someone gets recommended the dishwasher tablets through a program like Supermarket Swap, assumes an eco brand can't match the supermarket staple they've used for years, then finds out it actually can.",
+          "The tablets use activated charcoal and enzymes to target tough stains, plus a rinse aid action and limescale protection built in, the same jobs people expect from a mainstream tablet, just without the formula most supermarket brands still run on.",
+        ],
+        image: {
+          src: "/pitch-assets/listicle-ecyo/product-dishwasher.jpg",
+          alt: "ecyo Eco Dishwasher Tablets, 30 pack box",
+          width: 900,
+          height: 900,
+        },
+      },
+      {
+        number: 2,
+        title: "Everything your current cleaner doesn't tell you it's missing",
+        body: [
+          "No palm oil. No phosphates. The hand soap refills are grey water and septic safe, and the formula is non toxic and plant based rather than built around whatever's cheapest to manufacture at scale.",
+          "None of that shows up on a supermarket shelf label the way it does when a brand is actually built around it from the start.",
+        ],
+        image: {
+          src: "/pitch-assets/listicle-ecyo/product-handsoap.jpg",
+          alt: "ecyo hand soap refill tube beside a recycled plastic foam pump bottle",
+          width: 900,
+          height: 900,
+        },
+      },
+      {
+        number: 3,
+        title: "Less plastic, less water, less guilt",
+        body: [
+          "Concentrated formulas mean ecyo isn't shipping water across the country in every box, which is most of what a standard bottle of cleaner actually is.",
+          "Packaging is plastic free, cardboard tubes and boxes instead of the bottle-in-a-bottle most cleaning aisles are still built on.",
+        ],
+        image: {
+          src: "/pitch-assets/listicle-ecyo/product-laundry.jpg",
+          alt: "ecyo Eco Laundry Capsules Value Bundle box with capsules spilling out",
+          width: 900,
+          height: 900,
+        },
+      },
+    ],
+    productBlock: {
+      headline: "Eco Dishwasher Tablets, 30 Pack",
+      subheadline: "ecyo cleaning",
+      description: "Using activated charcoal and enzymes, these eco dishwasher tablets naturally target tough stains to leave your dishes, and your conscience, clean. The added rinse aid action and protection against limescale keeps your machine running smoothly.",
+      featureGroups: [
+        {
+          heading: "In every tablet",
+          items: ["Activated charcoal formula", "Added enzymes for tough stains", "Rinse aid action", "Limescale protection"],
+        },
+        {
+          heading: "Across the ecyo range",
+          items: ["No palm oil", "Plastic free packaging", "Aussie family owned since 2020"],
+        },
+      ],
+      image: {
+        src: "/pitch-assets/listicle-ecyo/product-dishwasher.jpg",
+        alt: "ecyo Eco Dishwasher Tablets, 30 pack box",
+        width: 900,
+        height: 900,
+      },
+      shopCtaLabel: "Shop the 30 pack",
+    },
+    testimonials: [
+      {
+        quote: "We were recommended these dishwasher tablets via Supermarket Swap and weren't sure if they would be as good as the supermarket brands. They are. In fact, they are so good, we'll never use the regular supermarket brands again! We could not rate the Ecyo tablets more highly. Such a great find.",
+        name: "Louise C.",
+        role: "verified customer, Australia",
+      },
+      {
+        quote: "These work better than the major supermarket brands!",
+        name: "Lisa L",
+        role: "verified customer",
+      },
+      {
+        quote: "I absolutely love these products! My experience so far has been great. The cleaners are easy to prepare, they do the job that's expected of them, and they're really eco friendly.",
+        name: "Allison V.",
+        role: "verified buyer",
+      },
+    ],
+    closing: {
+      headline: "Ready to make the switch?",
+      ctaLabel: "Yes, I'm ready to try ecyo",
+    },
+  },
+];
