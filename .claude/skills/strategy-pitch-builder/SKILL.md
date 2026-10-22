@@ -463,6 +463,23 @@ record any adopted rule below.
 
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it produced`.
 
+- 2026-10-22, verveclub: first page built from research done by the
+  `strategy-pdf-builder` skill in the same session, rather than this
+  skill's own Step 2 audit. Worked cleanly: the PDF funnel's verified
+  findings, real screenshots, and chosen case studies carried straight
+  over, no re-research needed, confirming the two skills can safely
+  compose when a team member wants both deliverables from one audit.
+  Also the first page sent by Dennis Owoeye instead of David, using the
+  existing `pitcher` override field exactly as designed (name, title,
+  his own avatar, his own Calendly URL, `socials: false`), no template
+  changes needed. One new content pattern: the hero inset doesn't have
+  to be a single UI flaw, a crop spanning both of the site's two
+  redundant newsletter boxes plus a damning real label ("Dull Content",
+  an unedited placeholder heading left live) read as a stronger, more
+  self-evidently real "wow" moment than any single cleaner screenshot
+  would have. Rule: when a brand's weakest spot is better shown as a
+  wider context crop than a tight single-element one, use the wider
+  crop, the inset's job is instant credibility, not minimalism.
 - 2026-10-01, alimentnutrition: added the `builtForYou` field (real
   finished email creative, shown between `benefits` and `how`) after
   David designed three real emails for the brand and wanted them shown

@@ -1389,4 +1389,204 @@ export const strategyPitches: StrategyPitch[] = [
       text: "This isn't a sales call. Bring your questions, not your card.",
     },
   },
+  {
+    slug: "verveclub",
+    brand: "Verve Club",
+    hero: {
+      eyebrow: "A note for Verve Club",
+      headline: [
+        "1,394 people follow you",
+        "because they already get it.",
+        "Your homepage doesn't.",
+      ],
+      subheading:
+        "Someone clicks through from the GT3 tee post, ready to buy, and lands on a page with no real hero message, a product block before any context, and two different signup boxes asking for the same email. **Here's the system that fixes it**, live before BFCM.",
+      cta: "Book a Call",
+      visuals: {
+        url: "verveclub.co",
+        main: {
+          src: "/pitch-assets/verveclub/site-home.jpg",
+          alt: "The Verve Club homepage hero, two models in Verve tees, Shop Now and Discounts buttons, a generic rotating announcement bar",
+          width: 1200,
+          height: 750,
+        },
+        inset: {
+          src: "/pitch-assets/verveclub/site-two-signups.jpg",
+          alt: "The Verve Club footer, showing two separate newsletter signup boxes and a link column still labeled Dull Content",
+          width: 1140,
+          height: 335,
+          caption: "Two signup boxes",
+        },
+      },
+    },
+    gap: {
+      label: "What happens when someone clicks through from Instagram",
+      steps: [
+        {
+          day: "First click",
+          title: "They arrive ready to buy",
+          detail: "Fresh off the GT3 collab tee post, real comments, real engagement, high intent.",
+          status: "Arrives interested",
+        },
+        {
+          day: "Same visit",
+          title: "The homepage gives them nothing to go on",
+          detail: "No real hero message, off brand CTA colors, then a single product's full detail block before any carousel.",
+          status: "No identity, wrong structure",
+          leak: true,
+        },
+        {
+          day: "If they want in",
+          title: "Two signup boxes, still nothing",
+          detail: "No popup anywhere on the site. We signed up through the footer form ourselves. No welcome email ever came.",
+          status: "Nothing sent",
+          leak: true,
+        },
+      ],
+    },
+    problemSolution: {
+      heading: "Verve Club already earns the follow. The site doesn't earn the sale.",
+      problem: {
+        title: "Right now",
+        text: "Someone clicks through from the Porsche collab post, already sold on the brand, and lands on a homepage with no real hero message and CTA buttons that don't even use Verve's own colors. Right after that, a single product's full detail block shows up before any carousel, so a new visitor can genuinely think they've landed on a product page by mistake. There's no popup anywhere on the site, and the real signup box sits on mobile beneath three full columns of footer links, one of them still labeled Dull Content, before it ever appears. A second, separate newsletter box exists higher up too, splitting signup intent across two boxes instead of one. **We signed up through that footer form ourselves, no welcome email ever arrived.** Four products are currently sold out with no back in stock option, and the discounts page linked from the announcement bar buries its own offers under oversized product photos, worse on desktop, where the images dominate and the table reads as an afterthought.",
+      },
+      solution: {
+        title: "With the system in place",
+        points: [
+          "A visitor from the GT3 post lands on **a homepage that actually matches the energy of that post**, not a generic default",
+          "The product carousel sits where a homepage visitor expects it, **not a single product block before any context**",
+          "**One signup offer, not two**, placed where a mobile visitor actually sees it",
+          "A real popup replaces the silence, **with an incentive worth giving an email for**",
+          "The welcome flow is tested and confirmed to send, **not just assumed to**",
+        ],
+      },
+    },
+    benefits: {
+      heading: "Four pieces that bring the site up to the Instagram's level",
+      products: [
+        {
+          name: "911 GT3 RS Obsidian Black Tee",
+          image: {
+            src: "/pitch-assets/verveclub/product-gt3-black.jpg",
+            alt: "Verve Club 911 GT3 RS Obsidian Black Tee, front and back",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "Icarus Fallen Angel Obsidian Black Tee",
+          image: {
+            src: "/pitch-assets/verveclub/product-icarus.jpg",
+            alt: "Verve Club Icarus Fallen Angel Obsidian Black Tee, front and back",
+            width: 900,
+            height: 900,
+          },
+        },
+        {
+          name: "911 GT3 RS Lunar White Tee",
+          image: {
+            src: "/pitch-assets/verveclub/product-gt3-white.jpg",
+            alt: "Verve Club 911 GT3 RS Lunar White Tee, front and back",
+            width: 900,
+            height: 900,
+          },
+        },
+      ],
+      items: [
+        {
+          icon: "palette",
+          title: "A homepage that matches the Instagram energy",
+          detail:
+            "Real hero messaging, on brand CTA colors, and the product carousel back in its normal spot, so **the first thing a visitor sees looks like the brand they followed**, not a generic default.",
+        },
+        {
+          icon: "popup",
+          title: "One clear way to join the list",
+          detail:
+            "The two competing signup boxes become one, placed above the mobile footer's link columns instead of beneath them, so **the people most likely to convert actually see it**.",
+        },
+        {
+          icon: "welcome",
+          title: "A welcome flow that actually sends",
+          detail:
+            "Built, tested, and confirmed end to end, not assumed to work because it exists in the backend. **The thing we personally couldn't find when we signed up ourselves**.",
+        },
+        {
+          icon: "winback",
+          title: "Sold out products that still capture demand",
+          detail:
+            "Back in stock notify me capture on all 4 currently sold out products, so **interest during BFCM turns into a list entry, not a dead end**.",
+        },
+      ],
+    },
+    how: {
+      heading: "Two steps, two weeks, live before BFCM",
+      steps: [
+        {
+          week: "Week 1",
+          title: "Strategy & Build",
+          description:
+            "Rebuild the homepage hero and structure, consolidate the two signup boxes into one, and build the real popup and welcome flow in Klaviyo.",
+        },
+        {
+          week: "Week 2",
+          title: "Test & Launch",
+          description:
+            "Back in stock capture goes live on the 4 sold out products, the discounts page gets its oversized images fixed, everything tested and live ahead of BFCM traffic.",
+        },
+      ],
+      impact: [
+        { value: "2 → 1", label: "Signup boxes consolidated into one" },
+        { value: "0 → live", label: "Popup and welcome flow currently active vs. proposed" },
+        { value: "BFCM", label: "Target window to have it all live before peak traffic" },
+      ],
+    },
+    proofHeading: "0 to 3 live flows for one fashion brand, +23% add to cart for another: the same fix",
+    caseStudySlugs: ["maxsleek", "afrocenchix"],
+    reviewFromCaseStudy: "afrocenchix",
+    tagline:
+      "Do this and the Instagram stops being the only place Verve Club looks premium. The 1,394 people who already follow you deserve a site that matches it.",
+    faqHeading: "Before you book",
+    faqs: [
+      {
+        q: "What do you need from us to start?",
+        a: "**Access to your Shopify and Klaviyo accounts**, plus confirmation on your current signup setup, so we can consolidate it safely.",
+      },
+      {
+        q: "How do you decide when everything goes live?",
+        a: "**We work backward from BFCM.** Every piece is scheduled to be fully tested and live with time to spare before peak traffic hits.",
+      },
+      {
+        q: "What if someone has already signed up through one of the current boxes?",
+        a: "**They're not re-added or duplicated.** The new flow slots into your existing list without disturbing anyone already on it.",
+      },
+      {
+        q: "Is fixing the homepage enough on its own?",
+        a: "No single change does it alone. **It's the homepage, the signup, the welcome flow, and the back in stock capture working together** that moves the number.",
+      },
+      {
+        q: "Can it be live before BFCM?",
+        a: "The plan runs two weeks. Every week this sits is a week closer to BFCM traffic landing on a homepage that still reads like a product page. Not after BFCM. **Now.**",
+      },
+      {
+        q: "What does it cost?",
+        a: "**We cover scope and pricing on the call**, once we know which pieces you want built.",
+      },
+    ],
+    risk: {
+      heading: "See the plan before you spend anything",
+      text: "This isn't a sales call. Bring your questions, not your card.",
+    },
+    pitcher: {
+      name: "Dennis Owoeye",
+      title: "Head Designer | Skynosoft Ltd.",
+      photo: {
+        src: "/brand/dennis-owoeye-avatar.jpg",
+        width: 192,
+        height: 192,
+      },
+      calendlyUrl: "https://calendly.com/dennis-owoeye/chat",
+      socials: false,
+    },
+  },
 ];
