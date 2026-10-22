@@ -1577,16 +1577,5 @@ export const strategyPitches: StrategyPitch[] = [
       heading: "See the plan before you spend anything",
       text: "This isn't a sales call. Bring your questions, not your card.",
     },
-    pitcher: {
-      name: "Dennis Owoeye",
-      title: "Head Designer | Skynosoft Ltd.",
-      photo: {
-        src: "/brand/dennis-owoeye-avatar.jpg",
-        width: 192,
-        height: 192,
-      },
-      calendlyUrl: "https://calendly.com/dennis-owoeye/chat",
-      socials: false,
-    },
   },
 ];
