@@ -31,8 +31,8 @@ on the prospect's behalf. It exists to make a hiring manager or founder think
    specific pitch, not SEO content.
 5. **The page represents the PROSPECT's brand, not Skynosoft's.** Never use
    Skynosoft's blue/Sora identity here. Pull an accent color from their own
-   site (their primary brand color, picked by eye from their homepage or
-   product page) and use a clean editorial serif for body copy, which is
+   site (their primary brand color, extracted and contrast-checked per Step
+   2, not eyeballed) and use a clean editorial serif for body copy, which is
    what makes an advertorial read like independent content instead of an ad.
 
 ## Step 1: Intake
@@ -61,8 +61,19 @@ memory or guess at product details.
 2. **Find 2-4 real reviews** on the brand's own site (product page review
    widgets, a dedicated reviews page). Copy verbatim, note the name and any
    role/context shown ("Verified Buyer", "Yoga Teacher", a location).
-3. **Pull the brand's accent color** from their own site (inspect a CTA
-   button or their logo color).
+3. **Extract the brand's accent color deterministically, not by eye.** Save
+   a real screenshot of their homepage/hero (where the brand color actually
+   shows up, their CTA button, logo, or packaging), then run the `tastemaker`
+   skill's `scripts/extract_palette.py <screenshot>` to pull real dominant
+   colors with lightness/contrast stats instead of guessing a hex. Once
+   you've picked which extracted color is the accent, run
+   `scripts/check_contrast.py <accent-hex> <background-hex>` (tastemaker's
+   script, both CTA-on-background and label-on-accent pairings) before
+   locking it in, a color that reads fine as a swatch can still fail once
+   it's carrying CTA button text. If the brand's real accent fails contrast
+   as-is, nudge its lightness within the same hue (never swap the hue) until
+   it clears, per tastemaker's `references/style-tokens.md` Contrast floor
+   guidance, and say so in the content entry.
 4. **Capture real product photos** for the hero, section images, and the
    product block. Download via Playwright's `ctx.request.get` if the CDN
    needs the same network-policy widening other audits have needed (see the
@@ -221,6 +232,21 @@ in Vercel's project Domains settings. This is one-time setup, not per-brand.
 Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it
 produced.`
 
+- 2026-10-26, system built (no brand yet): evaluated the newly-installed
+  `tastemaker` and `ideagram` skills for a fit here. `tastemaker`'s
+  structural engine (macrostructure rotation, per-project style-lock, full
+  token system) actively conflicts with this skill's premise, one proven
+  structure reused for every brand, not varied per build, so it was not
+  adopted wholesale. `ideagram` (unDraw illustration matching) has no fit at
+  all, hard rule 1 requires real product/lifestyle photos, never stock
+  illustrations. The one piece worth taking: `tastemaker/scripts/
+  extract_palette.py` and `check_contrast.py` upgrade Step 2's accent-color
+  pull from eyeballing/single-pixel-sampling to deterministic extraction
+  plus an actual WCAG contrast check before locking the color in, folded
+  into Step 2 and hard rule 5 above. Rule: adopt a general design skill's
+  individual scripts/utilities where they strengthen an existing step,
+  don't let its opinionated structural workflow override a skill that
+  already has a verified structure of its own.
 - 2026-10-08, ecyo: first real build. Chose a listicle/news angle ("why
   families are switching") over a personal-review angle ("I tried it")
   because nobody on the team had actually used the product over time, a
