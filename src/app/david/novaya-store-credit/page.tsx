@@ -71,17 +71,31 @@ export default function NovayaStoreCreditPage() {
       <main id="main">
         <section>
           <Wrap className="pb-20 pt-40">
-            <Reveal>
-              <Eyebrow>Campaign I&rsquo;m proud of &middot; Novaya, September 2026</Eyebrow>
-              <h1 className="mt-6 max-w-[780px] bg-linear-to-r from-[#000000] to-[#666666] bg-clip-text font-heading text-4xl font-bold text-balance text-transparent md:text-5xl">
-                I didn&rsquo;t create a new offer. I renamed the one that stopped working.
-              </h1>
-              <p className="mt-6 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
-                Same $50 value. Same product. Same margin. I changed one thing, free gift became
-                store credit, sent it to the list&rsquo;s most fatigued segment, and it earned 2.4x
-                more per recipient than the original offer had on a healthier one.
-              </p>
-            </Reveal>
+            <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,680px)_1fr]">
+              <Reveal>
+                <Eyebrow>Campaign I&rsquo;m proud of &middot; Novaya, September 2026</Eyebrow>
+                <h1 className="mt-6 bg-linear-to-r from-[#000000] to-[#666666] bg-clip-text font-heading text-4xl font-bold text-balance text-transparent md:text-5xl">
+                  I didn&rsquo;t create a new offer. I renamed the one that stopped working.
+                </h1>
+                <p className="mt-6 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
+                  Same $50 value. Same product. Same margin. I changed one thing, free gift became
+                  store credit, sent it to the list&rsquo;s most fatigued segment, and it earned
+                  2.4x more per recipient than the original offer had on a healthier one.
+                </p>
+              </Reveal>
+              <Reveal delay={150}>
+                <div className="overflow-hidden rounded-xl border border-border-hairline-strong bg-card shadow-lg">
+                  <Image
+                    src="/case-studies/novaya/hero-product.png"
+                    alt="Product photography from Novaya's own marketing showing the brand's menswear styling"
+                    width={1000}
+                    height={580}
+                    priority
+                    className="block h-auto w-full"
+                  />
+                </div>
+              </Reveal>
+            </div>
           </Wrap>
         </section>
 
@@ -195,6 +209,91 @@ export default function NovayaStoreCreditPage() {
                   follow-up, 72 hours later &middot; 14,261 recipients
                 </figcaption>
               </Reveal>
+            </div>
+          </Wrap>
+        </section>
+
+        <section className="border-t border-border-hairline">
+          <Wrap className="py-20">
+            <Reveal>
+              <Eyebrow>Design, when the brief calls for it</Eyebrow>
+              <h2 className="mt-4 max-w-[680px] font-heading text-2xl font-semibold text-balance md:text-3xl">
+                This one won on strategy, not visuals. Here&rsquo;s proof I can do both
+              </h2>
+              <p className="mt-4 max-w-[680px] font-body text-base text-foreground-muted text-pretty">
+                One designed campaign from Novaya, plus one from each other brand I run email for,
+                real sends, pulled straight from Klaviyo.
+              </p>
+            </Reveal>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  src: "/case-studies/novaya/jeans-campaign.png",
+                  alt: "A Novaya campaign email telling the story of a customer, Charles-Olivier, who switched from stiff jeans to the Novaya cargo pants, with a testimonial and 'Rejoindre Michel' call to action",
+                  brand: "Novaya",
+                  width: 1200,
+                  height: 7086,
+                },
+                {
+                  src: "/case-studies/maxsleek/welcome-email.png",
+                  alt: "The newly built MaxSleek welcome email, showing the signup discount offer and bestselling product grid",
+                  brand: "MaxSleek",
+                  width: 1200,
+                  height: 5725,
+                },
+                {
+                  src: "/case-studies/cannonbalm/email-mockups.jpg",
+                  alt: "A collage of phone mockups showing CannonBalm emails, including Start The Year Strong, Superfruits For Superheroes, and customer reviews",
+                  brand: "CannonBalm",
+                  width: 1640,
+                  height: 924,
+                },
+                {
+                  src: "/case-studies/feno/email-mockups.jpg",
+                  alt: "A collage of phone mockups showing Feno emails, including the Smartbrush setup steps and the Mastering Your Brushing Experience tips",
+                  brand: "Feno",
+                  width: 1640,
+                  height: 924,
+                },
+                {
+                  src: "/case-studies/lipo-beauty-tea/email-mockups.jpg",
+                  alt: "A collage of phone mockups showing the Lipo Beauty Tea Black Friday and Cyber Monday emails",
+                  brand: "Lipo Beauty Tea",
+                  width: 1640,
+                  height: 924,
+                },
+                {
+                  src: "/case-studies/streaky-academy/email-mockups.jpg",
+                  alt: "A collage of phone mockups showing Streaky Academy emails, including the welcome, social proof, and course recommendation designs",
+                  brand: "Streaky Academy",
+                  width: 1640,
+                  height: 924,
+                },
+                {
+                  src: "/case-studies/bwll/email-real-stories.jpg",
+                  alt: "BWLL email: Real stories, real results, with customer reviews and a comparison of BWLL against other nasal strips",
+                  brand: "BWLL",
+                  width: 600,
+                  height: 4821,
+                },
+              ].map((item, i) => (
+                <Reveal key={item.src} delay={Math.min(i * 75, 300)}>
+                  <figure className="flex h-80 flex-col overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-lg">
+                    <div className="relative flex-1 overflow-hidden bg-card">
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <figcaption className="border-t border-border-hairline px-4 py-3 font-label text-sm uppercase tracking-wide text-foreground-muted">
+                      {item.brand}
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
             </div>
           </Wrap>
         </section>
