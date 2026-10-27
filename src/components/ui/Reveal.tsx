@@ -33,7 +33,7 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { rootMargin: "0px 0px -10% 0px" },
+      { rootMargin: "0px 0px 10% 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -43,7 +43,7 @@ export function Reveal({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-1000 ${EASE} motion-reduce:transition-none ${
+      className={`transition-all duration-500 ${EASE} motion-reduce:transition-none ${
         hidden ? "translate-y-16 opacity-0 blur-md" : "translate-y-0 opacity-100 blur-0"
       } ${className}`}
     >

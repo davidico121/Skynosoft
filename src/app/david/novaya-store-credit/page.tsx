@@ -225,13 +225,13 @@ export default function NovayaStoreCreditPage() {
                 campaigns, pulled straight from Klaviyo.
               </p>
             </Reveal>
-            <p className="mt-8 font-label text-xs uppercase tracking-wide text-foreground-muted sm:hidden">
-              Swipe to see more &rarr;
-            </p>
             <p className="mt-8 hidden font-label text-xs uppercase tracking-wide text-foreground-muted sm:block">
               Drag to see more &rarr;
             </p>
-            <div className="hide-scrollbar mt-4 flex cursor-grab flex-col gap-6 active:cursor-grabbing sm:mt-4 sm:snap-x sm:snap-mandatory sm:flex-row sm:overflow-x-auto sm:pb-4">
+            <Reveal
+              delay={100}
+              className="hide-scrollbar mt-4 flex flex-col gap-6 sm:cursor-grab sm:active:cursor-grabbing sm:snap-x sm:snap-mandatory sm:flex-row sm:overflow-x-auto sm:pb-4"
+            >
               {[
                 {
                   src: "/portfolio/novaya-campaigns/social-proof.png",
@@ -289,25 +289,23 @@ export default function NovayaStoreCreditPage() {
                   width: 600,
                   height: 4821,
                 },
-              ].map((item, i) => (
-                <Reveal key={item.src} delay={Math.min(i * 75, 300)}>
-                  <figure className="w-full shrink-0 sm:w-[280px] sm:snap-start">
-                    <div className="hide-scrollbar h-[420px] overflow-y-auto rounded-xl border border-border-hairline-strong bg-white shadow-lg">
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        width={item.width}
-                        height={item.height}
-                        className="block h-auto w-full"
-                      />
-                    </div>
-                    <figcaption className="mt-3 font-label text-sm uppercase tracking-wide text-foreground-muted">
-                      {item.brand}
-                    </figcaption>
-                  </figure>
-                </Reveal>
+              ].map((item) => (
+                <figure key={item.src} className="w-full shrink-0 sm:w-[280px] sm:snap-start">
+                  <div className="hide-scrollbar h-[420px] overflow-y-auto rounded-xl border border-border-hairline-strong bg-white shadow-lg">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      width={item.width}
+                      height={item.height}
+                      className="block h-auto w-full"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-label text-sm uppercase tracking-wide text-foreground-muted">
+                    {item.brand}
+                  </figcaption>
+                </figure>
               ))}
-            </div>
+            </Reveal>
           </Wrap>
         </section>
 
