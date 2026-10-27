@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
+import { EASE } from "@/components/ui/page-kit";
 
-const EASE = "ease-[cubic-bezier(0.32,0.72,0,1)]";
 const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 const BUTTON = `inline-flex items-center justify-center rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-all duration-300 ${EASE} hover:bg-primary/90 active:scale-[0.98] ${FOCUS}`;
@@ -87,7 +87,7 @@ export function IslandNav({
       <div
         id="island-menu"
         aria-hidden={!open}
-        className={`fixed inset-0 z-40 flex items-center justify-center bg-white/80 backdrop-blur-3xl transition-all duration-700 ${EASE} md:hidden ${
+        className={`fixed inset-0 z-40 flex items-center justify-center bg-white/80 backdrop-blur-lg transition-all duration-700 ${EASE} md:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >

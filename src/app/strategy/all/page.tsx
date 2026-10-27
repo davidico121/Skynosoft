@@ -3,13 +3,13 @@ import Image from "next/image";
 import { strategyPitches } from "@/lib/strategy";
 import { IslandNav } from "../IslandNav";
 import logo from "../../../../public/brand/skynosoft-logo-horizontal.png";
+import { EASE } from "@/components/ui/page-kit";
 
 export const metadata: Metadata = {
   title: "All pitches — Skynosoft",
   robots: { index: false, follow: false },
 };
 
-const EASE = "ease-[cubic-bezier(0.32,0.72,0,1)]";
 const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 

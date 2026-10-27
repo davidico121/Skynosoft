@@ -9,7 +9,7 @@ import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
-import { BUTTON, BUTTON_SECONDARY, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
+import { BUTTON, BUTTON_SECONDARY, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
 import { caseStudies, services } from "@/lib/content";
 
 const UPWORK_URL = "https://www.upwork.com/freelancers/~017a87b019f1f7020a";
@@ -62,7 +62,7 @@ export default function DavidPortfolioPage() {
             <li>
               <a
                 href="#work"
-                className={`rounded-full font-body text-base text-foreground-muted transition-colors duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-foreground ${FOCUS}`}
+                className={`rounded-full font-body text-base text-foreground-muted transition-colors duration-300 ${EASE} hover:text-foreground ${FOCUS}`}
               >
                 Work
               </a>
@@ -70,7 +70,7 @@ export default function DavidPortfolioPage() {
             <li>
               <a
                 href="#how"
-                className={`rounded-full font-body text-base text-foreground-muted transition-colors duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:text-foreground ${FOCUS}`}
+                className={`rounded-full font-body text-base text-foreground-muted transition-colors duration-300 ${EASE} hover:text-foreground ${FOCUS}`}
               >
                 How I work
               </a>

@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/content";
+import { EASE } from "@/components/ui/page-kit";
 
 export default function StrategyNotFound() {
   return (
@@ -12,7 +13,7 @@ export default function StrategyNotFound() {
       </p>
       <a
         href={SITE_URL}
-        className="mt-8 rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary/90 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        className={`mt-8 rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-all duration-300 ${EASE} hover:bg-primary/90 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary`}
       >
         Go to skynosoft.net
       </a>

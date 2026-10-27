@@ -4,8 +4,7 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { CaseStudy } from "@/lib/content";
 import { Chip } from "@/components/ui/Chip";
 import { MetricStat } from "@/components/ui/MetricStat";
-
-const EASE = "ease-[cubic-bezier(0.32,0.72,0,1)]";
+import { EASE } from "@/components/ui/page-kit";
 
 export function CaseStudyCard({
   caseStudy,

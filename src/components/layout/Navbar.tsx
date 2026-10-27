@@ -96,7 +96,7 @@ export function Navbar() {
       <div
         id="island-menu"
         aria-hidden={!open}
-        className={`fixed inset-0 z-40 flex items-center justify-center bg-white/80 backdrop-blur-3xl transition-all duration-700 ${EASE} md:hidden ${
+        className={`fixed inset-0 z-40 flex items-center justify-center bg-white/80 backdrop-blur-lg transition-all duration-700 ${EASE} md:hidden ${
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >

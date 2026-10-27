@@ -4,9 +4,9 @@ export const EASE = "ease-[cubic-bezier(0.32,0.72,0,1)]";
 export const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 
-export const BUTTON = `inline-flex items-center justify-center rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-all duration-300 ${EASE} hover:bg-primary/90 active:scale-[0.98] ${FOCUS}`;
+export const BUTTON = `inline-flex items-center justify-center rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-[background-color,transform] duration-300 ${EASE} hover:bg-primary/90 active:scale-[0.98] ${FOCUS}`;
 
-export const BUTTON_SECONDARY = `inline-flex items-center justify-center rounded-full border border-border-hairline-strong bg-white px-3 py-2 font-body text-base font-semibold text-foreground transition-all duration-300 ${EASE} hover:bg-card active:scale-[0.98] ${FOCUS}`;
+export const BUTTON_SECONDARY = `inline-flex items-center justify-center rounded-full border border-border-hairline-strong bg-white px-3 py-2 font-body text-base font-semibold text-foreground transition-[background-color,transform] duration-300 ${EASE} hover:bg-card active:scale-[0.98] ${FOCUS}`;
 
 export function Wrap({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (

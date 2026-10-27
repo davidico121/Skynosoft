@@ -26,10 +26,10 @@ import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
 import { IslandNav } from "../IslandNav";
 import logo from "../../../../public/brand/skynosoft-logo-horizontal.png";
 import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
+import { EASE } from "@/components/ui/page-kit";
 
 export const dynamicParams = false;
 
-const EASE = "ease-[cubic-bezier(0.32,0.72,0,1)]";
 const FOCUS =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
 const BUTTON = `inline-flex items-center justify-center rounded-full bg-primary px-3 py-2 font-body text-base font-semibold text-white transition-all duration-300 ${EASE} hover:bg-primary/90 active:scale-[0.98] ${FOCUS}`;
@@ -373,7 +373,7 @@ export default async function StrategyPage({
                   return (
                     <div
                       key={title}
-                      className={`rounded-xl border border-border-hairline bg-card p-8 transition-all duration-500 ${EASE} hover:-translate-y-1`}
+                      className={`rounded-xl border border-border-hairline bg-card p-8 transition-all duration-300 ${EASE} hover:-translate-y-1`}
                     >
                       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary-soft">
                         <Icon size={24} weight="duotone" aria-hidden />

@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-
-const EASE = "ease-[cubic-bezier(0.32,0.72,0,1)]";
+import { EASE } from "@/components/ui/page-kit";
 
 /**
  * Fades an element up (translate, blur, opacity) as it enters the viewport.
