@@ -221,18 +221,31 @@ export default function NovayaStoreCreditPage() {
                 This one won on strategy, not visuals. Here&rsquo;s proof I can do both
               </h2>
               <p className="mt-4 max-w-[680px] font-body text-base text-foreground-muted text-pretty">
-                One designed campaign from Novaya, plus one from each other brand I run email for,
-                real sends, pulled straight from Klaviyo.
+                Recent Novaya sends, plus one from each other brand I run email for, real
+                campaigns, pulled straight from Klaviyo.
               </p>
             </Reveal>
-            <div className="hide-scrollbar mt-12 flex flex-col gap-6 sm:snap-x sm:snap-mandatory sm:flex-row sm:overflow-x-auto sm:pb-4">
+            <p className="mt-8 font-label text-xs uppercase tracking-wide text-foreground-muted sm:hidden">
+              Swipe to see more &rarr;
+            </p>
+            <p className="mt-8 hidden font-label text-xs uppercase tracking-wide text-foreground-muted sm:block">
+              Drag to see more &rarr;
+            </p>
+            <div className="hide-scrollbar mt-4 flex cursor-grab flex-col gap-6 active:cursor-grabbing sm:mt-4 sm:snap-x sm:snap-mandatory sm:flex-row sm:overflow-x-auto sm:pb-4">
               {[
                 {
-                  src: "/case-studies/novaya/jeans-campaign.png",
-                  alt: "A Novaya campaign email telling the story of a customer, Charles-Olivier, who switched from stiff jeans to the Novaya cargo pants, with a testimonial and 'Rejoindre Michel' call to action",
-                  brand: "Novaya",
-                  width: 1200,
-                  height: 7086,
+                  src: "/portfolio/novaya-campaigns/social-proof.png",
+                  alt: "Novaya campaign email, subject 'Ce que 2 847+ Québécois ont remarqué', sent Oct 10, with customer testimonials, lifestyle photography, and a reviews stat grid",
+                  brand: "Novaya · Oct 10",
+                  width: 600,
+                  height: 3163,
+                },
+                {
+                  src: "/portfolio/novaya-campaigns/november-rush.png",
+                  alt: "Novaya campaign email, subject 'Acheter Des Cadeaux en Novembre', sent Oct 21, with an October vs. November shipping comparison table, lifestyle photography, and a bundle offer",
+                  brand: "Novaya · Oct 21",
+                  width: 600,
+                  height: 4322,
                 },
                 {
                   src: "/case-studies/maxsleek/welcome-email.png",
