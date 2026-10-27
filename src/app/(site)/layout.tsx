@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 import { SITE_NAME, SITE_URL } from "@/lib/content";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import "./globals.css";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Navbar />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
+        <CustomCursor />
       </body>
     </html>
   );
