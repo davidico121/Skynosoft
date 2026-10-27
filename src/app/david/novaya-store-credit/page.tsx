@@ -225,7 +225,7 @@ export default function NovayaStoreCreditPage() {
                 real sends, pulled straight from Klaviyo.
               </p>
             </Reveal>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="hide-scrollbar mt-12 flex flex-col gap-6 sm:snap-x sm:snap-mandatory sm:flex-row sm:overflow-x-auto sm:pb-4">
               {[
                 {
                   src: "/case-studies/novaya/jeans-campaign.png",
@@ -242,32 +242,32 @@ export default function NovayaStoreCreditPage() {
                   height: 5725,
                 },
                 {
-                  src: "/case-studies/cannonbalm/email-mockups.jpg",
-                  alt: "A collage of phone mockups showing CannonBalm emails, including Start The Year Strong, Superfruits For Superheroes, and customer reviews",
+                  src: "/case-studies/cannonbalm/email-ultimate.jpg",
+                  alt: "CannonBalm email: The Ultimate 120ml is here, an exclusive limited-time release for existing customers",
                   brand: "CannonBalm",
-                  width: 1640,
-                  height: 924,
+                  width: 1200,
+                  height: 5342,
                 },
                 {
-                  src: "/case-studies/feno/email-mockups.jpg",
-                  alt: "A collage of phone mockups showing Feno emails, including the Smartbrush setup steps and the Mastering Your Brushing Experience tips",
+                  src: "/case-studies/feno/email-mastering.png",
+                  alt: "Feno email: Mastering your brushing experience, with a tip on adjusting brushing speed in the Feno app and a pro tip",
                   brand: "Feno",
-                  width: 1640,
-                  height: 924,
+                  width: 280,
+                  height: 1787,
                 },
                 {
-                  src: "/case-studies/lipo-beauty-tea/email-mockups.jpg",
-                  alt: "A collage of phone mockups showing the Lipo Beauty Tea Black Friday and Cyber Monday emails",
+                  src: "/case-studies/lipo-beauty-tea/email-black-friday.png",
+                  alt: "Lipo Beauty Tea Black Friday email with a 40% discount, a customer review from Sandra Kox, and icons for weight loss support, energy, and reduced bloating",
                   brand: "Lipo Beauty Tea",
-                  width: 1640,
-                  height: 924,
+                  width: 600,
+                  height: 2218,
                 },
                 {
-                  src: "/case-studies/streaky-academy/email-mockups.jpg",
-                  alt: "A collage of phone mockups showing Streaky Academy emails, including the welcome, social proof, and course recommendation designs",
+                  src: "/case-studies/streaky-academy/email-welcome.png",
+                  alt: "Streaky Academy welcome email: Take 10% off your first order with code WELCOME10, followed by the most popular courses",
                   brand: "Streaky Academy",
-                  width: 1640,
-                  height: 924,
+                  width: 639,
+                  height: 3327,
                 },
                 {
                   src: "/case-studies/bwll/email-real-stories.jpg",
@@ -278,17 +278,17 @@ export default function NovayaStoreCreditPage() {
                 },
               ].map((item, i) => (
                 <Reveal key={item.src} delay={Math.min(i * 75, 300)}>
-                  <figure className="flex h-80 flex-col overflow-hidden rounded-xl border border-border-hairline-strong bg-white shadow-lg">
-                    <div className="relative flex-1 overflow-hidden bg-card">
+                  <figure className="w-full shrink-0 sm:w-[280px] sm:snap-start">
+                    <div className="hide-scrollbar h-[420px] overflow-y-auto rounded-xl border border-border-hairline-strong bg-white shadow-lg">
                       <Image
                         src={item.src}
                         alt={item.alt}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover object-top"
+                        width={item.width}
+                        height={item.height}
+                        className="block h-auto w-full"
                       />
                     </div>
-                    <figcaption className="border-t border-border-hairline px-4 py-3 font-label text-sm uppercase tracking-wide text-foreground-muted">
+                    <figcaption className="mt-3 font-label text-sm uppercase tracking-wide text-foreground-muted">
                       {item.brand}
                     </figcaption>
                   </figure>
