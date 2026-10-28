@@ -6,6 +6,7 @@ import {
   Lightning,
 } from "@phosphor-icons/react/dist/ssr";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
+import { DesignGallery } from "@/components/ui/DesignGallery";
 import { Paragraphs } from "@/components/ui/Paragraphs";
 import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
@@ -204,6 +205,13 @@ export default function DavidPortfolioPage() {
               </p>
             </Reveal>
           )}
+          <div className="mt-20">
+            <DesignGallery
+              eyebrow="Email design"
+              heading="The email side of the work, real sends"
+              description="One design from each brand I run email for, pulled straight from Klaviyo, not mockups."
+            />
+          </div>
         </Section>
 
         <Section>
