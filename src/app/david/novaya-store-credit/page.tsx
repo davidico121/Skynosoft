@@ -60,7 +60,7 @@ export default function NovayaStoreCreditPage() {
           className="flex w-max items-center gap-2 rounded-full border border-border-hairline bg-white/80 py-2 pl-3 pr-5 shadow-sm backdrop-blur-xl"
         >
           <Link
-            href="/david"
+            href="/"
             className={`flex items-center gap-2 rounded-full px-3 py-1.5 font-body text-sm text-foreground-muted transition-colors duration-300 ${EASE} hover:text-foreground ${FOCUS}`}
           >
             <ArrowLeft size={16} weight="bold" aria-hidden />
@@ -288,7 +288,7 @@ export default function NovayaStoreCreditPage() {
                 Strategy first, design second. See the rest of the work, or get in touch.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link href="/david#work" className={BUTTON}>
+                <Link href="/#work" className={BUTTON}>
                   See more case studies
                 </Link>
                 <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className={BUTTON_SECONDARY}>
@@ -307,7 +307,7 @@ export default function NovayaStoreCreditPage() {
             © {new Date().getFullYear()} David Owoeye
           </p>
           <Link
-            href="/david"
+            href="/"
             className={`font-body text-sm font-semibold text-foreground underline underline-offset-4 hover:text-primary-soft ${FOCUS}`}
           >
             Back to the full portfolio

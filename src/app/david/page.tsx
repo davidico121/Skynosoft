@@ -24,7 +24,11 @@ const proof = proofSlugs
   .map((slug) => caseStudies.find((c) => c.slug === slug))
   .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
-const testimonial = caseStudies.find((c) => c.slug === "afrocenchix")?.clientReview;
+const testimonialSlugs = ["afrocenchix", "heron-cycling", "cannonbalm", "thyvita"];
+const testimonials = testimonialSlugs
+  .map((slug) => caseStudies.find((c) => c.slug === slug))
+  .filter((c): c is NonNullable<typeof c> => Boolean(c?.clientReview))
+  .map((c) => ({ ...c.clientReview!, brand: c.brand }));
 
 const tagline =
   "A store that converts the first visit is half the job. The other half is bringing that customer back without paying for the click twice.";
@@ -192,18 +196,26 @@ export default function DavidPortfolioPage() {
               </a>
             </div>
           </Reveal>
-          {testimonial && (
-            <Reveal delay={150} className="mt-12 max-w-[680px] rounded-xl bg-[#f7f6f3] p-8">
-              <QuoteBadge />
-              <Paragraphs
-                text={testimonial.quote}
-                quote
-                className="mt-6 font-heading text-xl font-medium text-balance"
-              />
-              <p className="mt-4 font-body text-base text-foreground-muted">
-                {testimonial.name}, Afrocenchix
-              </p>
-            </Reveal>
+          {testimonials.length > 0 && (
+            <div className="mt-12 columns-1 gap-6 sm:columns-2">
+              {testimonials.map((t, i) => (
+                <Reveal
+                  key={t.name}
+                  delay={Math.min(i * 100, 300)}
+                  className="mb-6 break-inside-avoid rounded-xl bg-[#f7f6f3] p-8"
+                >
+                  <QuoteBadge />
+                  <Paragraphs
+                    text={t.quote}
+                    quote
+                    className="mt-6 font-heading text-xl font-medium text-balance"
+                  />
+                  <p className="mt-4 font-body text-base text-foreground-muted">
+                    {t.name}, {t.brand}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
           )}
           <div className="mt-20">
             <DesignGallery
