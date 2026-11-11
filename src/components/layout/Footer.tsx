@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NewsletterSignupForm } from "@/components/ui/NewsletterSignupForm";
 import { Wrap, BUTTON, FOCUS, EASE } from "@/components/ui/page-kit";
 import { CTA_LABEL } from "@/lib/content";
 import logo from "../../../public/brand/skynosoft-logo-horizontal.png";
@@ -37,6 +38,12 @@ export function Footer() {
           <Link href="/contact" className={`mt-6 ${BUTTON}`}>
             {CTA_LABEL}
           </Link>
+          <div className="mt-8">
+            <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">
+              Newsletter
+            </p>
+            <NewsletterSignupForm className="mt-4" />
+          </div>
         </div>
         {columns.map((col) => (
           <nav key={col.heading} aria-label={col.heading}>
