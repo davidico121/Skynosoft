@@ -20,6 +20,40 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Newsletter signup (Kit)
+
+`POST /api/subscribe` adds an email to a Kit (formerly ConvertKit) form. The
+browser never talks to Kit directly, it posts to this route, which does.
+
+**Environment variables** (see `.env.example`), set in `.env.local` for
+development and in the Vercel project settings for production:
+
+- `KIT_API_KEY` — from the Kit dashboard under Account Settings > Developer.
+- `KIT_FORM_ID` — the numeric ID of the form to subscribe people to. Open the
+  form in Kit and check its URL (`.../forms/<id>/edit`), or look it up under
+  the API docs' Forms list for the account.
+
+**How it works:** Kit's `POST /forms/{id}/subscribers` endpoint only works
+for a subscriber who already exists, it will not create one. So
+`src/lib/kit.ts` does two calls: `POST /v4/subscribers` (creates the
+subscriber if new, or updates them if they already exist) and then
+`POST /v4/forms/{id}/subscribers` (attaches them to the form).
+
+Validation, the honeypot check, and the per-IP rate limit (5 requests per 10
+minutes, in-memory) live in `src/lib/subscribe-validation.ts` and
+`src/lib/rate-limit.ts`. The in-memory rate limit resets on redeploy and
+isn't shared across concurrent serverless instances; swap `rate-limit.ts`
+for a Redis/Upstash-backed store if that stops being good enough.
+
+`src/components/ui/NewsletterSignupForm.tsx` is the client form (email +
+consent checkbox + hidden honeypot field). It isn't wired into a page yet,
+drop it in wherever the signup should live and pass a `thankYouUrl` if you
+want a redirect instead of the inline success message.
+
+**Tests:** `npm run test:subscribe` runs `scripts/test-subscribe.ts`, plain
+assertions (no test framework) covering validation and the Kit client with
+`fetch` mocked, no real Kit API calls are made.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
