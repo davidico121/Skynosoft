@@ -48,6 +48,11 @@ export default function LeadMagnetPage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 font-body text-base text-foreground-muted text-pretty">
+              <strong className="text-foreground">Pro tip:</strong> paste the whole guide into
+              Claude with the Claude in Chrome extension on, and ask it to carry out the steps for
+              you. It will check with you before anything gets sent.
+            </p>
           </Reveal>
 
           <Reveal className="rounded-3xl border border-border-hairline bg-white p-8 md:p-10">
