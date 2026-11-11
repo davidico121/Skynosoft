@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Free guide: Brand-matched emails in Claude Design — Skynosoft",
   description:
     "A free 12-page playbook for turning any brand's website into a finished, on-brand email design in Claude Design, then into a Klaviyo campaign.",
-  path: "/lead-magnet",
+  path: "/resources/claude-email-design-playbook",
 });
 
 const inside = [
