@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/ui/Reveal";
+import { EmailMarquee } from "@/components/ui/EmailMarquee";
 import { NewsletterSignupForm } from "@/components/ui/NewsletterSignupForm";
 import { Eyebrow, Wrap } from "@/components/ui/page-kit";
 
@@ -24,6 +25,9 @@ const inside = [
 export default function LeadMagnetPage() {
   return (
     <section>
+      <div className="pt-12">
+        <EmailMarquee />
+      </div>
       <Wrap className="pb-24 pt-16">
         <div className="grid items-start gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
           <Reveal className="lg:sticky lg:top-32">
