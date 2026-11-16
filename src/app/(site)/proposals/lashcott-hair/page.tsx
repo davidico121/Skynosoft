@@ -4,7 +4,8 @@ import { preconnect } from "react-dom";
 import { ArrowSquareOut, CalendarCheck } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/ui/Reveal";
 import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
-import { SlideViewer, type Slide } from "@/components/ui/SlideViewer";
+import { Playfair_Display, Poppins } from "next/font/google";
+import { ProposalDeck } from "./deck";
 import { ProposalMessageForm } from "@/components/ui/ProposalMessageForm";
 import { BUTTON, Eyebrow, H2, Section, Wrap } from "@/components/ui/page-kit";
 import { CALENDLY_URL } from "@/lib/content";
@@ -22,31 +23,18 @@ const VIDEO_SHARE_URL =
 const VIDEO_EMBED_URL =
   "https://www.awesomescreenshot.com/embed?id=58401727&shareKey=e79ed81b65ecae041b5c245d8869079f";
 
-const titles = [
-  "Turn Black Friday into customers who come back",
-  "A beautiful store, ready for more",
-  "Last Black Friday, loyalty beat discounts",
-  "Built from your website alone. Imagine what comes next",
-  "23 emails, 5 flows and a pop-up, live in 9 days",
-  "Selling for Black Friday now, selling all year after",
-  "This build usually takes weeks. Yours is live in 9 days",
-  "Say yes on Wednesday. Sell on Friday",
-  "Three ways to sell more without a fire sale",
-  "Black Friday opens the door. December keeps it open",
-  "A list is only worth what you do with it",
-  "One team for your store and your emails. Measured in sales",
-  "Novaya: from one flow to full lifecycle",
-  "BWLL: $75K from email, 40% of revenue",
-  "You don't just get emails. You get a growth partner",
-  "Pick your build. Or name your budget",
-  "Six quick questions that shape your plan",
-  "Three simple replies, then we start building",
-];
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["600"],
+});
 
-const slides: Slide[] = titles.map((title, i) => ({
-  src: `${BASE}/slides/slide-${String(i + 1).padStart(2, "0")}.jpg`,
-  alt: `Slide ${i + 1}: ${title}`,
-}));
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
 export default function LashcottProposalPage() {
   preconnect("https://calendly.com");
@@ -127,17 +115,16 @@ export default function LashcottProposalPage() {
         <Reveal>
           <Eyebrow>The proposal</Eyebrow>
           <div className="mt-4">
-            <H2>Flip through the full plan.</H2>
+            <H2>Your full plan, slide by slide.</H2>
           </div>
           <p className="mt-4 max-w-[680px] font-body text-lg text-foreground-muted text-pretty">
-            18 slides: what we build, the 9-day timeline, results from brands like yours, and
-            the investment. Use the arrows or swipe, and download a copy to keep.
+            What we build, the 9-day timeline, results from brands like yours, and the
+            investment. Swipe or use the arrows, and download a copy to keep.
           </p>
           <div className="mt-10">
-            <SlideViewer
-              slides={slides}
-              downloadHref={`${BASE}/lashcott-hair-black-friday-proposal.pptx`}
-            />
+            <div className={`${playfair.variable} ${poppins.variable}`}>
+              <ProposalDeck downloadHref={`${BASE}/lashcott-hair-black-friday-proposal.pptx`} />
+            </div>
           </div>
         </Reveal>
       </Section>
