@@ -6,6 +6,10 @@ export type SendPitchEmailInput = {
   subject: string;
   /** Plain text body; converted to simple paragraph HTML before sending. */
   text: string;
+  /** Overrides the default reply-to (David), e.g. so a site message can be answered directly. */
+  replyTo?: { email: string; name?: string };
+  /** Append David's email signature. Defaults to true. */
+  signature?: boolean;
 };
 
 export type SendPitchEmailResult = { ok: true } | { ok: false; error: string };
@@ -50,7 +54,7 @@ function buildSignatureHtml(): string {
 </table>`;
 }
 
-function textToHtml(text: string): string {
+function textToHtml(text: string, signature = true): string {
   const escaped = text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -59,7 +63,7 @@ function textToHtml(text: string): string {
     .split(/\n{2,}/)
     .map((p) => `<p>${p.replace(/\n/g, "<br>")}</p>`)
     .join("\n");
-  return `<div style="font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #14161a;">${paragraphs}${buildSignatureHtml()}</div>`;
+  return `<div style="font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #14161a;">${paragraphs}${signature ? buildSignatureHtml() : ""}</div>`;
 }
 
 export async function sendPitchEmail(input: SendPitchEmailInput): Promise<SendPitchEmailResult> {
@@ -93,9 +97,13 @@ export async function sendPitchEmail(input: SendPitchEmailInput): Promise<SendPi
             },
           },
         ],
-        reply_to: [{ address: REPLY_TO_EMAIL, name: fromName }],
+        reply_to: [
+          input.replyTo
+            ? { address: input.replyTo.email, name: input.replyTo.name || input.replyTo.email }
+            : { address: REPLY_TO_EMAIL, name: fromName },
+        ],
         subject: input.subject,
-        htmlbody: textToHtml(input.text),
+        htmlbody: textToHtml(input.text, input.signature ?? true),
       }),
     });
   } catch (e) {
