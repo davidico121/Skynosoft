@@ -123,7 +123,10 @@ export default function LashcottProposalPage() {
           </p>
           <div className="mt-10">
             <div className={`${playfair.variable} ${poppins.variable}`}>
-              <ProposalDeck downloadHref={`${BASE}/lashcott-hair-black-friday-proposal.pptx`} />
+              <ProposalDeck
+                downloadHref={`${BASE}/lashcott-hair-black-friday-proposal.pptx`}
+                fontClass={`${playfair.variable} ${poppins.variable}`}
+              />
             </div>
           </div>
         </Reveal>

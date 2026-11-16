@@ -10,6 +10,7 @@ import {
   type TouchEvent,
 } from "react";
 import Image from "next/image";
+import { createPortal } from "react-dom";
 import {
   ArrowsIn,
   ArrowsOut,
@@ -799,7 +800,7 @@ const slides: SlideDef[] = [
   },
 ];
 
-export function ProposalDeck({ downloadHref }: { downloadHref: string }) {
+export function ProposalDeck({ downloadHref, fontClass = "" }: { downloadHref: string; fontClass?: string }) {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
   const [full, setFull] = useState(false);
@@ -872,8 +873,7 @@ export function ProposalDeck({ downloadHref }: { downloadHref: string }) {
 
   const slide = slides[index];
 
-  return (
-    <div className={s.root}>
+  const stage = (
       <div
         ref={stageRef}
         className={`${s.stage} ${full ? s.full : ""} ${slide.tone === "dark" ? s.isDark : ""}`}
@@ -944,6 +944,20 @@ export function ProposalDeck({ downloadHref }: { downloadHref: string }) {
           </button>
         </div>
       </div>
+  );
+
+  return (
+    <div className={s.root}>
+      {/* Full screen renders on <body>: the page's animated wrappers use transforms,
+          which would otherwise trap a fixed-position layer inside the section. */}
+      {full ? (
+        <>
+          <div className={s.placeholder} aria-hidden />
+          {createPortal(<div className={`${s.root} ${fontClass}`}>{stage}</div>, document.body)}
+        </>
+      ) : (
+        stage
+      )}
 
       <div style={{ marginTop: 16, display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center", justifyContent: "space-between" }}>
         <p className={s.hint}>Swipe, use the arrows, or tap a dot to jump.</p>
