@@ -805,7 +805,6 @@ export function ProposalDeck({ downloadHref, fontClass = "" }: { downloadHref: s
   const [dir, setDir] = useState<1 | -1>(1);
   const [full, setFull] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
   const last = slides.length - 1;
 
@@ -819,7 +818,7 @@ export function ProposalDeck({ downloadHref, fontClass = "" }: { downloadHref: s
       const el = stageRef.current;
       if (!el) return;
       if (full) {
-        viewportRef.current?.scrollTo({ top: 0 });
+        el.scrollTo({ top: 0 });
       } else {
         const top = el.getBoundingClientRect().top;
         if (top < 0 || top > window.innerHeight * 0.5) {
@@ -898,7 +897,7 @@ export function ProposalDeck({ downloadHref, fontClass = "" }: { downloadHref: s
           </button>
         </div>
 
-        <div ref={viewportRef} className={s.viewport} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <div className={s.viewport} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
           <section
             key={index}
             className={`${s.slide} ${slide.center ? s.center : ""}`}

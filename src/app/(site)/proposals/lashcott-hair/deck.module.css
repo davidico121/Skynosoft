@@ -72,13 +72,13 @@
   letter-spacing: 0.04em;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgb(255 255 255 / 0.7);
+  background: rgb(255 255 255 / 0.96);
   color: var(--mute);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 6px rgb(28 21 23 / 0.08);
 }
 
 .isDark .counter {
-  background: rgb(255 255 255 / 0.1);
+  background: rgb(42 32 36 / 0.96);
   color: var(--mute-dk);
 }
 
@@ -90,7 +90,7 @@
   height: 40px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: rgb(255 255 255 / 0.85);
+  background: #fff;
   color: var(--ink);
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -128,11 +128,29 @@
   }
 }
 
-.full .viewport {
-  flex: 1;
-  min-height: 0;
+/* In full screen the whole layer scrolls (reliable for touch on phones);
+   the top bar, progress and controls stay pinned. */
+.full {
   overflow-y: auto;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.full .viewport {
+  flex: 1 0 auto;
+}
+
+.full .progress {
+  position: sticky;
+  top: 0;
+  flex: none;
+}
+
+.full .topbar {
+  position: sticky;
+  top: 3px;
+  flex: none;
+  margin-bottom: -52px;
 }
 
 .controls {
