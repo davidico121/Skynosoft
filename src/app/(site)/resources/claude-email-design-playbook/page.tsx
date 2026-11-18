@@ -9,7 +9,7 @@ import { Eyebrow, Wrap } from "@/components/ui/page-kit";
 export const metadata: Metadata = pageMetadata({
   title: "Free guide: Brand-matched emails in Claude Design — Skynosoft",
   description:
-    "A free 13-page playbook for turning any brand's website into a finished, on-brand email design in Claude Design, then into a Klaviyo campaign.",
+    "A free 14-page playbook for turning any brand's website into a finished, on-brand email design in Claude Design, then into a Klaviyo campaign.",
   path: "/resources/claude-email-design-playbook",
 });
 
