@@ -8,7 +8,7 @@ const links = [
     icon: LinkedinLogo,
   },
   {
-    href: "https://www.instagram.com/davidowoeye_",
+    href: "https://www.instagram.com/david_techover",
     label: "David Owoeye on Instagram",
     icon: InstagramLogo,
   },
