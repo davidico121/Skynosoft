@@ -4,6 +4,7 @@ import Link from "next/link";
 import { listiclePitches } from "@/lib/listicle";
 import { CALENDLY_URL } from "@/lib/content";
 import founderAvatar from "../../../../public/brand/david-owoeye-avatar.jpg";
+import skynosoftLogo from "../../../../public/brand/skynosoft-logo-horizontal.png";
 
 export const dynamicParams = false;
 
@@ -54,6 +55,15 @@ export default async function ListiclePitchPage({
   );
 
   return (
+    <>
+    <div className="border-b border-[#eee] bg-[#fafafa] font-body">
+      <div className="mx-auto flex w-full max-w-[720px] items-center justify-between gap-4 px-5 py-2.5">
+        <a href="https://skynosoft.net" target="_blank" rel="noopener noreferrer" aria-label="Skynosoft">
+          <Image src={skynosoftLogo} alt="Skynosoft" height={22} className="w-auto" priority />
+        </a>
+        <span className="text-xs text-[#777]">Sample page prepared by Skynosoft</span>
+      </div>
+    </div>
     <main className="bg-white font-body text-[#1a1a1a]" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
       <Wrap className="py-10">
         <h1 className="font-bold leading-tight text-balance" style={{ fontSize: "28px" }}>
@@ -259,5 +269,6 @@ export default async function ListiclePitchPage({
         </Wrap>
       </div>
     </main>
+    </>
   );
 }

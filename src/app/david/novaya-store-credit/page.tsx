@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
 import { DesignGallery } from "@/components/ui/DesignGallery";
 import { Reveal } from "@/components/ui/Reveal";
 import { BUTTON, BUTTON_SECONDARY, EASE, Eyebrow, FOCUS, Wrap } from "@/components/ui/page-kit";
+import skynosoftIcon from "../../../../public/brand/skynosoft-icon.png";
 
 const UPWORK_URL = "https://www.upwork.com/freelancers/~017a87b019f1f7020a";
 
@@ -64,6 +65,7 @@ export default function NovayaStoreCreditPage() {
             className={`flex items-center gap-2 rounded-full px-3 py-1.5 font-body text-sm text-foreground-muted transition-colors duration-300 ${EASE} hover:text-foreground ${FOCUS}`}
           >
             <ArrowLeft size={16} weight="bold" aria-hidden />
+            <Image src={skynosoftIcon} alt="Skynosoft" width={22} height={22} className="h-[22px] w-[22px] rounded-md" />
             David Owoeye
           </Link>
         </nav>

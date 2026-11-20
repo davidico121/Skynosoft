@@ -12,6 +12,7 @@ import { QuoteBadge } from "@/components/ui/QuoteBadge";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
 import { BUTTON, BUTTON_SECONDARY, EASE, Eyebrow, FOCUS, H2, Section, Wrap } from "@/components/ui/page-kit";
 import { caseStudies, services } from "@/lib/content";
+import skynosoftIcon from "../../../public/brand/skynosoft-icon.png";
 
 const UPWORK_URL = "https://www.upwork.com/freelancers/~017a87b019f1f7020a";
 
@@ -62,7 +63,10 @@ export default function DavidPortfolioPage() {
           aria-label="Page"
           className="flex w-max items-center gap-6 rounded-full border border-border-hairline bg-white/80 py-2 pl-6 pr-2 shadow-sm backdrop-blur-xl"
         >
-          <span className="font-heading text-base font-semibold">David Owoeye</span>
+          <span className="flex items-center gap-2 whitespace-nowrap font-heading text-base font-semibold">
+            <Image src={skynosoftIcon} alt="Skynosoft" width={26} height={26} className="h-[26px] w-[26px] rounded-md" priority />
+            David Owoeye
+          </span>
           <ul className="hidden items-center gap-6 md:flex">
             <li>
               <a
@@ -81,7 +85,7 @@ export default function DavidPortfolioPage() {
               </a>
             </li>
           </ul>
-          <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className={BUTTON}>
+          <a href={UPWORK_URL} target="_blank" rel="noopener noreferrer" className={`whitespace-nowrap ${BUTTON}`}>
             Hire me on Upwork
           </a>
         </nav>

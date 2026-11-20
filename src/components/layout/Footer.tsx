@@ -28,6 +28,7 @@ const columns = [
     links: [
       { href: "/resources/claude-email-design-playbook", label: "Email design playbook" },
       { href: "/resources/email-cleaner", label: "Email list cleaner" },
+      { href: "/resources", label: "All resources" },
     ],
   },
 ];
