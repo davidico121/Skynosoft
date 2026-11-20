@@ -562,3 +562,30 @@ Add newest first. Format: `YYYY-MM-DD, brand: what happened, rule it produced`.
 - 2026-09-24, myowellness: the Elaya `landing-page-design` skill gives rules,
   not a dramatic redesign; the look comes from good content plus real
   screenshots. Rule: spend effort on evidence and specificity first.
+
+## Belief ladder pages (brands that do not use email yet)
+
+For brands that sell only through ads, a social media manager and manual
+WhatsApp or DM follow ups (first built for Nigerian brands). Different from the
+standard page above: it teaches why email matters before it pitches anything.
+
+- Data: `beliefPitches` and the `evidence` library in `src/lib/belief-pitch.ts`.
+  Template: `src/app/strategy/BeliefPage.tsx` (served by `strategy/[slug]`).
+  Preview locally at `http://strategy.localhost:3000/template`.
+- The arc, in order: today (they nod) → every sale is rented → the leak, with
+  the calculator on THEIR numbers → why now (waiting shoppers, the season) →
+  optional audit of their own site → what changes → a different Monday → proof
+  → questions → two week plan → book. Aim to land the reader at "I am losing
+  money without this" by the middle, then spend the second half on the way out.
+- **Every outside claim is an `evidence` entry with a link.** A claim may only
+  be marked `verified: true` after someone opened the source page and read the
+  claim on it, and `checkedOn` is set. A pitch with any unverified source 404s
+  in production (`unverifiedSources`). Do not flip the flag from a search
+  summary.
+- Never cite a figure we could not find (for example Nigerian email usage or a
+  repeat purchase rate). Say that we could not find it, as the FAQ does.
+- Skynosoft proof is only our own real case studies, and the page says plainly
+  that they are not Nigerian brands.
+- The `audit` block (their site, a test signup, what email arrived and when) is
+  the strongest proof. Fill it only with what was actually observed, dated.
+- Bold spans stay inside one sentence (see rule 8). No hyphens, no em dashes.

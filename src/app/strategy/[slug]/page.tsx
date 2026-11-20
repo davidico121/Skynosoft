@@ -22,6 +22,8 @@ import { SocialLinks } from "@/components/ui/SocialLinks";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CALENDLY_URL, SITE_URL, caseStudies } from "@/lib/content";
 import { strategyPitches, type StrategyIconKey, type StrategyShot } from "@/lib/strategy";
+import { beliefPitches, unverifiedSources } from "@/lib/belief-pitch";
+import { BeliefPage } from "../BeliefPage";
 import { Reveal, TaglineReveal } from "@/components/ui/Reveal";
 import { IslandNav } from "../IslandNav";
 import logo from "../../../../public/brand/skynosoft-logo-horizontal.png";
@@ -53,7 +55,15 @@ const icons: Record<StrategyIconKey, typeof HandWaving> = {
 };
 
 export function generateStaticParams() {
-  return strategyPitches.map((p) => ({ slug: p.slug }));
+  return [...strategyPitches, ...beliefPitches].map((p) => ({ slug: p.slug }));
+}
+
+/**
+ * A belief ladder page cites outside sources. It can only be served in production once every
+ * source has been opened and read (verified: true). Locally it always renders, for review.
+ */
+function isLive(pitch: (typeof beliefPitches)[number]) {
+  return process.env.NODE_ENV !== "production" || unverifiedSources(pitch).length === 0;
 }
 
 export async function generateMetadata({
@@ -62,6 +72,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const belief = beliefPitches.find((p) => p.slug === slug);
+  if (belief) {
+    return isLive(belief)
+      ? { title: `A note for ${belief.brand} | Skynosoft`, robots: { index: false, follow: false } }
+      : {};
+  }
   const pitch = strategyPitches.find((p) => p.slug === slug);
   if (!pitch) return {};
   return {
@@ -157,6 +173,11 @@ export default async function StrategyPage({
   preconnect("https://calendly.com");
   preconnect("https://assets.calendly.com");
   const { slug } = await params;
+  const belief = beliefPitches.find((p) => p.slug === slug);
+  if (belief) {
+    if (!isLive(belief)) notFound();
+    return <BeliefPage pitch={belief} />;
+  }
   const pitch = strategyPitches.find((p) => p.slug === slug);
   if (!pitch) notFound();
 
