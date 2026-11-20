@@ -29,39 +29,6 @@ const STATUS_TEXT: Record<CleanResult["status"], string> = {
 };
 const PAGE = 300;
 
-type SortKey = "original" | "attention" | "email-asc" | "email-desc" | "domain";
-const SORTS: { key: SortKey; label: string }[] = [
-  { key: "original", label: "Original order" },
-  { key: "attention", label: "Needs attention first" },
-  { key: "email-asc", label: "Email A to Z" },
-  { key: "email-desc", label: "Email Z to A" },
-  { key: "domain", label: "Domain (groups companies)" },
-];
-const ATTENTION: Record<CleanResult["status"], number> = { check: 0, invalid: 1, empty: 2, duplicate: 3, fixed: 4, ok: 5 };
-
-function emailKey(r: CleanResult) {
-  return (r.email || r.attempted || r.original || "").toLowerCase();
-}
-function domainKey(r: CleanResult) {
-  const e = emailKey(r);
-  const at = e.lastIndexOf("@");
-  return at === -1 ? "~" : e.slice(at + 1);
-}
-
-/** Row indexes in display order. Ties keep the original order. */
-function sortIndexes(rows: Row[], key: SortKey): number[] {
-  const idx = rows.map((_, i) => i);
-  if (key === "original") return idx;
-  const cmp = (a: string, b: string) => a.localeCompare(b, undefined, { sensitivity: "base" });
-  const by: Record<Exclude<SortKey, "original">, (a: number, b: number) => number> = {
-    attention: (a, b) => ATTENTION[rows[a].r.status] - ATTENTION[rows[b].r.status],
-    "email-asc": (a, b) => cmp(emailKey(rows[a].r), emailKey(rows[b].r)),
-    "email-desc": (a, b) => cmp(emailKey(rows[b].r), emailKey(rows[a].r)),
-    domain: (a, b) => cmp(domainKey(rows[a].r), domainKey(rows[b].r)) || cmp(emailKey(rows[a].r), emailKey(rows[b].r)),
-  };
-  return idx.sort((a, b) => by[key](a, b) || a - b);
-}
-
 const SAMPLE: string[][] = [
   ["first_name", "company", "email"],
   ["Jane", "Brightside Skincare", "mailto:jane@brightside.co"],
@@ -191,7 +158,6 @@ export function EmailCleanerTool() {
   const [isSample, setIsSample] = useState(true);
   const [rows, setRows] = useState<Row[]>(INITIAL.rows);
   const [filter, setFilter] = useState<Filter>("all");
-  const [sort, setSort] = useState<SortKey>("original");
   const [shown, setShown] = useState(PAGE);
   const [paste, setPaste] = useState("");
   const [over, setOver] = useState(false);
@@ -202,6 +168,7 @@ export function EmailCleanerTool() {
   const fileRef = useRef<HTMLInputElement>(null);
   const pasteRef = useRef<HTMLTextAreaElement>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tableTopRef = useRef<HTMLDivElement>(null);
   const emailColRef = useRef(emailCol);
   useEffect(() => {
     emailColRef.current = emailCol;
@@ -317,23 +284,20 @@ export function EmailCleanerTool() {
     return c;
   }, [rows]);
 
-  const order = useMemo(() => sortIndexes(rows, sort), [rows, sort]);
-  const sortedRows = useMemo(() => order.map((i) => rows[i]), [order, rows]);
-
   const visible = useMemo(
     () =>
-      order
-        .map((i) => ({ row: rows[i], i }))
+      rows
+        .map((row, i) => ({ row, i }))
         .filter(
           ({ row }) =>
             filter === "all" || row.r.status === filter || (filter === "invalid" && row.r.status === "empty"),
         ),
-    [rows, order, filter],
+    [rows, filter],
   );
 
   const kept = useMemo(
     () =>
-      sortedRows.filter(({ r }) => {
+      rows.filter(({ r }) => {
         if (!r.email) return false;
         if (r.status === "invalid" || r.status === "empty") return false;
         if (r.status === "check" && !keepCheck) return false;
@@ -341,7 +305,7 @@ export function EmailCleanerTool() {
         if (noRole && r.role) return false;
         return true;
       }),
-    [sortedRows, keepCheck, noRole, noDupes],
+    [rows, keepCheck, noRole, noDupes],
   );
 
   const baseName = (srcLabel || "list").replace(/\.[a-z0-9]+$/i, "").replace(/[^a-z0-9 _-]+/gi, "").trim() || "list";
@@ -363,7 +327,7 @@ export function EmailCleanerTool() {
   function downloadReport() {
     if (!rows.length) return;
     const fields = [...headers, "original_email", "clean_email", "status", "what_changed", "note"];
-    const data = sortedRows.map(({ raw, r, edited }) => [
+    const data = rows.map(({ raw, r, edited }) => [
       ...headers.map((_, c) => raw[c] ?? ""),
       r.original,
       r.email || "",
@@ -559,35 +523,33 @@ export function EmailCleanerTool() {
           </div>
           <p className="ec-note">
             The clean list keeps all your columns, swaps in the fixed email, and leaves out invalid rows. The report has
-            every row with what changed. Downloads follow the sort order you pick below.
+            every row with what changed.
           </p>
           <p className="ec-toast" role="status" aria-live="polite">
             {toast}
           </p>
         </section>
 
-        <div className="ec-toolbar">
-          <p className="ec-count">
-            Showing {visible.length.toLocaleString()} {visible.length === 1 ? "row" : "rows"}
-            {filter !== "all" && <> in &ldquo;{LABELS[filter]}&rdquo;</>}
-          </p>
-          <label className="ec-sort">
-            <span>Sort by</span>
-            <select
-              id="ec-sort"
-              value={sort}
-              onChange={(e) => {
-                setSort(e.target.value as SortKey);
+        <div ref={tableTopRef} className="ec-filterbar" role="toolbar" aria-label="Show rows by status">
+          {(Object.keys(LABELS) as Filter[]).map((k) => (
+            <button
+              key={k}
+              className={`ec-chip c-${k}`}
+              aria-pressed={filter === k}
+              onClick={() => {
+                setFilter(k);
                 setShown(PAGE);
+                const el = tableTopRef.current;
+                if (el && el.getBoundingClientRect().top < 120) {
+                  window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - 110 });
+                }
               }}
             >
-              {SORTS.map((o) => (
-                <option key={o.key} value={o.key}>
-                  {o.label}
-                </option>
-              ))}
-            </select>
-          </label>
+              <span className={`dot d-${k}`} />
+              {k === "ok" ? "Clean" : LABELS[k]}
+              <span className="ct">{counts[k].toLocaleString()}</span>
+            </button>
+          ))}
         </div>
 
         <section aria-label="Review" className="ec-tablebox">
