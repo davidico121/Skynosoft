@@ -1,4 +1,4 @@
-/* Lead Email Cleaner (/admin/email-cleaner). All rules are scoped under .ec. */
+/* Lead Email Cleaner (/resources/email-cleaner). All rules are scoped under .ec. */
 .ec {
   --ec-bg: #ffffff;
   --ec-surface: #f7f8fa;
@@ -29,7 +29,8 @@
   line-height: 1.55;
 }
 .ec *, .ec *::before, .ec *::after { box-sizing: border-box; }
-.ec-wrap { max-width: 1120px; margin: 0 auto; padding: 40px 16px 64px; display: flex; flex-direction: column; gap: 28px; }
+.ec-wrap { max-width: 1280px; margin: 0 auto; padding: 40px 16px 64px; display: flex; flex-direction: column; gap: 28px; }
+@media (min-width: 768px) { .ec-wrap { padding-left: 64px; padding-right: 64px; } }
 .ec-eyebrow { font-family: var(--ec-mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ec-accent); margin: 0 0 10px; }
 .ec h1 { font-family: var(--ec-display); font-weight: 700; font-size: clamp(28px, 4.2vw, 40px); line-height: 1.1; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
 .ec-lead { color: var(--ec-muted); font-size: 16.5px; max-width: 64ch; margin: 12px 0 0; }

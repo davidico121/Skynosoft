@@ -369,8 +369,8 @@ export function EmailCleanerTool() {
     <div className="ec">
       <div className="ec-wrap">
         <header>
-          <p className="ec-eyebrow">Skynosoft · private tool</p>
-          <h1>Lead Email Cleaner</h1>
+          <p className="ec-eyebrow">Free tool</p>
+          <h1>Email List Cleaner</h1>
           <p className="ec-lead">
             Fixes broken addresses from verifier and scraper exports before you send: <code>mailto:</code> in front,
             commas instead of dots, stray characters, glued text, typos like gmial.com. Every change is shown, and

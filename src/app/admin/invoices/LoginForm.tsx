@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState } from "react";
+import logo from "../../../../public/brand/skynosoft-logo-horizontal.png";
 import { login, type LoginState } from "./actions";
 
 const initialState: LoginState = {};
@@ -10,6 +12,7 @@ export function LoginForm({ next }: { next?: string } = {}) {
 
   return (
     <form action={formAction} className="flex flex-col gap-4">
+      <Image src={logo} alt="Skynosoft" height={32} className="mb-4 w-auto self-start" priority />
       <h1 className="font-heading text-2xl font-semibold">Sign in</h1>
       {next && <input type="hidden" name="next" value={next} />}
       <label className="flex flex-col gap-2">

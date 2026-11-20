@@ -4,7 +4,16 @@ import { client } from "@/sanity/client";
 import { allBlogPostsQuery, type BlogPostSummary } from "@/sanity/queries";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["", "/about", "/services", "/case-studies", "/blog", "/contact"].map(
+  const staticRoutes = [
+    "",
+    "/about",
+    "/services",
+    "/case-studies",
+    "/blog",
+    "/contact",
+    "/resources/claude-email-design-playbook",
+    "/resources/email-cleaner",
+  ].map(
     (path) => ({
       url: `${SITE_URL}${path}`,
       lastModified: new Date(),

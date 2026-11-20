@@ -23,12 +23,19 @@ const columns = [
       { href: "/services#growth-partnership", label: "Full growth partnership" },
     ],
   },
+  {
+    heading: "Free resources",
+    links: [
+      { href: "/resources/claude-email-design-playbook", label: "Email design playbook" },
+      { href: "/resources/email-cleaner", label: "Email list cleaner" },
+    ],
+  },
 ];
 
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-border-hairline">
-      <Wrap className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr]">
+      <Wrap className="grid gap-12 py-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div>
           <Image src={logo} alt="Skynosoft, where brands fly" height={40} className="w-auto" />
           <p className="mt-4 max-w-sm font-body text-base text-foreground-muted text-pretty">

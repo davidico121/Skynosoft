@@ -1,4 +1,4 @@
-/* Email cleaning engine for /admin/email-cleaner. Pure functions, no DOM. */
+/* Email cleaning engine for /resources/email-cleaner. Pure functions, no DOM. */
 const EmailCleaner = (function () {
   let TLDS = new Set();
   let DISPOSABLE = new Set();

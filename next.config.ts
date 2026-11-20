@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
       { source: "/work", destination: "/case-studies", permanent: true },
       { source: "/work/:slug", destination: "/case-studies/:slug", permanent: true },
       { source: "/lead-magnet", destination: "/resources/claude-email-design-playbook", permanent: true },
+      { source: "/admin/email-cleaner", destination: "/resources/email-cleaner", permanent: true },
     ];
   },
 };
