@@ -83,6 +83,9 @@
 .ec-note { font-size: 13px; color: var(--ec-muted); flex-basis: 100%; margin: 0; }
 .ec-toast { font-size: 13.5px; color: var(--ec-ok); font-weight: 600; min-height: 1.2em; flex-basis: 100%; margin: 0; }
 
+.ec-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: -16px; }
+.ec-count { margin: 0; font-size: 14px; color: var(--ec-muted); }
+.ec-sort { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
 .ec-tablebox { overflow-x: auto; border: 1px solid var(--ec-line); border-radius: 12px; }
 .ec table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px; }
 .ec th { text-align: left; font: 500 11px var(--ec-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ec-muted); padding: 10px 14px; background: var(--ec-surface); border-bottom: 1px solid var(--ec-line); }
