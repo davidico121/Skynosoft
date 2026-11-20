@@ -40,7 +40,8 @@ export async function login(_prev: LoginState, formData: FormData): Promise<Logi
     path: "/",
     maxAge: 60 * 60 * 24 * 30,
   });
-  redirect("/admin/invoices");
+  const next = String(formData.get("next") || "");
+  redirect(/^\/admin\/[a-z0-9-]+$/.test(next) ? next : "/admin/invoices");
 }
 
 export async function logout(): Promise<void> {

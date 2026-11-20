@@ -5,12 +5,13 @@ import { login, type LoginState } from "./actions";
 
 const initialState: LoginState = {};
 
-export function LoginForm() {
+export function LoginForm({ next }: { next?: string } = {}) {
   const [state, formAction, pending] = useActionState(login, initialState);
 
   return (
     <form action={formAction} className="flex flex-col gap-4">
       <h1 className="font-heading text-2xl font-semibold">Sign in</h1>
+      {next && <input type="hidden" name="next" value={next} />}
       <label className="flex flex-col gap-2">
         <span className="font-body text-sm text-foreground-muted">Password</span>
         <input
