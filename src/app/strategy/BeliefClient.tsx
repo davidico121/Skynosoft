@@ -30,7 +30,7 @@ export function ReadProgress() {
 
   return (
     <div aria-hidden className="fixed inset-x-0 top-0 z-[60] h-1 bg-transparent">
-      <div ref={bar} className="h-full origin-left scale-x-0 bg-primary" />
+      <div data-read-progress ref={bar} className="h-full origin-left scale-x-0 bg-primary" />
     </div>
   );
 }
@@ -78,25 +78,25 @@ export function LeakCalculator({ start }: { start: Start }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
       <div className="flex flex-col gap-5 rounded-xl border border-border-hairline bg-white p-6 md:p-8">
-        <p className="font-label text-sm uppercase tracking-wide text-primary-soft">
+        <p data-calc-label className="font-label text-sm uppercase tracking-wide text-primary-soft">
           {edited ? "Your numbers" : "Example numbers, change them to yours"}
         </p>
         <label className="flex flex-col gap-2 font-body text-sm font-semibold">
           New customers you win each month
-          <input inputMode="numeric" value={customers} onChange={touch(setCustomers)} className={FIELD} />
+          <input data-calc="customers" inputMode="numeric" value={customers} onChange={touch(setCustomers)} className={FIELD} />
         </label>
         <label className="flex flex-col gap-2 font-body text-sm font-semibold">
           Average order value (₦)
-          <input inputMode="numeric" value={order} onChange={touch(setOrder)} className={FIELD} />
+          <input data-calc="order" inputMode="numeric" value={order} onChange={touch(setOrder)} className={FIELD} />
         </label>
         <label className="flex flex-col gap-2 font-body text-sm font-semibold">
           What it costs to win one customer (₦)
-          <input inputMode="numeric" value={cost} onChange={touch(setCost)} className={FIELD} />
+          <input data-calc="cost" inputMode="numeric" value={cost} onChange={touch(setCost)} className={FIELD} />
           <span className="font-normal text-foreground-muted">Ad spend and manager costs, divided by new customers.</span>
         </label>
         <label className="flex flex-col gap-2 font-body text-sm font-semibold">
           Out of 100 first time buyers, how many order again?
-          <input inputMode="numeric" value={repeat} onChange={touch(setRepeat)} className={FIELD} />
+          <input data-calc="repeat" inputMode="numeric" value={repeat} onChange={touch(setRepeat)} className={FIELD} />
           <span className="font-normal text-foreground-muted">An honest guess is fine.</span>
         </label>
         <p className="font-body text-sm text-foreground-muted">Nothing you type here is saved or sent anywhere.</p>
@@ -108,7 +108,7 @@ export function LeakCalculator({ start }: { start: Start }) {
       >
         <div>
           <p className="font-label text-sm uppercase tracking-wide text-foreground-muted">Every month</p>
-          <p className="mt-3 font-heading text-5xl font-semibold tabular-nums">
+          <p data-out="quiet" className="mt-3 font-heading text-5xl font-semibold tabular-nums">
             {Math.round(quiet).toLocaleString("en-US")}
           </p>
           <p className="mt-2 font-body text-lg text-foreground-muted text-pretty">
@@ -116,7 +116,7 @@ export function LeakCalculator({ start }: { start: Start }) {
           </p>
         </div>
         <div>
-          <p className="font-heading text-3xl font-semibold tabular-nums">{naira(paidFor)}</p>
+          <p data-out="paid" className="font-heading text-3xl font-semibold tabular-nums">{naira(paidFor)}</p>
           <p className="mt-2 font-body text-base text-foreground-muted text-pretty">
             is what it cost to win them. <strong className="text-foreground">That is money spent once, with nothing built on top of it.</strong>
           </p>
@@ -125,10 +125,10 @@ export function LeakCalculator({ start }: { start: Start }) {
           <p className="font-body text-base text-foreground-muted text-pretty">
             What if just 10 more of every 100 first time buyers ordered a second time?
           </p>
-          <p className="mt-2 font-heading text-3xl font-semibold tabular-nums text-primary-soft">
+          <p data-out="extra" className="mt-2 font-heading text-3xl font-semibold tabular-nums text-primary-soft">
             +{naira(extraMonthly)} a month
           </p>
-          <p className="mt-1 font-body text-sm text-foreground-muted tabular-nums">
+          <p data-out="extraYear" className="mt-1 font-body text-sm text-foreground-muted tabular-nums">
             about {naira(extraMonthly * 12)} over a year, with no extra ad spend.
           </p>
         </div>
