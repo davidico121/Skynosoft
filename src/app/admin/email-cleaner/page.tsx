@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { isAuthed } from "../invoices/actions";
 import { LoginForm } from "../invoices/LoginForm";
 import { EmailCleanerTool } from "./EmailCleanerTool";
+import { AdminNav } from "../AdminNav";
 
 export const metadata: Metadata = {
   title: "Lead Email Cleaner | Skynosoft",
@@ -21,6 +22,7 @@ export default async function EmailCleanerPage() {
 
   return (
     <main className="min-h-screen">
+      <AdminNav current="/admin/email-cleaner" />
       <EmailCleanerTool />
     </main>
   );

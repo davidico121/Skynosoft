@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { isAuthed } from "./actions";
 import { LoginForm } from "./LoginForm";
 import { InvoiceBuilder } from "./InvoiceBuilder";
+import { AdminNav } from "../AdminNav";
 
 export const metadata: Metadata = {
   title: "Invoices | Skynosoft",
@@ -21,6 +22,7 @@ export default async function InvoicesPage() {
 
   return (
     <main className="min-h-screen">
+      <AdminNav current="/admin/invoices" />
       <InvoiceBuilder />
     </main>
   );
