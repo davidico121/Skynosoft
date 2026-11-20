@@ -161,8 +161,8 @@ export function EmailCleanerTool() {
   const [shown, setShown] = useState(PAGE);
   const [paste, setPaste] = useState("");
   const [over, setOver] = useState(false);
-  const [keepCheck, setKeepCheck] = useState(true);
-  const [noRole, setNoRole] = useState(false);
+  const [keepCheck, setKeepCheck] = useState(false);
+  const [noRole, setNoRole] = useState(true);
   const [noDupes, setNoDupes] = useState(true);
   const [toast, setToastMsg] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
